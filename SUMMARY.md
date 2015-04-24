@@ -4,8 +4,12 @@
 * [图片](section1/README.md)
    * [example 1](section1/example1.md)
    * [example 2](section1/example2.md)
-* [section 2](section2/README.md)
-   * [example 1](section2/example1.md)
+* [背景介绍](form/introduce.md) 
+   * [用户问题](form/issues.md) 
+   * [现状](form/case.md)
+   * 最佳实践 
+   * 小测试/demo 
+   * 本章问答 
 * [弹层](popup/README.md)
    * [背景介绍](popup/introduce.md)
    * [用户问题](popup/issues.md)
