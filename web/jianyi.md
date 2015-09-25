@@ -433,6 +433,7 @@ href="http://www.siaa.org.cn/" target="_blank">
 <input type="submit" value="Subscribe" /><br /> 
 </form>  ```     
     样例2：服务器端脚本
+```
 <form action="http://www.example.com/cgi/redirect/" method="get"><br/> 
 <p>网页导航</p><br /> 
     <select name="dest"><br /> 
@@ -442,7 +443,7 @@ href="http://www.siaa.org.cn/" target="_blank">
       <option value="/search.html">搜索</option/><br /> 
     </select><br /> 
 <input type="submit" value="转向网页" /><br /> 
-</form>
+</form>```
 3.5.3使用具有选择元素的按钮来实现某个活动
 当用户满意自己当前的选择时，提供一个按钮来保存当前的选择，这对键盘使用者来说特别重要；
 样例1：
