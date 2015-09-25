@@ -20,7 +20,7 @@
 ```CSS:
 #bgimg
 {
-    background-image: url(img/demo.jpg);
+    background-image: url("img/demo.jpg");
 }
 HTML:
 <div id="bgimg"></div>```
