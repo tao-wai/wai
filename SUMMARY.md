@@ -7,7 +7,7 @@
    * [kongjian](web/kongjian.md)
    * [gongneng](web/gongneng.md)
    * [jianyi](web/jianyi.md)
-* yidong
+* 移动端无障碍
    * [yinyan](yidong/yinyan.md)
    * [android](yidong/android.md)
    * [ios](yidong/ios.md)
