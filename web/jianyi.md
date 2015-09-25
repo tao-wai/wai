@@ -459,7 +459,8 @@ href="http://www.siaa.org.cn/" target="_blank">
 <label for="year">年:</label>
 <input type="text" name="year" id="year">
 <input type="button" value="显示" onclick = "">```
-样例2：
+    样例2：
+```
 <form action="http://somesite.com/action" method="post">
   <label for="action">选择:</label>
   <select name="action" id="action">
@@ -468,17 +469,22 @@ href="http://www.siaa.org.cn/" target="_blank">
     <option value="submit">提交</option>
   </select> 
   <button type="submit" name="submit" value="submit">执行 </button>
-</form>  
-3.5.4在表单的改变引起上下文的改变时，需要在提交前告知用户将要发生的改变
-样例1：
-在页面顶部有一系列单选按钮，包括德国、法国和西班牙，在选择按钮时，将给出提示文本，网页的语言将会发生变化；
-样例2：
-含有50个问题的在线问卷调查，每次只显示一个页面。在调查开始前应该告知用户选择选项后将会跳到下一个题目。
-3.5.5使用onchange事件来选择元素，不引起上下文的变化
-样例1：
-这个例子包含两个选择元素。当第一个元素被选择时，第二个元素的会发生改变；
-关键代码：<select id="continent" onchange="countryChange(this);">//当选择发生改变时，国家列表也发生改变；
-全部代码：
+</form>  ```
+
+### 3.5.4在表单的改变引起上下文的改变时，需要在提交前告知用户将要发生的改变
+
+
+    样例1：
+    在页面顶部有一系列单选按钮，包括德国、法国和西班牙，在选择按钮时，将给出提示文本，网页的语言将会发生变化；
+    样例2：
+    含有50个问题的在线问卷调查，每次只显示一个页面。在调查开始前应该告知用户选择选项后将会跳到下一个题目。
+
+### 3.5.5使用onchange事件来选择元素，不引起上下文的变化
+
+
+    样例1：
+    这个例子包含两个选择元素。当第一个元素被选择时，第二个元素的会发生改变；
+
 <?xml version="1.0" encoding="UTF-8"?> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
