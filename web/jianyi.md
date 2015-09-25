@@ -785,34 +785,33 @@ aria-labelledby可以被应用到多种元素，label元素只能用于表单元
 注：在老版本的浏览器和辅助技术里面，label比aria-labelledby支持的好；
 样例1：
 标记简单文本区域：使用aria-labelledby为简单文本区域提供标签，当没有文本可用来描述，但是在网页上有其他文本可用来精确标记控件;
+```
 <input name="searchtxt" type="text" aria-labelledby="searchbtn">
-<input name="searchbtn" id="searchbtn" type="submit" value="Search">
-样例2：
-标记滑块：使用aria-labelledby为滑块控件提供label，它的标记信息来自临近的文本。
+<input name="searchbtn" id="searchbtn" type="submit" value="Search">```
+    样例2：
+    标记滑块：使用aria-labelledby为滑块控件提供label，它的标记信息来自临近的文本。
+```
 <p><span id="mysldr-lbl">请选择旅行时间</span></p>
-<div id="mysldr" role="slider" aria-labelledby="mysldr-lbl"></div>
-样例3：
-来自多个文本的label；
+<div id="mysldr" role="slider" aria-labelledby="mysldr-lbl"></div>```
+    样例3：
+    来自多个文本的label；
+```
 <label id="l1" for="f3">通知我</label>
 <select name="amt" id="f3" aria-labelledby="l1 f3 l2">
   <option value="1">1</option>
   <option value="2">2</option>
 </select>
-<span id="l2" tabindex="-1">提前多少天</span>
-3）使用标记功能暴露出元素的名称和角色，允许用户直接更改的属性可以直接设置，并提供更改通知；
-使用html控件和链接；
-使用label元素连接文本label和表单控件；
-使用框架和内置框架的title的属性；
-当label不能使用的时候使用title属性来识别表单元素；
-4）使用wai-aria角色来暴露用户界面元素；
-使用这个技巧可以定义一个元素的角色，角色role的属性值是wai-aria定义的非抽象值。wai-aria说明文档为每一个角色提供了描述信息，怎样连接其他元素，每个角色的状态和属性。当丰富互联网应用定义新的用户界面小程序，暴露出的role可以让用户更好的理解小程序并与之交互；
-样例1：
-一个简单的工具条；
-wai-aria开发实践文档定义包含三个按钮的工具条。div有一个toolbar属性，图片元素有一个button属性。
-关键代码：
-<div role="toolbar" 略去部分属性>
-<img src="img/btn1.gif"  role="button" 略去部分属性>
-全部代码：
+<span id="l2" tabindex="-1">提前多少天</span>```
+    3）使用标记功能暴露出元素的名称和角色，允许用户直接更改的属性可以直接设置，并提供更改通知；
+    使用html控件和链接；
+    使用label元素连接文本label和表单控件；
+    使用框架和内置框架的title的属性；
+    当label不能使用的时候使用title属性来识别表单元素；
+    4）使用wai-aria角色来暴露用户界面元素；
+    使用这个技巧可以定义一个元素的角色，角色role的属性值是wai-aria定义的非抽象值。wai-aria说明文档为每一个角色提供了描述信息，怎样连接其他元素，每个角色的状态和属性。当丰富互联网应用定义新的用户界面小程序，暴露出的role可以让用户更好的理解小程序并与之交互；
+    样例1：
+    一个简单的工具条；
+    wai-aria开发实践文档定义包含三个按钮的工具条。div有一个toolbar属性，图片元素有一个button属性。
  ```
  <div role="toolbar"
       tabindex="0" 
