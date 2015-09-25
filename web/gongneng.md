@@ -1205,13 +1205,10 @@ type="text" size="4" value="" >
   </p>
 </form> ```
 
-样例3：
-在内容之前使用CSS样式来渲染红边框指明必填属性。
-关键代码：
-[aria-required=true] {
-  border: red thin solid;
-} 
-全部代码：
+    样例3：
+    在内容之前使用CSS样式来渲染红边框指明必填属性。
+
+```
 <head>
 <form action="#" method="post" id="alerts1">
   <label for="acctnum" data-required="true">账户号</label>
@@ -1233,7 +1230,7 @@ CSS样式：
 
 [data-required=true]:after {
   content: url('/iconStar.gif');
-}
+}```
 
 样例4.
 通过使用JS添加aria-required属性；
