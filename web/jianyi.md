@@ -448,6 +448,7 @@ href="http://www.siaa.org.cn/" target="_blank">
     当用户满意自己当前的选择时，提供一个按钮来保存当前的选择，这对键盘使用者来说特别重要；
     样例1：
     日期选择器：网页允许用户选择年月，显示该年月的日历。当用户设置好年月，可以通过点击显示按钮来显示日历。这就依靠客户端的脚本来实现。
+```
 <label for="month">月:</label>
 <select name="month" id="month">
 <option value="1">1月</option>
@@ -457,7 +458,7 @@ href="http://www.siaa.org.cn/" target="_blank">
 </select> 
 <label for="year">年:</label>
 <input type="text" name="year" id="year">
-<input type="button" value="显示" onclick = "">
+<input type="button" value="显示" onclick = "">```
 样例2：
 <form action="http://somesite.com/action" method="post">
   <label for="action">选择:</label>
