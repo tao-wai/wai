@@ -602,9 +602,13 @@ public class MyAccessibilityService extends AccessibilityService { 
 ## 9.开发无障碍服务（developing accessibility services）
 
 
-辅助性服务是安卓框架的一个特性，它的设计是为了让已经安装在安卓设备上的应用程序能够为用户提供一种导航式(引导式）回应。一个辅助性服务能够传达给用户关于这个应用程序的利益，例如把文本转换成语音、当用户手指停留屏幕的一个重要区域时的haptic反馈。这一节涵盖了怎样去创建一个辅助性服务，如何处理应用程序的信息接收，还有如何把信息反馈给用户。 
-9.1创建自己的辅助性服务
-一个辅助性服务可以被捆绑到一个标准的应用程序上，或者以一个单独的安卓工程被创建。在任何情况下，创建这类服务的步骤都是一样的。在你的工程中，创建一个类继续AccessibilitySerivce。  
+    辅助性服务是安卓框架的一个特性，它的设计是为了让已经安装在安卓设备上的应用程序能够为用户提供一种导航式(引导式）回应。一个辅助性服务能够传达给用户关于这个应用程序的利益，例如把文本转换成语音、当用户手指停留屏幕的一个重要区域时的haptic反馈。这一节涵盖了怎样去创建一个辅助性服务，如何处理应用程序的信息接收，还有如何把信息反馈给用户。 
+
+### 9.1创建自己的辅助性服务
+
+
+    一个辅助性服务可以被捆绑到一个标准的应用程序上，或者以一个单独的安卓工程被创建。在任何情况下，创建这类服务的步骤都是一样的。在你的工程中，创建一个类继续AccessibilitySerivce。  
+```
 package com.example.android.apis.accessibility;
 import android.accessibilityservice.AccessibilityService;
 public class MyAccessibilityService extends AccessibilityService {
@@ -616,8 +620,9 @@ public class MyAccessibilityService extends AccessibilityService {
     public void onInterrupt() {
     }
 ...
-}
-像其他服务一样，你也可以在mainfest文件中声明它。记得要指定它处理android.accessibilityservice这个意图。以便当应用程序触发一个AccessibilityEvent时，这个服务能被调用。  
+}```
+    像其他服务一样，你也可以在mainfest文件中声明它。记得要指定它处理android.accessibilityservice这个意图。以便当应用程序触发一个AccessibilityEvent时，这个服务能被调用。  
+```
 <application ...>
 ...
 <service android:name=".MyAccessibilityService">
@@ -627,11 +632,12 @@ public class MyAccessibilityService extends AccessibilityService {
      . . .
 </service>
 ...
-</application>
-如果你为这个服务创建一个新的工程的话，且不打算要一个应用程序，你可以把它启动活动的类（通常叫做MainActivity.java)从你的源文件中删除。同时也把相应的活动元素从你的mainfest文件中删除。 
-
-配置自己的辅助性服务：
-为你的辅助性服务设置配置变量，用它来告诉系统，如何和何时你想要它运行。哪一类事件你想要去响应？这个服务对所有的应用程序都是活动的吗？或者只有指定的包名的？它使用什么样的反馈？你有两种方法去设置这些变量。反向兼容的方法是以代码的形式来设置它们，可以使用setServiceInfo(android.accessibilityservice.AccessibilityServiceInfo).如果要这样做的话，要重写onServiceConnected()方法，然后配置在那里配置你的服务。  
+</application>```
+    如果你为这个服务创建一个新的工程的话，且不打算要一个应用程序，你可以把它启动活动的类（通常叫做MainActivity.java)从你的源文件中删除。同时也把相应的活动元素从你的mainfest文件中删除。 
+    
+    配置自己的辅助性服务：
+    为你的辅助性服务设置配置变量，用它来告诉系统，如何和何时你想要它运行。哪一类事件你想要去响应？这个服务对所有的应用程序都是活动的吗？或者只有指定的包名的？它使用什么样的反馈？你有两种方法去设置这些变量。反向兼容的方法是以代码的形式来设置它们，可以使用setServiceInfo(android.accessibilityservice.AccessibilityServiceInfo).如果要这样做的话，要重写onServiceConnected()方法，然后配置在那里配置你的服务。  
+```
 @Override
 public void onServiceConnected() {
     // Set the type of events that this service wants to listen to.  Others
@@ -654,8 +660,9 @@ public void onServiceConnected() {
     // info.flags = AccessibilityServiceInfo.DEFAULT;
     info.notificationTimeout = 100;
     this.setServiceInfo(info);
-}
-从Android 4.0版本开始，有另外一种方法：使用XML文件来配置这类服务。如果你以XML的形式来定义你的服务，某些像canRetrieveWindowContent可配置的选项就可用了。和上面一样的配置，使用XML来定义，格式如下所示：  
+}```
+    从Android 4.0版本开始，有另外一种方法：使用XML文件来配置这类服务。如果你以XML的形式来定义你的服务，某些像canRetrieveWindowContent可配置的选项就可用了。和上面一样的配置，使用XML来定义，格式如下所示：  
+```
 <accessibility-service
      android:accessibilityEventTypes="typeViewClicked|typeViewFocused"
      android:packageNames="com.example.android.myFirstApp, com.example.android.mySecondApp"
@@ -663,17 +670,22 @@ public void onServiceConnected() {
      android:notificationTimeout="100"
      android:settingsActivity="com.example.android.apis.accessibility.TestBackActivity"
      android:canRetrieveWindowContent="true"
-/>
-如果你要使用XML路径，要在你的mainfest文件中指定它，在你的服务声明中添加<meta-data>标签,并指向这个XML资源文件。假如你把你的XML文件存储在res/xml/serviceconfig.xml这个路径下，新的标签格式如下所示：  
+/>```
+    如果你要使用XML路径，要在你的mainfest文件中指定它，在你的服务声明中添加<meta-data>标签,并指向这个XML资源文件。假如你把你的XML文件存储在res/xml/serviceconfig.xml这个路径下，新的标签格式如下所示：  
+```
 <service android:name=".MyAccessibilityService">
      <intent-filter>
          <action android:name="android.accessibilityservice.AccessibilityService" />
      </intent-filter>
      <meta-data android:name="android.accessibilityservice"
      android:resource="@xml/serviceconfig" />
-</service>
-9.2响应AccessibilityEvents事件
-现在，您的服务被设置为运行和监听事件，写一些代码，这样当一个AccessibilityEvent真的到来，它就知道要做什么了！ 从重写onAccessibilityEvent(AccessibilityEvent)方法开始。然后使用getEventType()来确定事件类型，然后用getContentDescription来取出任何与触发事件相关的标签文本。  
+</service>```
+
+### 9.2响应AccessibilityEvents事件
+
+
+    现在，您的服务被设置为运行和监听事件，写一些代码，这样当一个AccessibilityEvent真的到来，它就知道要做什么了！                    从重写onAccessibilityEvent(AccessibilityEvent)方法开始。然后使用getEventType()来确定事件类型，然后用getContentDescription来取出任何与触发事件相关的标签文本。  
+```
 @Override
 public void onAccessibilityEvent(AccessibilityEvent event) {
     final int eventType = event.getEventType();
@@ -692,16 +704,20 @@ public void onAccessibilityEvent(AccessibilityEvent event) {
     // back to the user.
     speakToUser(eventText);
     ...
-} 
-9.3为更多的上下文查询视图层次结构
-这一步是可选的，然而它非常有用。Android 4.0(API level 14)的一个新特性：可以用AccessibilityService来查询视图层次结构，收集事件所生成的一些UI组件信息，还有这些UI的父控件和子控件。要做到这一点，确保在你的XML配置文件中做了如下设置：  
-android:canRetrieveWindowContent="true"如果设置了，通过getSource()可获得一个AccessibilityNodeInfo对象。如果发起的窗口事件仍然是活动的窗口，该调用将会返回一个对象,否则，会返回null。 
-下面这段代码演示何时接收一个事件，步骤如下： 
-立即捕获触发事件的父视图。 
-在那个视图中，寻找一个标签和一个复选框作的子视图。 
-如果找到，创建一个字符串来向用户报告，以表明这个标签是否被选择了。 
-如果遍历视图层次结构后返回null,则会退出该方法。 
-```// Alternative onAccessibilityEvent, that uses AccessibilityNodeInfo
+} ```
+
+### 9.3为更多的上下文查询视图层次结构
+
+
+    这一步是可选的，然而它非常有用。Android 4.0(API level 14)的一个新特性：可以用AccessibilityService来查询视图层次结构，收集事件所生成的一些UI组件信息，还有这些UI的父控件和子控件。要做到这一点，确保在你的XML配置文件中做了如下设置：  
+    android:canRetrieveWindowContent="true"如果设置了，通过getSource()可获得一个AccessibilityNodeInfo对象。如果发起的窗口事件仍然是活动的窗口，该调用将会返回一个对象,否则，会返回null。 
+    下面这段代码演示何时接收一个事件，步骤如下： 
+    立即捕获触发事件的父视图。 
+    在那个视图中，寻找一个标签和一个复选框作的子视图。 
+    如果找到，创建一个字符串来向用户报告，以表明这个标签是否被选择了。 
+    如果遍历视图层次结构后返回null,则会退出该方法。 
+```
+// Alternative onAccessibilityEvent, that uses AccessibilityNodeInfo
 @Override
 public void onAccessibilityEvent(AccessibilityEvent event) {
     AccessibilityNodeInfo source = event.getSource();
@@ -741,4 +757,4 @@ public void onAccessibilityEvent(AccessibilityEvent event) {
     String reportStr = taskLabel + completeStr;
     speakToUser(reportStr);
 }```
-现在你有一个完整的，可以工作的辅助性服务。现在，你也可以试着配置一下，看看Android的文本-语音引擎,或使用振动器提供触觉反馈是如何与用户交互。 
+    现在你有一个完整的，可以工作的辅助性服务。现在，你也可以试着配置一下，看看Android的文本-语音引擎,或使用振动器提供触觉反馈是如何与用户交互。 
