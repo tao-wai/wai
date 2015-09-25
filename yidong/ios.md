@@ -579,47 +579,62 @@
     @import UIKit
     SWIFT
     import UIKit
-4.UI无障碍元素类（UIAccessibilityElement）
-文档参考来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibilityElement_Class/index.html#//apple_ref/occ/cl/UIAccessibilityElement
-UIAccessibilityElement类封装了应该对残障用户无障碍的条目信息，但是这些条目默认不是无障碍的。例如，一个图标或者文本图片不是自动无障碍的，因为它们不会继承UIView或者UIControl，一个包含非视图条目的视图需要创建了一个无障碍呈现的UIAccessibilityElement视图。
-一个无障碍元素的属性为辅助应用提供元素的信息，比如位置和当前的值。可能需要去设置元素的属性，即使不需要创建UIAccessibilityElement实例来呈现它。例如，如果应用包含一个含义为solve自定义图标按钮，按钮已经以无障碍元素呈现，因为它是UIButton的一个子类。但是，需要提供label或hint信息，因为这些信息对这个按钮来说是独一无二的。可以在 Interface Builder或者在UIAccessibility非正式协议中设置这些属性。
-4.1创建一个无障碍元素
-- initWithAccessibilityContainer:
-创建并初始化一个无障碍元素，在一个指定容器中呈现条目。一般情况下，不需要在应用中为条目创建无障碍元素，因为标准UIKit控件和视图默认是无障碍的。但是如果视图包含一个非视图条某，比如图标和文本图像，需要对残障用户无障碍，需要为它们创建无障碍元素。在这个案例中，包含视图应该实现UIAccessibilityContainer非正式协议，并且使用这个方法去创建一个无障碍元素来呈现每一个条目，这些条目应该被辅助应用获得。
-声明：
-- (id)initWithAccessibilityContainer:(id)container
-参数：container——包含条目的视图。
-4.2访问包含视图（Accessing the Containing View）
-accessibilityContainer：
-包含无障碍元素的视图。
-声明：
-@property(nonatomic, assign) id accessibilityContainer
 
-4.3判定无障碍
-isAccessibilityElement：
-一个布尔值，指明该条目是不是一个无障碍应用可以访问的无障碍元素。这个属性的默认值是flase。如果接收器是个UIKit控件，默认值是true。
-声明：
-@property(nonatomic, assign) BOOL isAccessibilityElement
-4.4访问无障碍元素的属性
-accessibilityLabel：
-属性，简洁指明无障碍元素的文本；label非常短，使用本地语言来指明无障碍元素，不包含控件和视图的类型。例如，一个保存按钮的label为Save，不是Save Button。默认的，标准UIKit控件和视图包含从title中派生出的label信息。如果提供自定义控件或者视图，需要适当的去设置这个属性，这样辅助应用可以提供给残障用户最精确的信息。
-声明：
-@property(nonatomic, retain) NSString *accessibilityLabel
+## 4.UI无障碍元素类（UIAccessibilityElement）
 
-accessibilityHint：
-属性，简洁描述无障碍元素的操作结果；hint是个简短的本地化描述，描述的是一个无障碍元素操作的结果，而不是指明元素或者行为。例如，一个包含email信息的表行应该是“选择信息”。而不是“点击该行去选择信息”。默认的，标准UIKit控件和视图是系统提供hint。如果提供一个自定义控件和视图时，但是，需要适当去设置该属性，这样辅助应用可以为残障用户提供精确信息。
-声明：
-@property(nonatomic, retain) NSString *accessibilityHint
 
-accessibilityValue：
-属性，呈现无障碍元素的当前值文本；value值是个本地化文本，包含元素的当前值。例如，一个滑块的值可能是9.5或者35%，文本域的值是就是包含的文本。只有当一个无障碍元素有一个无法通过label呈现的值时，才能使用value属性。例如，一个音量滑块的label可能是“音量”，但是它的value值是当前音量级别。在这个案例中，用户不能很好的了解滑块的特性，因为用户也需要知道当前的值。保存按钮的label，告诉用户需要知道的关于控件的所有信息；提供“保存”作为value值会不必要且令人困扰。
-声明：
-@property(nonatomic, retain) NSString *accessibilityValue
+    文档参考来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibilityElement_Class/index.html#//apple_ref/occ/cl/UIAccessibilityElement
+    UIAccessibilityElement类封装了应该对残障用户无障碍的条目信息，但是这些条目默认不是无障碍的。例如，一个图标或者文本图片不是自动无障碍的，因为它们不会继承UIView或者UIControl，一个包含非视图条目的视图需要创建了一个无障碍呈现的UIAccessibilityElement视图。
+    一个无障碍元素的属性为辅助应用提供元素的信息，比如位置和当前的值。可能需要去设置元素的属性，即使不需要创建UIAccessibilityElement实例来呈现它。例如，如果应用包含一个含义为solve自定义图标按钮，按钮已经以无障碍元素呈现，因为它是UIButton的一个子类。但是，需要提供label或hint信息，因为这些信息对这个按钮来说是独一无二的。可以在 Interface Builder或者在UIAccessibility非正式协议中设置这些属性。
 
-accessibilityFrame：
-属性，在屏幕坐标上无障碍元素的框架；当创建一个无障碍元素来呈现应用中的一个元素，必须设置这个属性到CGRect结构，这个结构指明对象的屏幕位置和大小。（继承自UIView的对象默认包含该信息）。
-声明：
-@property(nonatomic, assign) CGRect accessibilityFrame
+### 4.1创建一个无障碍元素
+
+
+    - initWithAccessibilityContainer:
+    创建并初始化一个无障碍元素，在一个指定容器中呈现条目。一般情况下，不需要在应用中为条目创建无障碍元素，因为标准UIKit控件和视图默认是无障碍的。但是如果视图包含一个非视图条某，比如图标和文本图像，需要对残障用户无障碍，需要为它们创建无障碍元素。在这个案例中，包含视图应该实现UIAccessibilityContainer非正式协议，并且使用这个方法去创建一个无障碍元素来呈现每一个条目，这些条目应该被辅助应用获得。
+    声明：
+    - (id)initWithAccessibilityContainer:(id)container
+    参数：container——包含条目的视图。
+
+### 4.2访问包含视图（Accessing the Containing View）
+
+
+    accessibilityContainer：
+    包含无障碍元素的视图。
+    声明：
+    @property(nonatomic, assign) id accessibilityContainer
+
+
+### 4.3判定无障碍
+
+
+    isAccessibilityElement：
+    一个布尔值，指明该条目是不是一个无障碍应用可以访问的无障碍元素。这个属性的默认值是flase。如果接收器是个UIKit控件，默认值是true。
+    声明：
+    @property(nonatomic, assign) BOOL isAccessibilityElement
+
+### 4.4访问无障碍元素的属性
+
+
+    accessibilityLabel：
+    属性，简洁指明无障碍元素的文本；label非常短，使用本地语言来指明无障碍元素，不包含控件和视图的类型。例如，一个保存按钮的label为Save，不是Save Button。默认的，标准UIKit控件和视图包含从title中派生出的label信息。如果提供自定义控件或者视图，需要适当的去设置这个属性，这样辅助应用可以提供给残障用户最精确的信息。
+    声明：
+    @property(nonatomic, retain) NSString *accessibilityLabel
+    
+    accessibilityHint：
+    属性，简洁描述无障碍元素的操作结果；hint是个简短的本地化描述，描述的是一个无障碍元素操作的结果，而不是指明元素或者行为。例如，一个包含email信息的表行应该是“选择信息”。而不是“点击该行去选择信息”。默认的，标准UIKit控件和视图是系统提供hint。如果提供一个自定义控件和视图时，但是，需要适当去设置该属性，这样辅助应用可以为残障用户提供精确信息。
+    声明：
+    @property(nonatomic, retain) NSString *accessibilityHint
+
+    accessibilityValue：
+    属性，呈现无障碍元素的当前值文本；value值是个本地化文本，包含元素的当前值。例如，一个滑块的值可能是9.5或者35%，文本域的值是就是包含的文本。只有当一个无障碍元素有一个无法通过label呈现的值时，才能使用value属性。例如，一个音量滑块的label可能是“音量”，但是它的value值是当前音量级别。在这个案例中，用户不能很好的了解滑块的特性，因为用户也需要知道当前的值。保存按钮的label，告诉用户需要知道的关于控件的所有信息；提供“保存”作为value值会不必要且令人困扰。
+    声明：
+    @property(nonatomic, retain) NSString *accessibilityValue
+    
+    accessibilityFrame：
+    属性，在屏幕坐标上无障碍元素的框架；当创建一个无障碍元素来呈现应用中的一个元素，必须设置这个属性到CGRect结构，这个结构指明对象的屏幕位置和大小。（继承自UIView的对象默认包含该信息）。
+    声明：
+    @property(nonatomic, assign) CGRect accessibilityFrame
 
 accessibilityTraits：
 属性，最能描述无障碍元素的特性组合。一个trait描述了一个元素行为、状态、使用中的一个方面。这个属性将几个trait组合，给辅助应用关于该元素一个全面的描述。可查看UIAccessibility Protocol Reference中“Accessibility Traits”的traits列表。
