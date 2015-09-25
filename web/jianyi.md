@@ -485,6 +485,7 @@ href="http://www.siaa.org.cn/" target="_blank">
     样例1：
     这个例子包含两个选择元素。当第一个元素被选择时，第二个元素的会发生改变；
 
+```
 <?xml version="1.0" encoding="UTF-8"?> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
@@ -546,7 +547,7 @@ href="http://www.siaa.org.cn/" target="_blank">
     <option value="0">选择一个国家</option>
   </select>
 </body>
-</html>
+</html>```
 3.6一致性导航
 在多个页面出现的导航机制要以相同的逻辑顺序出现，除非用户被告知变化；
 样例1：
