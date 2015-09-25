@@ -796,6 +796,7 @@ aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可�
       aria-describedby="tp1"
       aria-required="false"/>
 全部代码：
+```
 <html lang="en-us">
 <head>
 <title>行内：提示样例1</title>
@@ -822,7 +823,7 @@ aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可�
       aria-describedby="tp1"
       aria-required="false"/>
 <div id="tp1" role="tooltip" aria-hidden="true">你的名字可选. </div>
-</div>
+</div>```
 (2)使用aria-labelledby连接一个标签和多个文本节点，应用与输入控件，aria-labelledby可以被用于label本地输入和非本地输入，例如contenteditable="true"的自定义输入控件div;aria-labelledby的一个特殊使用是文本输入控件，当一个有意义的标签应该包含多个label；id顺序应该是有逻辑的能被读屏软件读取的顺序；
 样例1：
 一个连接超时输入字段标签；
