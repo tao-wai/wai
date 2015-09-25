@@ -762,8 +762,9 @@ $(document).ready(function(e) {
     样例1：
     ```
     使用aria-describedby属性描述临近button的行为；
+```
 <button aria-label="Close" aria-describedby="descriptionClose"
-    onclick="myDialog.close()">按钮</button>//id为descriptionClose的控件为button提供描述文本
+    onclick="myDialog.close()">按钮</button>```//id为descriptionClose的控件为button提供描述文本
 ...
 <div id="descriptionClose">关闭此窗口将忽略输入的所有信息，并回返回到主页</div>```
     样例2：
