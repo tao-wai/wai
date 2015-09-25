@@ -156,20 +156,22 @@ CSS代码:
     路标通过添加role属性来标记区域。role属性的值就是路标的名字，值有：banner（旗帜）、complemenary（附加）、contentinfo（引用）、form（表单）、navigation（导航）、search（搜索）、application（应用）。最好landmark中包含网页中的所有内容，读屏使用者不会丢失内容。
     landmark上一级role是region（区域），下一级role有application（应用）、banner（旗帜）、complementary（补充）、contentinfo、form（表单）、main（主题）、navigation（导航）、search（搜索）；
     样例1：简单路标
+```
 <div id="header" role="banner">旗帜图片和介绍性标题</div>
 <div id="sitelookup" role="search">搜索区域</div>
 <div id="nav" role="navigation">这有一群链接  </div>
 <div id="content" role="main">渥太华是加拿大的首都</div>
 <div id="rightsideadvert" role="complementary">.这有一个广告</div>
-<div id="footer" role="contentinfo">(c)自由公司、123自由路、美国T</div>
-样例2：
-如果使用多次同一role值的路标，应该依靠aria-labelledby属性来区分，aria-labelledby属性值是子元素的id值；
+<div id="footer" role="contentinfo">(c)自由公司、123自由路、美国T</div>```
+    样例2：
+    如果使用多次同一role值的路标，应该依靠aria-labelledby属性来区分，aria-labelledby属性值是子元素的id值；
+```
 <div id="leftnav" role="navigaton" aria-labelledby="leftnavheading">
 <h2 id="leftnavheading">系统链接</h2>
 <ul><li>一堆链接这里有</li> </ul></div>
 <div id="rightnav" role="navigation" aria-labelledby="rightnavheading">
 <h2 id="rightnavheading">有关的题目</h2>
-<ul><li>这里有一堆信息无障碍相关链接</li></ul></div>
+<ul><li>这里有一堆信息无障碍相关链接</li></ul></div>```
 样例3：
 同一role值的路标，没有可以区分的文本，使用aria-label来区分；
 <div id="leftnav" role="navigaton" aria-label="Primary">
