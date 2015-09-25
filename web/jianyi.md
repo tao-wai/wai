@@ -150,12 +150,12 @@ CSS代码:
 
     样例1：
     在所有网页开始都有三个链接：跳转到主页、搜索区域、导航条。
-3.3.4使用ARIA路标（landmark）来区分网页中的区域
-网页内的某一区域作为导航路标。辅助技术应该允许用户快速导航到该区域，主流的用户代理允许用户快速的导航到路标区域。注：路标是网页集的规则简介。开发者不建议在内容中使用该角色。
-landmark是网页上用户想快速浏览的某一区域，这个区域的内容与其他区域的用户目的不同，比如导航、搜索、查看详细内容做作用。
-路标通过添加role属性来标记区域。role属性的值就是路标的名字，值有：banner（旗帜）、complemenary（附加）、contentinfo（引用）、form（表单）、navigation（导航）、search（搜索）、application（应用）。最好landmark中包含网页中的所有内容，读屏使用者不会丢失内容。
-landmark上一级role是region（区域），下一级role有application（应用）、banner（旗帜）、complementary（补充）、contentinfo、form（表单）、main（主题）、navigation（导航）、search（搜索）；
-样例1：简单路标
+    3.3.4使用ARIA路标（landmark）来区分网页中的区域
+    网页内的某一区域作为导航路标。辅助技术应该允许用户快速导航到该区域，主流的用户代理允许用户快速的导航到路标区域。注：路标是网页集的规则简介。开发者不建议在内容中使用该角色。
+    landmark是网页上用户想快速浏览的某一区域，这个区域的内容与其他区域的用户目的不同，比如导航、搜索、查看详细内容做作用。
+    路标通过添加role属性来标记区域。role属性的值就是路标的名字，值有：banner（旗帜）、complemenary（附加）、contentinfo（引用）、form（表单）、navigation（导航）、search（搜索）、application（应用）。最好landmark中包含网页中的所有内容，读屏使用者不会丢失内容。
+    landmark上一级role是region（区域），下一级role有application（应用）、banner（旗帜）、complementary（补充）、contentinfo、form（表单）、main（主题）、navigation（导航）、search（搜索）；
+    样例1：简单路标
 <div id="header" role="banner">旗帜图片和介绍性标题</div>
 <div id="sitelookup" role="search">搜索区域</div>
 <div id="nav" role="navigation">这有一群链接  </div>
