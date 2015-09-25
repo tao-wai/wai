@@ -307,9 +307,13 @@ public boolean onKeyUp (int keyCode, KeyEvent event) {
     }
     ...
 } ```
-6.3.4填充无障碍事件
-每个AccessibilityEvent有一组必需的属性用来描述当前视图的状态。这些属性包括诸如视图类名称、内容描述和检查状态。对于每个事件类型的特定的性能要求，都在AccessibilityEvent参考文档中进行了描述。视图实现提供了这些属性的默认值。在这些属性值中，包括自动提供的类名和事件时间戳。如果正在创建一个自定义视图组件，必须提供一些视图的信息内容和特点。这些信息可能是简单的按钮标签，而且也包含想要添加到事件的额外状态信息。
-为一个带自定义视图的无障碍服务提供信息的最低要求是实现dispatchPopulateAccessibilityEvent()方法。系统为一个AccessibilityEvent调用这个方法来请求信息，使您的自定义视图兼容Android 1.6系统(API级别4)和更高的可访问性服务。下面的示例代码展示了该方法的一个基本的实现。
+
+### 6.3.4填充无障碍事件
+
+
+    每个AccessibilityEvent有一组必需的属性用来描述当前视图的状态。这些属性包括诸如视图类名称、内容描述和检查状态。对于每个事件类型的特定的性能要求，都在AccessibilityEvent参考文档中进行了描述。视图实现提供了这些属性的默认值。在这些属性值中，包括自动提供的类名和事件时间戳。如果正在创建一个自定义视图组件，必须提供一些视图的信息内容和特点。这些信息可能是简单的按钮标签，而且也包含想要添加到事件的额外状态信息。
+    为一个带自定义视图的无障碍服务提供信息的最低要求是实现dispatchPopulateAccessibilityEvent()方法。系统为一个AccessibilityEvent调用这个方法来请求信息，使您的自定义视图兼容Android 1.6系统(API级别4)和更高的可访问性服务。下面的示例代码展示了该方法的一个基本的实现。
+```
 @Override
 public void dispatchPopulateAccessibilityEvent(AccessibilityEvent event) {
     super.dispatchPopulateAccessibilityEvent(event);
@@ -322,11 +326,12 @@ public void dispatchPopulateAccessibilityEvent(AccessibilityEvent event) {
     if (!TextUtils.isEmpty(text)) {
         event.getText().add(text);
     }
-}
-在Android 4.0系统(API级别14)以上，推荐使用onPopulateAccessibilityEvent()和onInitializeAccessibilityEvent()方法来填充或修改一个AccessibilityEvent事件中的信息。专门使用onPopulateAccessibilityEvent()方法为添加或修改事件的文本内容，可以talkback类的辅助服务变转换成声音提示。使用onInitializeAccessibilityEvent()方法来填充关于事件的其他信息，比如视图的选择状态。
-此外，还应该实现onInitializeAccessibilityNodeInfo()方法。使用这个方法来填充 AccessibilityNodeInfo对象，接收到事件之后，辅助服务访问可以产生无障碍事件的视图层次，获得更详细的上下文信息，并给用户提供适当的反馈。
-下面的示例代码显示了如何通过使用ViewCompat.setAccessibilityDelegate()重写这三种方法。注意，此示例代码要求添加API级别4的Android支持库(版本5或更高)到您的项目。
+}```
+    在Android 4.0系统(API级别14)以上，推荐使用onPopulateAccessibilityEvent()和onInitializeAccessibilityEvent()方法来填充或修改一个AccessibilityEvent事件中的信息。专门使用onPopulateAccessibilityEvent()方法为添加或修改事件的文本内容，可以talkback类的辅助服务变转换成声音提示。使用onInitializeAccessibilityEvent()方法来填充关于事件的其他信息，比如视图的选择状态。
+    此外，还应该实现onInitializeAccessibilityNodeInfo()方法。使用这个方法来填充 AccessibilityNodeInfo对象，接收到事件之后，辅助服务访问可以产生无障碍事件的视图层次，获得更详细的上下文信息，并给用户提供适当的反馈。
+    下面的示例代码显示了如何通过使用ViewCompat.setAccessibilityDelegate()重写这三种方法。注意，此示例代码要求添加API级别4的Android支持库(版本5或更高)到您的项目。
   
+```
 ViewCompat.setAccessibilityDelegate(new AccessibilityDelegateCompat() {
     @Override
     public void onPopulateAccessibilityEvent(View host, AccessibilityEvent event) {
@@ -362,7 +367,7 @@ ViewCompat.setAccessibilityDelegate(new AccessibilityDelegateCompat() {
             info.setText(text);
         }
     }
-}
+}```
   
 针对在Android 4.0(API级别14)和更高上的应用程序，这些方法可以直接在您的自定义视图类中实现。这种方法的另一个例子,请参阅Android支持库(版本5或更高)的示例，AccessibilityDelegateSupportActivity样本在 (<sdk>/extras/android/support/v4/samples/Support4Demos/)。
 注意:编写Android 4.0之前您可能会发现实现可访问性信息的自定义视图，它描述了使用dispatchPopulateAccessibilityEvent()方法AccessibilityEvents填充。作为Android 4.0的发布，然而，推荐的方法是使用onPopulateAccessibilityEvent()和onInitializeAccessibilityEvent()方法。
