@@ -359,7 +359,7 @@ CSS代码:
     样例2：
     使用CSS样式提供提示，打开一个新窗口；
 
-
+```
 <html>
 <head>
 <title>Pop-Up Warning</title>
@@ -407,7 +407,7 @@ href="http://www.siaa.org.cn/" target="_blank">
 <strong>外部链接</strong><span>打开一个新窗口</span></a>
 </p>
 </body>
-</html>
+</html>```
 3.5输入：改变任何用户界面组件的设置不会自动导致上下文的变化，除非在使用组件之前用户被告知了此行为会导致变化
 3.5.1提供一个提交按钮来确认上下文的改变
 样例1：提交按钮用在每一个引起上下文变化的表单中；
