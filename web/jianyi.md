@@ -353,16 +353,13 @@ CSS代码:
 ### 3.4.3打开新窗口时提供给用户提示信息
 
 
-样例1：
-在控件内包含提示文本；
-<a href="knitting.html" target="_blank">点击（打开一个新窗口）</a>
-样例2：
-使用CSS样式提供提示，打开一个新窗口；
-关键代码a.info:hover, a.info:focus, a.info:active {
-z-index:25;
-background-color:#ff0
-}
-全部代码：
+    样例1：
+    在控件内包含提示文本；
+    <a href="knitting.html" target="_blank">点击（打开一个新窗口）</a>
+    样例2：
+    使用CSS样式提供提示，打开一个新窗口；
+
+
 <html>
 <head>
 <title>Pop-Up Warning</title>
