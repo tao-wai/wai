@@ -193,28 +193,32 @@ public void onTextChanged(String before, String after) {
 ### 6.2.1启用视图焦点 
 
 
-当 android:focusable设置为true时，使用定向控制时用户界面元素可到达。这个设置允许用户使用定向控制聚焦到元素上，并与之交互。用户界面控制默认是由android框架提供和通过改变控件的外形来指明焦点。
-Android提供集中API来让开发者控制用户界面元素是不是可以聚焦，并请求控件给予焦点：
-setFocusable()
-isFocusable()
-requestFocus()
-如果一个视图默认不能被聚焦，可以在布局文件中将android:focusable 属性设置为true，或者调用setFocusable()方法。
-6.2.2焦点控制命令
-当用户使用定向控制在任何方向导航，焦点可以而能一个用户界面元素传到另一个，按照设定好的焦点顺序。这个顺序是基于给定方向临近元素的算法来确定的。在真实的案例中，这个算法不会符合使用习惯和用户的逻辑。这种情况下，可以使用以下布局文件的XML属性提供显示覆盖：
-android:nextFocusDown
- 当用户导航为向下时定义下一个视图接收焦点。 
+    当 android:focusable设置为true时，使用定向控制时用户界面元素可到达。这个设置允许用户使用定向控制聚焦到元素上，并与之交互。用户界面控制默认是由android框架提供和通过改变控件的外形来指明焦点。
+    Android提供集中API来让开发者控制用户界面元素是不是可以聚焦，并请求控件给予焦点：
+    setFocusable()
+    isFocusable()
+    requestFocus()
+    如果一个视图默认不能被聚焦，可以在布局文件中将android:focusable 属性设置为true，或者调用setFocusable()方法。
 
-android:nextFocusLeft
- 当用户导航为向左时定义下一个视图接收焦点。
+### 6.2.2焦点控制命令
 
-android:nextFocusRight
- 当用户导航为向右时定义下一个视图接收焦点。 
 
-android:nextFocusUp
- 当用户导航为向上时定义下一个视图接收焦点。 
-
-下面的示例XML布局展示了两个可定焦的用户界面元素,android:nextFocusDown和android:nextFocusUp属性被显式地设置。TextView位于右边的EditText。然而,通过这些属性设置,TextView元素现在可以做到当按向下箭头时当前焦点是EditText元素：
-  
+    当用户使用定向控制在任何方向导航，焦点可以而能一个用户界面元素传到另一个，按照设定好的焦点顺序。这个顺序是基于给定方向临近元素的算法来确定的。在真实的案例中，这个算法不会符合使用习惯和用户的逻辑。这种情况下，可以使用以下布局文件的XML属性提供显示覆盖：
+    android:nextFocusDown
+     当用户导航为向下时定义下一个视图接收焦点。 
+    
+    android:nextFocusLeft
+     当用户导航为向左时定义下一个视图接收焦点。
+    
+    android:nextFocusRight
+     当用户导航为向右时定义下一个视图接收焦点。 
+    
+    android:nextFocusUp
+     当用户导航为向上时定义下一个视图接收焦点。 
+    
+    下面的示例XML布局展示了两个可定焦的用户界面元素,android:nextFocusDown和android:nextFocusUp属性被显式地设置。TextView位于右边的EditText。然而,通过这些属性设置,TextView元素现在可以做到当按向下箭头时当前焦点是EditText元素：
+      
+```
 <LinearLayout android:orientation="horizontal"
         ... >
     <EditText android:id="@+id/edit"
@@ -224,29 +228,38 @@ android:nextFocusUp
         android:focusable=”true”
         android:text="Hello, I am a focusable TextView"
         android:nextFocusUp=”@id/edit”
-        ... />
+        ... />```
 </LinearLayout>
-当修改焦点顺序的时候和反向导航的时候，保证每一个界面控件所有方向都可以导航。
-注：可以通过在运行时改变用户界面焦点顺序，使用setNextFocusDownId() 和setNextFocusRightId().
-6.3创建可访问自定义视图
+    当修改焦点顺序的时候和反向导航的时候，保证每一个界面控件所有方向都可以导航。
+    注：可以通过在运行时改变用户界面焦点顺序，使用setNextFocusDownId() 和setNextFocusRightId().
+
+### 6.3创建可访问自定义视图
+
+
 如果app需要自定义视图组件，必选做额外的工作来保证自定义视图的无障碍。这是保证视图无障碍最主要的问题：
 处理定向控制器点击；
 实现无障碍API方法；
 发送AccessibilityEvent对象到指定的自定义视图；
 在视图中填充AccessibilityEvent和 AccessibilityNodeInfo。
-6.3.1处理定向控制器的点击
-在大多数的设备上，使用定向控制器点击视图发送具有KEYCODE_DPAD_CENTER的KeyEvent到当前焦点视图。所有的标准android视图都已经及时处理KEYCODE_DPAD_CENTER。当创建自定义视图控件时，当触摸视图的时候保证有同样的效果。
-自定义控件应该将KEYCODE_ENTER事件和KEYCODE_DPAD_CENTER同等看待。这个方法让键盘交互更加容易。
-6.3.2实现可访问的API函数方法
-无障碍事件就是具有app中视觉界面组件的用户交互信息。这些信息由无障碍服务（ Accessibility Services）处理，无障碍服务使用这些事件中的信息产生反馈和提示。在android4.0（api14）和更高的系统中，产生无障碍事件的方法已经比android1.6（api4）引入的AccessibilityEventSource界面提供了更多的详细信息。扩展的无障碍方法和View.AccessibilityDelegate类同样是View类的一部分。这些方法如下： 
-sendAccessibilityEvent() 
-(API级别4)在一个视图中当用户执行任务时，调用这个方法。事件根据一个用户操作类型进行分类，例如类型视图点击。通常不需要实现这个方法，除非正在创建一个自定义的视图。 
-sendAccessibilityEventUnchecked() 
-(API级别4)调用的代码需要直接控制检查设备上激活的无障碍性时，使用这种方法(AccessibilityManager.isEnabled())。如果要实现这个方法，假定调用方法已经检查了和可访问性已经被启用了，并且结果是true。通常不需要为一个自定义视图，实现这个方法。 
-dispatchPopulateAccessibilityEvent() 
-(API级别4)当自定义视图生成一个可访问性的事件时，系统会调用这个方法。作为API级别14，这个方法默认实现是为视图调用onPopulateAccessibilityEvent()方法，然后对该视图的每个子视图实现dispatchPopulateAccessibilityEvent()方法。为了支持Android 4.0版本之前(API级别14)支持无障碍服务，你必须为您的自定义视图覆盖这个方法和使用getText()来输入描述性文本。 
-onPopulateAccessibilityEvent() 
-(API级别14)此方法设置视图的AccessibilityEvent语言输出文本。当一个视图的子视图也生成一个可访问性的事件时，这个方法也会被调用。
+
+### 6.3.1处理定向控制器的点击
+
+
+    在大多数的设备上，使用定向控制器点击视图发送具有KEYCODE_DPAD_CENTER的KeyEvent到当前焦点视图。所有的标准android视图都已经及时处理KEYCODE_DPAD_CENTER。当创建自定义视图控件时，当触摸视图的时候保证有同样的效果。
+    自定义控件应该将KEYCODE_ENTER事件和KEYCODE_DPAD_CENTER同等看待。这个方法让键盘交互更加容易。
+
+### 6.3.2实现可访问的API函数方法
+
+
+    无障碍事件就是具有app中视觉界面组件的用户交互信息。这些信息由无障碍服务（ Accessibility Services）处理，无障碍服务使用这些事件中的信息产生反馈和提示。在android4.0（api14）和更高的系统中，产生无障碍事件的方法已经比android1.6（api4）引入的AccessibilityEventSource界面提供了更多的详细信息。扩展的无障碍方法和View.AccessibilityDelegate类同样是View类的一部分。这些方法如下： 
+    sendAccessibilityEvent() 
+    (API级别4)在一个视图中当用户执行任务时，调用这个方法。事件根据一个用户操作类型进行分类，例如类型视图点击。通常不需要实现这个方法，除非正在创建一个自定义的视图。 
+    sendAccessibilityEventUnchecked() 
+    (API级别4)调用的代码需要直接控制检查设备上激活的无障碍性时，使用这种方法(AccessibilityManager.isEnabled())。如果要实现这个方法，假定调用方法已经检查了和可访问性已经被启用了，并且结果是true。通常不需要为一个自定义视图，实现这个方法。 
+    dispatchPopulateAccessibilityEvent() 
+    (API级别4)当自定义视图生成一个可访问性的事件时，系统会调用这个方法。作为API级别14，这个方法默认实现是为视图调用onPopulateAccessibilityEvent()方法，然后对该视图的每个子视图实现dispatchPopulateAccessibilityEvent()方法。为了支持Android 4.0版本之前(API级别14)支持无障碍服务，你必须为您的自定义视图覆盖这个方法和使用getText()来输入描述性文本。 
+    onPopulateAccessibilityEvent() 
+    (API级别14)此方法设置视图的AccessibilityEvent语言输出文本。当一个视图的子视图也生成一个可访问性的事件时，这个方法也会被调用。
 
 注意:在该方法中修改文本之外的附加属性可能会以其他方式覆盖文本属性的设置。所以，虽然你可以使用此方法修改无障碍事件的属性，但您应该只限制更文本内容，仅使用由onInitializeAccessibilityEvent()方法来修改事件的其他属性。
 注意:如果要求实现事件完全覆盖输出文本，却不允许其他部件的布局来修改其内容，那么就不要在你的代码中调用该方法的超类方法来。 
