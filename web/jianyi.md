@@ -315,8 +315,8 @@ CSS代码:
   </ul>```
     样例2：
     内容列表在每个网页都有出现，在列表前加一个按钮来移除和添加按钮；
-       ```
-       <script type="text/javascript">
+```
+<script type="text/javascript">
   function toggle(id){
     var n = document.getElementById(id);
     n.style.display =  (n.style.display != 'none' ? 'none' : '' );
