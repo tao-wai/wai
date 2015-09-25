@@ -813,6 +813,7 @@ wai-aria开发实践文档定义包含三个按钮的工具条。div有一个too
 <div role="toolbar" 略去部分属性>
 <img src="img/btn1.gif"  role="button" 略去部分属性>
 全部代码：
+ ```
  <div role="toolbar"
       tabindex="0" 
       id="customToolbar" 
@@ -840,19 +841,15 @@ wai-aria开发实践文档定义包含三个按钮的工具条。div有一个too
            alt="Help" 
            id="b3" 
            title="Help"> 
- </div>  
-样例2：
-树形应用；
-tree、treeitem、group的role值用来辨别树和它的结构。
-role="tree"表示树形
-role="treeitem"表示树结构选项
-role="group"表示组合并
-关键代码：
-<ul role="tree" tabindex="0">
-  <li role="treeitem">鸟类</li>
-  <li role="treeitem">猫
-    <ul role="group">
-全部代码：
+ </div>  ```
+    样例2：
+    树形应用；
+    tree、treeitem、group的role值用来辨别树和它的结构。
+    role="tree"表示树形
+    role="treeitem"表示树结构选项
+    role="group"表示组合并
+
+```
 <ul role="tree" tabindex="0">
   <li role="treeitem">视障工程师</li>
   <li role="treeitem">2年
@@ -872,12 +869,12 @@ role="group"表示组合并
       </li>
     </ul>
   </li>
-</ul>
-5）使用wai-aria状态和属性来暴露用户界面元素的状态；
-这个技巧使用来暴露用户界面元素的状态属性和值，这样就可以被辅助技术读取和设置，辅助技术也可以被告知这些值的改变。wai-aria说明提供每个属性和每个role的正式描述。当丰富互联网应用定义新的用户界面小程序，暴露出的role可以让用户更好的理解小程序并与之交互；
-样例1：切换按钮
-有role的值为button为小程序当有aira-pressed属性的时候可以作为切换按钮。当aria-pressed为真时，按钮在按下的状态。当aria-pressed为假时，未被按下。如果aria-pressed不存在时，按钮只是个简单的控制按钮。
-全部代码：
+</ul>```
+    5）使用wai-aria状态和属性来暴露用户界面元素的状态；
+    这个技巧使用来暴露用户界面元素的状态属性和值，这样就可以被辅助技术读取和设置，辅助技术也可以被告知这些值的改变。wai-aria说明提供每个属性和每个role的正式描述。当丰富互联网应用定义新的用户界面小程序，暴露出的role可以让用户更好的理解小程序并与之交互；
+    样例1：切换按钮
+    有role的值为button为小程序当有aira-pressed属性的时候可以作为切换按钮。当aria-pressed为真时，按钮在按下的状态。当aria-pressed为假时，未被按下。如果aria-pressed不存在时，按钮只是个简单的控制按钮。
+    全部代码：
 ```
 <li id="bold1"  
     class="toggleButton"
