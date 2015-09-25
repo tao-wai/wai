@@ -1000,27 +1000,31 @@ div[role=radiogroup] {
 ```
 <label for="date">Date (dd-mm-yyyy)</label>
 <input type="text" name="date" id="date" />```
-(5)在表单或者一系列需要填写的区域的开端提供必要的文字来描述必须输入的内容；
-1)在会员制网站，填写个人信息的时候，工作信息包括公司名、职位、期限、工作描述；在开端给出提示文本：输入你认为你的个人简历可以添加的内容，日期数据应该是mm/dd/yyyy format；
-2)一个企业档案允许用户在修改个人信息的时候允许用户修改电话号码、工作职责，顶部的提示信息要有：可以修改任何区域的信息，当修改完，想要保存点击确定，不想保存，点击取消；不能修改个人简历中的系统提供部分；电话号码智能包括数字和—；必填区域用*标记，必须填写；
-(6)根据label的位置来增加文本与控件的关系；
-1)Label在文本输入框的上面；
-2)Label在文本输入框的左侧；
-3)Label在单选按钮的右侧；
-(7)使用label和legend来明确支出表单控件的必填状态；
-1)可以使用文本来指出必填状态：
+    (5)在表单或者一系列需要填写的区域的开端提供必要的文字来描述必须输入的内容；
+    1)在会员制网站，填写个人信息的时候，工作信息包括公司名、职位、期限、工作描述；在开端给出提示文本：输入你认为你的个人简历可以添加的内容，日期数据应该是mm/dd/yyyy format；
+    2)一个企业档案允许用户在修改个人信息的时候允许用户修改电话号码、工作职责，顶部的提示信息要有：可以修改任何区域的信息，当修改完，想要保存点击确定，不想保存，点击取消；不能修改个人简历中的系统提供部分；电话号码智能包括数字和—；必填区域用*标记，必须填写；
+    (6)根据label的位置来增加文本与控件的关系；
+    1)Label在文本输入框的上面；
+    2)Label在文本输入框的左侧；
+    3)Label在单选按钮的右侧；
+    (7)使用label和legend来明确支出表单控件的必填状态；
+    1)可以使用文本来指出必填状态：
+```
 <label for="firstname">名(必填):</label> 
-<input type="text" name="firstname" id="firstname" />
-2)使用星号（*）来指出必填状态：
-<p> 所需的领域都标有星号(<abbr class="req" title="必填">*</abbr>).</p>
-3)使用图片来指出必填状态：
-<p><img src="req_img.gif" alt="必填控件" /> 指示所需的窗体控件</p>
-4)指出单选组和复选组的必填状态：
+<input type="text" name="firstname" id="firstname" />```
+    2)使用星号（*）来指出必填状态：
+```
+<p> 所需的领域都标有星号(<abbr class="req" title="必填">*</abbr>).</p>```
+    3)使用图片来指出必填状态：
+```
+<p><img src="req_img.gif" alt="必填控件" /> 指示所需的窗体控件</p>```
+    4)指出单选组和复选组的必填状态：
+```
 <fieldset>
 <legend>I我对以下（要求）感兴趣：</legend>
 <input type="checkbox" id="photo" name="interests" value="ph">
 <label for="photo">摄影</label> </br>
-<input type="checkbox" id="watercol" name="interests" checked="checked" value="wa">
+<input type="checkbox" id="watercol" name="interests" checked="checked" value="wa">```
 legend 元素为fieldset 元素定义标题（caption）
 (8)使用fieldset和legend元素来描述表单控件中的组；
 这个技巧为有关的表单控件提供一个语义组。这可以使用户更快更好的理解控件间的关系更好的交互；可以使用fieldset来将表单控件分组闭合起来。所有的控件都在相关的fieldset内。fieldset的第一控件一定是legend元素，为组提供标签或描述。开发者应该尽量避免嵌套使用fieldset，因为嵌套使用会导致混乱；组控件对单选和复选特别重要，当单选和复选按钮包含明确的说明和区分选择，fieldset和legend不是必须。有时候，开发者会避免使用fieldset，因为有些浏览器会默认为fieldset添加边框。视觉的显示可以通过CSS样式来改变；
