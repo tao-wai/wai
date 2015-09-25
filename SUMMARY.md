@@ -6,7 +6,7 @@
    * [yinyan](web/yinyan.md)
    * [kongjian](web/kongjian.md)
    * [gongneng](web/gongneng.md)
-   * [jianyi](.web/jianyi.md)
+   * [jianyi](web/jianyi.md)
 * yidong
    * [yinyan](yidong/yinyan.md)
    * [android](yidong/android.md)
