@@ -870,7 +870,8 @@ timeout-unit是个span元素的id；
     样例3：
     会议工作坊预订表；
     关键代码：
-```<p><input type="checkbox" id="TM1" aria-labelledby="title-TM1 track1 am1 TM1-att">
+```
+<p><input type="checkbox" id="TM1" aria-labelledby="title-TM1 track1 am1 TM1-att">
 <label id="TM1-att" for="TM1">参加</label></p>```
     全部代码：
 ```
