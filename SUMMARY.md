@@ -8,5 +8,5 @@
    * [gongneng](.web/gongneng.md)
    * [jianyi](.web/jianyi.md)
 * yidong
-   * [yinyan](yinyan.md)
+   * [yinyan](yidong/yinyan.md)
 
