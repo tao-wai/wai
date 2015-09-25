@@ -369,9 +369,12 @@ ViewCompat.setAccessibilityDelegate(new AccessibilityDelegateCompat() {
     }
 }```
   
-针对在Android 4.0(API级别14)和更高上的应用程序，这些方法可以直接在您的自定义视图类中实现。这种方法的另一个例子,请参阅Android支持库(版本5或更高)的示例，AccessibilityDelegateSupportActivity样本在 (<sdk>/extras/android/support/v4/samples/Support4Demos/)。
-注意:编写Android 4.0之前您可能会发现实现可访问性信息的自定义视图，它描述了使用dispatchPopulateAccessibilityEvent()方法AccessibilityEvents填充。作为Android 4.0的发布，然而，推荐的方法是使用onPopulateAccessibilityEvent()和onInitializeAccessibilityEvent()方法。
-6.3.5提供自定义无障碍内容
+    针对在Android 4.0(API级别14)和更高上的应用程序，这些方法可以直接在您的自定义视图类中实现。这种方法的另一个例子,请参阅Android支持库(版本5或更高)的示例，AccessibilityDelegateSupportActivity样本在 (<sdk>/extras/android/support/v4/samples/Support4Demos/)。
+    注意:编写Android 4.0之前您可能会发现实现可访问性信息的自定义视图，它描述了使用dispatchPopulateAccessibilityEvent()方法AccessibilityEvents填充。作为Android 4.0的发布，然而，推荐的方法是使用onPopulateAccessibilityEvent()和onInitializeAccessibilityEvent()方法。
+
+### 6.3.5提供自定义无障碍内容
+
+
 在安卓4.0（API级别14），android框架得到改进，来允许无障碍服务来检查能够产生无障碍事件的用户界面组件的包含视图层次。这个改进允许辅助服务来提供更丰富的上下文信息设置，用来帮助用户。
 还有一些情况，辅助服务不能从视图层次获取足够信息。例如具有两个或者更多独立点击区域的自定义界面控件，比如日历控件。这种情况下服务不能获取足够信息，因为可点击分段不是视图层次结构的一部分。
 为了提供辅助服务的足够内容信息，框架提供了一种方法来指定虚拟视图层次结构。虚拟视图层次结构为应用程序开发者提供了辅助服务的互补视图层次结构，这样会更紧密地匹配屏幕上的实际信息。这种方法使辅助服务提供了更多有用的内容信息。
