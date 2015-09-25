@@ -7,4 +7,5 @@
    * [kongjian](.web/kongjian.md)
    * [gongneng](.web/gongneng.md)
    * [jianyi](.web/jianyi.md)
+* yidong
 
