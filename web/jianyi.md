@@ -756,35 +756,37 @@ xhtml中的lang使用：<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml
 1）解析:使用标记语言实现的内容，元素要有完整的开始和结束标签，元素根据其规格进行嵌套，元素不包含重复的属性，任何ID都是唯一的，除非规范允许这些特性。 （A级）
 注: 缺少关键特性的开始和结束标签是不完整的，比如一个右尖括号或不匹配的属性值引用标记。
 3.10.2名称，角色，值
-对于所有用户界面组件（包括但不限于：表单元素，链接和由脚本生成的组件），名称和角色可以编程式确定; 可由用户设置的状态、属性和值可以编程式设置，这些变化通知对用户代理（包括辅助技术）有效。 （A级）
-注: 此成功标准主要用于Web作者开发或编写自己的用户界面组件。比如根据规范使用标准HTML控件时，标准HTML控件已经满足这一成功标准。
-这个标准是为了确保辅助技术可以收集活跃控件的信息，并不断跟踪用户界面控件的状态变化。
-1)在可见label不能使用的时候，使用aria-label提供不可见标签；
-对于视觉用户，一个元素的上下文和视觉呈现可以提供足够的信息来 判定该元素的目的。比如，弹出窗口右上角的叉号表明这个控件可以关闭这个窗口；
-在某些情况下，当可见的label不能使用是，可根据选择的设计方法，或者通过视觉和上下文来呈现的目的，可以提供aria-label属性来提供name。
-在另外的情况，元素可以使用aria-label来提供可获得的name，当html标准标签元素不支持控件的时候，例如：将div设置为contentEditable（可编辑），而不是使用标准表单元素例如使用type=text的输入元素或者文本域来提供丰富的文本编辑经验。
-样例1：
-弹出框的叉号按钮；
+    对于所有用户界面组件（包括但不限于：表单元素，链接和由脚本生成的组件），名称和角色可以编程式确定; 可由用户设置的状态、属性和值可以编程式设置，这些变化通知对用户代理（包括辅助技术）有效。 （A级）
+    注: 此成功标准主要用于Web作者开发或编写自己的用户界面组件。比如根据规范使用标准HTML控件时，标准HTML控件已经满足这一成功标准。
+    这个标准是为了确保辅助技术可以收集活跃控件的信息，并不断跟踪用户界面控件的状态变化。
+    1)在可见label不能使用的时候，使用aria-label提供不可见标签；
+    对于视觉用户，一个元素的上下文和视觉呈现可以提供足够的信息来 判定该元素的目的。比如，弹出窗口右上角的叉号表明这个控件可以关闭这个窗口；
+    在某些情况下，当可见的label不能使用是，可根据选择的设计方法，或者通过视觉和上下文来呈现的目的，可以提供aria-label属性来提供name。
+    在另外的情况，元素可以使用aria-label来提供可获得的name，当html标准标签元素不支持控件的时候，例如：将div设置为contentEditable（可编辑），而不是使用标准表单元素例如使用type=text的输入元素或者文本域来提供丰富的文本编辑经验。
+    样例1：
+    弹出框的叉号按钮；
+```
 <div id="box">这里有一个弹出框
    <button aria-label="Close" onclick="document.getElementById('box').style.display='none';" class="close-button">X（叉号）</button>			
-</div>
-样例2：多区域电话号码
+</div>```
+    样例2：多区域电话号码
+```
 <div role="group" aria-labelledby="groupLabel">
   <span id="groupLabel>工作电话</span>
   +<input type="number" aria-label="国家代码">
   <input type="number" aria-label="地区代码">
   <input type="number" aria-label="详细号码">
-</div>
-2）使用aria-labelledby为用户界面控件提供name
-这个技巧用来为用户界面控件提供name，这些name可以被辅助技术阅读。WAI-ARIA使用aria-labelledby将文本与章节、设计、表单元素、图片等联系起来。这个技巧使用aria-labelledby属性连接用户界面控件，例如表单区域；
-aria-labelledby可以接受很多id来指向其他网页上的其他元素，使用分隔列表。这个能力将aria-labelledby变得格外有用，在视觉用户使用周围的文字来判定控件目的的时候。使用aria-labelledby可以串联多个文本节点到label，这个文本节点包含状态的样例，这些状态来自其他的网页上的其他文本元素；
-即使aria-labelledby的功能与标准html控件类似，仍有些不同：
-aria-labelledby可以引用多个文本元素，label只能引用一个；
-aria-labelledby可以被应用到多种元素，label元素只能用于表单元素；
-点击label焦点自动链接到表单元素，这个不会发生在aria-labelledby。这个行为只有在使用label或者使用JS脚本的时候才会发生。
-注：在老版本的浏览器和辅助技术里面，label比aria-labelledby支持的好；
-样例1：
-标记简单文本区域：使用aria-labelledby为简单文本区域提供标签，当没有文本可用来描述，但是在网页上有其他文本可用来精确标记控件;
+</div>```
+    2）使用aria-labelledby为用户界面控件提供name
+    这个技巧用来为用户界面控件提供name，这些name可以被辅助技术阅读。WAI-ARIA使用aria-labelledby将文本与章节、设计、表单元素、图片等联系起来。这个技巧使用aria-labelledby属性连接用户界面控件，例如表单区域；
+    aria-labelledby可以接受很多id来指向其他网页上的其他元素，使用分隔列表。这个能力将aria-labelledby变得格外有用，在视觉用户使用周围的文字来判定控件目的的时候。使用aria-labelledby可以串联多个文本节点到label，这个文本节点包含状态的样例，这些状态来自其他的网页上的其他文本元素；
+    即使aria-labelledby的功能与标准html控件类似，仍有些不同：
+    aria-labelledby可以引用多个文本元素，label只能引用一个；
+    aria-labelledby可以被应用到多种元素，label元素只能用于表单元素；
+    点击label焦点自动链接到表单元素，这个不会发生在aria-labelledby。这个行为只有在使用label或者使用JS脚本的时候才会发生。
+    注：在老版本的浏览器和辅助技术里面，label比aria-labelledby支持的好；
+    样例1：
+    标记简单文本区域：使用aria-labelledby为简单文本区域提供标签，当没有文本可用来描述，但是在网页上有其他文本可用来精确标记控件;
 ```
 <input name="searchtxt" type="text" aria-labelledby="searchbtn">
 <input name="searchbtn" id="searchbtn" type="submit" value="Search">```
