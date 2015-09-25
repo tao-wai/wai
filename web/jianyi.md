@@ -273,8 +273,8 @@ CSS代码:
     </noframes>
   </frameset>
 </html> ```
-样例2：
-使用iframe的title属性来描述框架的内容；
+    样例2：
+    使用iframe的title属性来描述框架的内容；
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>使用iframe的文件</title>
