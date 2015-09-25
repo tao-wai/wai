@@ -1,272 +1,294 @@
-（二）ios无障碍指南
-参考来源：https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/iPhoneAccessibility/Introduction/Introduction.html）
 
-1.IOS无障碍特性与VoiceOver
-VoiceOver 是苹果公司创新的读屏技术，通过这个技术，用户无需看屏幕就可以控制设备。VoiceOver在用户界面与用户触控之间充当媒介，描述了应用程序中的元素与行为。当VoiceOver激活时，用户无需担心意外地删除了联系人或者拨打了电话，因为VoiceOver会提醒用户界面位置，他们可以操作什么，结果如何。
-一个程序是不是无障碍的，取决于用户可以交互的所有界面元素是否是无障碍的。一个界面元素是否是无障碍的取决于它是否在恰当的时候告知用户它是一个无障碍的元素。
-一个无障碍的界面元素必须准确提供关于它的信息才能被使用。这些信息包括它在屏幕的位置、名称、行为、值和类型。这正是VoiceOver播报给用户的信息。iOS SDK包含了编程接口和工具，来帮你确保程序中的用户界面元素是无障碍且好用的。
-应该让iPhone应用能被VoiceOver的用户们无障碍的使用，因为：
-这会增加你的用户基数。你已经努力的创造优秀的程序，不要错过让你的程序能被更多用户使用的机会。
-无障碍应用可以使你的用户无需看屏幕。视障用户可以通过VoiceOver的帮助来使用的你的应用。
-写无障碍程序使你理解无障碍准则。很多管理部门编写了无障碍准则，你为VoiceOver用户编写无障碍的iPhone应用能帮助你满足这些准则。
-这是正确的决定。
-支持无障碍特性不会影响你创造优异iPhone应用的能力，记得这点非常重要。为用户界面编程接口增加薄薄的一个功能层，不会改变应用的外观，也不会妨碍到应用的主要逻辑。
-2.IOS UI无障碍编程接口
-UI无障碍编程接口包含两个非正式协议，一个类，一个函数，还有一些常量。
-UIAccessibility非正式协议。实现UIAccessibility协议的对象可以报告无障碍状态（即他们是否是无障碍的）并且提供关于他们的描述性信息。UIAccessibility协议默认由标准UIKit控件和视图实现。
-UIAccessibilityContainer非正式协议。此协议通过子类UIView来使它所包含的部分或者全部对象是无障碍的分离元素，当非UIView子类的对象被UIView视图包含时，这些元素不会自动变成无障碍元素，此时UIAccessibilityContainer协议就非常有用。
-UIAccessibilityElement类。定义了一个对象是否能通过UIAccessibilityContainer协议返回。你可以创建UIAccessibilityElement实例来代表无法自动变为无障碍的元素，例如一个没有继承自UIView的对象，或者一个不存在的对象。
-UIAccessibilityConstants.h头文件。此头文件定义了用来描述某些特征的常量。这些常量即可展示的无障碍元素，还有可被应用发布的通知。
+# （二）ios无障碍指南
 
-3.UI无障碍(UIAccessibility)
-文档来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibility_Protocol/#//apple_ref/c/data/UIAccessibilityAnnouncementNotification
 
-UI无障碍非正式协议提供了应用界面元素的无障碍信息。辅助应用，比方说voiceover，将信息传递残障用户来帮助用户使用应用。
-标准UIKit控件和视图实现了UIAccessibility方法，因此默认支持辅助应用。这意味着如果应用只使用标准控件和视图，例如UIButton，UISegmentedControl和 UITableView，只需要当默认值不完整的时候提供特定应用的详细信息。可以在Interface Builder中或者该非正式协议中设置这些值。
-UIAccessibility非正式协议也可以被通过 UIAccessibilityElement类来实现，这个类可以显示自定义用户界面对象。如果创建一个完全的自定义UIView子类，可能需要去创建 UIAccessibilityElement的一个实例来显示它。在这种情况下，应该支持所有UIAccessibility属性来正确的设置和返回无障碍元素的属性。
-3.1无障碍判定
-isAccessibilityElement
-是一个布尔值，决定该元素是不是一个辅助技术可以访问的无障碍元素。该属性的默认值为NO，除非接收器是一个标准UIKit控件，值为YES。
-辅助技术可以获得无障碍元素呈现的信息。因此，如果实现一个自定义控件或者视图，应该对残障用户无障碍，应该设置这个属性为YES。唯一例外的是，一个只为其他无障碍条目提供容器的，这样的视图应该实现UIAccessibilityContainer协议并设置该属性为NO。
-声明：
-SWIFT
-var isAccessibilityElement: Bool
-OBJECTIVE-C
-@property(nonatomic) BOOL isAccessibilityElement
-版本：Available in iOS 3.0 and later.
-3.2配置无障碍元素
-accessibilityActivationPoint
-在屏幕坐标上，无障碍元素可激活的点；此属性的默认值是无障碍元素框架的中点，是由accessibilityFrame提供的。一个元素的活跃点是当用户双击该元素时，voiceover激活的特定区域。
-指定一个活跃点的能力允许一个元素在不同的情况下呈现给voiceover不同的点，而不是改变元素自己的视觉显示，例如，一个主屏幕app图标的标准活跃点是图标的中点，但是当用户在主屏幕上重现安排图标时，活跃点更改为删除控件的中点（即，在图标左上角的圆圈X）。
-可以使用这个属性来保证一个小元素的活跃点保持精确，尽管呈现给voiceover的是个大版本。
-声明:
-SWIFT
-var accessibilityActivationPoint: CGPoint
-OBJECTIVE-C
-@property(nonatomic) CGPoint accessibilityActivationPoint
-版本：Available in iOS 5.0 and later.
+    参考来源：https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/iPhoneAccessibility/Introduction/Introduction.html）
 
-accessibilityElementsHidden
-是一个布尔值，指明一个无障碍元素内部的无障碍元素是不是隐藏的；这个属性的默认值是No。可能会使用该属性去隐藏视图，这些视图被新来的视图覆盖。在此案例中，隐藏视图仍然是可见的，但是他们不是用户行为的焦点。
-可能使用这个属性来隐藏一个短暂的视图，而voiceover用户不会注意到。例如，voiceover不需要去描述透明视图，这些视图当用户调整设备上的音量的时候才会出现，因为这个动作的听觉反馈是足够的。
-声明：
-SWIFT
-var accessibilityElementsHidden: Bool
-OBJECTIVE-C
-@property(nonatomic) BOOL accessibilityElementsHidden
-版本：Available in iOS 5.0 and later.
 
-accessibilityFrame
-在屏幕坐标上，无障碍元素的框架；这个属性的默认值是CGRectZero，除非接收器是一个UIView对象或者是一个UIView的子类，这种情况，属性值为视图的框架。
-一个无障碍元素呈现一个非UIView子类的对象应该设置该属性，因为这类对象的屏幕坐标不是已知的。
-声明：
-SWIFT
-var accessibilityFrame: CGRect
-OBJECTIVE-C
-@property(nonatomic) CGRect accessibilityFrame
-版本：
-Available in iOS 3.0 and later.
+## 1.IOS无障碍特性与VoiceOver
 
-accessibilityHint
-用本地语言简单描述无障碍元素的行为结果；这个属性的默认值是nil，除非接收器是一个UIKit控件，这种情况下，系统根据控件类型自动提供hint。
-当在一个无障碍元素上执行一个操作，且根据无障碍label不能得到明显的结果时，一个无障碍hint帮助用户理解执行结果。例如，提供一个add按钮在应用中，按钮的无障碍标签帮助用户理解，在应用中点击这个按钮会增加值。如果，另一方面，你的应用允许用户通过点击一个列表中歌曲的名字来播放歌曲，列表的无障碍标签不会告诉用户这个。帮助辅助应用为残障用户提供信息，列表适当的hint应该为“播放歌曲”。
-以下为为一个无障碍元素传感爱你hint的准则：
-hint应该是一个非常简短的短语，且以动词开头，名词结尾。例如“播放歌曲”或“购买项目”。
-避免开头的动词的使用祈使语气，因为这可能会听起来想命令。
-不要重复的提示操作类型。例如，不要创建这样的提示，如“点击去播放的歌曲”或“点击播放这首歌。”
-不要重复提示控件或视图类型。例如，不要创建这样的提示，如“播放该行中的歌曲”或“增加了一个联系人姓名按钮。”
-声明：
-SWIFT
-var accessibilityHint: String?
-OBJECTIVE-C
-@property(nonatomic, copy, nullable) NSString *accessibilityHint
-版本：Available in iOS 3.0 and later.
 
-accessibilityLabel
-用本地语言简洁标签定义无障碍元素；这个属性的默认值为nil，除非接收器是个UIKit控件，这种情况下自动派生控件的label。
-注意：如果在一个UISegmentedControl中提供一个UIImage对象，可以设置每个图片的这个属性来保证该部分可以正常访问。
-如果实现一个自定义控件和视图，或者在UIKit空间上显示一个自定义图标，应该设置这个属性来保证无障碍元素有合适的label。如果一个无障碍元素不显示一个描述label，这个属性应该是简短的、本地化的指明该元素的label。例如，一个“播放音乐”的按钮可能会为近视用户显示该按钮是做什么的。为了可访问性，按钮应该有无障碍；label“播放”“播放音乐”，这样辅助应用可以提供这些信息给残障用户。注意，但是，label应该永远不包括控件类型因为类型信息被包含在与无障碍元素有关的特性中。
-声明：
-SWIFT
-var accessibilityLabel: String?
-OBJECTIVE-C
-@property(nonatomic, copy, nullable) NSString *accessibilityLabel
-版本：Available in iOS 3.0 and later.
+    VoiceOver 是苹果公司创新的读屏技术，通过这个技术，用户无需看屏幕就可以控制设备。VoiceOver在用户界面与用户触控之间充当媒介，描述了应用程序中的元素与行为。当VoiceOver激活时，用户无需担心意外地删除了联系人或者拨打了电话，因为VoiceOver会提醒用户界面位置，他们可以操作什么，结果如何。
+    一个程序是不是无障碍的，取决于用户可以交互的所有界面元素是否是无障碍的。一个界面元素是否是无障碍的取决于它是否在恰当的时候告知用户它是一个无障碍的元素。
+    一个无障碍的界面元素必须准确提供关于它的信息才能被使用。这些信息包括它在屏幕的位置、名称、行为、值和类型。这正是VoiceOver播报给用户的信息。iOS SDK包含了编程接口和工具，来帮你确保程序中的用户界面元素是无障碍且好用的。
+    应该让iPhone应用能被VoiceOver的用户们无障碍的使用，因为：
+    这会增加你的用户基数。你已经努力的创造优秀的程序，不要错过让你的程序能被更多用户使用的机会。
+    无障碍应用可以使你的用户无需看屏幕。视障用户可以通过VoiceOver的帮助来使用的你的应用。
+    写无障碍程序使你理解无障碍准则。很多管理部门编写了无障碍准则，你为VoiceOver用户编写无障碍的iPhone应用能帮助你满足这些准则。
+    这是正确的决定。
+    支持无障碍特性不会影响你创造优异iPhone应用的能力，记得这点非常重要。为用户界面编程接口增加薄薄的一个功能层，不会改变应用的外观，也不会妨碍到应用的主要逻辑。
 
-accessibilityLanguage
-读出label、hint、value值的语言；此属性的默认值是nil，如果没有语言设置，会使用用户当前的语言。
-如果需要设置这个属性，保证使用一种语言的ID标签，格式需要遵循BCP47规范。这个规范的草图在http://www.rfc-editor.org/.
-声明：
-SWIFT
-var accessibilityLanguage: String?
-OBJECTIVE-C
-@property(nonatomic, strong, nullable) NSString *accessibilityLanguage
-版本：Available in iOS 4.0 and later.
+## 2.IOS UI无障碍编程接口
 
-accessibilityPath
-在屏幕坐标上，一个元素的路径；该属性的默认值为nil，如果没有路径设置，无障碍框架矩形被用来突出元素。
-当为一个属性指定一个值，辅助技术使用path对象来突出元素。
-声明：
-SWIFT
-@NSCopying var accessibilityPath: UIBezierPath?
-OBJECTIVE-C
-@property(nonatomic, copy, nullable) UIBezierPath *accessibilityPath
-版本：Available in iOS 7.0 and later.
 
-accessibilityTraits
-无障碍特性的组合能最好的展现无障碍元素的特性；该属性的默认为UIAccessibilityTraitNone ，除非接收器是一个UIKit控件，这种情况下，该属性的值应该与该控件有关的标准trait设置。
-如果实现一个自定义控件和视图，需要去选择所有的最佳描述对象的无障碍特性，且通过执行一个OR操作，使用父类特性将这些特性组合(换句话说，使用super.accessibilityTraits).详见Accessibility Traits。
-声明：
-SWIFT
-var accessibilityTraits: UIAccessibilityTraits
-OBJECTIVE-C
-@property(nonatomic) UIAccessibilityTraits accessibilityTraits
-版本：Available in iOS 3.0 and later.
+    UI无障碍编程接口包含两个非正式协议，一个类，一个函数，还有一些常量。
+    UIAccessibility非正式协议。实现UIAccessibility协议的对象可以报告无障碍状态（即他们是否是无障碍的）并且提供关于他们的描述性信息。UIAccessibility协议默认由标准UIKit控件和视图实现。
+    UIAccessibilityContainer非正式协议。此协议通过子类UIView来使它所包含的部分或者全部对象是无障碍的分离元素，当非UIView子类的对象被UIView视图包含时，这些元素不会自动变成无障碍元素，此时UIAccessibilityContainer协议就非常有用。
+    UIAccessibilityElement类。定义了一个对象是否能通过UIAccessibilityContainer协议返回。你可以创建UIAccessibilityElement实例来代表无法自动变为无障碍的元素，例如一个没有继承自UIView的对象，或者一个不存在的对象。
+    UIAccessibilityConstants.h头文件。此头文件定义了用来描述某些特征的常量。这些常量即可展示的无障碍元素，还有可被应用发布的通知。
 
-accessibilityValue
-一个无障碍元素的value；此属性的默认值为nil，除非接收器为一个UIKit控件，这种情况下该属性呈现的是控件的值，当值与label不同的时候。
-当一个无障碍元素有一个静态label，和一个动态值，应该设置这个属性来返回值。例如，虽然一个无障碍元素有一个“信息”label，它的值是当前文本域内的文本。
-声明：
-SWIFT
-var accessibilityValue: String?
-OBJECTIVE-C
-@property(nonatomic, copy, nullable) NSString *accessibilityValue
-版本：Available in iOS 3.0 and later.
 
-accessibilityViewIsModal
-一个布尔值，用来指明视图内的无障碍元素是否应该被voiceover忽略，这些视图是接收器的兄弟；该属性的默认值为NO。当该属性的值为YES时，voiceover忽略接收视图的兄弟视图中的元素。
-例如，一个窗口包含兄弟视图A和B，设置B的accessibilityViewIsModal为YES，voiceover会忽略A元素。另一方面，如果视图B包含一个子视图C，且设置C的accessibilityViewIsModal为YES，voiceover不会忽略A中的元素。
-声明：
-SWIFT
-var accessibilityViewIsModal: Bool
-OBJECTIVE-C
-@property(nonatomic) BOOL accessibilityViewIsModal
-版本：Available in iOS 5.0 and later.
+## 3.UI无障碍(UIAccessibility)
 
-shouldGroupAccessibilityChildren
-一个布尔值，用来指明voiceover是否应该将接收器子元素组合在一起讲述，无论这些子元素位于屏幕上的哪个位置；该属性的默认值为NO。
-例如，假设一个垂直展示条目的app。正常的，voiceover会通过水平方向导航这些元素。在垂直列项里的条目父级视图中，设置这个属性为YES，voiceover会尊重app的分组且正确定位它们。
-声明：
-SWIFT
-var shouldGroupAccessibilityChildren: Bool
-OBJECTIVE-C
-@property(nonatomic) BOOL shouldGroupAccessibilityChildren
-版本：Available in iOS 6.0 and later.
 
-accessibilityNavigationStyle
-应用于对象和它的元素的导航方式。一些辅助技术让用户选择一个父级视图和容器，为了导航自己的元素。这个属性控制行为是不是应用于当前对象。开关控件使用这个技术，但是voiceover和其他辅助技术不使用。
-这个属性的默认值为UIAccessibilityNavigationStyleAutomatic。
-声明：
-SWIFT
-var accessibilityNavigationStyle: UIAccessibilityNavigationStyle
-OBJECTIVE-C
-@property(nonatomic) UIAccessibilityNavigationStyle accessibilityNavigationStyle
-版本：Available in iOS 8.0 and later.
+    文档来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibility_Protocol/#//apple_ref/c/data/UIAccessibilityAnnouncementNotification
 
-3.3数据类型
-UIAccessibilityTraits
-包含无障碍特性的组合掩码，这些无障碍特性最能描述一个无障碍元素；
-声明：
-SWIFT
-typealias UIAccessibilityTraits = UInt64
-OBJECTIVE-C
-typedef uint64_t UIAccessibilityTraits;
-引入声明
-OBJECTIVE-C
-@import UIKit;
-SWIFT
-import UIKit
-版本：Available in iOS 3.0 and later.
+    UI无障碍非正式协议提供了应用界面元素的无障碍信息。辅助应用，比方说voiceover，将信息传递残障用户来帮助用户使用应用。
+    标准UIKit控件和视图实现了UIAccessibility方法，因此默认支持辅助应用。这意味着如果应用只使用标准控件和视图，例如UIButton，UISegmentedControl和 UITableView，只需要当默认值不完整的时候提供特定应用的详细信息。可以在Interface     Builder中或者该非正式协议中设置这些值。
+    UIAccessibility非正式协议也可以被通过     UIAccessibilityElement类来实现，这个类可以显示自定义用户界面对象。如果创建一个完全的自定义UIView子类，可能需要去创建 UIAccessibilityElement的一个实例来显示它。在这种情况下，应该支持所有UIAccessibility属性来正确的设置和返回无障碍元素的属性。
 
-UIAccessibilityZoomType
-可以生效的系统缩放的类型；
-声明：
-SWIFT
-enum UIAccessibilityZoomType : Int {
-    case InsertionPoint
-}
-OBJECTIVE-C
-typedef enum {
-   UIAccessibilityZoomTypeInsertionPoint,
-} UIAccessibilityZoomType;
-常量：
-UIAccessibilityZoomTypeInsertionPoint ：系统缩放类型是文本插入点。Available in iOS 5.0 and later.
-引入声明：
-OBJECTIVE-C
-@import UIKit;
-SWIFT
-import UIKit
-版本：Available in iOS 5.0 and later.
+### 3.1无障碍判定
 
-UIAccessibilityNotifications
-一个无障碍应用可以发送的通知；
-声明：
-SWIFT
-typealias UIAccessibilityNotifications = UInt32
-OBJECTIVE-C
-typedef uint32_t UIAccessibilityNotifications;
-引入声明：
-OBJECTIVE-C
-@import UIKit;
-SWIFT
-import UIKit
-版本：Available in iOS 3.0 and later.
 
-3.4常量
-Accessibility Traits
-无障碍特性可以告知辅助应用无障碍元素怎样行动或者怎样被对待。
-声明：
-SWIFT
-var UIAccessibilityTraitNone: UIAccessibilityTraits
-var UIAccessibilityTraitButton: UIAccessibilityTraits
-var UIAccessibilityTraitLink: UIAccessibilityTraits
-var UIAccessibilityTraitSearchField: UIAccessibilityTraits
-var UIAccessibilityTraitImage: UIAccessibilityTraits
-var UIAccessibilityTraitSelected: UIAccessibilityTraits
-var UIAccessibilityTraitPlaysSound: UIAccessibilityTraits
-var UIAccessibilityTraitKeyboardKey: UIAccessibilityTraits
-var UIAccessibilityTraitStaticText: UIAccessibilityTraits
-var UIAccessibilityTraitSummaryElement: UIAccessibilityTraits
-var UIAccessibilityTraitNotEnabled: UIAccessibilityTraits
-var UIAccessibilityTraitUpdatesFrequently: UIAccessibilityTraits
-var UIAccessibilityTraitStartsMediaSession: UIAccessibilityTraits
-var UIAccessibilityTraitAdjustable: UIAccessibilityTraits
-var UIAccessibilityTraitAllowsDirectInteraction: UIAccessibilityTraits
-var UIAccessibilityTraitCausesPageTurn: UIAccessibilityTraits
-var UIAccessibilityTraitHeader: UIAccessibilityTraits
-OBJECTIVE-C
-UIAccessibilityTraits UIAccessibilityTraitNone;
-UIAccessibilityTraits UIAccessibilityTraitButton;
-UIAccessibilityTraits UIAccessibilityTraitLink;
-UIAccessibilityTraits UIAccessibilityTraitSearchField;
-UIAccessibilityTraits UIAccessibilityTraitImage;
-UIAccessibilityTraits UIAccessibilityTraitSelected;
-UIAccessibilityTraits UIAccessibilityTraitPlaysSound;
-UIAccessibilityTraits UIAccessibilityTraitKeyboardKey;
-UIAccessibilityTraits UIAccessibilityTraitStaticText;
-UIAccessibilityTraits UIAccessibilityTraitSummaryElement;
-UIAccessibilityTraits UIAccessibilityTraitNotEnabled;
-UIAccessibilityTraits UIAccessibilityTraitUpdatesFrequently;
-UIAccessibilityTraits UIAccessibilityTraitStartsMediaSession;
-UIAccessibilityTraits UIAccessibilityTraitAdjustable;
-UIAccessibilityTraits UIAccessibilityTraitAllowsDirectInteraction;
-UIAccessibilityTraits UIAccessibilityTraitCausesPageTurn;
-UIAccessibilityTraits UIAccessibilityTraitHeader;
-常量：
-UIAccessibilityTraitNone ：无障碍元素无特性；Available in iOS 3.0 and later.
-UIAccessibilityTraitButton ：无障碍元素应该被当做button；Available in iOS 3.0 and later.
-UIAccessibilityTraitLink ：无障碍元素应被当做link；Available in iOS 3.0 and later.
-UIAccessibilityTraitSearchField ：无障碍元素应被当做一个搜索区域；Available in iOS 3.0 and later.
-UIAccessibilityTraitImage ：无障碍元素应该被当做一个图片，这个特性可以与button和link特性。Available in iOS 3.0 and later.
-UIAccessibilityTraitSelected ：无障碍元素是当前选择的。可以使用这个特性去描述无障碍元素，例如在已选择表行或者选择控件中的选择片段。Available in iOS 3.0 and later.
-UIAccessibilityTraitPlaysSound ：当元素被激活时，无障碍元素有自己声音。Available in iOS 3.0 and later.
-UIAccessibilityTraitKeyboardKey ：无障碍元素的行为想一个键盘键。Available in iOS 3.0 and later.
-UIAccessibilityTraitStaticText ：被当做不能改变的静态文本的无障碍元素。Available in iOS 3.0 and later.
-UIAccessibilityTraitSummaryElement ：当应用启动的时候无障碍元素提供总结信息，可以使用这个特性描述无障碍元素，这个无障碍元素提供当前位置、设置、状态的信息，比如天气应用中的当前气温。Available in iOS 3.0 and later.
-UIAccessibilityTraitNotEnabled ：无障碍元素不能使用且不能响应用户交互。Available in iOS 3.0 and later.
-UIAccessibilityTraitUpdatesFrequently ：无障碍元素频繁刷新label和value。可以使用这个元素来描述无障碍元素，这个元素的label或value频繁发送刷新通知来刷新。当想要辅助应用避免处理持续通知，相反的，当需要刷新信息的时候调查变更时，包含该特性。例如，可能需要这个特性去描述一个秒表的读出。Available in iOS 3.0 and later.
-UIAccessibilityTraitStartsMediaSession ：当被激活时，无障碍元素开启一个多媒体会话。可以使用这个特性来暂停辅助技术的音频输出，比如，voiceover不应该打断多媒体会话。例如，可能使用这个特性来暂停voiceover讲话，当用户录音的时候。Available in iOS 4.0 and later.
-UIAccessibilityTraitAdjustable ：通过一定范围的值，无障碍元素可连续调节。可以使用这个特性来描述无障碍元素，这个元素用户可以使用连续的方式调整，例如一个滑块或者选择器视图。如果你指定该元素为一个无障碍元素，必须在UIAccessibilityAction协议中实现accessibilityIncrement 和accessibilityDecrement。Available in iOS 4.0 and later.
+    isAccessibilityElement
+    是一个布尔值，决定该元素是不是一个辅助技术可以访问的无障碍元素。该属性的默认值为NO，除非接收器是一个标准UIKit控件，值为YES。
+    辅助技术可以获得无障碍元素呈现的信息。因此，如果实现一个自定义控件或者视图，应该对残障用户无障碍，应该设置这个属性为YES。唯一例外的是，一个只为其他无障碍条目提供容器的，这样的视图应该实现UIAccessibilityContainer协议并设置该属性为NO。
+    声明：
+    SWIFT
+    var isAccessibilityElement: Bool
+    OBJECTIVE-C
+    @property(nonatomic) BOOL isAccessibilityElement
+    版本：Available in iOS 3.0 and later.
+
+### 3.2配置无障碍元素
+
+
+    accessibilityActivationPoint
+    在屏幕坐标上，无障碍元素可激活的点；此属性的默认值是无障碍元素框架的中点，是由accessibilityFrame提供的。一个元素的活跃点是当用户双击该元素时，voiceover激活的特定区域。
+    指定一个活跃点的能力允许一个元素在不同的情况下呈现给voiceover不同的点，而不是改变元素自己的视觉显示，例如，一个主屏幕app图标的标准活跃点是图标的中点，但是当用户在主屏幕上重现安排图标时，活跃点更改为删除控件的中点（即，在图标左上角的圆圈X）。
+    可以使用这个属性来保证一个小元素的活跃点保持精确，尽管呈现给voiceover的是个大版本。
+    声明:
+    SWIFT
+    var accessibilityActivationPoint: CGPoint
+    OBJECTIVE-C
+    @property(nonatomic) CGPoint accessibilityActivationPoint
+    版本：Available in iOS 5.0 and later.
+
+    accessibilityElementsHidden
+    是一个布尔值，指明一个无障碍元素内部的无障碍元素是不是隐藏的；这个属性的默认值是No。可能会使用该属性去隐藏视图，这些视图被新来的视图覆盖。在此案例中，隐藏视图仍然是可见的，但是他们不是用户行为的焦点。
+    可能使用这个属性来隐藏一个短暂的视图，而voiceover用户不会注意到。例如，voiceover不需要去描述透明视图，这些视图当用户调整设备上的音量的时候才会出现，因为这个动作的听觉反馈是足够的。
+    声明：
+    SWIFT
+    var accessibilityElementsHidden: Bool
+    OBJECTIVE-C
+    @property(nonatomic) BOOL accessibilityElementsHidden
+    版本：Available in iOS 5.0 and later.
+
+    accessibilityFrame
+    在屏幕坐标上，无障碍元素的框架；这个属性的默认值是CGRectZero，除非接收器是一个UIView对象或者是一个UIView的子类，这种情况，属性值为视图的框架。
+    一个无障碍元素呈现一个非UIView子类的对象应该设置该属性，因为这类对象的屏幕坐标不是已知的。
+    声明：
+    SWIFT
+    var accessibilityFrame: CGRect
+    OBJECTIVE-C
+    @property(nonatomic) CGRect accessibilityFrame
+    版本：
+    Available in iOS 3.0 and later.
+
+    accessibilityHint
+    用本地语言简单描述无障碍元素的行为结果；这个属性的默认值是nil，除非接收器是一个UIKit控件，这种情况下，系统根据控件类型自动提供hint。
+    当在一个无障碍元素上执行一个操作，且根据无障碍label不能得到明显的结果时，一个无障碍hint帮助用户理解执行结果。例如，提供一个add按钮在应用中，按钮的无障碍标签帮助用户理解，在应用中点击这个按钮会增加值。如果，另一方面，你的应用允许用户通过点击一个列表中歌曲的名字来播放歌曲，列表的无障碍标签不会告诉用户这个。帮助辅助应用为残障用户提供信息，列表适当的hint应该为“播放歌曲”。
+    以下为为一个无障碍元素传感爱你hint的准则：
+    hint应该是一个非常简短的短语，且以动词开头，名词结尾。例如“播放歌曲”或“购买项目”。
+    避免开头的动词的使用祈使语气，因为这可能会听起来想命令。
+    不要重复的提示操作类型。例如，不要创建这样的提示，如“点击去播放的歌曲”或“点击播放这首歌。”
+    不要重复提示控件或视图类型。例如，不要创建这样的提示，如“播放该行中的歌曲”或“增加了一个联系人姓名按钮。”
+    声明：
+    SWIFT
+    var accessibilityHint: String?
+    OBJECTIVE-C
+    @property(nonatomic, copy, nullable) NSString *accessibilityHint
+    版本：Available in iOS 3.0 and later.
+
+    accessibilityLabel
+    用本地语言简洁标签定义无障碍元素；这个属性的默认值为nil，除非接收器是个UIKit控件，这种情况下自动派生控件的label。
+    注意：如果在一个UISegmentedControl中提供一个UIImage对象，可以设置每个图片的这个属性来保证该部分可以正常访问。
+    如果实现一个自定义控件和视图，或者在UIKit空间上显示一个自定义图标，应该设置这个属性来保证无障碍元素有合适的label。如果一个无障碍元素不显示一个描述label，这个属性应该是简短的、本地化的指明该元素的label。例如，一个“播放音乐”的按钮可能会为近视用户显示该按钮是做什么的。为了可访问性，按钮应该有无障碍；label“播放”“播放音乐”，这样辅助应用可以提供这些信息给残障用户。注意，但是，label应该永远不包括控件类型因为类型信息被包含在与无障碍元素有关的特性中。
+    声明：
+    SWIFT
+    var accessibilityLabel: String?
+    OBJECTIVE-C
+    @property(nonatomic, copy, nullable) NSString *accessibilityLabel
+    版本：Available in iOS 3.0 and later.
+
+    accessibilityLanguage
+    读出label、hint、value值的语言；此属性的默认值是nil，如果没有语言设置，会使用用户当前的语言。
+    如果需要设置这个属性，保证使用一种语言的ID标签，格式需要遵循BCP47规范。这个规范的草图在http://www.rfc-editor.org/.
+    声明：
+    SWIFT
+    var accessibilityLanguage: String?
+    OBJECTIVE-C
+    @property(nonatomic, strong, nullable) NSString *accessibilityLanguage
+    版本：Available in iOS 4.0 and later.
+
+    accessibilityPath
+    在屏幕坐标上，一个元素的路径；该属性的默认值为nil，如果没有路径设置，无障碍框架矩形被用来突出元素。
+    当为一个属性指定一个值，辅助技术使用path对象来突出元素。
+    声明：
+    SWIFT
+    @NSCopying var accessibilityPath: UIBezierPath?
+    OBJECTIVE-C
+    @property(nonatomic, copy, nullable) UIBezierPath *accessibilityPath
+    版本：Available in iOS 7.0 and later.
+
+    accessibilityTraits
+    无障碍特性的组合能最好的展现无障碍元素的特性；该属性的默认为UIAccessibilityTraitNone ，除非接收器是一个UIKit控件，这种情况下，该属性的值应该与该控件有关的标准trait设置。
+    如果实现一个自定义控件和视图，需要去选择所有的最佳描述对象的无障碍特性，且通过执行一个OR操作，使用父类特性将这些特性组合(换句话说，使用super.accessibilityTraits).详见Accessibility Traits。
+    声明：
+    SWIFT
+    var accessibilityTraits: UIAccessibilityTraits
+    OBJECTIVE-C
+    @property(nonatomic) UIAccessibilityTraits accessibilityTraits
+    版本：Available in iOS 3.0 and later.
+
+    accessibilityValue
+    一个无障碍元素的value；此属性的默认值为nil，除非接收器为一个UIKit控件，这种情况下该属性呈现的是控件的值，当值与label不同的时候。
+    当一个无障碍元素有一个静态label，和一个动态值，应该设置这个属性来返回值。例如，虽然一个无障碍元素有一个“信息”label，它的值是当前文本域内的文本。
+    声明：
+    SWIFT
+    var accessibilityValue: String?
+    OBJECTIVE-C
+    @property(nonatomic, copy, nullable) NSString *accessibilityValue
+    版本：Available in iOS 3.0 and later.
+
+    accessibilityViewIsModal
+    一个布尔值，用来指明视图内的无障碍元素是否应该被voiceover忽略，这些视图是接收器的兄弟；该属性的默认值为NO。当该属性的值为YES时，voiceover忽略接收视图的兄弟视图中的元素。
+    例如，一个窗口包含兄弟视图A和B，设置B的accessibilityViewIsModal为YES，voiceover会忽略A元素。另一方面，如果视图B包含一个子视图C，且设置C的accessibilityViewIsModal为YES，voiceover不会忽略A中的元素。
+    声明：
+    SWIFT
+    var accessibilityViewIsModal: Bool
+    OBJECTIVE-C
+    @property(nonatomic) BOOL accessibilityViewIsModal
+    版本：Available in iOS 5.0 and later.
+
+    shouldGroupAccessibilityChildren
+    一个布尔值，用来指明voiceover是否应该将接收器子元素组合在一起讲述，无论这些子元素位于屏幕上的哪个位置；该属性的默认值为NO。
+    例如，假设一个垂直展示条目的app。正常的，voiceover会通过水平方向导航这些元素。在垂直列项里的条目父级视图中，设置这个属性为YES，voiceover会尊重app的分组且正确定位它们。
+    声明：
+    SWIFT
+    var shouldGroupAccessibilityChildren: Bool
+    OBJECTIVE-C
+    @property(nonatomic) BOOL shouldGroupAccessibilityChildren
+    版本：Available in iOS 6.0 and later.
+    
+    accessibilityNavigationStyle
+    应用于对象和它的元素的导航方式。一些辅助技术让用户选择一个父级视图和容器，为了导航自己的元素。这个属性控制行为是不是应用于当前对象。开关控件使用这个技术，但是voiceover和其他辅助技术不使用。
+    这个属性的默认值为UIAccessibilityNavigationStyleAutomatic。
+    声明：
+    SWIFT
+    var accessibilityNavigationStyle: UIAccessibilityNavigationStyle
+    OBJECTIVE-C
+    @property(nonatomic) UIAccessibilityNavigationStyle accessibilityNavigationStyle
+    版本：Available in iOS 8.0 and later.
+
+
+### 3.3数据类型
+    UIAccessibilityTraits
+    包含无障碍特性的组合掩码，这些无障碍特性最能描述一个无障碍元素；
+    声明：
+    SWIFT
+    typealias UIAccessibilityTraits = UInt64
+    OBJECTIVE-C
+    typedef uint64_t UIAccessibilityTraits;
+    引入声明
+    OBJECTIVE-C
+    @import UIKit;
+    SWIFT
+    import UIKit
+    版本：Available in iOS 3.0 and later.
+    
+    UIAccessibilityZoomType
+    可以生效的系统缩放的类型；
+    声明：
+    SWIFT
+    enum UIAccessibilityZoomType : Int {
+        case InsertionPoint
+    }
+    OBJECTIVE-C
+    typedef enum {
+       UIAccessibilityZoomTypeInsertionPoint,
+    } UIAccessibilityZoomType;
+    常量：
+    UIAccessibilityZoomTypeInsertionPoint ：系统缩放类型是文本插入点。Available in iOS 5.0 and later.
+    引入声明：
+    OBJECTIVE-C
+    @import UIKit;
+    SWIFT
+    import UIKit
+    版本：Available in iOS 5.0 and later.
+    
+    UIAccessibilityNotifications
+    一个无障碍应用可以发送的通知；
+    声明：
+    SWIFT
+    typealias UIAccessibilityNotifications = UInt32
+    OBJECTIVE-C
+    typedef uint32_t UIAccessibilityNotifications;
+    引入声明：
+    OBJECTIVE-C
+    @import UIKit;
+    SWIFT
+    import UIKit
+    版本：Available in iOS 3.0 and later.
+
+
+### 3.4常量
+
+
+    Accessibility Traits
+    无障碍特性可以告知辅助应用无障碍元素怎样行动或者怎样被对待。
+    声明：
+    SWIFT
+    var UIAccessibilityTraitNone: UIAccessibilityTraits
+    var UIAccessibilityTraitButton: UIAccessibilityTraits
+    var UIAccessibilityTraitLink: UIAccessibilityTraits
+    var UIAccessibilityTraitSearchField: UIAccessibilityTraits
+    var UIAccessibilityTraitImage: UIAccessibilityTraits
+    var UIAccessibilityTraitSelected: UIAccessibilityTraits
+    var UIAccessibilityTraitPlaysSound: UIAccessibilityTraits
+    var UIAccessibilityTraitKeyboardKey: UIAccessibilityTraits
+    var UIAccessibilityTraitStaticText: UIAccessibilityTraits
+    var UIAccessibilityTraitSummaryElement: UIAccessibilityTraits
+    var UIAccessibilityTraitNotEnabled: UIAccessibilityTraits
+    var UIAccessibilityTraitUpdatesFrequently: UIAccessibilityTraits
+    var UIAccessibilityTraitStartsMediaSession: UIAccessibilityTraits
+    var UIAccessibilityTraitAdjustable: UIAccessibilityTraits
+    var UIAccessibilityTraitAllowsDirectInteraction: UIAccessibilityTraits
+    var UIAccessibilityTraitCausesPageTurn: UIAccessibilityTraits
+    var UIAccessibilityTraitHeader: UIAccessibilityTraits
+    OBJECTIVE-C
+    UIAccessibilityTraits UIAccessibilityTraitNone;
+    UIAccessibilityTraits UIAccessibilityTraitButton;
+    UIAccessibilityTraits UIAccessibilityTraitLink;
+    UIAccessibilityTraits UIAccessibilityTraitSearchField;
+    UIAccessibilityTraits UIAccessibilityTraitImage;
+    UIAccessibilityTraits UIAccessibilityTraitSelected;
+    UIAccessibilityTraits UIAccessibilityTraitPlaysSound;
+    UIAccessibilityTraits UIAccessibilityTraitKeyboardKey;
+    UIAccessibilityTraits UIAccessibilityTraitStaticText;
+    UIAccessibilityTraits UIAccessibilityTraitSummaryElement;
+    UIAccessibilityTraits UIAccessibilityTraitNotEnabled;
+    UIAccessibilityTraits UIAccessibilityTraitUpdatesFrequently;
+    UIAccessibilityTraits UIAccessibilityTraitStartsMediaSession;
+    UIAccessibilityTraits UIAccessibilityTraitAdjustable;
+    UIAccessibilityTraits UIAccessibilityTraitAllowsDirectInteraction;
+    UIAccessibilityTraits UIAccessibilityTraitCausesPageTurn;
+    UIAccessibilityTraits UIAccessibilityTraitHeader;
+    常量：
+    UIAccessibilityTraitNone ：无障碍元素无特性；Available in iOS 3.0 and later.
+    UIAccessibilityTraitButton ：无障碍元素应该被当做button；Available in iOS 3.0 and later.
+    UIAccessibilityTraitLink ：无障碍元素应被当做link；Available in iOS 3.0 and later.
+    UIAccessibilityTraitSearchField ：无障碍元素应被当做一个搜索区域；Available in iOS 3.0 and later.
+    UIAccessibilityTraitImage ：无障碍元素应该被当做一个图片，这个特性可以与button和link特性。Available in iOS 3.0 and later.
+    UIAccessibilityTraitSelected ：无障碍元素是当前选择的。可以使用这个特性去描述无障碍元素，例如在已选择表行或者选择控件中的选择片段。Available in iOS 3.0 and later.
+    UIAccessibilityTraitPlaysSound ：当元素被激活时，无障碍元素有自己声音。Available in iOS 3.0 and later.
+    UIAccessibilityTraitKeyboardKey ：无障碍元素的行为想一个键盘键。Available in iOS 3.0 and later.
+    UIAccessibilityTraitStaticText ：被当做不能改变的静态文本的无障碍元素。Available in iOS 3.0 and later.
+    UIAccessibilityTraitSummaryElement ：当应用启动的时候无障碍元素提供总结信息，可以使用这个特性描述无障碍元素，这个无障碍元素提供当前位置、设置、状态的信息，比如天气应用中的当前气温。Available in iOS 3.0 and later.
+    UIAccessibilityTraitNotEnabled ：无障碍元素不能使用且不能响应用户交互。Available in iOS 3.0 and later.
+    UIAccessibilityTraitUpdatesFrequently ：无障碍元素频繁刷新label和value。可以使用这个元素来描述无障碍元素，这个元素的label或value频繁发送刷新通知来刷新。当想要辅助应用避免处理持续通知，相反的，当需要刷新信息的时候调查变更时，包含该特性。例如，可能需要这个特性去描述一个秒表的读出。Available in iOS 3.0 and later.
+    UIAccessibilityTraitStartsMediaSession ：当被激活时，无障碍元素开启一个多媒体会话。可以使用这个特性来暂停辅助技术的音频输出，比如，voiceover不应该打断多媒体会话。例如，可能使用这个特性来暂停voiceover讲话，当用户录音的时候。Available in iOS 4.0 and later.
+    UIAccessibilityTraitAdjustable ：通过一定范围的值，无障碍元素可连续调节。可以使用这个特性来描述无障碍元素，这个元素用户可以使用连续的方式调整，例如一个滑块或者选择器视图。如果你指定该元素为一个无障碍元素，必须在UIAccessibilityAction协议中实现accessibilityIncrement 和accessibilityDecrement。Available in iOS 4.0 and later.
 UIAccessibilityTraitAllowsDirectInteraction ：无障碍元素允许voiceover用户直接触摸交互。可以使用这个元素描述无障碍元素，这个元素呈现一个用户可以直接交互的对象，比如一个呈现钢琴键盘的视图；Available in iOS 5.0 and later.
 UIAccessibilityTraitCausesPageTurn ：当voiceover读完当前页的文本时，这个无障碍元素应该引起自动翻页。可以使用这个元素来描述无障碍元素，这个元素呈现一系列网页中一页内容，比如一个呈现某页书的视图。当voiceover读完当前页，调用具有UIAccessibilityScrollDirectionNext的accessibilityScroll来滚动到下一页。如果voiceover检测到新内容与之前的内容相同，会停止滚动。Available in iOS 5.0 and later.
 UIAccessibilityTraitHeader ：这个无障碍元素是个将内容分段的标题，比如导航条标题。Available in iOS 6.0 and later.
