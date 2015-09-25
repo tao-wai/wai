@@ -1173,6 +1173,7 @@ type="text" size="4" value="" >
     样例2：
     使用必填字样来指明必填属性；
 
+```
 <head>
 <form action="#" method="post" id="step1" onsubmit="return errorCheck2()">
   <p>
@@ -1202,7 +1203,7 @@ type="text" size="4" value="" >
   <p>
     <input type="submit" value="Next Step" id="step_btn" name="step_btn" />
   </p>
-</form> 
+</form> ```
 
 样例3：
 在内容之前使用CSS样式来渲染红边框指明必填属性。
