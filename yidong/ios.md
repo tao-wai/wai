@@ -322,102 +322,105 @@
     UIAccessibilitySpeechAttributeLanguage ：这个键的值是一个NSString对象，包含BCP-47语言编码。当被应用到文本，指定语言规则会决定该文本是怎样发音的。Available in iOS 7.0 and later.
     UIAccessibilitySpeechAttributePitch ：这个键的值是一个NSNumber对象，包含一个浮点型值，从0.0到2.0.这个值指明文本是否应该使用比默认高或低的声调读出。这个属性的默认值是1.0，是个正常的音调。0.0-1.0的结果是一个低的声调，1.0-2.0的值是一个高的声调。Available in iOS 7.0 and later. 
 
-Assistive Technology Identifiers
-但当暂停恢复辅助技术时可以使用的标示符。
-声明：
-SWIFT
-let UIAccessibilityNotificationSwitchControlIdentifier: String
-OBJECTIVE-C
-NSString *const UIAccessibilityNotificationSwitchControlIdentifier;
-常量：
-UIAccessibilityNotificationSwitchControlIdentifier ：开关控制技术。这个技术允许行动不便的用户使用一个单一物理按键来访问app。当这个技术启动时，ios会在屏幕上圈一个光标，从一个元素到一个元素。用户点击开关来运行光标下的严肃。Available in iOS 8.0 and later.
+    Assistive Technology Identifiers
+    但当暂停恢复辅助技术时可以使用的标示符。
+    声明：
+    SWIFT
+    let UIAccessibilityNotificationSwitchControlIdentifier: String
+    OBJECTIVE-C
+    NSString *const UIAccessibilityNotificationSwitchControlIdentifier;
+    常量：
+    UIAccessibilityNotificationSwitchControlIdentifier ：开关控制技术。这个技术允许行动不便的用户使用一个单一物理按键来访问app。当这个技术启动时，ios会在屏幕上圈一个光标，从一个元素到一个元素。用户点击开关来运行光标下的严肃。Available in iOS 8.0 and later.
 
-UIAccessibilityNavigationStyle
-一个常量，描述了辅助技术应该怎样导航对象元素。
-SWIFT
-enum UIAccessibilityNavigationStyle : Int {
-    case Automatic
-    case Separate
-    case Combined
-}
-OBJECTIVE-C
-typedef enum UIAccessibilityNavigationStyle : NSInteger {
-   UIAccessibilityNavigationStyleAutomatic = 0,
-   UIAccessibilityNavigationStyleSeparate = 1,
-   UIAccessibilityNavigationStyleCombined = 2,
-} UIAccessibilityNavigationStyle;
-常量：
-UIAccessibilityNavigationStyleAutomatic ：辅助技术会自动决定接收器元素怎样被导航，这个是默认值。Available in iOS 8.0 and later.
-UIAccessibilityNavigationStyleSeparate ：接收器元素应该被当做单独元素被导航。Available in iOS 8.0 and later.
-UIAccessibilityNavigationStyleCombined ：接收器元素应该组合并且被当做单独条目导航。Available in iOS 8.0 and later.
-3.5通知
-UIAccessibilityAnnouncementNotification
-当一个通知需要被传递给辅助技术的时候，这个通知被应用推送。这个通知包含一个参数，是一个包含通知的NSString对象。辅助技术会输出这个参数里面的声明文本。使用这个通知提供事件的无障碍信息，这个事件不会刷新用户界面，或者只是文本的刷新。使用UIAccessibilityPostNotification功能传递这个通知。
-声明：
-SWIFT
-var UIAccessibilityAnnouncementNotification: UIAccessibilityNotifications
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
+    UIAccessibilityNavigationStyle
+    一个常量，描述了辅助技术应该怎样导航对象元素。
+    SWIFT
+    enum UIAccessibilityNavigationStyle : Int {
+        case Automatic
+        case Separate
+        case Combined
+    }
+    OBJECTIVE-C
+    typedef enum UIAccessibilityNavigationStyle : NSInteger {
+       UIAccessibilityNavigationStyleAutomatic = 0,
+       UIAccessibilityNavigationStyleSeparate = 1,
+       UIAccessibilityNavigationStyleCombined = 2,
+    } UIAccessibilityNavigationStyle;
+    常量：
+    UIAccessibilityNavigationStyleAutomatic ：辅助技术会自动决定接收器元素怎样被导航，这个是默认值。Available in iOS 8.0 and later.
+    UIAccessibilityNavigationStyleSeparate ：接收器元素应该被当做单独元素被导航。Available in iOS 8.0 and later.
+    UIAccessibilityNavigationStyleCombined ：接收器元素应该组合并且被当做单独条目导航。Available in iOS 8.0 and later.
 
-UIAccessibilityAnnouncementDidFinishNotification
-当系统讲完一个公告，UIKit推送该通知。参数是一个具有两个关键点的字典，UIAccessibilityAnnouncementKeyStringValue和UIAccessibilityAnnouncementKeyWasSuccessful。使用默认通知中心监听给通知。
-声明：
-SWIFT
-let UIAccessibilityAnnouncementDidFinishNotification: String
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
+### 3.5通知
 
 
-UIAccessibilityBoldTextStatusDidChangeNotification
-当系统粗体文本发生变化时，由UIKit推送。这个通知不包含参数。使用默认通知中心监听这个通知。
-声明：
-SWIFT
-let UIAccessibilityBoldTextStatusDidChangeNotification: String
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
+    UIAccessibilityAnnouncementNotification
+    当一个通知需要被传递给辅助技术的时候，这个通知被应用推送。这个通知包含一个参数，是一个包含通知的NSString对象。辅助技术会输出这个参数里面的声明文本。使用这个通知提供事件的无障碍信息，这个事件不会刷新用户界面，或者只是文本的刷新。使用UIAccessibilityPostNotification功能传递这个通知。
+    声明：
+    SWIFT
+    var UIAccessibilityAnnouncementNotification: UIAccessibilityNotifications
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
 
-UIAccessibilityClosedCaptioningStatusDidChangeNotification
-当隐藏字幕（closed captioning）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-声明：
-SWIFT
-let UIAccessibilityClosedCaptioningStatusDidChangeNotification: String
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
-
-UIAccessibilityDarkerSystemColorsStatusDidChangeNotification
-当系统的变暗颜色（Darken Colors）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-声明：
-SWIFT
-let UIAccessibilityDarkerSystemColorsStatusDidChangeNotification: String
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
+    UIAccessibilityAnnouncementDidFinishNotification
+    当系统讲完一个公告，UIKit推送该通知。参数是一个具有两个关键点的字典，UIAccessibilityAnnouncementKeyStringValue和UIAccessibilityAnnouncementKeyWasSuccessful。使用默认通知中心监听给通知。
+    声明：
+    SWIFT
+    let UIAccessibilityAnnouncementDidFinishNotification: String
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
 
 
-UIAccessibilityGrayscaleStatusDidChangeNotification
-当系统的灰阶（Grayscale）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-声明：
-SWIFT
-let UIAccessibilityGrayscaleStatusDidChangeNotification: String
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
+    UIAccessibilityBoldTextStatusDidChangeNotification
+    当系统粗体文本发生变化时，由UIKit推送。这个通知不包含参数。使用默认通知中心监听这个通知。
+    声明：
+    SWIFT
+    let UIAccessibilityBoldTextStatusDidChangeNotification: String
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
+    
+    UIAccessibilityClosedCaptioningStatusDidChangeNotification
+    当隐藏字幕（closed captioning）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
+    声明：
+    SWIFT
+    let UIAccessibilityClosedCaptioningStatusDidChangeNotification: String
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
+
+    UIAccessibilityDarkerSystemColorsStatusDidChangeNotification
+    当系统的变暗颜色（Darken Colors）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
+    声明：
+    SWIFT
+    let UIAccessibilityDarkerSystemColorsStatusDidChangeNotification: String
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
+    
+    
+    UIAccessibilityGrayscaleStatusDidChangeNotification
+    当系统的灰阶（Grayscale）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
+    声明：
+    SWIFT
+    let UIAccessibilityGrayscaleStatusDidChangeNotification: String
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
 
 UIAccessibilityGuidedAccessStatusDidChangeNotification
 当系统的引导访问（Guided Access ）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。也可以使用
