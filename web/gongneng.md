@@ -756,24 +756,27 @@ $(document).ready(function(e) {
     样例1：
     当用户注册邮箱的时候，用户输入的邮箱账号已经被注册，给出几个基于用户输入账号合法且未注册的候选账号；
 
-2.当需要用户输入内容时，要给出标签或说明
-为交互组件提交必要的目的说明，说明信息输入的必要性；
-(1)使用aria-describedby属性为交互控件提供文本说明，通过使用id将描述信息与一个或多个控件联系起来。
-样例1：
-使用aria-describedby属性描述临近button的行为；
+    2.当需要用户输入内容时，要给出标签或说明
+    为交互组件提交必要的目的说明，说明信息输入的必要性；
+    (1)使用aria-describedby属性为交互控件提供文本说明，通过使用id将描述信息与一个或多个控件联系起来。
+    样例1：
+    ```
+    使用aria-describedby属性描述临近button的行为；
 <button aria-label="Close" aria-describedby="descriptionClose"
     onclick="myDialog.close()">按钮</button>//id为descriptionClose的控件为button提供描述文本
 ...
-<div id="descriptionClose">关闭此窗口将忽略输入的所有信息，并回返回到主页</div>
-样例2：
-使用aria-describedby属性将说明与表单联系起来；
+<div id="descriptionClose">关闭此窗口将忽略输入的所有信息，并回返回到主页</div>```
+    样例2：
+    使用aria-describedby属性将说明与表单联系起来；
+```
 <form>
 <label for="fname">名</label>
 <input name="" type="text" id="fname" aria-describedby="int2">
 <p id="int2"> 该区域使用aria-describedby连接说明文本. </p>
-</form>
-样例3：
-使用aria-describedby为button提供详细信息
+</form>```
+    样例3：
+    使用aria-describedby为button提供详细信息
+```
 <p><span id="fontDesc">选择该网页的字体大小</span>
 <button type="button" id="fontB" onclick="doAction('Fonts');" aria-describedby="fontDesc">字体</button>
 </p>
@@ -782,7 +785,7 @@ $(document).ready(function(e) {
 </p>
 <p><span id="customDesc">自定义此页面上使用的布局和样式</span>
  <button type="button" id="customB" onclick="doAction('Customize');" aria-describedby="customDesc">自定义</button>
-</p>
+</p>```
 
 样例4：
 使用aria-describedby属性为表单区域连接提示
