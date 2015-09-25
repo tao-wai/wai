@@ -457,50 +457,50 @@
     SWIFT
     import UIKit
 
-UIAccessibilityMonoAudioStatusDidChangeNotification
-当系统音频从立体声变为单声道时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-声明：
-SWIFT
-let UIAccessibilityMonoAudioStatusDidChangeNotification: String
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
+    UIAccessibilityMonoAudioStatusDidChangeNotification
+    当系统音频从立体声变为单声道时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
+    声明：
+    SWIFT
+    let UIAccessibilityMonoAudioStatusDidChangeNotification: String
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
+    
+    UIAccessibilityPageScrolledNotification
+    当完成滚动操作且accessibilityScroll被调用时，应用推送该通知。这个通知包含一个参数，这个参数是一个NSString对象，包含新滚动位置的描述。辅助技术输入参数中的描述文本。在用户施行了voiceover滚动手势，可以使用该通知来提供屏幕内容的自定义信息。例如，一个基于tab的应用可能提供一个文本，如“tab 3 of 5”，或者在页面中展示信息的应用提供例如“Page 19 of 27”的文本。当辅助技术重复接收到相同滚动位置文本，这表明用户到达边或边界。使用UIAccessibilityPostNotification功能推送该通知。
+    声明：
+    SWIFT
+    var UIAccessibilityPageScrolledNotification: UIAccessibilityNotifications
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
 
-UIAccessibilityPageScrolledNotification
-当完成滚动操作且accessibilityScroll被调用时，应用推送该通知。这个通知包含一个参数，这个参数是一个NSString对象，包含新滚动位置的描述。辅助技术输入参数中的描述文本。在用户施行了voiceover滚动手势，可以使用该通知来提供屏幕内容的自定义信息。例如，一个基于tab的应用可能提供一个文本，如“tab 3 of 5”，或者在页面中展示信息的应用提供例如“Page 19 of 27”的文本。当辅助技术重复接收到相同滚动位置文本，这表明用户到达边或边界。使用UIAccessibilityPostNotification功能推送该通知。
-声明：
-SWIFT
-var UIAccessibilityPageScrolledNotification: UIAccessibilityNotifications
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
-
-UIAccessibilityPauseAssistiveTechnologyNotification
-当想要暂时停止辅助技术的运行时推送该信息。当推送该通知，指定要暂停的辅助技术作为参数。例如，当app在播放动画的时候，想要在Switch Control中暂停扫描。相对的，通过推送UIAccessibilityResumeAssistiveTechnologyNotification通知恢复辅助技术的运行。使用UIAccessibilityPostNotification功能推送这个通知。
-声明：
-SWIFT
-var UIAccessibilityPauseAssistiveTechnologyNotification: UIAccessibilityNotifications
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
-
-UIAccessibilityReduceMotionStatusDidChangeNotification
-当系统的减少运动（reduce motion）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-使用UIAccessibilityPostNotification功能推送这个通知。
-声明：
-SWIFT
-let UIAccessibilityReduceMotionStatusDidChangeNotification: String
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
+    UIAccessibilityPauseAssistiveTechnologyNotification
+    当想要暂时停止辅助技术的运行时推送该信息。当推送该通知，指定要暂停的辅助技术作为参数。例如，当app在播放动画的时候，想要在Switch Control中暂停扫描。相对的，通过推送UIAccessibilityResumeAssistiveTechnologyNotification通知恢复辅助技术的运行。使用UIAccessibilityPostNotification功能推送这个通知。
+    声明：
+    SWIFT
+    var UIAccessibilityPauseAssistiveTechnologyNotification: UIAccessibilityNotifications
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
+    
+    UIAccessibilityReduceMotionStatusDidChangeNotification
+    当系统的减少运动（reduce motion）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
+    使用UIAccessibilityPostNotification功能推送这个通知。
+    声明：
+    SWIFT
+    let UIAccessibilityReduceMotionStatusDidChangeNotification: String
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
 
 UIAccessibilityReduceTransparencyStatusDidChangeNotification
 当系统的降低透明度（Reduce Transparency）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
