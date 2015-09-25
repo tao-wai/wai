@@ -684,15 +684,18 @@
     参数：element——无障碍元素
     版本：Available in iOS 3.0 and later.
 
-accessibilityElements
-容器内无障碍元素的数组，默认值为nil。
-声明：
-SWIFT
-var accessibilityElements: [AnyObject]?
-OBJECTIVE-C
-@property(nonatomic, strong, nullable) NSArray *accessibilityElements
-版本：Available in iOS 8.0 and later.
-6.UIGuidedAccessRestrictionDelegate
+    accessibilityElements
+    容器内无障碍元素的数组，默认值为nil。
+    声明：
+    SWIFT
+    var accessibilityElements: [AnyObject]?
+    OBJECTIVE-C
+    @property(nonatomic, strong, nullable) NSArray *accessibilityElements
+    版本：Available in iOS 8.0 and later.
+
+## 6.UIGuidedAccessRestrictionDelegate
+
+
 文档参考来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIGuidedAccessRestrictionsDelegate_Protocol/#//apple_ref/occ/intfm/UIGuidedAccessRestrictionDelegate/guidedAccessRestrictionIdentifiers
 
 在应用代理中使用UIGuidedAccessRestrictionDelegate协议允许在ios为Guided Access功能添加自定义限制。
