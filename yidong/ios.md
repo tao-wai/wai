@@ -446,16 +446,16 @@
     SWIFT
     import UIKit
 
-UIAccessibilityLayoutChangedNotification
-当系统的屏幕布局改变时，应用推送该通知，比如当一个元素出现或消失时。这个通知包含一个参数，这个参数是个voiceover讲出的NSSting对象或者可以接收焦点的无障碍元素。使用UIAccessibilityPostNotification功能推送该通知。
-声明：
-SWIFT
-var UIAccessibilityLayoutChangedNotification: UIAccessibilityNotifications
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
+    UIAccessibilityLayoutChangedNotification
+    当系统的屏幕布局改变时，应用推送该通知，比如当一个元素出现或消失时。这个通知包含一个参数，这个参数是个voiceover讲出的NSSting对象或者可以接收焦点的无障碍元素。使用UIAccessibilityPostNotification功能推送该通知。
+    声明：
+    SWIFT
+    var UIAccessibilityLayoutChangedNotification: UIAccessibilityNotifications
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
 
 UIAccessibilityMonoAudioStatusDidChangeNotification
 当系统音频从立体声变为单声道时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
