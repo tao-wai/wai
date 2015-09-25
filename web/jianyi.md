@@ -275,6 +275,7 @@ CSS代码:
 </html> ```
     样例2：
     使用iframe的title属性来描述框架的内容；
+```
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>使用iframe的文件</title>
@@ -283,7 +284,7 @@ CSS代码:
   name="testiframe" title="广告">
     <a href="banner-ad.html">广告</a>
 </iframe>
-</html>  
+</html>  ```
 3.3.7使用展开和折叠菜单绕过内容块：使用可展开折叠菜单来跳过重复的内容
 样例1：
 使用html、css、JS脚本在网页顶部添加一个折叠菜单：
