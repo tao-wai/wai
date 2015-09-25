@@ -288,6 +288,7 @@ CSS代码:
     3.3.7使用展开和折叠菜单绕过内容块：使用可展开折叠菜单来跳过重复的内容
     样例1：
     使用html、css、JS脚本在网页顶部添加一个折叠菜单：
+  ```
   <script type="text/javascript">
   function toggle(id){
     var n = document.getElementById(id);//获得固定id值的元素，赋给n；
@@ -300,10 +301,10 @@ CSS代码:
   <li><a href="http://target2.html">链接 2</a></li>
   <li><a href="http://target3.html">链接 3</a></li>
   <li><a href="http://target4.html">链接 4</a></li>
-  </ul>
-样例2：
-内容列表在每个网页都有出现，在列表前加一个按钮来移除和添加按钮；
-   <script type="text/javascript">
+  </ul>```
+    样例2：
+    内容列表在每个网页都有出现，在列表前加一个按钮来移除和添加按钮；
+       <script type="text/javascript">
   function toggle(id){
     var n = document.getElementById(id);
     n.style.display =  (n.style.display != 'none' ? 'none' : '' );
