@@ -789,12 +789,13 @@ $(document).ready(function(e) {
 
 样例4：
 使用aria-describedby属性为表单区域连接提示
-role="tooltip"表示提示文本
+```role="tooltip"```表示提示文本
 aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可见)，false表示元素可见。
 关键代码：
+```
 <input 此处省略部分代码
       aria-describedby="tp1"
-      aria-required="false"/>
+      aria-required="false"/>```
 全部代码：
 ```
 <html lang="en-us">
@@ -824,9 +825,10 @@ aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可�
       aria-required="false"/>
 <div id="tp1" role="tooltip" aria-hidden="true">你的名字可选. </div>
 </div>```
-(2)使用aria-labelledby连接一个标签和多个文本节点，应用与输入控件，aria-labelledby可以被用于label本地输入和非本地输入，例如contenteditable="true"的自定义输入控件div;aria-labelledby的一个特殊使用是文本输入控件，当一个有意义的标签应该包含多个label；id顺序应该是有逻辑的能被读屏软件读取的顺序；
-样例1：
-一个连接超时输入字段标签；
+    (2)使用aria-labelledby连接一个标签和多个文本节点，应用与输入控件，aria-labelledby可以被用于label本地输入和非本地输入，例如contenteditable="true"的自定义输入控件div;aria-labelledby的一个特殊使用是文本输入控件，当一个有意义的标签应该包含多个label；id顺序应该是有逻辑的能被读屏软件读取的顺序；
+    样例1：
+    一个连接超时输入字段标签；
+```
 <form>
 <p>
 <span id="timeout-label" tabindex="-1">
@@ -838,13 +840,15 @@ aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可�
 timeout-unit是个span元素的id；
 <span id="timeout-unit" tabindex="-1"> 分钟</span>
 </p>
-</form>
+</form>```
 
-样例2：
-文本输入的简单数据表格；
-关键代码：
-<td><input type="text" size="20" aria-labelledby="tpayer gross"/></td>
-全部代码：
+    样例2：
+    文本输入的简单数据表格；
+    关键代码：
+```
+<td><input type="text" size="20" aria-labelledby="tpayer gross"/></td>```
+    全部代码：
+```
 <table>
 <tr>
 <td></td>
@@ -862,13 +866,13 @@ timeout-unit是个span元素的id；
 <td><input type="text" size="20" aria-labelledby="sp div" /></td>
 </tr>
 </table>
-
-样例3：
-会议工作坊预订表；
-关键代码：
-<p><input type="checkbox" id="TM1" aria-labelledby="title-TM1 track1 am1 TM1-att">
-<label id="TM1-att" for="TM1">参加</label></p>
-全部代码：
+```
+    样例3：
+    会议工作坊预订表；
+    关键代码：
+```<p><input type="checkbox" id="TM1" aria-labelledby="title-TM1 track1 am1 TM1-att">
+<label id="TM1-att" for="TM1">参加</label></p>```
+    全部代码：
 <h1>恐龙研讨会的时间表星期四，14。星期五，15。月2013</h1>
 <table>
 <caption>恐龙会议研讨会预订表</caption>
