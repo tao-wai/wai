@@ -261,24 +261,24 @@ public void onTextChanged(String before, String after) {
     onPopulateAccessibilityEvent() 
     (API级别14)此方法设置视图的AccessibilityEvent语言输出文本。当一个视图的子视图也生成一个可访问性的事件时，这个方法也会被调用。
 
-注意:在该方法中修改文本之外的附加属性可能会以其他方式覆盖文本属性的设置。所以，虽然你可以使用此方法修改无障碍事件的属性，但您应该只限制更文本内容，仅使用由onInitializeAccessibilityEvent()方法来修改事件的其他属性。
-注意:如果要求实现事件完全覆盖输出文本，却不允许其他部件的布局来修改其内容，那么就不要在你的代码中调用该方法的超类方法来。 
+    注意:在该方法中修改文本之外的附加属性可能会以其他方式覆盖文本属性的设置。所以，虽然你可以使用此方法修改无障碍事件的属性，但您应该只限制更文本内容，仅使用由onInitializeAccessibilityEvent()方法来修改事件的其他属性。
+    注意:如果要求实现事件完全覆盖输出文本，却不允许其他部件的布局来修改其内容，那么就不要在你的代码中调用该方法的超类方法来。 
 
-onInitializeAccessibilityEvent() 
-(API级别14)系统调用这个方法来获取视图状态的额外信息，除了文本内容。如果您的自定义视图通过一个简单的文本框或按钮提供互动控制，您应该覆盖这个方法和使用这个方法设置视图的额外信息，如提供用户交互或反馈的口令字段类型，复选框类型或声明。如果你覆盖这个方法，您必须调用它的超类实现方法，然后只修改那些超类尚未设置的属性。 
-onInitializeAccessibilityNodeInfo() 
-(API级别14)这个方法来提供带有视图状态信息的无障碍服务。默认的视图实现集和一组标准的视图属性，但是如果您的自定义视图由一个简单的文本框或按钮来提供了互动的控制，您应该重写这个方法和由该方法设置你的视图额外的信息到的AccessibilityNodeInfo对象中。 
-onRequestSendAccessibilityEvent()
- (API级别14)当一个视图的子视图生成AccessibilityEvent时系统调用这个方法。这个步骤允许父视图修改可访问性的事件和其他信息。只是如果您的自定义视图有子视图和如果父视图可提供上下文信息到可访问性的事件那么你应该实现这个方法,这样做的可访问性服务就很有用的。 
-为了在一个自定义视图中支持这些易访问性方法，您应该采取下列的一种方法： 
-如果你的应用程序目标安卓4.0(API级别14)或更高的系统中，就直接在您的自定义视图类中重写并实现上面列出的可访问性方法。 
-如果您的自定义视图为了兼容安卓1.6(API级别4)及以上，在项目中添加Android支持库，版本5或更高。然后，在您的自定义视图类，调用android.support.v4.view.AccessibilityDelegateCompat) ViewCompat.setAccessibilityDelegate()方法来实现可访问性上面的方法。对于这种方法的一个示例，请参阅Android支持库(版本5或更高)AccessibilityDelegateSupportActivity例子在(<sdk>/extras/android/support/v4/samples/Support4Demos/)。
-在任何一种情况下，为自定义视图，应该实现下面的可访问性方法： 
-dispatchPopulateAccessibilityEvent() 
-onPopulateAccessibilityEvent() 
-onInitializeAccessibilityEvent() 
-onInitializeAccessibilityNodeInfo() 
-更多信息实现这些方法，请参阅 Populating Accessibility Events。 
+    onInitializeAccessibilityEvent() 
+    (API级别14)系统调用这个方法来获取视图状态的额外信息，除了文本内容。如果您的自定义视图通过一个简单的文本框或按钮提供互动控制，您应该覆盖这个方法和使用这个方法设置视图的额外信息，如提供用户交互或反馈的口令字段类型，复选框类型或声明。如果你覆盖这个方法，您必须调用它的超类实现方法，然后只修改那些超类尚未设置的属性。 
+    onInitializeAccessibilityNodeInfo() 
+    (API级别14)这个方法来提供带有视图状态信息的无障碍服务。默认的视图实现集和一组标准的视图属性，但是如果您的自定义视图由一个简单的文本框或按钮来提供了互动的控制，您应该重写这个方法和由该方法设置你的视图额外的信息到的AccessibilityNodeInfo对象中。 
+    onRequestSendAccessibilityEvent()
+     (API级别14)当一个视图的子视图生成AccessibilityEvent时系统调用这个方法。这个步骤允许父视图修改可访问性的事件和其他信息。只是如果您的自定义视图有子视图和如果父视图可提供上下文信息到可访问性的事件那么你应该实现这个方法,这样做的可访问性服务就很有用的。 
+    为了在一个自定义视图中支持这些易访问性方法，您应该采取下列的一种方法： 
+    如果你的应用程序目标安卓4.0(API级别14)或更高的系统中，就直接在您的自定义视图类中重写并实现上面列出的可访问性方法。 
+    如果您的自定义视图为了兼容安卓1.6(API级别4)及以上，在项目中添加Android支持库，版本5或更高。然后，在您的自定义视图类，调用android.support.v4.view.AccessibilityDelegateCompat) ViewCompat.setAccessibilityDelegate()方法来实现可访问性上面的方法。对于这种方法的一个示例，请参阅Android支持库(版本5或更高)AccessibilityDelegateSupportActivity例子在(<sdk>/extras/android/support/v4/samples/Support4Demos/)。
+    在任何一种情况下，为自定义视图，应该实现下面的可访问性方法： 
+    dispatchPopulateAccessibilityEvent() 
+    onPopulateAccessibilityEvent() 
+    onInitializeAccessibilityEvent() 
+    onInitializeAccessibilityNodeInfo() 
+    更多信息实现这些方法，请参阅 Populating Accessibility Events。 
 6.3.3发送无障碍事件
 根据自定义视图的特性，它可能在不同时间或事件需要发送AccessibilityEvent对象，而不是由默认来实现。视图类提供了一个默认方法来实现这些事件类型：
  高于API4：
