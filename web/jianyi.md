@@ -408,12 +408,22 @@ href="http://www.siaa.org.cn/" target="_blank">
 </p>
 </body>
 </html>```
-3.5输入：改变任何用户界面组件的设置不会自动导致上下文的变化，除非在使用组件之前用户被告知了此行为会导致变化
-3.5.1提供一个提交按钮来确认上下文的改变
-样例1：提交按钮用在每一个引起上下文变化的表单中；
-3.5.2提供一个submit按钮
-提交按钮产生一个http请求，适合用来作为引起上下文改变的控件；
-样例1：submit基本样例
+
+## 3.5输入：改变任何用户界面组件的设置不会自动导致上下文的变化，除非在使用组件之前用户被告知了此行为会导致变化
+
+
+
+### 3.5.1提供一个提交按钮来确认上下文的改变
+
+
+    样例1：提交按钮用在每一个引起上下文变化的表单中；
+
+### 3.5.2提供一个submit按钮
+
+
+    提交按钮产生一个http请求，适合用来作为引起上下文改变的控件；
+    样例1：submit基本样例
+```
 <form action="http://www.example.com/cgi/subscribe/" method="post">
 <br /> 
 <p>请输入你的邮件</p>
@@ -421,8 +431,8 @@ href="http://www.siaa.org.cn/" target="_blank">
 <label for="address">输入邮件地址</label>
 <input type="text" id="address" name="address" /> 
 <input type="submit" value="Subscribe" /><br /> 
-</form>       
-样例2：服务器端脚本
+</form>  ```     
+    样例2：服务器端脚本
 <form action="http://www.example.com/cgi/redirect/" method="get"><br/> 
 <p>网页导航</p><br /> 
     <select name="dest"><br /> 
