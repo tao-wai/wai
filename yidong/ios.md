@@ -636,48 +636,53 @@
     声明：
     @property(nonatomic, assign) CGRect accessibilityFrame
 
-accessibilityTraits：
-属性，最能描述无障碍元素的特性组合。一个trait描述了一个元素行为、状态、使用中的一个方面。这个属性将几个trait组合，给辅助应用关于该元素一个全面的描述。可查看UIAccessibility Protocol Reference中“Accessibility Traits”的traits列表。
-UIKit为所有标准控件和视图，提供合适的trait组合。当为一个自定义无障碍元素组合特性时，要保证：
-使用常识。如果描述元素的特性是相互排斥的，不要组合特性，比如将按钮和搜索区域的特性组合。
-使用superclass特性组合已选择的特性。具体的说，使用[super accessibilityTraits]和用来设置自定义特性的方法组合自定义特性。
-声明：
-@property(nonatomic, assign) UIAccessibilityTraits accessibilityTraits
+    accessibilityTraits：
+    属性，最能描述无障碍元素的特性组合。一个trait描述了一个元素行为、状态、使用中的一个方面。这个属性将几个trait组合，给辅助应用关于该元素一个全面的描述。可查看UIAccessibility Protocol Reference中“Accessibility Traits”的traits列表。
+    UIKit为所有标准控件和视图，提供合适的trait组合。当为一个自定义无障碍元素组合特性时，要保证：
+    使用常识。如果描述元素的特性是相互排斥的，不要组合特性，比如将按钮和搜索区域的特性组合。
+    使用superclass特性组合已选择的特性。具体的说，使用[super accessibilityTraits]和用来设置自定义特性的方法组合自定义特性。
+    声明：
+    @property(nonatomic, assign) UIAccessibilityTraits accessibilityTraits
 
-5.UI无障碍容器（UIAccessibilityContainer）
-文档参考来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibilityContainer_Protocol/#//apple_ref/occ/instp/NSObject/accessibilityElements
-UIAccessibilityContainer非正式协议为UIView子类提供一个方式，将已选择的无障碍元素作为独立元素标记。例如，一个可能包含图标或者文本图片视图，对最终用户来说，出现和功能是作为一个独立条目的。但是因为这些元素不是作为UIView实例实现的，这些元素不会自动对残障用户无障碍。因此，此类容器视图应该实现UIAccessibilityContainer方法来提供这些元素的无障碍信息来帮助像voiceover这样的辅助应用。
-实现UIAccessibilityContainer非正式协议的视图使用UIAccessibilityElement方法initWithAccessibilityContainer：创建一个无障碍元素呈现每一个需要对残障用户无障碍的非视图元素。注意，但是，容器视图本身不是一个无障碍元素，因为用户不会与之交互。这一位置容器视图实现UIAccessibilityContainer必须将UIAccessibility 非正式协议的 isAccessibilityElement属性为NO。
-容器视图内无障碍元素的顺序应该与呈现给用户的顺序相同，从左到右，从上到下。
-5.1提供有关无障碍元素的信息
-- accessibilityElementCount
-返回容器内无障碍元素的数量。默认为0。
-声明：
-SWIFT
-func accessibilityElementCount() -> Int
-OBJECTIVE-C
-- (NSInteger)accessibilityElementCount
-版本信息：Available in iOS 3.0 and later.
+## 5.UI无障碍容器（UIAccessibilityContainer）
 
-- accessibilityElementAtIndex:
-按照特定索引返回无障碍信息，没有元素返回nil。
-声明：
-SWIFT
-func accessibilityElementAtIndex(_ index: Int) -> AnyObject?
-OBJECTIVE-C
-- (id _Nullable)accessibilityElementAtIndex:(NSInteger)index
-参数：index——无障碍元素的索引。
-版本：Available in iOS 3.0 and later.
 
-- indexOfAccessibilityElement:
-返回指定无障碍元素的索引，无元素返回NSNotFount。
-声明：
-SWIFT
-func indexOfAccessibilityElement(_ element: AnyObject) -> Int
-OBJECTIVE-C
-- (NSInteger)indexOfAccessibilityElement:(id _Nonnull)element
-参数：element——无障碍元素
-版本：Available in iOS 3.0 and later.
+    文档参考来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibilityContainer_Protocol/#//apple_ref/occ/instp/NSObject/accessibilityElements
+    UIAccessibilityContainer非正式协议为UIView子类提供一个方式，将已选择的无障碍元素作为独立元素标记。例如，一个可能包含图标或者文本图片视图，对最终用户来说，出现和功能是作为一个独立条目的。但是因为这些元素不是作为UIView实例实现的，这些元素不会自动对残障用户无障碍。因此，此类容器视图应该实现UIAccessibilityContainer方法来提供这些元素的无障碍信息来帮助像voiceover这样的辅助应用。
+    实现UIAccessibilityContainer非正式协议的视图使用UIAccessibilityElement方法initWithAccessibilityContainer：创建一个无障碍元素呈现每一个需要对残障用户无障碍的非视图元素。注意，但是，容器视图本身不是一个无障碍元素，因为用户不会与之交互。这一位置容器视图实现UIAccessibilityContainer必须将UIAccessibility 非正式协议的 isAccessibilityElement属性为NO。
+    容器视图内无障碍元素的顺序应该与呈现给用户的顺序相同，从左到右，从上到下。
+
+### 5.1提供有关无障碍元素的信息
+
+
+    - accessibilityElementCount
+    返回容器内无障碍元素的数量。默认为0。
+    声明：
+    SWIFT
+    func accessibilityElementCount() -> Int
+    OBJECTIVE-C
+    - (NSInteger)accessibilityElementCount
+    版本信息：Available in iOS 3.0 and later.
+    
+    - accessibilityElementAtIndex:
+    按照特定索引返回无障碍信息，没有元素返回nil。
+    声明：
+    SWIFT
+    func accessibilityElementAtIndex(_ index: Int) -> AnyObject?
+    OBJECTIVE-C
+    - (id _Nullable)accessibilityElementAtIndex:(NSInteger)index
+    参数：index——无障碍元素的索引。
+    版本：Available in iOS 3.0 and later.
+    
+    - indexOfAccessibilityElement:
+    返回指定无障碍元素的索引，无元素返回NSNotFount。
+    声明：
+    SWIFT
+    func indexOfAccessibilityElement(_ element: AnyObject) -> Int
+    OBJECTIVE-C
+    - (NSInteger)indexOfAccessibilityElement:(id _Nonnull)element
+    参数：element——无障碍元素
+    版本：Available in iOS 3.0 and later.
 
 accessibilityElements
 容器内无障碍元素的数组，默认值为nil。
