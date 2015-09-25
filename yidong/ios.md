@@ -738,7 +738,10 @@
     - (NSString * _Nullable)detailTextForGuidedAccessRestrictionWithIdentifier:(NSString * _Nonnull)restrictionIdentifier
     参数：restrictionIdentifier  系统感兴趣的限制标示符。
     版本：Available in iOS 7.0 and later.
-    6.2实现限制
+ 
+###    6.2实现限制
+
+
     - guidedAccessRestrictionWithIdentifier:didChangeState:      Required
     App需要更改自己的行为去允许和拒绝操作，是特定限制每一次接收到信息时特定限制的。
     声明：
@@ -752,29 +755,32 @@
     restrictionIdentifier	——限制标示符，状态会改变。
     newRestrictionState——限制的新状态。
     版本：Available in iOS 7.0 and later.
-6.3常量
-UIGuidedAccessRestrictionState
-限制的状态，允许或拒绝；
-声明：
-SWIFT
-enum UIGuidedAccessRestrictionState : Int {
-    case Allow
-    case Deny
-}
-OBJECTIVE-C
-typedef enum : NSInteger {
-   UIGuidedAccessRestrictionStateAllow,
-   UIGuidedAccessRestrictionStateDeny 
-} UIGuidedAccessRestrictionState;
-常量：
-UIGuidedAccessRestrictionStateAllow app  应该允许用户操作，这个操作是被限制控制的。Available in iOS 7.0 and later.
-UIGuidedAccessRestrictionStateDeny  应该拒绝用户操作，这个操作是被限制控制的。Available in iOS 7.0 and later.
-引入声明：
-OBJECTIVE-C
-@import UIKit;
-SWIFT
-import UIKit
-版本：Available in iOS 7.0 and later.
+
+### 6.3常量
+
+
+    UIGuidedAccessRestrictionState
+    限制的状态，允许或拒绝；
+    声明：
+    SWIFT
+    enum UIGuidedAccessRestrictionState : Int {
+        case Allow
+        case Deny
+    }
+    OBJECTIVE-C
+    typedef enum : NSInteger {
+       UIGuidedAccessRestrictionStateAllow,
+       UIGuidedAccessRestrictionStateDeny 
+    } UIGuidedAccessRestrictionState;
+    常量：
+    UIGuidedAccessRestrictionStateAllow app  应该允许用户操作，这个操作是被限制控制的。Available in iOS 7.0 and later.
+    UIGuidedAccessRestrictionStateDeny  应该拒绝用户操作，这个操作是被限制控制的。Available in iOS 7.0 and later.
+    引入声明：
+    OBJECTIVE-C
+    @import UIKit;
+    SWIFT
+    import UIKit
+    版本：Available in iOS 7.0 and later.
  
 
 7.IOS默认无障碍属性信息
