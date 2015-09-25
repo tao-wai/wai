@@ -172,8 +172,8 @@ CSS代码:
 <div id="rightnav" role="navigation" aria-labelledby="rightnavheading">
 <h2 id="rightnavheading">有关的题目</h2>
 <ul><li>这里有一堆信息无障碍相关链接</li></ul></div>```
-样例3：
-同一role值的路标，没有可以区分的文本，使用aria-label来区分；
+    样例3：
+    同一role值的路标，没有可以区分的文本，使用aria-label来区分；
 <div id="leftnav" role="navigaton" aria-label="Primary">
 <ul><li>这里有一堆信息无障碍相关链接 </li></ul> </div>
 <div id="rightnav" role="navigation" aria-label="Secondary">
