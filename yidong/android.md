@@ -279,21 +279,25 @@ public void onTextChanged(String before, String after) {
     onInitializeAccessibilityEvent() 
     onInitializeAccessibilityNodeInfo() 
     更多信息实现这些方法，请参阅 Populating Accessibility Events。 
-6.3.3发送无障碍事件
-根据自定义视图的特性，它可能在不同时间或事件需要发送AccessibilityEvent对象，而不是由默认来实现。视图类提供了一个默认方法来实现这些事件类型：
- 高于API4：
-TYPE_VIEW_CLICKED 
-TYPE_VIEW_LONG_CLICKED 
-TYPE_VIEW_FOCUSED 
 
-高于API4： 
-TYPE_VIEW_SCROLLED 
-TYPE_VIEW_HOVER_ENTER 
-TYPE_VIEW_HOVER_EXIT 
+### 6.3.3发送无障碍事件
 
-注意:Hover事件与通过触摸功能的探索关联，利用这些事件作为触发器伟输入用户界面元素提供声音提示。 
-一般来说，当自定义视图的内容有变化时，应该发送一个AccessibilityEvent事件。例如,如果您正在实现一个自定义的滑动条，可以让用户选择一个数字值按下左边或者右边的箭头，这时您的自定义视图应该发出一个TYPE VIEW TEXT CHANGED类型的事件来查看滑块值是否发生变化。下面的示例代码演示了使用sendAccessibilityEvent()方法来说明这个事件：
+
+    根据自定义视图的特性，它可能在不同时间或事件需要发送AccessibilityEvent对象，而不是由默认来实现。视图类提供了一个默认方法来实现这些事件类型：
+     高于API4：
+    TYPE_VIEW_CLICKED 
+    TYPE_VIEW_LONG_CLICKED 
+    TYPE_VIEW_FOCUSED 
+    
+    高于API4： 
+    TYPE_VIEW_SCROLLED 
+    TYPE_VIEW_HOVER_ENTER 
+    TYPE_VIEW_HOVER_EXIT 
+
+    注意:Hover事件与通过触摸功能的探索关联，利用这些事件作为触发器伟输入用户界面元素提供声音提示。 
+    一般来说，当自定义视图的内容有变化时，应该发送一个AccessibilityEvent事件。例如,如果您正在实现一个自定义的滑动条，可以让用户选择一个数字值按下左边或者右边的箭头，这时您的自定义视图应该发出一个TYPE VIEW TEXT CHANGED类型的事件来查看滑块值是否发生变化。下面的示例代码演示了使用sendAccessibilityEvent()方法来说明这个事件：
  
+```
 @Override
 public boolean onKeyUp (int keyCode, KeyEvent event) {
     if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
@@ -302,7 +306,7 @@ public boolean onKeyUp (int keyCode, KeyEvent event) {
         return true;
     }
     ...
-} 
+} ```
 6.3.4填充无障碍事件
 每个AccessibilityEvent有一组必需的属性用来描述当前视图的状态。这些属性包括诸如视图类名称、内容描述和检查状态。对于每个事件类型的特定的性能要求，都在AccessibilityEvent参考文档中进行了描述。视图实现提供了这些属性的默认值。在这些属性值中，包括自动提供的类名和事件时间戳。如果正在创建一个自定义视图组件，必须提供一些视图的信息内容和特点。这些信息可能是简单的按钮标签，而且也包含想要添加到事件的额外状态信息。
 为一个带自定义视图的无障碍服务提供信息的最低要求是实现dispatchPopulateAccessibilityEvent()方法。系统为一个AccessibilityEvent调用这个方法来请求信息，使您的自定义视图兼容Android 1.6系统(API级别4)和更高的可访问性服务。下面的示例代码展示了该方法的一个基本的实现。
