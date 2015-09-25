@@ -285,9 +285,9 @@ CSS代码:
     <a href="banner-ad.html">广告</a>
 </iframe>
 </html>  ```
-3.3.7使用展开和折叠菜单绕过内容块：使用可展开折叠菜单来跳过重复的内容
-样例1：
-使用html、css、JS脚本在网页顶部添加一个折叠菜单：
+    3.3.7使用展开和折叠菜单绕过内容块：使用可展开折叠菜单来跳过重复的内容
+    样例1：
+    使用html、css、JS脚本在网页顶部添加一个折叠菜单：
   <script type="text/javascript">
   function toggle(id){
     var n = document.getElementById(id);//获得固定id值的元素，赋给n；
