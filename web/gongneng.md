@@ -510,42 +510,60 @@ helper.stopEvent(evt); //stop the event if not a tab keypress
     【可能原因】
     造成不同步的主要问题是html代码顺序问题，屏幕阅读器是按照代码顺序来截取信息，造成与视觉不匹配，例如，一个搜索框后面应该跟着是搜索按钮，如果先写了搜索按钮，在写编辑框，利用CSS把搜索按钮移动到编辑框右侧，这种情况，屏幕阅读器依然按照代码书写顺序获取，导致视觉与方向键访问的顺序不一致性。
     【修改建议】
-2.4.2必填区域不可获得
-【问题描述】
-用键盘操作，焦点进入表单，没有一种方式提醒屏幕阅读器用户，哪些信息是必填项目；
-【可能原因】
-必填项目的编辑框，没有添加（aria-required ="true"）；
-【修改建议】
-2.4.3错误提示无法访问
-【问题描述】
-某些表单信息是否填写正确均为一个图片，屏幕阅读器用户无法获知图片的含义；
-【可能原因】
-错误信息没有焦点，或错误信息为图片，例如图片显示的是一个“叉叉”或是一个“勾勾”；
-【修改建议】
-2.4.4Tab逻辑顺序有问题
-【问题描述】
-按TAB键移动焦点访问的顺序，与视觉顺序不一致，例如：验证码编辑框后面不是验证码图片或不是验证码换一张的链接。
-【可能原因】
-某些表单内元素使用了tabindex来干扰访问顺序；
-【修改建议】
 
-参考资料
-1.如果输入错误能够被自动发现，错误类型应能被标识，并且用文本描述给用户
-(1)提供给用户文本描述来确认必填却没有完成的部分；
-1)当用户试图去提交一个表单，忽略几个输入或者选择项，使用客户端验证检测弹出一个警告哪些部分没有完成，这些有完成部分的label标签突出显示，方便用户查看填写。
-2)当用户试图去提交一个表单，忽略几个输入或者选择项，使用客户端验证检测，表单和文本描述信息在页面顶端显示，每一个忽略的区域的label信息需要突出显示，用户不需要去重新查找。
-3)如果一个表单里面包含强制性的区域，如果忽略，报错。必填类。
-(2)使用Aria-Invalid来特使错误区域
-适用于错误描述不需要编程式确定错误区域；错误区域的显示不能被某些用户获得，例如使用错误图标或者渲染颜色来告知用户错误，不依靠颜色和视觉的用户无法获得错误信息；开发者通常喜欢编程式的将错误描述和错误区域联系在一起，但有时候会因为框架的设计不允许这样做。在这些情况下，开发者可以编程式的将aria-invalid设置为true，在非法输入的区域。这被辅助技术所喜欢，如读屏软件和屏幕放大器。当一个区域的有aria-invalid且被设置为真，当获得焦点时，voiceover会读“无效数据”，JAWS和NVDA会指明错误为“无效输入”；ARIA属性必须编程式设置，提交前不应该将ARIA-Invalid设置为true，，设置为false相当于没设置该属性。当编程式确定可见文本来确认错误区域，或者传达其他错误信息的时候，可以不将ARIA-Invalid设置为true，但是设置了还是会为用户提供有效信息。
-样例1：
-ARIA-Invalid使用在必填区域却没有输入的情况下。当表单需要传达信息提交按钮需要做到以下：（是JQUERY程序和html表单）
-关键代码：
+### 2.4.2必填区域不可获得
+
+    
+    【问题描述】
+    用键盘操作，焦点进入表单，没有一种方式提醒屏幕阅读器用户，哪些信息是必填项目；
+    【可能原因】
+    必填项目的编辑框，没有添加（aria-required ="true"）；
+    【修改建议】
+
+### 2.4.3错误提示无法访问
+
+
+    【问题描述】
+    某些表单信息是否填写正确均为一个图片，屏幕阅读器用户无法获知图片的含义；
+    【可能原因】
+    错误信息没有焦点，或错误信息为图片，例如图片显示的是一个“叉叉”或是一个“勾勾”；
+    【修改建议】
+
+### 2.4.4Tab逻辑顺序有问题
+
+
+    【问题描述】
+    按TAB键移动焦点访问的顺序，与视觉顺序不一致，例如：验证码编辑框后面不是验证码图片或不是验证码换一张的链接。
+    【可能原因】
+    某些表单内元素使用了tabindex来干扰访问顺序；
+    【修改建议】
+
+
+## 参考资料
+
+
+
+### 1.如果输入错误能够被自动发现，错误类型应能被标识，并且用文本描述给用户
+
+
+    (1)提供给用户文本描述来确认必填却没有完成的部分；
+    1)当用户试图去提交一个表单，忽略几个输入或者选择项，使用客户端验证检测弹出一个警告哪些部分没有完成，这些有完成部分的label标签突出显示，方便用户查看填写。
+    2)当用户试图去提交一个表单，忽略几个输入或者选择项，使用客户端验证检测，表单和文本描述信息在页面顶端显示，每一个忽略的区域的label信息需要突出显示，用户不需要去重新查找。
+    3)如果一个表单里面包含强制性的区域，如果忽略，报错。必填类。
+    (2)使用Aria-Invalid来特使错误区域
+    适用于错误描述不需要编程式确定错误区域；错误区域的显示不能被某些用户获得，例如使用错误图标或者渲染颜色来告知用户错误，不依靠颜色和视觉的用户无法获得错误信息；开发者通常喜欢编程式的将错误描述和错误区域联系在一起，但有时候会因为框架的设计不允许这样做。在这些情况下，开发者可以编程式的将aria-invalid设置为true，在非法输入的区域。这被辅助技术所喜欢，如读屏软件和屏幕放大器。当一个区域的有aria-invalid且被设置为真，当获得焦点时，voiceover会读“无效数据”，JAWS和NVDA会指明错误为“无效输入”；ARIA属性必须编程式设置，提交前不应该将ARIA-Invalid设置为true，，设置为false相当于没设置该属性。当编程式确定可见文本来确认错误区域，或者传达其他错误信息的时候，可以不将ARIA-Invalid设置为true，但是设置了还是会为用户提供有效信息。
+    样例1：
+    ARIA-Invalid使用在必填区域却没有输入的情况下。当表单需要传达信息提交按钮需要做到以下：（是JQUERY程序和html表单）
+    关键代码：
+```
 if ($('#first').val() === '') //如果fisrt的值为空
 { 
 $('#first').attr("aria-invalid", "true"); //将first的aria-invalid设置为真；
 $("label[for='first']").addClass('failed'); //first的label添加failed样式；
-} 
-全部代码：
+} ```
+    全部代码：
+
+```
 <code> <script> ... ... 
 if ($('#first').val() === '') //如果fisrt的值为空
 { 
@@ -585,26 +603,28 @@ label.failed { border: red thin solid; } //failed样式；
 <p> 
 <input type="submit" name="button" id="button" value="提交"> 
 </p> 
-</form> </code>
-样例2：确定数据格式错误
-在确认用户身份证号码、邮件地址、开始结束日期的格式错误的时候，Aria-invalid和aria-describedby是合起来用的。错误信息需要使用aria-describedby与区域联系起来，aria-invalid将使错误区域更易编程式获得。
-当无效的邮件地址输入时，没有@，html代码为：
+</form> </code>```
+    样例2：确定数据格式错误
+    在确认用户身份证号码、邮件地址、开始结束日期的格式错误的时候，Aria-invalid和aria-describedby是合起来用的。错误信息需要使用aria-describedby与区域联系起来，aria-invalid将使错误区域更易编程式获得。
+    当无效的邮件地址输入时，没有@，html代码为：
+```
 <div class="control"> 
 <p>
 <label for="email">邮件地址: [*]</label> 
 <input type="text" name="email" id="email" class="error" aria-invalid="true" aria-describedBy="err_1" />
 </p> 
 <span class="errtext" id="err_1">错误：错误输入</span>
-</div>
-当没有数据输入是，html代码为：
+</div>```
+    当没有数据输入是，html代码为：
+```
 <div class="control"> 
 <p>
 <label for="email">邮件地址: [*]</label> 
 <input type="text" name="email" id="email" class="error" aria-invalid="true" aria-describedby="err_2" />
 </p> 
-<span class="errtext" id="err_2">错误：数据为空</span> </div>
-JQUERY代码：JQUERY用来添加aria-invalid或者aria-describedby属性作为class属性和添加错误文本，这是一段将代码，用来插入aria-invalid和error class，但是没有将错误信息与控件编程式联系起来：
-$(errFld).attr("aria-invalid", "true").attr("class", "error");//将errFld的aria-invalid设置为true，class设置为error
+<span class="errtext" id="err_2">错误：数据为空</span> </div>```
+    JQUERY代码：JQUERY用来添加aria-invalid或者aria-describedby属性作为class属性和添加错误文本，这是一段将代码，用来插入aria-invalid和error class，但是没有将错误信息与控件编程式联系起来：
+```$(errFld).attr("aria-invalid", "true").attr("class", "error");//将errFld的aria-invalid设置为true，class设置为error
 // Suffix error text: $(errFld).parent().append('<span class="errtext">Error: Incorrect data</span>');
 CSS代码为：
 input.error { border: red thin solid;} 
@@ -615,23 +635,25 @@ border: red thin solid;
 background-color: #EEEEFF; 
 background-image:url('images/iconError.gif'); 
 background-repeat:no-repeat; background-position:right;	 
-}
-(3)提供客户端验证与警报
-此技巧用来在客户端验证用户输入数据的正确性，通过客户端脚本。如果找到错误，警告窗口会弹出，告知用户错误的地方，一旦用户关闭警告窗口，使用JS将焦点定位到错误区域。
-样例1：
-使用事件处理器来检查单独的控件：
+}```
+    (3)提供客户端验证与警报
+    此技巧用来在客户端验证用户输入数据的正确性，通过客户端脚本。如果找到错误，警告窗口会弹出，告知用户错误的地方，一旦用户关闭警告窗口，使用JS将焦点定位到错误区域。
+    样例1：
+    使用事件处理器来检查单独的控件：
+```
 <label for="date">日期:</label>
 <input type="text" name="date" id="date" 
 onchange="if(isNaN(Date.parse(this.value))) 
 alert('这不是一个有效的数据. 请重新输入.');" />
-//onchange用来检查数据格式；
+//onchange用来检查数据格式；```
 
-样例2：
-当用户提交表单时检查多个控件；
-下面的例子展示了一个表单的多个控件，表单控件使用onsubmit属性来执行检查脚本当用户提交表单的时候。如果检查成功，将会返回true，且表单继续提交，如果发现错误，将会显示出错误信息，返回false来取消提交，让用户修改错误；
-
-注：这个例子为了简化，只展示了警告。更加有用的告知应该是错误控件高亮，将错误信息添加到网页，还有告知怎样导航到错误区域；这个例子使用onsubmit属性来检查，正常的情况是创建一个submit事件监听器当网页被加载时；
-脚本代码：
+    样例2：
+    当用户提交表单时检查多个控件；
+    下面的例子展示了一个表单的多个控件，表单控件使用onsubmit属性来执行检查脚本当用户提交表单的时候。如果检查成功，将会返回true，且表单继续提交，如果发现错误，将会显示出错误信息，返回false来取消提交，让用户修改错误；
+    
+    注：这个例子为了简化，只展示了警告。更加有用的告知应该是错误控件高亮，将错误信息添加到网页，还有告知怎样导航到错误区域；这个例子使用onsubmit属性来检查，正常的情况是创建一个submit事件监听器当网页被加载时；
+    脚本代码：
+```
 function validate() {
 	// 定义错误信息
 	var msg = "";
@@ -650,8 +672,9 @@ function validate() {
 		alert(msg);
 		return false;
 	} else return true;
-}
+}```
 html代码：
+```
 <form action="multiple-controls.html" onsubmit="return validate()">
 	<p>
 		<label for="name">名字: </label>
@@ -664,27 +687,30 @@ html代码：
 	<p>
 		<input type="submit" />
 	</p>
-</form>
-（4）使用aria-alertdialog确认错误
-使用role="alertdialog"来创建一个通知，这个通知应该与以下行为联合使用：aria-label或aria-labelledby属性应该给alertdialog一个无障碍的名字；aria-labelledby为警告的文本提供一个参考；alertdialog包含至少一个焦点，当alertdialog被打开时应该自动获得焦点；tab顺序应该限制在alertdialog内，当alertdialog打开时；将窗口关闭时，如果可能的话应该返回原位置；
-注意：alertdialog应该不被辅助技术识别，除非它被需要。需要做的是不要在静态html中包含alertdialog，而是将它通过脚本插入到DOM中，当错误信息被触发的时候。
-
-样例1：弹出窗口
+</form>```
+    （4）使用aria-alertdialog确认错误
+    使用role="alertdialog"来创建一个通知，这个通知应该与以下行为联合使用：aria-label或aria-labelledby属性应该给alertdialog一个无障碍的名字；aria-labelledby为警告的文本提供一个参考；alertdialog包含至少一个焦点，当alertdialog被打开时应该自动获得焦点；tab顺序应该限制在alertdialog内，当alertdialog打开时；将窗口关闭时，如果可能的话应该返回原位置；
+    注意：alertdialog应该不被辅助技术识别，除非它被需要。需要做的是不要在静态html中包含alertdialog，而是将它通过脚本插入到DOM中，当错误信息被触发的时候。
+    
+    样例1：弹出窗口
+```
 <div role="alertdialog" aria-labelledby="alertHeading" aria-describedby="alertText">
 <h1 id="alertHeading">错误</h1>
 <div id="alertText">员工的出生日期是他们雇佣日期之后。出生日期请核实和聘请日期。</div>
 <button>保存继续</button>
 <button>返回修改错误</button>
-</div>
-（5）使用ARIA role=alert或者即时区来显示错误
-这个技巧的目的是当错误输入发生时，辅助技术可以识别。aria-live属性使辅助技术可以被告知当即时区域容器有错误信息注入时。aria-live区域的内容将会被辅助技术自动阅读，而不是需要将文本放在焦点区域；
-样例1:
-将错误信息注入到含有role=alert且已经在DOM中显示的容器中。
-这个例子中role=alert相当于aria-live=assertive
-关键代码：
+</div>```
+    （5）使用ARIA role=alert或者即时区来显示错误
+    这个技巧的目的是当错误输入发生时，辅助技术可以识别。aria-live属性使辅助技术可以被告知当即时区域容器有错误信息注入时。aria-live区域的内容将会被辅助技术自动阅读，而不是需要将文本放在焦点区域；
+    样例1:
+    将错误信息注入到含有role=alert且已经在DOM中显示的容器中。
+    这个例子中role=alert相当于aria-live=assertive
+    关键代码：
+```
 $(document).ready(function(e) {
-	$('#signup').submit(function() {此处省略
-全部代码：
+	$('#signup').submit(function() {此处省略```
+    全部代码：
+```
 <script src="http://code.jquery.com/jquery.js"></script>
 <script>
 $(document).ready(function(e) {
@@ -720,15 +746,15 @@ $(document).ready(function(e) {
   <p>
     <input type="submit" name="button" id="button" value="Submit">
   </p>
-</form>
-(6)当用户用户提供的信息不在允许的列表值里面，提供一个文本描述。当输入值必须是合法的预设值里面的一个，文本描述应该告知用户，预设值列表应尽可能包含所有可能的值，或者建议输入的值应该与合法值非常类似；
-样例1：
-当用户输入非法值时，在用户提交表单之前，警告窗口应该出现并描述错误以便用户修改；
-样例2：
-用户输入非法值且提交了表单，服务器返回了表单，用户输入的数据依然存在，在网页顶部给出输入错误描述。文本描述错误的本质，而且容易导航到问题区域。
-(7)当用户输入错误格式和错误值时，需要提供一个说明；需要做到以下几个方面来帮助用户：为输入提供正确的范例；描述正确的输入；给出用户输入数据的正确格式，指导用户怎样输入这些正确的值；
-样例1：
-当用户注册邮箱的时候，用户输入的邮箱账号已经被注册，给出几个基于用户输入账号合法且未注册的候选账号；
+</form>```
+    (6)当用户用户提供的信息不在允许的列表值里面，提供一个文本描述。当输入值必须是合法的预设值里面的一个，文本描述应该告知用户，预设值列表应尽可能包含所有可能的值，或者建议输入的值应该与合法值非常类似；
+    样例1：
+    当用户输入非法值时，在用户提交表单之前，警告窗口应该出现并描述错误以便用户修改；
+    样例2：
+    用户输入非法值且提交了表单，服务器返回了表单，用户输入的数据依然存在，在网页顶部给出输入错误描述。文本描述错误的本质，而且容易导航到问题区域。
+    (7)当用户输入错误格式和错误值时，需要提供一个说明；需要做到以下几个方面来帮助用户：为输入提供正确的范例；描述正确的输入；给出用户输入数据的正确格式，指导用户怎样输入这些正确的值；
+    样例1：
+    当用户注册邮箱的时候，用户输入的邮箱账号已经被注册，给出几个基于用户输入账号合法且未注册的候选账号；
 
 2.当需要用户输入内容时，要给出标签或说明
 为交互组件提交必要的目的说明，说明信息输入的必要性；
