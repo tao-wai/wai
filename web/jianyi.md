@@ -878,6 +878,7 @@ role="group"表示组合并
 样例1：切换按钮
 有role的值为button为小程序当有aira-pressed属性的时候可以作为切换按钮。当aria-pressed为真时，按钮在按下的状态。当aria-pressed为假时，未被按下。如果aria-pressed不存在时，按钮只是个简单的控制按钮。
 全部代码：
+```
 <li id="bold1"  
     class="toggleButton"
     role="button"
@@ -886,8 +887,9 @@ role="group"表示组合并
     aria-labelledby="bold_label"
     aria-controls="text1">//此时列表只是个控制按钮
     <img src="http://www.oaa-accessibility.org/media/examples/images/button-bold.png" alt="bold text" align="middle">
-</li>
-脚本程序：用来切换aria-pressed的true和false的状态；
+</li>```
+    脚本程序：用来切换aria-pressed的true和false的状态；
+```
 function togglePressed(id) {
     // reverse the aria-pressed state
     if ($(id).attr('aria-pressed') == 'true') {
@@ -896,10 +898,11 @@ function togglePressed(id) {
     else {
       $(id).attr('aria-pressed', 'true');
     }
-  }
-样例2：滑块
-一个role为slider的小程序，允许用户在一个规定范围内选择一个值。滑块通过滑块的大小和位置来呈现的当前值和范围。这些滑块的属性通过aria-valuemin、aria-valuemax、aria-valuenow来呈现；
-以下为ajax无障碍样例，展示了使用js创建滑块。
+  }```
+    样例2：滑块
+    一个role为slider的小程序，允许用户在一个规定范围内选择一个值。滑块通过滑块的大小和位置来呈现的当前值和范围。这些滑块的属性通过aria-valuemin、aria-valuemax、aria-valuenow来呈现；
+    以下为ajax无障碍样例，展示了使用js创建滑块。
+```
 var handle = '<img 
 id="' + id + '" 
 class="' + (this.vert == true ? 'v':'h') +'sliderHandle"+'src="http://www.oaa-accessibility.org/media/examples/images/slider_' + (this.vert == true ? 'v':'h') + '.png" ' + 'role="slider"' +'aria-valuemin="' + this.min +'" 'aria-valuemax="' + this.max +'" 
@@ -914,3 +917,4 @@ slider.prototype.positionHandle = function($handle, val) {
   $handle.attr('aria-valuenow', val);
    此处省略部分代码
   }
+```
