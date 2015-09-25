@@ -1045,6 +1045,7 @@ UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, nil);
     如果单元格包含许多块信息，那应该把这些信息都组合到一个标签属性中，这样VoiceOver用户可以用一个手势获取所有信息。
     一个很好的例子就是内置的股票应用。它并没有用单独的字符串来提供公司名、当前股票价格和价格波动，而是组合到一个标签中，听起来类似“苹果公司，432.39美元，涨幅1.3%”。注意标签中的逗号，当你结合多个片段的时候，可以使用逗号，这样VoiceOver就会在每个逗号短暂停留，让用户更容易理解信息。
     下面这段代码把两个元素的信息组合到一个标签中：
+```
 @implementation CurrentWeather
 /* This is a view that provides weather information. It contains a city subview and a temperature subview, each of which provides a separate label. */
 - (NSString *)accessibilityLabel
@@ -1053,20 +1054,27 @@ NSString *weatherCityLabel = [self.weatherCity accessibilityLabel];
 NSString *weatherTempLabel = [self.weatherTemp accessibilityLabel];
 /* Combine the city and temperature information so that VoiceOver users can get the weather information with one gesture. */
 return [NSString stringWithFormat:@"%@, %@", weatherCityLabel, weatherTempLabel];
-}
+}```
 @end
-10.视图控件角度的无障碍
-处理管理视图控件的行为，一个视图控制器可以帮助控制app的无障碍性。一个无障碍app是一个可以被所有人使用的app，无论是残疾还是身体功能障碍，同时作为一个有用的工具保留其的功能性和易用性。
-为了保证无障碍性，一个ios app必须向Voiceover提供用户界面元素的信息。Voiceover，是一个屏幕阅读技术，被设计用来帮助视障群体，大声读出文本、图片和屏幕上的UI控件，这样视障用户就可以与这些元素进行交互。UIKit对象默认是无障碍的，但是在视图角度仍有事可做来解决无障碍问题。在一个较高的水平，这意味着应该保证：
-每一个用户可以交互的用户界面元素是无障碍的。这包括仅提供信息的元素，如静态文本和执行操作的控件。
-所有的无障碍元素提供准确和有用的信息。
-除了这些基本因素，一个视图控件voiceover的用户体验，可以通过编程式的设置voiceover焦点框、响应voiceover手势、观察无障碍通知等，来提升。
-10.1移动voice光标到一个特定的元素
-当屏幕布局改变时，voiceover焦点框，也被称为voiceover光标，会被重置在屏幕表单的从左到右，从上倒下第一个元素上。当视图在屏幕上呈现时，可能需要改变第一个被聚焦的元素。
-例如，当导航控制器将一个视图控制器置到一个导航对战，voiceover光标落在导航条的返回按钮上。基于app，将焦点转移到导航条的标题或其他元素上，将会更有意义。
-要做到这一点，使用UIAccessibilityScreenChangedNotification和想要聚焦的元素调用 UIAccessibilityPostNotification，如以下样例所示：
 
-发布一个无障碍通知可以改变第一个朗读的元素：
+## 10.视图控件角度的无障碍
+
+
+    处理管理视图控件的行为，一个视图控制器可以帮助控制app的无障碍性。一个无障碍app是一个可以被所有人使用的app，无论是残疾还是身体功能障碍，同时作为一个有用的工具保留其的功能性和易用性。
+    为了保证无障碍性，一个ios app必须向Voiceover提供用户界面元素的信息。Voiceover，是一个屏幕阅读技术，被设计用来帮助视障群体，大声读出文本、图片和屏幕上的UI控件，这样视障用户就可以与这些元素进行交互。UIKit对象默认是无障碍的，但是在视图角度仍有事可做来解决无障碍问题。在一个较高的水平，这意味着应该保证：
+    每一个用户可以交互的用户界面元素是无障碍的。这包括仅提供信息的元素，如静态文本和执行操作的控件。
+    所有的无障碍元素提供准确和有用的信息。
+    除了这些基本因素，一个视图控件voiceover的用户体验，可以通过编程式的设置voiceover焦点框、响应voiceover手势、观察无障碍通知等，来提升。
+
+### 10.1移动voice光标到一个特定的元素
+
+
+    当屏幕布局改变时，voiceover焦点框，也被称为voiceover光标，会被重置在屏幕表单的从左到右，从上倒下第一个元素上。当视图在屏幕上呈现时，可能需要改变第一个被聚焦的元素。
+    例如，当导航控制器将一个视图控制器置到一个导航对战，voiceover光标落在导航条的返回按钮上。基于app，将焦点转移到导航条的标题或其他元素上，将会更有意义。
+    要做到这一点，使用UIAccessibilityScreenChangedNotification和想要聚焦的元素调用 UIAccessibilityPostNotification，如以下样例所示：
+    
+    发布一个无障碍通知可以改变第一个朗读的元素：
+```
 @implementation MyViewController
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -1074,35 +1082,42 @@ return [NSString stringWithFormat:@"%@, %@", weatherCityLabel, weatherTempLabel]
 UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,
 self.myFirstElement);
 }
-@end
+@end```
 
-如果只是布局改变，而不是屏幕内容改变，比如从人像模式转换到风景模式，使用UIAccessibilityLayoutChangedNotification而不是使用UIAccessibilityScreenChangedNotification。
-注意：设备旋转引起的布局改变，需要重置voiceover光标的位置。
-10.2响应特殊voiceover手势
-Voiceover用户可以使用特殊手势触发自定义操作。这些手势之所以特殊是因为被允许去定义这些手势的行为，不同于voiceover标准手势。可以在事件和视图控制器中覆盖一定的方法来检测这些特殊手势。
-手势应该首先检查有voiceover焦点命令的视图，然后继续响应链直到手势找到相应voiceover手势方法的实现。如果没有找到实现方法，系统默认的该手势的响应就会被触发。例如，如果在当前视图找到Magic Tap的实现，Magic Tap手势在音乐app中播放和暂停音乐。
-尽管可以提供想要的自定义逻辑，voiceover用户希望这些特殊手势的行为遵循一定的原则。像任何手势，一个voiceover手势的实现应该遵循一个模式，这样与无障碍app的交互保持直观。
-有4种特殊voiceover手势：
-Escape：两指Z型手势，关闭模态对话框，或者在导航层次上返回上一级。
-Magic tap：两指双击手势，执行最预期的操作。
-Three-Finger Scroll：三指清扫，垂直或水平滚动内容。
-Increment and Decrement：一指上下扫动，增加或减去具有调节属性的给定值。具有可调节无障碍特性的元素必须具备这些方法。
-注：所有特殊voiceover手势方法都会返回一个布尔值，决定是否通过响应链传输。要停止传输，返回YES，否则，返回NO。
-Escape
-如果当前视图覆盖底层内容——比如模态对话框或者警号——应该使用accessibilityPerformEscape方法来退出浮层。Escape手势就像一个键盘上的Esc键；可以退出当前的对话框，或者回到主内容。
-另一个使用案例是使用Escape手势回到上一层级导航页面。UINavigationController默认实现这个功能。如果设计了自定义的导航控件，应该设置Escape手势来返回上一级的导航，因为这是用户期望的功能。
-Magic Tap
-Magic Tap手势的目的是快速开启一个经常用到或者最期望的操作。例如，在苹果手机，这个手势用来拨打和乖挂断电话。在时钟app中，它用来开始和暂停秒表。如果你想要使用一个动作触发特定的操作，不管视图是否有voiceover的光标，应该在视图控制器中实现accessibilityPerformMagicTap方法。
-注意：如果想要Magic Tap手势在app的任何位置都执行相同的动作，在app delegate中实现accessibilityPerformMagicTap更加合适。
-Three-Finger Scroll
-accessibilityScroll：当voiceover用户执行三指滚动时触发方法。accessibilityScroll接收UIAccessibilityScrollDirection参数，这个参数可以决定滚动方向。如果有一个自定义滚动视图，在该视图上实现更合适。
-Increment and Decrement
-accessibilityIncrement和 accessibilityDecrement方法对可调节特性元素是必须的，应该在该视图自己实现。
-10.3监听无障碍通知
-需要监听无障碍通知来触发回调方法。在特定情境下，UIKit触发无障碍通知。App可以通过监听无障碍通知来扩展无障碍功能。
-例如，如果监听到UIAccessibilityAnnouncementDidFinishNotification通知，可以触发一个方法来跟进voiceover讲话的完成。Apple在iBooks app实现这个方法。当Voiceover读完一本书的一行，iBooks 开启一个通知触发读出下一行的内容。如果是一页上的最后一行，回调的逻辑告知iBooks去翻译，在最后一行完成时继续于都。这允许逐行阅读导航文本，提供一个无缝的、不间断的阅读体验。
-使用默认通知中心，注册无障碍通知观察器。然后创建一个相同名字的方法来提供选择参数，如下例所示：
-无障碍通知观察期注册：
+    如果只是布局改变，而不是屏幕内容改变，比如从人像模式转换到风景模式，使用UIAccessibilityLayoutChangedNotification而不是使用UIAccessibilityScreenChangedNotification。
+    注意：设备旋转引起的布局改变，需要重置voiceover光标的位置。
+
+### 10.2响应特殊voiceover手势
+
+
+    Voiceover用户可以使用特殊手势触发自定义操作。这些手势之所以特殊是因为被允许去定义这些手势的行为，不同于voiceover标准手势。可以在事件和视图控制器中覆盖一定的方法来检测这些特殊手势。
+    手势应该首先检查有voiceover焦点命令的视图，然后继续响应链直到手势找到相应voiceover手势方法的实现。如果没有找到实现方法，系统默认的该手势的响应就会被触发。例如，如果在当前视图找到Magic Tap的实现，Magic Tap手势在音乐app中播放和暂停音乐。
+    尽管可以提供想要的自定义逻辑，voiceover用户希望这些特殊手势的行为遵循一定的原则。像任何手势，一个voiceover手势的实现应该遵循一个模式，这样与无障碍app的交互保持直观。
+    有4种特殊voiceover手势：
+    Escape：两指Z型手势，关闭模态对话框，或者在导航层次上返回上一级。
+    Magic tap：两指双击手势，执行最预期的操作。
+    Three-Finger Scroll：三指清扫，垂直或水平滚动内容。
+    Increment and Decrement：一指上下扫动，增加或减去具有调节属性的给定值。具有可调节无障碍特性的元素必须具备这些方法。
+    注：所有特殊voiceover手势方法都会返回一个布尔值，决定是否通过响应链传输。要停止传输，返回YES，否则，返回NO。
+    Escape
+    如果当前视图覆盖底层内容——比如模态对话框或者警号——应该使用accessibilityPerformEscape方法来退出浮层。Escape手势就像一个键盘上的Esc键；可以退出当前的对话框，或者回到主内容。
+    另一个使用案例是使用Escape手势回到上一层级导航页面。UINavigationController默认实现这个功能。如果设计了自定义的导航控件，应该设置Escape手势来返回上一级的导航，因为这是用户期望的功能。
+    Magic Tap
+    Magic Tap手势的目的是快速开启一个经常用到或者最期望的操作。例如，在苹果手机，这个手势用来拨打和乖挂断电话。在时钟app中，它用来开始和暂停秒表。如果你想要使用一个动作触发特定的操作，不管视图是否有voiceover的光标，应该在视图控制器中实现accessibilityPerformMagicTap方法。
+    注意：如果想要Magic Tap手势在app的任何位置都执行相同的动作，在app delegate中实现accessibilityPerformMagicTap更加合适。
+    Three-Finger Scroll
+    accessibilityScroll：当voiceover用户执行三指滚动时触发方法。accessibilityScroll接收UIAccessibilityScrollDirection参数，这个参数可以决定滚动方向。如果有一个自定义滚动视图，在该视图上实现更合适。
+    Increment and Decrement
+    accessibilityIncrement和 accessibilityDecrement方法对可调节特性元素是必须的，应该在该视图自己实现。
+
+### 10.3监听无障碍通知
+
+
+    需要监听无障碍通知来触发回调方法。在特定情境下，UIKit触发无障碍通知。App可以通过监听无障碍通知来扩展无障碍功能。
+    例如，如果监听到UIAccessibilityAnnouncementDidFinishNotification通知，可以触发一个方法来跟进voiceover讲话的完成。Apple在iBooks app实现这个方法。当Voiceover读完一本书的一行，iBooks 开启一个通知触发读出下一行的内容。如果是一页上的最后一行，回调的逻辑告知iBooks去翻译，在最后一行完成时继续于都。这允许逐行阅读导航文本，提供一个无缝的、不间断的阅读体验。
+    使用默认通知中心，注册无障碍通知观察器。然后创建一个相同名字的方法来提供选择参数，如下例所示：
+    无障碍通知观察期注册：
+```
 @implementation MyViewController
 - (void)viewDidLoad
 {
@@ -1121,7 +1136,7 @@ NSString *wasSuccessful = [[dict userInfo]
 objectForKey:UIAccessibilityAnnouncementKeyWasSuccessful];
 // ...
 }
-@end
+@end```
 
 UIAccessibilityAnnouncementDidFinishNotification将一个 NSNotification 字典作为一个参数，这个参数可以判定有效的讲话，并且讲话是否不间断的完成。如果Voiceover用户执行了暂停讲话手势或者滑到其他元素时，讲话在完成之前就会被终端。
 另一个需要提交的有用的通知是UIAccessibilityVoiceOverStatusChanged。它可以检测到voiceover的开关。如果voiceover在app之外的翻转，当app回到前台时会收到服务。因为UIAccessibilityVoiceOverStatusChanged不期待任何参数，在选择器中的方法不需要提阿南爱一个尾随冒号（：）。
