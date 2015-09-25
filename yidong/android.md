@@ -545,25 +545,39 @@ class CustomTouchView extends View {
     onInterrupt（） - （必需）当系统要中断的反馈信息时调用这个方法，通常是在移动焦点到不同的控制时调用此方法。这种方法可以在app的生命周期中多次调用。
     onUnbind（） - （可选）当系统即将关闭的辅助服务调用此方法。使用此方法做任何一次性的关闭程序，包括取消分配用户反馈系统服务，如音频管理器或设备振动。
     这些方法为无障碍服务提供基础框架。由开发者决定怎样在AccessibilityEvent对象中处理android系统提供的数据，为用户提供反馈。关于无障碍事件更多信息，请参阅实施辅助训练（Implementing Accessibility training）。
-8.3获取事件详情
-无障碍服务通过系统传递AccessibilityEvent 到服务的onAccessibilityEvent()来获得用户界面事件。这个对象提供事件的详细信息，包括对象的类型、描述文本和其他细节。Android4.0以后的版本，可以通过使用以下的方法来获得附加信息。
-AccessibilityEvent.getRecordCount（）和getRecord（INT） -- 这些方法允许检索AccessibilityRecord对象的设置，这些设置促使系统将AccessibilityEvent传递给用户。这种详细程度为触发无障碍服务的事件提供详细内容。
-AccessibilityEvent.getSource（） - 这个方法返回一个AccessibilityNodeInfo对象。这个对象允许您请求无障碍事件有关的组件视图布局层次（父母和子女）。此功能允许访问服务调查一个事件的完整上下文，包括任何封闭意见或子视图的内容和状态。
-重要提示：从 AccessibilityEvent 中调查视图层次的能力可能会暴露用户私人信息到app。因为这个原因，app必须通过无障碍服务配置XML文件来请求访问级别，通过包含canRetrieveWindowContent 属性并设为true。如果在配置文件中不包含这个设置，会导致调用getSource()失败。
-注意：在android4.1（API等级16）和更高的系统中，getSource（）方法，以及AccessibilityNodeInfo.getChild（）和getParent（），只返回对无障碍很重要的视图对象（内容视图或回应用户操作）。如果您的服务请求多有的视图，可以将AccessibilityServiceInfo实例设置为FLAG_INCLUDE_NOT_IMPORTANT_VIEWS。
-8.4为用户采取行动（taking action for users）
-从android4.0开始（api14），无障碍服务可以为用户服务，包括改变输入焦点和选择（激活）用户界面元素。在android4.1中，无障碍行为增多到包括滚动列表、与文本字段交互。无障碍服务同时采用可以全局性行为，比如导航到注屏幕、按返回按钮、打开通知屏幕和最近应用列表。Android4.1还包括一个新类型的焦点，无障碍焦点，可以使所有视觉元素在无障碍服务用可选择。
-这些新功能让无障碍服务的开发者去创建替代导航模式成为可能，如手势导航，给残障用户改善android设备的控制。
-8.4.1手势监听
-无障碍服务可以监听特殊手势，并通过用户代理响应。这个特性被添加到android4.1（api16），并且要求无障碍服务通过触摸手势来请求激活。服务通过设置服务的AccessibilityServiceInfo 实例的flags数到toFLAG_REQUEST_TOUCH_EXPLORATION_MODE，如以下样例所示：
 
-public class MyAccessibilityService extends AccessibilityService {     @Override     public void onCreate() {         getServiceInfo().flags = AccessibilityServiceInfo.FLAG_REQUEST_TOUCH_EXPLORATION_MODE;     }     ... }
+### 8.3获取事件详情
 
-一旦通过触摸打开请求激活无障碍服务，用户必须允许这个特性打开，如果这个特性不是已经激活。当这个特性激活的时候，无障碍服务通过服务的onGesture()接收到无障碍手势的通知，并且通过用户代理响应。
-8.4.2使用无障碍行为
-无障碍服务通过用户代理让与应用的交互更简单更有效。这个功能起始于android4.0，在android4.1（api16）有很大的扩展。
-为了在用户代理上采取行动。无障碍服务必须注册来从少量或者很多应用中接收事件，并通过在服务配置文件将android:canRetrieveWindowContent设置为true来请求允许查看应用内容。当无障碍服务接收到事件，它会使用getSource()从事件中检索AccessibilityNodeInfo对象。使用AccessibilityNodeInfo对象，无障碍服务可以通过视图层级来决定采取什么响应，使用performAction()响应用户。
 
+    无障碍服务通过系统传递AccessibilityEvent 到服务的onAccessibilityEvent()来获得用户界面事件。这个对象提供事件的详细信息，包括对象的类型、描述文本和其他细节。Android4.0以后的版本，可以通过使用以下的方法来获得附加信息。
+    AccessibilityEvent.getRecordCount（）和getRecord（INT） -- 这些方法允许检索AccessibilityRecord对象的设置，这些设置促使系统将AccessibilityEvent传递给用户。这种详细程度为触发无障碍服务的事件提供详细内容。
+    AccessibilityEvent.getSource（） - 这个方法返回一个AccessibilityNodeInfo对象。这个对象允许您请求无障碍事件有关的组件视图布局层次（父母和子女）。此功能允许访问服务调查一个事件的完整上下文，包括任何封闭意见或子视图的内容和状态。
+    重要提示：从 AccessibilityEvent 中调查视图层次的能力可能会暴露用户私人信息到app。因为这个原因，app必须通过无障碍服务配置XML文件来请求访问级别，通过包含canRetrieveWindowContent 属性并设为true。如果在配置文件中不包含这个设置，会导致调用getSource()失败。
+    注意：在android4.1（API等级16）和更高的系统中，getSource（）方法，以及AccessibilityNodeInfo.getChild（）和getParent（），只返回对无障碍很重要的视图对象（内容视图或回应用户操作）。如果您的服务请求多有的视图，可以将AccessibilityServiceInfo实例设置为FLAG_INCLUDE_NOT_IMPORTANT_VIEWS。
+
+### 8.4为用户采取行动（taking action for users）
+
+
+    从android4.0开始（api14），无障碍服务可以为用户服务，包括改变输入焦点和选择（激活）用户界面元素。在android4.1中，无障碍行为增多到包括滚动列表、与文本字段交互。无障碍服务同时采用可以全局性行为，比如导航到注屏幕、按返回按钮、打开通知屏幕和最近应用列表。Android4.1还包括一个新类型的焦点，无障碍焦点，可以使所有视觉元素在无障碍服务用可选择。
+    这些新功能让无障碍服务的开发者去创建替代导航模式成为可能，如手势导航，给残障用户改善android设备的控制。
+
+### 8.4.1手势监听
+
+    
+    无障碍服务可以监听特殊手势，并通过用户代理响应。这个特性被添加到android4.1（api16），并且要求无障碍服务通过触摸手势来请求激活。服务通过设置服务的AccessibilityServiceInfo 实例的flags数到toFLAG_REQUEST_TOUCH_EXPLORATION_MODE，如以下样例所示：
+
+```
+public class MyAccessibilityService extends AccessibilityService {     @Override     public void onCreate() {         getServiceInfo().flags = AccessibilityServiceInfo.FLAG_REQUEST_TOUCH_EXPLORATION_MODE;     }     ... }```
+
+    一旦通过触摸打开请求激活无障碍服务，用户必须允许这个特性打开，如果这个特性不是已经激活。当这个特性激活的时候，无障碍服务通过服务的onGesture()接收到无障碍手势的通知，并且通过用户代理响应。
+
+### 8.4.2使用无障碍行为
+
+
+    无障碍服务通过用户代理让与应用的交互更简单更有效。这个功能起始于android4.0，在android4.1（api16）有很大的扩展。
+    为了在用户代理上采取行动。无障碍服务必须注册来从少量或者很多应用中接收事件，并通过在服务配置文件将android:canRetrieveWindowContent设置为true来请求允许查看应用内容。当无障碍服务接收到事件，它会使用getSource()从事件中检索AccessibilityNodeInfo对象。使用AccessibilityNodeInfo对象，无障碍服务可以通过视图层级来决定采取什么响应，使用performAction()响应用户。
+
+```
 public class MyAccessibilityService extends AccessibilityService { 
     @Override 
     public void onAccessibilityEvent(AccessibilityEvent event) { 
@@ -577,14 +591,17 @@ public class MyAccessibilityService extends AccessibilityService { 
         nodeInfo.recycle(); 
     } 
     ... 
-}
-performAction()方法允许无障碍服务在app内响应。如果无障碍服务需要一个全局响应，如导航回到主屏幕、按但会按钮、打开通知屏幕或者最近应用列表，使用performGlobalAction()方法。
-1）使用焦点类型
-Android4.1引入一种新类型的用户界面焦点，被称之为无障碍焦点。这个类型的焦点可以被无障碍服务是用来选择任何可见界面元素并作用于它。这个焦点类型与众所周知的输入焦点不同，输入焦点当用户输入字符的时候确认屏幕上用户界面元素接收输入，点击键盘上的enter或者按中心按钮。
-无障碍焦点与输入焦点完全分开和不同。事实上，用户界面上的一个元素是输入焦点，其他元素是无障碍焦点。无障碍焦点的目的通过与界面上的视觉元素交互提供无障碍服务，无论这个焦点是不是输入可聚焦元素。通过测试无障碍手势可以看到无障碍焦点。更多这个特性的信息，请见 手势导航测试（Testing gesture navigation）。
-注意：使用无障碍焦点的无障碍服务负责同步当前输入焦点，当元素支持这种焦点的时候。没有将输入焦点和无障碍焦点同步的无障碍服务有在app引起问题的风险，这需要输入焦点在特殊位置当发生响应的时候。
-无障碍服务使用AccessibilityNodeInfo.findFocus() 可以确定哪些用户界面元素有输入焦点或者无障碍焦点。使用focusSearch()可以搜索输入焦点的元素。最后，无障碍服务可以使用performAction(AccessibilityNodeInfo.ACTION_SET_ACCESSIBILITY_FOCUS) 方法来设置无障碍焦点。
-9.开发无障碍服务（developing accessibility services）
+}```
+    performAction()方法允许无障碍服务在app内响应。如果无障碍服务需要一个全局响应，如导航回到主屏幕、按但会按钮、打开通知屏幕或者最近应用列表，使用performGlobalAction()方法。
+    1）使用焦点类型
+    Android4.1引入一种新类型的用户界面焦点，被称之为无障碍焦点。这个类型的焦点可以被无障碍服务是用来选择任何可见界面元素并作用于它。这个焦点类型与众所周知的输入焦点不同，输入焦点当用户输入字符的时候确认屏幕上用户界面元素接收输入，点击键盘上的enter或者按中心按钮。
+    无障碍焦点与输入焦点完全分开和不同。事实上，用户界面上的一个元素是输入焦点，其他元素是无障碍焦点。无障碍焦点的目的通过与界面上的视觉元素交互提供无障碍服务，无论这个焦点是不是输入可聚焦元素。通过测试无障碍手势可以看到无障碍焦点。更多这个特性的信息，请见 手势导航测试（Testing gesture navigation）。
+    注意：使用无障碍焦点的无障碍服务负责同步当前输入焦点，当元素支持这种焦点的时候。没有将输入焦点和无障碍焦点同步的无障碍服务有在app引起问题的风险，这需要输入焦点在特殊位置当发生响应的时候。
+    无障碍服务使用AccessibilityNodeInfo.findFocus() 可以确定哪些用户界面元素有输入焦点或者无障碍焦点。使用focusSearch()可以搜索输入焦点的元素。最后，无障碍服务可以使用performAction(AccessibilityNodeInfo.ACTION_SET_ACCESSIBILITY_FOCUS) 方法来设置无障碍焦点。
+
+## 9.开发无障碍服务（developing accessibility services）
+
+
 辅助性服务是安卓框架的一个特性，它的设计是为了让已经安装在安卓设备上的应用程序能够为用户提供一种导航式(引导式）回应。一个辅助性服务能够传达给用户关于这个应用程序的利益，例如把文本转换成语音、当用户手指停留屏幕的一个重要区域时的haptic反馈。这一节涵盖了怎样去创建一个辅助性服务，如何处理应用程序的信息接收，还有如何把信息反馈给用户。 
 9.1创建自己的辅助性服务
 一个辅助性服务可以被捆绑到一个标准的应用程序上，或者以一个单独的安卓工程被创建。在任何情况下，创建这类服务的步骤都是一样的。在你的工程中，创建一个类继续AccessibilitySerivce。  
