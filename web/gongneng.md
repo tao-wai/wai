@@ -873,6 +873,7 @@ timeout-unit是个span元素的id；
 ```<p><input type="checkbox" id="TM1" aria-labelledby="title-TM1 track1 am1 TM1-att">
 <label id="TM1-att" for="TM1">参加</label></p>```
     全部代码：
+```
 <h1>恐龙研讨会的时间表星期四，14。星期五，15。月2013</h1>
 <table>
 <caption>恐龙会议研讨会预订表</caption>
@@ -944,24 +945,28 @@ timeout-unit是个span元素的id；
 </td>
 </tr>
 </tbody>
-</table>
-(3)使用组的roles来区分有关表单控件；
-这个技巧是用来将表单内的一组相关控件标记为一个组。与组有关的任何标签都有普通标签的作用或者作为组内单独控件的限定符。辅助技术可以识别组的开始和结束，组的标签可以作为进入和离开组的导航。这是表单组控件编程式添加替代，当界面设计不允许出现fieldset-legend的时候。
-对于单选控件组，可以使用role="radiogroup"而不是role="group";group可以使用aria-labelledby标记；这个技巧不是针对表单内所有的元素，只是针对role="group"的单个容器；
-
-样例1：
-社会保障号码有9位，分成3部分，可以使用role="group";
+</table>```
+    (3)使用组的roles来区分有关表单控件；
+    这个技巧是用来将表单内的一组相关控件标记为一个组。与组有关的任何标签都有普通标签的作用或者作为组内单独控件的限定符。辅助技术可以识别组的开始和结束，组的标签可以作为进入和离开组的导航。这是表单组控件编程式添加替代，当界面设计不允许出现fieldset-legend的时候。
+    对于单选控件组，可以使用role="radiogroup"而不是role="group";group可以使用aria-labelledby标记；这个技巧不是针对表单内所有的元素，只是针对role="group"的单个容器；
+    
+    样例1：
+    社会保障号码有9位，分成3部分，可以使用role="group";
+```
 <div role="group" aria-labelledby="ssn1">
 <span id="ssn1">社会保障号码#</span> 
 <span style="color: #D90D0D;"> * </span>
 <input size="3" type="text" aria-required="true" title="前三位" />-
 <input size="2" type="text" aria-required="true" title="后两位" />-
 <input size="4" type="text" aria-required="true" title="最后四位" />
-</div>
-样例2：识别单选groups
-下面的例子使用的是role=radiogroup；单选控件使用的是role=radio的自定义控件；
-关键代码：<div role="radiogroup" aria-labelledby="alert1">
-全部代码：
+</div>```
+    样例2：识别单选groups
+    下面的例子使用的是role=radiogroup；单选控件使用的是role=radio的自定义控件；
+    关键代码：
+    ```
+    <div role="radiogroup" aria-labelledby="alert1">```
+    全部代码：
+```
 <h3>为您的帐户设置警报</h3>
 <div role="radiogroup" aria-labelledby="alert1">
 <p id="alert1">平衡超过3000美元时发出警报</p>
@@ -985,14 +990,16 @@ timeout-unit是个span元素的id；
 <span id="a2r2">否</span>
 </div>
 </div>
-<p><input type="submit" value="Continue" id="continue_btn" name="continue_btn" /></p>
-有关的CSS样式为：
+<p><input type="submit" value="Continue" id="continue_btn" name="continue_btn" /></p>```
+    有关的CSS样式为：
+```
 div[role=radiogroup] {
   border: black thin solid;
-} 
-(4)为期望数据提供模式和样例；
+} ```
+    (4)为期望数据提供模式和样例；
+```
 <label for="date">Date (dd-mm-yyyy)</label>
-<input type="text" name="date" id="date" />
+<input type="text" name="date" id="date" />```
 (5)在表单或者一系列需要填写的区域的开端提供必要的文字来描述必须输入的内容；
 1)在会员制网站，填写个人信息的时候，工作信息包括公司名、职位、期限、工作描述；在开端给出提示文本：输入你认为你的个人简历可以添加的内容，日期数据应该是mm/dd/yyyy format；
 2)一个企业档案允许用户在修改个人信息的时候允许用户修改电话号码、工作职责，顶部的提示信息要有：可以修改任何区域的信息，当修改完，想要保存点击确定，不想保存，点击取消；不能修改个人简历中的系统提供部分；电话号码智能包括数字和—；必填区域用*标记，必须填写；
