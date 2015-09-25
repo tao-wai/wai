@@ -888,6 +888,7 @@ return YES;
     如果你愿意，可以通过编程来提供自定义属性的信息。如果你没有使Interface Builder的话可能会选择这么做。
     就像“让自定义独立视图支持无障碍使用”中描述的一样，你可以在实例化视图的视图子类中设置无障碍信息。两种方法都可以用，但是如果你的视图会动态展示数据或者经常改变内容的话，那在子类中实现属性方法比在实例中实现更好。举例来说，如果你想显示时间的话，那应该在子类刷新数据的方法中实现无障碍性，因为如果只在实例化子类的时候设置属性，那更新数据之后就无法支持无障碍使用了。
     下面的代码片段是基于“让自定义独立视图支持无障碍使用”的方法写成的，包含一些属性特有的方法。如果你想在子类中实现无障碍方法，那可以参考下面的代码：
+```
 @implementation MyCustomView
 - (BOOL)isAccessibilityElement
 {
@@ -906,8 +907,9 @@ return UIAccessibilityTraitButton;
 {
 return NSLocalizedString(@"MyCustomView.hint", nil);
 }
-@end
-如果你想在实例化视图的代码中使用UIAccessbility协议中设置属性的方法的话，那可以参考下面的代码：
+@end```
+    如果你想在实例化视图的代码中使用UIAccessbility协议中设置属性的方法的话，那可以参考下面的代码：
+```
 @implementation MyCustomViewController
 - (id)init
 {
@@ -916,11 +918,15 @@ _view = [[MyCustomView alloc] initWithFrame:CGRectZero];
 [_view setAccessibilityTraits:UIAccessibilityTraitButton];
 [_view setAccessibilityLabel:NSLocalizedString(@"view.label", nil)];
 [_view setAccessibilityHind:NSLocalizedString(@"view.hint", nil)];
-}
-9.4让自定义容器视图支持无障碍使用
-如果你的应用中展示了一个自定义视图，其中包含其他可以进行用户交互的元素，那你需要实现每个元素的无障碍使用。与此同时，你必须让容器视图本身不支持无障碍使用，因为用户是和容器的内容交互，不是和容器本身交互。
-为了实现这一点，你自定义的容器视图需要实现UIAccessibilityContainer协议。这个协议会定义一些方法并把可以访问的元素放入一个数组中。
-下面的代码片段展示了一个自定义容器视图的部分实现。可以看到这个容器视图只会在调用UIAccessibilityContainer协议的方法时才会创建无障碍元素数组。所以，如果iPhone的无障碍并没有被激活，那就不会创建数组。
+}```
+
+### 9.4让自定义容器视图支持无障碍使用
+
+
+    如果你的应用中展示了一个自定义视图，其中包含其他可以进行用户交互的元素，那你需要实现每个元素的无障碍使用。与此同时，你必须让容器视图本身不支持无障碍使用，因为用户是和容器的内容交互，不是和容器本身交互。
+    为了实现这一点，你自定义的容器视图需要实现UIAccessibilityContainer协议。这个协议会定义一些方法并把可以访问的元素放入一个数组中。
+    下面的代码片段展示了一个自定义容器视图的部分实现。可以看到这个容器视图只会在调用UIAccessibilityContainer协议的方法时才会创建无障碍元素数组。所以，如果iPhone的无障碍并没有被激活，那就不会创建数组。
+```
 @implementation MultiFacetedView
 - (NSArray *)accessibleElements
 {
@@ -957,10 +963,14 @@ return [[self accessibleElements] objectAtIndex:index];
 {
 return [[self accessibleElements] indexOfObject:element];
 }
-@end
-9.5让非文字数据支持无障碍阅读
-有时应用会显示一些不能自动支持无障碍方法的数据，比如一张图片，这时需要在无障碍标签中提供信息，这样VoiceOver用户就可以理解图片传达的内容。此外，如果你用图形提供信息，例如一个使用星星进行评价评级的系统，应该确保无障碍label传达了图片背后的意义。
-下面的代码展示的是一个自定义视图，它会用星星的数量来表示项目的评分。代码展示了如何根据星星数量返回一个合适的无障碍标签：
+@end```
+
+### 9.5让非文字数据支持无障碍阅读
+
+
+    有时应用会显示一些不能自动支持无障碍方法的数据，比如一张图片，这时需要在无障碍标签中提供信息，这样VoiceOver用户就可以理解图片传达的内容。此外，如果你用图形提供信息，例如一个使用星星进行评价评级的系统，应该确保无障碍label传达了图片背后的意义。
+    下面的代码展示的是一个自定义视图，它会用星星的数量来表示项目的评分。代码展示了如何根据星星数量返回一个合适的无障碍标签：
+```
 @implementation RatingView
 /* Other subclass implementation code here. */
 - (NSString *)accessibilityLabel
@@ -977,7 +987,7 @@ NSInteger starCount = _starCount;
    }
    return [NSString stringWithFormat:@"%d %@", starCount, ratingString];
 }
-@end
+@end```
 9.6使动态元素无障碍
 如果用户界面元素会动态改变，那需要确保无障碍信息也会随着更新。如果应用的布局发生改变，需要发送通知，这样VoiceOver才能帮助用户切换到新布局。UI Accessibility编程接口提供了两种通知类型，你可以使用它们。（具体的教程参见“UIAccessbility协议参考”中的“通知”。）
 如果用户界面元素可以有不同的状态，那你需要在代码中返回所有状态对应的无障碍信息。由于这些改变在用户的动作发生后发生，所以最好把实现添加到子类中而不是实例化子类的代码中。
