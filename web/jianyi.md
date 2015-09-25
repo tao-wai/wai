@@ -251,13 +251,13 @@ CSS代码:
     <p><a href="noframe.html">无框架部分</a>.</p>
   </noframes>
 </frameset> ```    
-横向框架是： <frameset cols=#>
-比如说有两列，左边一个，右边一个。
-纵向框架是： <frameset rows=#>
-比如说有两行，上边一个，下边一个。
-cols是说有几列，rows是说有几行  
-样例1：
-使用title属性来描述带有导航条和文件的框架；
+    横向框架是： <frameset cols=#>
+    比如说有两列，左边一个，右边一个。
+    纵向框架是： <frameset rows=#>
+    比如说有两行，上边一个，下边一个。
+    cols是说有几列，rows是说有几行  
+    样例1：
+    使用title属性来描述带有导航条和文件的框架；
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>一个简单的框架文件</title>
