@@ -304,6 +304,7 @@ CSS代码:
   </ul>```
     样例2：
     内容列表在每个网页都有出现，在列表前加一个按钮来移除和添加按钮；
+       ```
        <script type="text/javascript">
   function toggle(id){
     var n = document.getElementById(id);
@@ -312,7 +313,7 @@ CSS代码:
   </script>
   <button onclick="return toggle('toc');">无障碍内容切换表</button>
   <div id="toc">
-  </div>
+  </div>```
 3.4焦点：当任何用户界面组件接收焦点时，不会引起上下文变化
 3.4.1使用activate作为上下文改变的触发器而不是focus（焦点）
 样例1：
