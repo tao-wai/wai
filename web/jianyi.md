@@ -1,7 +1,6 @@
 
 # （三）Web端无障碍建议
-    该部分内容参考自Web Content Accessibility Guidelines (WCAG)
-2.0（http://www.w3.org/Translations/WCAG20-zh/）、How to Meet WCAG 2.0（http://www.w3.org/WAI/WCAG20/quickref/#qr-text-equiv-all）。在进行web内容开发时，可参考以下建议。
+    该部分内容参考自Web Content Accessibility Guidelines (WCAG)2.0（http://www.w3.org/Translations/WCAG20-zh/）、How to Meet WCAG 2.0（http://www.w3.org/WAI/WCAG20/quickref/#qr-text-equiv-all）。在进行web内容开发时，可参考以下建议。
 
 ## 3.1焦点可见：键盘用户操作时焦点可见
 
