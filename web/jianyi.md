@@ -258,6 +258,7 @@ CSS代码:
     cols是说有几列，rows是说有几行  
     样例1：
     使用title属性来描述带有导航条和文件的框架；
+```
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>一个简单的框架文件</title>
@@ -271,7 +272,7 @@ CSS代码:
       </body>
     </noframes>
   </frameset>
-</html> 
+</html> ```
 样例2：
 使用iframe的title属性来描述框架的内容；
 <html xmlns="http://www.w3.org/1999/xhtml">
