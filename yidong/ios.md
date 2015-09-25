@@ -502,27 +502,27 @@
     SWIFT
     import UIKit
 
-UIAccessibilityReduceTransparencyStatusDidChangeNotification
-当系统的降低透明度（Reduce Transparency）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-声明：
-SWIFT
-let UIAccessibilityReduceTransparencyStatusDidChangeNotification: String
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
-
-UIAccessibilityResumeAssistiveTechnologyNotification
-推送此通知来暂时恢复辅助技术的运行。当推送此通知，指定辅助技术作为一个参数。必须推送此通知来平衡之前的UIAccessibilityPauseAssistiveTechnologyNotification推送通知。使用UIAccessibilityPostNotification功能来推送此通知。
-声明：
-SWIFT
-var UIAccessibilityResumeAssistiveTechnologyNotification: UIAccessibilityNotifications
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
+    UIAccessibilityReduceTransparencyStatusDidChangeNotification
+    当系统的降低透明度（Reduce Transparency）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
+    声明：
+    SWIFT
+    let UIAccessibilityReduceTransparencyStatusDidChangeNotification: String
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
+    
+    UIAccessibilityResumeAssistiveTechnologyNotification
+    推送此通知来暂时恢复辅助技术的运行。当推送此通知，指定辅助技术作为一个参数。必须推送此通知来平衡之前的UIAccessibilityPauseAssistiveTechnologyNotification推送通知。使用UIAccessibilityPostNotification功能来推送此通知。
+    声明：
+    SWIFT
+    var UIAccessibilityResumeAssistiveTechnologyNotification: UIAccessibilityNotifications
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
 
 UIAccessibilityScreenChangedNotification
 当一个新的视图出现且占了屏幕的主要部分时，推送该通知。这个通知包含一个参数，是个NSString对象或者可以接收voiceover焦点的无障碍元素。使用UIAccessibilityPostNotification推送该通知。
