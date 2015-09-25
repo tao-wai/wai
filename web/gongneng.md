@@ -340,16 +340,20 @@ live region
     1、弹出的浮层没有table index属性，焦点无法跟在触发控件后面，
     2、浮层内容缺少文本描述，例如登录对话框，建议添加title属性来描述。
     【修改建议】
-2.3.2焦点不在触发控件之后
-【问题描述】
-按tab移动网页焦点到触发浮层控件，激活后，焦点没有及时进入浮层内容，下一个焦点不在浮层内；
-【可能原因】
-可能是弹出的浮层子元素没有添加tabindex，或是javascript直接追加元素非紧跟当前焦点插入元素。
-【修改建议】
-样例1：
-给浮层内的子元素增加tabindex属性。
-样例2：
-获取当前焦点并紧跟其后插入控件元素：
+
+### 2.3.2焦点不在触发控件之后
+
+
+    【问题描述】
+    按tab移动网页焦点到触发浮层控件，激活后，焦点没有及时进入浮层内容，下一个焦点不在浮层内；
+    【可能原因】
+    可能是弹出的浮层子元素没有添加tabindex，或是javascript直接追加元素非紧跟当前焦点插入元素。
+    【修改建议】
+    样例1：
+    给浮层内的子元素增加tabindex属性。
+    样例2：
+    获取当前焦点并紧跟其后插入控件元素：
+```
 <script type="text/javascript">
 function createInput(divid){
 	var btn = document.activeElement;
@@ -366,29 +370,42 @@ function createInput(divid){
 <input name="but1" id="but1" type="button" onclick="createInput('divid');" value="新增输入框1" /><br />
 <input name="but2" id="but2" type="button" onclick="createInput('divid');" value="新增输入框2" /><br />
 <input name="but3" id="but3" type="button" onclick="createInput('divid');" value="新增输入框3" /><br />
-</div>
+</div>```
 
-2.3.3不能使用键盘关闭浮层
-【问题描述】
-浮层中的关闭按钮为图片，或自定义控件，导致焦点无法聚焦到关闭控件。
-【可能原因】
-自定义控件为图片链接，没有给图片链接添加alt或title属性，或自定义控件导致的没有焦点。
-【修改建议】
-样例1：
-<img src="img0.jpg" alt="关闭" tabindex="0" role="button" />
-2.3.4用键盘操作，焦点无法进入浮层
-【问题描述】
-使用键盘，无法遍历到浮层内元素；
-【可能原因】
-可能浮层内有阻止焦点进入的代码，或者自定义控件没考虑键盘操作；
-【修改建议】
-参考资料
-1.使用onclick/onkeypress事件弹出div形式
-当用户想使用非悬浮的窗口，可以使用onclick/onkeypress事件弹出div的形式，该div覆盖在网页内容上，关闭时直接关闭div。
-无障碍要求：
-1)通过触发link或button控件的onclick/onkeypress事件来加载窗口。
-2)这个窗口的tab顺序紧跟在触发事件之后，该窗口可见。
-3)该窗口的HTML应该与其他内容有同样的无障碍标准.
+
+### 2.3.3不能使用键盘关闭浮层
+
+    
+    【问题描述】
+    浮层中的关闭按钮为图片，或自定义控件，导致焦点无法聚焦到关闭控件。
+    【可能原因】
+    自定义控件为图片链接，没有给图片链接添加alt或title属性，或自定义控件导致的没有焦点。
+    【修改建议】
+    样例1：
+```
+<img src="img0.jpg" alt="关闭" tabindex="0" role="button" />```
+
+### 2.3.4用键盘操作，焦点无法进入浮层
+
+
+    【问题描述】
+    使用键盘，无法遍历到浮层内元素；
+    【可能原因】
+    可能浮层内有阻止焦点进入的代码，或者自定义控件没考虑键盘操作；
+    【修改建议】
+
+## 参考资料
+
+
+
+### 1.使用onclick/onkeypress事件弹出div形式
+
+
+    当用户想使用非悬浮的窗口，可以使用onclick/onkeypress事件弹出div的形式，该div覆盖在网页内容上，关闭时直接关闭div。
+    无障碍要求：
+    1)通过触发link或button控件的onclick/onkeypress事件来加载窗口。
+    2)这个窗口的tab顺序紧跟在触发事件之后，该窗口可见。
+    3)该窗口的HTML应该与其他内容有同样的无障碍标准.
 关键代码：<button type="button" onclick="TogglePopup(event,true)" name="pop0001">Options</button>
 全部代码：<button type="button" onclick="TogglePopup(event,true)" name="pop0001">Options</button>
 //onclick事件，弹出的div代码
