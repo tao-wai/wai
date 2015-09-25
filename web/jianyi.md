@@ -243,13 +243,14 @@ CSS代码:
     4）文章内容页，<H1/>标签给文章的主标题；以利于提高文章在搜索引擎中的权重。
     5）整个网站(一般指首页如何对H标签定义)关键词设置时本着，重点中的重点用h1标签(网站的核心关键词)，相对重点用h2标签(网站的各个频道级重要的长尾关键词)，再往下用h3标签(一般指类表页或者最终页的标题)…….依次类推，不过一般网页不会超过h3标签的定义!
 3.3.6使用框架元素来代替网页中的重复部分
+```
 <frameset cols="20%, *">
   <frame src="navigation.html" name="navbar" title="导航栏" />
   <frame src="main.html" name="maincontent" title="主要新闻内容" />
   <noframes>
     <p><a href="noframe.html">无框架部分</a>.</p>
   </noframes>
-</frameset>     
+</frameset> ```    
 横向框架是： <frameset cols=#>
 比如说有两列，左边一个，右边一个。
 纵向框架是： <frameset rows=#>
