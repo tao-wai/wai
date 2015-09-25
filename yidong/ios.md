@@ -524,61 +524,61 @@
     SWIFT
     import UIKit
 
-UIAccessibilityScreenChangedNotification
-当一个新的视图出现且占了屏幕的主要部分时，推送该通知。这个通知包含一个参数，是个NSString对象或者可以接收voiceover焦点的无障碍元素。使用UIAccessibilityPostNotification推送该通知。
-声明：
-SWIFT
-var UIAccessibilityScreenChangedNotification: UIAccessibilityNotifications
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
+    UIAccessibilityScreenChangedNotification
+    当一个新的视图出现且占了屏幕的主要部分时，推送该通知。这个通知包含一个参数，是个NSString对象或者可以接收voiceover焦点的无障碍元素。使用UIAccessibilityPostNotification推送该通知。
+    声明：
+    SWIFT
+    var UIAccessibilityScreenChangedNotification: UIAccessibilityNotifications
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
 
-UIAccessibilitySpeakScreenStatusDidChangeNotification
-当系统的读屏设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-声明：
-SWIFT
-let UIAccessibilitySpeakScreenStatusDidChangeNotification: String
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
+    UIAccessibilitySpeakScreenStatusDidChangeNotification
+    当系统的读屏设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
+    声明：
+    SWIFT
+    let UIAccessibilitySpeakScreenStatusDidChangeNotification: String
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
+    
+    UIAccessibilitySpeakSelectionStatusDidChangeNotification
+    当系统的声音选择设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
+    声明：
+    SWIFT
+    let UIAccessibilitySpeakSelectionStatusDidChangeNotification: String
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
 
-UIAccessibilitySpeakSelectionStatusDidChangeNotification
-当系统的声音选择设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-声明：
-SWIFT
-let UIAccessibilitySpeakSelectionStatusDidChangeNotification: String
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
 
-
-UIAccessibilitySwitchControlStatusDidChangeNotification
-当系统的开关控件设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-声明：
-SWIFT
-let UIAccessibilitySwitchControlStatusDidChangeNotification: String
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
-
-UIAccessibilityVoiceOverStatusChanged
-当voiceover开启和停止时，推送该焦点。这个通知不包含参数。可以使用这个参数为voiceover用户自定义应用用户界面。例如，如果一个UI元素覆盖了UI的其他部分，可以为voiceover用户呈现一样的布局，但是允许非voiceover用户取消。可以使用UIAccessibilityIsVoiceOverRunning功能来判定voiceover是否在运行。使用默认通知中心监听这个通知。
-声明：
-SWIFT
-let UIAccessibilityVoiceOverStatusChanged: String
-导入声明：
-OBJECTIVE-C
-@import UIKit
-SWIFT
-import UIKit
+    UIAccessibilitySwitchControlStatusDidChangeNotification
+    当系统的开关控件设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
+    声明：
+    SWIFT
+    let UIAccessibilitySwitchControlStatusDidChangeNotification: String
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
+    
+    UIAccessibilityVoiceOverStatusChanged
+    当voiceover开启和停止时，推送该焦点。这个通知不包含参数。可以使用这个参数为voiceover用户自定义应用用户界面。例如，如果一个UI元素覆盖了UI的其他部分，可以为voiceover用户呈现一样的布局，但是允许非voiceover用户取消。可以使用UIAccessibilityIsVoiceOverRunning功能来判定voiceover是否在运行。使用默认通知中心监听这个通知。
+    声明：
+    SWIFT
+    let UIAccessibilityVoiceOverStatusChanged: String
+    导入声明：
+    OBJECTIVE-C
+    @import UIKit
+    SWIFT
+    import UIKit
 4.UI无障碍元素类（UIAccessibilityElement）
 文档参考来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibilityElement_Class/index.html#//apple_ref/occ/cl/UIAccessibilityElement
 UIAccessibilityElement类封装了应该对残障用户无障碍的条目信息，但是这些条目默认不是无障碍的。例如，一个图标或者文本图片不是自动无障碍的，因为它们不会继承UIView或者UIControl，一个包含非视图条目的视图需要创建了一个无障碍呈现的UIAccessibilityElement视图。
