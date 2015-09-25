@@ -174,15 +174,17 @@ CSS代码:
 <ul><li>这里有一堆信息无障碍相关链接</li></ul></div>```
     样例3：
     同一role值的路标，没有可以区分的文本，使用aria-label来区分；
+```
 <div id="leftnav" role="navigaton" aria-label="Primary">
 <ul><li>这里有一堆信息无障碍相关链接 </li></ul> </div>
 <div id="rightnav" role="navigation" aria-label="Secondary">
-<ul><li>这里有一堆信息无障碍相关链接 </li> </ul></div>
-样例4：
-搜索表单；
+<ul><li>这里有一堆信息无障碍相关链接 </li> </ul></div>```
+    样例4：
+    搜索表单；
+```
 <form role="search">
 <label for="s6">搜索</label><input id="s6" type="text" size="20">
-</form> 
+</form> ```
 3.3.5在每一个章节内容前提供标题元素：要求上下级标题有继承和逻辑关系
 样例1：
 通过使用h2标签组织章节；
