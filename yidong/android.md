@@ -510,39 +510,41 @@ class CustomTouchView extends View {
 ### 8.1.2无障碍服务配置
 
 
-无障碍服务必须包含一个指明无障碍事件类型的配置，包含无障碍服务要处理的事件和附加信息。无障碍服务配置被包含在AccessibilityServiceInfo类中。服务可以使用这个类的样例和在运行时 执行setServiceInfo()来建立和设置配置。但是，不是所有的配置项都可以用这个方法获得。
-从android4.0开始，可以在清单中包含一个<meta-data>元素，这个元素是配置文件的索引，这个元素允许大范围的设置无障碍服务项，详情见下面的例子：
+    无障碍服务必须包含一个指明无障碍事件类型的配置，包含无障碍服务要处理的事件和附加信息。无障碍服务配置被包含在AccessibilityServiceInfo类中。服务可以使用这个类的样例和在运行时 执行setServiceInfo()来建立和设置配置。但是，不是所有的配置项都可以用这个方法获得。
+    从android4.0开始，可以在清单中包含一个<meta-data>元素，这个元素是配置文件的索引，这个元素允许大范围的设置无障碍服务项，详情见下面的例子：
+```
 <service android:name=".MyAccessibilityService"> 
   ... 
   <meta-data 
     android:name="android.accessibilityservice" 
     android:resource="@xml/accessibility_service_config" /> 
-</service>
+</service>```
 	Meta-data元素指向的是个在应用资源目录中的XML文件（<project_dir>/res/xml/accessibility_service_config.xml），下面大代码展示了服务配置文件的样例内容：
 <accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"     android:description="@string/accessibility_service_description"     android:packageNames="com.example.android.apis"     android:accessibilityEventTypes="typeAllMask"     android:accessibilityFlags="flagDefault"     android:accessibilityFeedbackType="feedbackSpoken"     android:notificationTimeout="100"     android:canRetrieveWindowContent="true"     android:settingsActivity="com.example.android.accessibility.ServiceSettingsActivity" />
 
-更多关于XML属性的信息，详见以下列表：
-•android:description
-•android:packageNames
-•android:accessibilityEventTypes
-•android:accessibilityFlags
-•android:accessibilityFeedbackType
-•android:notificationTimeout
-•android:canRetrieveWindowContent
-•android:settingsActivity
-更多关于配置文件的信息，请关注AccessibilityServiceInfo参考文档。
-8.2无障碍事件注册
-无障碍服务配置文件的一个重要功能就是允许指定哪些无障碍事件app可以处理。能够指定这些信息使无障碍服务可以与其他服务相互配合，允许开发者灵活处理应用中特定的事件类型。事件过滤应该包含以下的标准：
-软件包名称（Package Names）--指定app要处理的无障碍事件的应用软件包名称。如果这个参数被省略，无障碍服务可被任务可用于任何app的无障碍服务事件。这个参数可以使用android:packageNames属性作为逗号分隔列表被设置在无障碍服务配置文件，或者使用AccessibilityServiceInfo.packageNames成员设置。
-事件类型（Event Types）--指定要处理的无障碍事件的类型。这个参数可以使用android:accessibilityEventTypes 属性被设置在无障碍服务配置文件（例子：accessibilityEventTypes="typeViewClicked|typeViewFocused），或者使用AccessibilityServiceInfo.eventTypes成员设置。
-当启用无障碍服务的时候，需要认真考虑哪些服务需要处理，然后只注册这些事件。因为用户可以一次性激活或多个无障碍服务，app一定不要加入不能处理的事件。而且，其他服务为了提升用户体验也可能会用到这些事件。
-注：如果服务提供多种反馈方式，android框架会调度多个无障碍服务。但是，如果两个以上的服务提供同样的反馈，只需要注册一次。
- 	无障碍服务必须扩展AccessibilityService类，覆盖以下的方法。这些方法是以android系统被调用的先后顺序列出来的。
-onServiceConnected() --（可选）当系统成功链接到无障碍服务的时候会调用这个方法。使用这个方法可以为服务做一次性的设置。包括连接带用户反馈系统服务，比如音频管理或者设备震动。如果想要在运行时或者进行一次性调整时这是配置，这是调用onServiceConnected() 的合适时机。
-onAccessibilityEvent() --（必填）这个方法是在系统检测到无障碍事件时被被调用，这个事件的事件过滤参数是由无障碍服务指定的。例如，当用户点击一个按钮或者聚焦到一个无障碍服务反馈的用户界面控件上。当这种事件发生，系统调用这个方法，传递相关的AccessibilityEvent,该服务可以解释和用来提供反馈。这个方法在app的声明周期内会被调用多次。
-onInterrupt（） - （必需）当系统要中断的反馈信息时调用这个方法，通常是在移动焦点到不同的控制时调用此方法。这种方法可以在app的生命周期中多次调用。
-onUnbind（） - （可选）当系统即将关闭的辅助服务调用此方法。使用此方法做任何一次性的关闭程序，包括取消分配用户反馈系统服务，如音频管理器或设备振动。
-这些方法为无障碍服务提供基础框架。由开发者决定怎样在AccessibilityEvent对象中处理android系统提供的数据，为用户提供反馈。关于无障碍事件更多信息，请参阅实施辅助训练（Implementing Accessibility training）。
+    更多关于XML属性的信息，详见以下列表：
+    •android:description
+    •android:packageNames
+    •android:accessibilityEventTypes
+    •android:accessibilityFlags
+    •android:accessibilityFeedbackType
+    •android:notificationTimeout
+    •android:canRetrieveWindowContent
+    •android:settingsActivity
+    更多关于配置文件的信息，请关注AccessibilityServiceInfo参考文档。
+
+### 8.2无障碍事件注册
+    无障碍服务配置文件的一个重要功能就是允许指定哪些无障碍事件app可以处理。能够指定这些信息使无障碍服务可以与其他服务相互配合，允许开发者灵活处理应用中特定的事件类型。事件过滤应该包含以下的标准：
+    软件包名称（Package Names）--指定app要处理的无障碍事件的应用软件包名称。如果这个参数被省略，无障碍服务可被任务可用于任何app的无障碍服务事件。这个参数可以使用android:packageNames属性作为逗号分隔列表被设置在无障碍服务配置文件，或者使用AccessibilityServiceInfo.packageNames成员设置。
+    事件类型（Event Types）--指定要处理的无障碍事件的类型。这个参数可以使用android:accessibilityEventTypes 属性被设置在无障碍服务配置文件（例子：accessibilityEventTypes="typeViewClicked|typeViewFocused），或者使用AccessibilityServiceInfo.eventTypes成员设置。
+    当启用无障碍服务的时候，需要认真考虑哪些服务需要处理，然后只注册这些事件。因为用户可以一次性激活或多个无障碍服务，app一定不要加入不能处理的事件。而且，其他服务为了提升用户体验也可能会用到这些事件。
+    注：如果服务提供多种反馈方式，android框架会调度多个无障碍服务。但是，如果两个以上的服务提供同样的反馈，只需要注册一次。
+     	无障碍服务必须扩展AccessibilityService类，覆盖以下的方法。这些方法是以android系统被调用的先后顺序列出来的。
+    onServiceConnected() --（可选）当系统成功链接到无障碍服务的时候会调用这个方法。使用这个方法可以为服务做一次性的设置。包括连接带用户反馈系统服务，比如音频管理或者设备震动。如果想要在运行时或者进行一次性调整时这是配置，这是调用onServiceConnected() 的合适时机。
+    onAccessibilityEvent() --（必填）这个方法是在系统检测到无障碍事件时被被调用，这个事件的事件过滤参数是由无障碍服务指定的。例如，当用户点击一个按钮或者聚焦到一个无障碍服务反馈的用户界面控件上。当这种事件发生，系统调用这个方法，传递相关的AccessibilityEvent,该服务可以解释和用来提供反馈。这个方法在app的声明周期内会被调用多次。
+    onInterrupt（） - （必需）当系统要中断的反馈信息时调用这个方法，通常是在移动焦点到不同的控制时调用此方法。这种方法可以在app的生命周期中多次调用。
+    onUnbind（） - （可选）当系统即将关闭的辅助服务调用此方法。使用此方法做任何一次性的关闭程序，包括取消分配用户反馈系统服务，如音频管理器或设备振动。
+    这些方法为无障碍服务提供基础框架。由开发者决定怎样在AccessibilityEvent对象中处理android系统提供的数据，为用户提供反馈。关于无障碍事件更多信息，请参阅实施辅助训练（Implementing Accessibility training）。
 8.3获取事件详情
 无障碍服务通过系统传递AccessibilityEvent 到服务的onAccessibilityEvent()来获得用户界面事件。这个对象提供事件的详细信息，包括对象的类型、描述文本和其他细节。Android4.0以后的版本，可以通过使用以下的方法来获得附加信息。
 AccessibilityEvent.getRecordCount（）和getRecord（INT） -- 这些方法允许检索AccessibilityRecord对象的设置，这些设置促使系统将AccessibilityEvent传递给用户。这种详细程度为触发无障碍服务的事件提供详细内容。
