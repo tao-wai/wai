@@ -24,6 +24,7 @@
     android:src=”@drawable/pause”
     android:contentDescription=”@string/pause”/>```
     （3）由于这个控件没有text属性，对于一些用户来说，无法理解这个控件是做什么的。这时用户点击这个控件。android系统会自动使用人声朗读控件上android:contentDescription属性说指向的内容。这样用户就可以知道这个控件是做什么用的。Android布局contentDescription属性：
+```
 1.<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"  
 2.    xmlns:tools="http://schemas.android.com/tools"  
 3.    android:layout_width="match_parent"  
@@ -40,7 +41,7 @@
 14.        android:layout_centerInParent="true"  
 15.        android:contentDescription="这是一个文本"  
 16.        android:text="@string/hello_world" />  
-17.</RelativeLayout>
+17.</RelativeLayout>```
 ![](图片1.png)
     图1 android 系统contentDescription属性展示
     4）为即时消失的控件提供替代启示
