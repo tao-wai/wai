@@ -1117,33 +1117,33 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 ### 1.9.4嵌入对象无替代文本
 
 
-【问题描述】 
-【可能原因】
-【修改建议】
+【问题描述】 <br/>
+【可能原因】<br/>
+【修改建议】<br/>
 样例1：
-嵌入对象包含一个长描述；
-<object classid="http://www.example.com/analogclock.py">
+嵌入对象包含一个长描述；<br/>
+```<object classid="http://www.example.com/analogclock.py">
   <p>这里是一些用来描述对象和操作的文本。Here is some text that describes the object and its operation.</p>
-</object>
+</object>```
 样例2：
-嵌入对象的无文本内容有替代文本；
-<object classid="http://www.example.com/animatedlogo.py">
+嵌入对象的无文本内容有替代文本；<br/>
+```<object classid="http://www.example.com/animatedlogo.py">
   <img src="staticlogo.gif" alt="公司名称" />
-</object> 
+</object> ```
 样例3：
-图片类嵌入对象提供一个简短的描述来说明图片的目的；
-<object data="companylogo.gif" type="image/gif">
+图片类嵌入对象提供一个简短的描述来说明图片的目的；<br/>
+```<object data="companylogo.gif" type="image/gif">
   <p>公司名称</p>
-</object>
+</object>```
 样例4：
-使用临近元素来提供替代说明；
-<object classid="java:Press.class" width="500" height="500">
+使用临近元素来提供替代说明；<br/>
+```<object classid="java:Press.class" width="500" height="500">
   <object data="Pressure.mpeg" type="video/mpeg">
     <object data="Pressure.gif" type="image/gif">
       As temperature increases, the molecules in the balloon...
     </object>
   </object>
-</object> 
+</object> ```
 
 ## 1.10文本域<textarea>
 
@@ -1152,29 +1152,29 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 ### 1.10.1文本域控件类型提示不正确
 
 
-【问题描述】
-自定义的输入框，屏幕阅读器无法提示，使用屏幕阅读器用户无法对编辑框做出正确的操作。
-【可能原因】
-  开发者为了界面美观，比较喜欢自己设计一些编辑框，但没考虑到屏幕阅读器用户的操作，对应的无障碍接口没有添加。
-【修改建议】
+【问题描述】<br/>
+自定义的输入框，屏幕阅读器无法提示，使用屏幕阅读器用户无法对编辑框做出正确的操作。<br/>
+【可能原因】<br/>
+  开发者为了界面美观，比较喜欢自己设计一些编辑框，但没考虑到屏幕阅读器用户的操作，对应的无障碍接口没有添加。<br/>
+【修改建议】<br/>
 样例1：
-使用html标准控件；
-<textarea title="评论内容"></textarea>
+使用html标准控件；<br/>
+```<textarea title="评论内容"></textarea>```
 样例2：
-当元素的contenteditable属性值为“true时，需要添加title、role、tabindex 属性，为文本域定义角色和添加目的文本，以及焦点可聚焦
-<div contenteditable="true" role="textbox" title="评论内容" tabindex="0"></div>
+当元素的contenteditable属性值为“true时，需要添加title、role、tabindex 属性，为文本域定义角色和添加目的文本，以及焦点可聚焦;<br/>
+```<div contenteditable="true" role="textbox" title="评论内容" tabindex="0"></div>```
 
 ### 1.10.2文本域聚焦后焦点无法跳出
 
 
-【问题描述】
-部分情况下，自定义的文本域，焦点无法跳出；
-【可能原因】
-【修改建议】
-使用以下机制可以有效避免该陷阱：
-1.事先定义好内容焦点（通常使用tabindex），当子集或插件导航到最后位置时，跳出子集或插件，事先定义好的焦点可以获得。
-2.定义键盘事件，将焦点移出子集内容。
-3.如果子集使用的技术里面包含回到父级的键盘命令，在用户进入该子集前提示用户该命令。
+【问题描述】<br/>
+部分情况下，自定义的文本域，焦点无法跳出；<br/>
+【可能原因】<br/>
+【修改建议】<br/>
+使用以下机制可以有效避免该陷阱：<br/>
+1.事先定义好内容焦点（通常使用tabindex），当子集或插件导航到最后位置时，跳出子集或插件，事先定义好的焦点可以获得。<br/>
+2.定义键盘事件，将焦点移出子集内容。<br/>
+3.如果子集使用的技术里面包含回到父级的键盘命令，在用户进入该子集前提示用户该命令。<br/>
 
 ### 1.10.3未给文本域添加提示文本
 
