@@ -183,39 +183,39 @@ OBJECTIVE-C <br/>
 
 
 ### 3.3数据类型
-    UIAccessibilityTraits
-    包含无障碍特性的组合掩码，这些无障碍特性最能描述一个无障碍元素；
-    声明：
-    SWIFT
-    typealias UIAccessibilityTraits = UInt64
-    OBJECTIVE-C
-    typedef uint64_t UIAccessibilityTraits;
-    引入声明
-    OBJECTIVE-C
-    @import UIKit;
-    SWIFT
-    import UIKit
-    版本：Available in iOS 3.0 and later.
-    
-    UIAccessibilityZoomType
-    可以生效的系统缩放的类型；
-    声明：
-    SWIFT
-    enum UIAccessibilityZoomType : Int {
-        case InsertionPoint
-    }
-    OBJECTIVE-C
-    typedef enum {
-       UIAccessibilityZoomTypeInsertionPoint,
-    } UIAccessibilityZoomType;
-    常量：
-    UIAccessibilityZoomTypeInsertionPoint ：系统缩放类型是文本插入点。Available in iOS 5.0 and later.
-    引入声明：
-    OBJECTIVE-C
-    @import UIKit;
-    SWIFT
-    import UIKit
-    版本：Available in iOS 5.0 and later.
+UIAccessibilityTraits <br/>
+　　包含无障碍特性的组合掩码，这些无障碍特性最能描述一个无障碍元素； <br/>
+声明： <br/>
+SWIFT <br/>
+typealias UIAccessibilityTraits = UInt64 <br/>
+OBJECTIVE-C <br/>
+typedef uint64_t UIAccessibilityTraits; <br/>
+引入声明 <br/>
+OBJECTIVE-C <br/>
+@import UIKit; <br/>
+SWIFT
+import UIKit <br/>
+版本：Available in iOS 3.0 and later. <br/>
+
+UIAccessibilityZoomType <br/>
+　　可以生效的系统缩放的类型； <br/>
+声明： <br/>
+SWIFT <br/>
+enum UIAccessibilityZoomType : Int { <br/>
+    case InsertionPoint <br/>
+} <br/>
+OBJECTIVE-C <br/>
+typedef enum { <br/>
+   UIAccessibilityZoomTypeInsertionPoint, <br/>
+} UIAccessibilityZoomType; <br/>
+常量： <br/>
+UIAccessibilityZoomTypeInsertionPoint ：系统缩放类型是文本插入点。Available in iOS 5.0 and later. <br/>
+引入声明： <br/>
+OBJECTIVE-C <br/>
+@import UIKit; <br/>
+SWIFT <br/>
+import UIKit <br/>
+版本：Available in iOS 5.0 and later. <b <br/>r/>
     
     UIAccessibilityNotifications
     一个无障碍应用可以发送的通知；
