@@ -656,54 +656,54 @@ UIKit为所有标准控件和视图，提供合适的trait组合。当为一个�
 ### 5.1提供有关无障碍元素的信息
 
 
-    - accessibilityElementCount
-    返回容器内无障碍元素的数量。默认为0。
-    声明：
-    SWIFT
-    func accessibilityElementCount() -> Int
-    OBJECTIVE-C
-    - (NSInteger)accessibilityElementCount
-    版本信息：Available in iOS 3.0 and later.
-    
-    - accessibilityElementAtIndex:
-    按照特定索引返回无障碍信息，没有元素返回nil。
-    声明：
-    SWIFT
-    func accessibilityElementAtIndex(_ index: Int) -> AnyObject?
-    OBJECTIVE-C
-    - (id _Nullable)accessibilityElementAtIndex:(NSInteger)index
-    参数：index——无障碍元素的索引。
-    版本：Available in iOS 3.0 and later.
-    
-    - indexOfAccessibilityElement:
-    返回指定无障碍元素的索引，无元素返回NSNotFount。
-    声明：
-    SWIFT
-    func indexOfAccessibilityElement(_ element: AnyObject) -> Int
-    OBJECTIVE-C
-    - (NSInteger)indexOfAccessibilityElement:(id _Nonnull)element
-    参数：element——无障碍元素
-    版本：Available in iOS 3.0 and later.
+- accessibilityElementCount<br/>
+返回容器内无障碍元素的数量。默认为0。<br/>
+声明：<br/>
+```SWIFT
+func accessibilityElementCount() -> Int
+OBJECTIVE-C
+- (NSInteger)accessibilityElementCount```
+版本信息：Available in iOS 3.0 and later.<br/>
 
-    accessibilityElements
-    容器内无障碍元素的数组，默认值为nil。
-    声明：
-    SWIFT
-    var accessibilityElements: [AnyObject]?
-    OBJECTIVE-C
-    @property(nonatomic, strong, nullable) NSArray *accessibilityElements
-    版本：Available in iOS 8.0 and later.
+- accessibilityElementAtIndex:<br/>
+按照特定索引返回无障碍信息，没有元素返回nil。<br/>
+声明：<br/>
+```SWIFT
+func accessibilityElementAtIndex(_ index: Int) -> AnyObject?
+OBJECTIVE-C
+- (id _Nullable)accessibilityElementAtIndex:(NSInteger)index```
+参数：index——无障碍元素的索引。<br/>
+版本：Available in iOS 3.0 and later.<br/>
+
+- indexOfAccessibilityElement:<br/>
+返回指定无障碍元素的索引，无元素返回NSNotFount。<br/>
+声明：<br/>
+```SWIFT
+func indexOfAccessibilityElement(_ element: AnyObject) -> Int
+OBJECTIVE-C
+- (NSInteger)indexOfAccessibilityElement:(id _Nonnull)element```
+参数：element——无障碍元素<br/>
+版本：Available in iOS 3.0 and later.<br/>
+
+accessibilityElements<br/>
+容器内无障碍元素的数组，默认值为nil。<br/>
+声明：<br/>
+```SWIFT
+var accessibilityElements: [AnyObject]?
+OBJECTIVE-C
+@property(nonatomic, strong, nullable) NSArray *accessibilityElements```
+版本：Available in iOS 8.0 and later.<br/>
 
 ## 6.UIGuidedAccessRestrictionDelegate
 
 
-    文档参考来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIGuidedAccessRestrictionsDelegate_Protocol/#//apple_ref/occ/intfm/UIGuidedAccessRestrictionDelegate/guidedAccessRestrictionIdentifiers
+　　文档参考来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIGuidedAccessRestrictionsDelegate_Protocol/#//apple_ref/occ/intfm/UIGuidedAccessRestrictionDelegate/guidedAccessRestrictionIdentifiers<br/>
 
-    在应用代理中使用UIGuidedAccessRestrictionDelegate协议允许在ios为Guided Access功能添加自定义限制。
-    自定义限制在guidedAccessRestrictionIdentifiers方法中，通过开发者提供的文本标示符呈现。每一个标示符表示app中的一个操作，app希望允许用户限制使用Guided Access。所有操作的默认值是允许。用户可以使用正常Guided Access用户界面拒绝操作。详情见http://support.apple.com/kb/HT5509。
-    App通过实现textForGuidedAccessRestrictionWithIdentifier:和detailTextForGuidedAccessRestrictionWithIdentifier: 方法来返回适当的本地的、可读的文本。
-    例如，一个照片编辑app可能允许用户禁止删除照片。App将会在detailTextForGuidedAccessRestrictionWithIdentifier: 方法中返回一个标示符呈现这个限制。App也会实现textForGuidedAccessRestrictionWithIdentifier: 方法来提供一个可读的限制描述。最后，app将会实现guidedAccessRestrictionWithIdentifier:didChangeState:来通知，当用户表示希望激活这个限制的时候。当app看见状态变为拒绝，将会配置自己通说任何方式阻止照片删除。相似的，当app看见状态变为允许，将会配置自己允许照片删除。
-    App可以使用UIGuidedAccessRestrictionStateForIdentifier函数来检查限制的状态。
+　　在应用代理中使用UIGuidedAccessRestrictionDelegate协议允许在ios为Guided Access功能添加自定义限制。
+自定义限制在guidedAccessRestrictionIdentifiers方法中，通过开发者提供的文本标示符呈现。每一个标示符表示app中的一个操作，app希望允许用户限制使用Guided Access。所有操作的默认值是允许。用户可以使用正常Guided Access用户界面拒绝操作。详情见http://support.apple.com/kb/HT5509。
+App通过实现textForGuidedAccessRestrictionWithIdentifier:和detailTextForGuidedAccessRestrictionWithIdentifier: 方法来返回适当的本地的、可读的文本。<br/>
+　　例如，一个照片编辑app可能允许用户禁止删除照片。App将会在detailTextForGuidedAccessRestrictionWithIdentifier: 方法中返回一个标示符呈现这个限制。App也会实现textForGuidedAccessRestrictionWithIdentifier: 方法来提供一个可读的限制描述。最后，app将会实现guidedAccessRestrictionWithIdentifier:didChangeState:来通知，当用户表示希望激活这个限制的时候。当app看见状态变为拒绝，将会配置自己通说任何方式阻止照片删除。相似的，当app看见状态变为允许，将会配置自己允许照片删除。
+App可以使用UIGuidedAccessRestrictionStateForIdentifier函数来检查限制的状态。<br/>
 
 
 ### 6.1确定自定义引导访问限制
