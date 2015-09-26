@@ -795,30 +795,28 @@ setBackgroundDrawabew ColorDrawable(0x00000000))。
 ### 2.3.1控件类型不能正常朗读
 
 
-【问题描述】
-控件的类型不提示或者控件类型提示不正确， 用户不知道如何操作此控件， 这种情况主要出现在自定义控件上；
-【可能原因】
-自定义控件的无障碍支持不全面；
-【修改建议】
-android：
-在任何一种情况下,为您的自定义视图类您应该执行下面的可访问性方法： 
+【问题描述】<br/>
+控件的类型不提示或者控件类型提示不正确， 用户不知道如何操作此控件， 这种情况主要出现在自定义控件上；<br/>
+【可能原因】<br/>
+自定义控件的无障碍支持不全面；<br/>
+【修改建议】<br/>
+android：<br/>
+在任何一种情况下,为您的自定义视图类您应该执行下面的可访问性方法： <br/>
+```
 dispatchPopulateAccessibilityEvent() 
-onPopulateAccessibilityEvent() onInitializeAccessib
-
-### 2.3.2提示文本有冗余信息、 提示文本错误ityEvent() 
-
-
-onInitializeAccessibilityNodeInfo() 
-通常是在onInitializeAccessibilityEvent() 方法中提供类名（控件类型）。
+onPopulateAccessibilityEvent() 
+onInitializeAccessib() 
+onInitializeAccessibilityNodeInfo() ```
+通常是在onInitializeAccessibilityEvent() 方法中提供类名（控件类型）。<br/>
 
 ### 2.3.2提示文本有冗余信息、 提示文本错误
 
 
-【问题描述】
-控件的提示文本有冗余； 控件的提示文本与控件的实际目的不相符；
-【可能原因】
-1.给控件提供提示文本或替代文本时文本不够精炼准；
-2.提供了一些不必要的信；
-【修改建议】
-1给控件提供文本或者替代文本时要精炼准确；
-2去掉这些不必要的信息。
+【问题描述】<br/>
+控件的提示文本有冗余； 控件的提示文本与控件的实际目的不相符；<br/>
+【可能原因】<br/>
+1.给控件提供提示文本或替代文本时文本不够精炼准；<br/>
+2.提供了一些不必要的信；<br/>
+【修改建议】<br/>
+1给控件提供文本或者替代文本时要精炼准确；<br/>
+2去掉这些不必要的信息。<br/>
