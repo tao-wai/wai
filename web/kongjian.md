@@ -1209,14 +1209,14 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 ### 1.10.4文本框内无法使用方向键逐行逐字浏览
 
 
-【问题描述】
-【可能原因】
-【修改建议】
+【问题描述】<br/>
+【可能原因】<br/>
+【修改建议】<br/>
 样例1：
-使用html标准控件；
-<label for="message">您对视障工程师的理解:</label><textarea id="message"></textarea>
-样例2：
-<div contenteditable="true" role="textbox" title="评论内容" tabindex="0"></div>
+使用html标准控件；<br/>
+```<label for="message">您对视障工程师的理解:</label><textarea id="message"></textarea>```
+样例2：<br/>
+```<div contenteditable="true" role="textbox" title="评论内容" tabindex="0"></div>```
 
 
 ## 1.11Frame
@@ -1226,24 +1226,24 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 ### 1.11.1键盘焦点无法跳出
 
 
-【问题描述】
-键盘焦点无法跳出框架，即在一个框架内连续按tab键，焦点总是无法离开这个frame；
-【可能原因】
-未给离开frame的元素设置合理的tabindex，导致焦点无法离开。
-【修改建议】
+【问题描述】<br/>
+键盘焦点无法跳出框架，即在一个框架内连续按tab键，焦点总是无法离开这个frame；<br/>
+【可能原因】<br/>
+未给离开frame的元素设置合理的tabindex，导致焦点无法离开。<br/>
+【修改建议】<br/>
 
 ### 1.11.2框架无名称
 
 
-【问题描述】
-当用户按tab键进入该框架时，屏幕阅读器未朗读出框架的名称；
-【可能原因】
-1、未给对应框架加入合适的name属性；
-2、框架的title属性赋值不当；
+【问题描述】<br/>
+当用户按tab键进入该框架时，屏幕阅读器未朗读出框架的名称；<br/>
+【可能原因】<br/>
+1、未给对应框架加入合适的name属性；<br/>
+2、框架的title属性赋值不当；<br/>
 【修改建议】
-样例1：
-使用title属性来描述带有导航条和文件的框架；
-<html xmlns="http://www.w3.org/1999/xhtml">
+样例1：<br/>
+使用title属性来描述带有导航条和文件的框架；<br/>
+```<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>一个简单的框架文件</title>
   </head>
@@ -1256,7 +1256,7 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
       </body>
     </noframes>
   </frameset>
-</html> 
+</html>``` 
 
 ### 1.11.3焦点无法聚焦到框架内的链接
 
@@ -1278,33 +1278,33 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 ### 1.12.1键盘焦点无法进入
 
 
-【问题描述】
-按tab键无法到达某个框架内的元素；
-【可能原因】
-1、在进入框架前的一个控件元素设置了强制去除焦点，导致无法越过该焦点进入iframe框架内；
-2、框架内的元素未设置适当的tabindex；
-【修改建议】
+【问题描述】<br/>
+按tab键无法到达某个框架内的元素；<br/>
+【可能原因】<br/>
+1、在进入框架前的一个控件元素设置了强制去除焦点，导致无法越过该焦点进入iframe框架内；<br/>
+2、框架内的元素未设置适当的tabindex；<br/>
+【修改建议】<br/>
 样例1：
-强制去除框架前焦点的聚焦会导致该问题的出现：
-<a href="#" onfocus="this.blur()">TAB焦点切不到我</a>
+强制去除框架前焦点的聚焦会导致该问题的出现：<br/>
+```<a href="#" onfocus="this.blur()">TAB焦点切不到我</a>```
 样例2：
-为内联框架的子集添加焦点；
-example2.html:
+为内联框架的子集添加焦点；<br/>
+```example2.html:
 <iframe src="child.html" title="IFrame框架" />
 child.html:
 <ul>
 <li tabindex="0">子元素1</li>
 <li tabindex="0">子元素2</li>
-</ul>
+</ul>```
 
 ### 1.12.2键盘焦点无法移出
 
 
-【问题描述】
-键盘焦点无法跳出框架，即在一个框架内连续按tab键，焦点总是无法离开这个iframe；
-【可能原因】
-未给离开iframe的元素设置合理的tabindex，导致焦点无法离开。
-【修改建议】
+【问题描述】<br/>
+键盘焦点无法跳出框架，即在一个框架内连续按tab键，焦点总是无法离开这个iframe；<br/>
+【可能原因】<br/>
+未给离开iframe的元素设置合理的tabindex，导致焦点无法离开。<br/>
+【修改建议】<br/>
 
 ## 1.13密码控件
 
