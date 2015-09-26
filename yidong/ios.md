@@ -1114,10 +1114,10 @@ self.myFirstElement);
 ### 10.3监听无障碍通知
 
 
-    需要监听无障碍通知来触发回调方法。在特定情境下，UIKit触发无障碍通知。App可以通过监听无障碍通知来扩展无障碍功能。
-    例如，如果监听到UIAccessibilityAnnouncementDidFinishNotification通知，可以触发一个方法来跟进voiceover讲话的完成。Apple在iBooks app实现这个方法。当Voiceover读完一本书的一行，iBooks 开启一个通知触发读出下一行的内容。如果是一页上的最后一行，回调的逻辑告知iBooks去翻译，在最后一行完成时继续于都。这允许逐行阅读导航文本，提供一个无缝的、不间断的阅读体验。
-    使用默认通知中心，注册无障碍通知观察器。然后创建一个相同名字的方法来提供选择参数，如下例所示：
-    无障碍通知观察期注册：
+　　需要监听无障碍通知来触发回调方法。在特定情境下，UIKit触发无障碍通知。App可以通过监听无障碍通知来扩展无障碍功能。<br/>
+　　例如，如果监听到UIAccessibilityAnnouncementDidFinishNotification通知，可以触发一个方法来跟进voiceover讲话的完成。Apple在iBooks app实现这个方法。当Voiceover读完一本书的一行，iBooks 开启一个通知触发读出下一行的内容。如果是一页上的最后一行，回调的逻辑告知iBooks去翻译，在最后一行完成时继续于都。这允许逐行阅读导航文本，提供一个无缝的、不间断的阅读体验。<br/>
+　　使用默认通知中心，注册无障碍通知观察器。然后创建一个相同名字的方法来提供选择参数，如下例所示：<br/>
+　　无障碍通知观察期注册：<br/>
 ```
 @implementation MyViewController
 - (void)viewDidLoad
