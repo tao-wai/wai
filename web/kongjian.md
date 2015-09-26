@@ -1179,32 +1179,32 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 ### 1.10.3未给文本域添加提示文本
 
 
-【问题描述】
-缺少描述文本的“文本域”，用户无法获知文本域需要输入哪些信息；
-【可能原因】
-开发者忘记添加提示文本，或者用图片或某个符号代表文本域的提示信息；
-【修改建议】
+【问题描述】<br/>
+缺少描述文本的“文本域”，用户无法获知文本域需要输入哪些信息；<br/>
+【可能原因】<br/>
+开发者忘记添加提示文本，或者用图片或某个符号代表文本域的提示信息；<br/>
+【修改建议】<br/>
 样例1：
-使用title为文本域添加提示文本；
-<textarea title="评论内容"></textarea>
+使用title为文本域添加提示文本；<br/>
+```<textarea title="评论内容"></textarea>```
 样例2：
-使用placeholder为文本域添加提示文本；
-<textarea placeholder="在此输入评论内容"></textarea>
+使用placeholder为文本域添加提示文本；<br/>
+```<textarea placeholder="在此输入评论内容"></textarea>```
 样例3：
-使用value为文本域添加提示文本；
-<textarea>在此输入评论内容</textarea>
+使用value为文本域添加提示文本；<br/>
+```<textarea>在此输入评论内容</textarea>```
 样例4：
-使用label for为文本域添加提示文本；
-<label for="comment-content">评论内容:</label>
-<textarea id="comment-content"></textarea>
+使用label for为文本域添加提示文本；<br/>
+```<label for="comment-content">评论内容:</label>
+<textarea id="comment-content"></textarea>```
 样例5：
-使用aria-label为文本域添加提示文本；
-<textarea aria-label="你对信息无障碍的理解"></textarea>
+使用aria-label为文本域添加提示文本；<br/>
+```<textarea aria-label="你对信息无障碍的理解"></textarea>```
 样例6：
-使用aria-describedby为文本与提供提示文本；
-<p><span id="message">请输入您对信息无障碍的理解</span>
+使用aria-describedby为文本与提供提示文本；<br/>
+```<p><span id="message">请输入您对信息无障碍的理解</span>
 <textarea aria-describedby="message"></textarea>
-</p>
+</p>```
 
 ### 1.10.4文本框内无法使用方向键逐行逐字浏览
 
