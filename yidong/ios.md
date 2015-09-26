@@ -74,16 +74,16 @@ OBJECTIVE-C <br/>
 @property(nonatomic) BOOL accessibilityElementsHidden <br/>
 版本：Available in iOS 5.0 and later. <br/>
 
-    accessibilityFrame
-    在屏幕坐标上，无障碍元素的框架；这个属性的默认值是CGRectZero，除非接收器是一个UIView对象或者是一个UIView的子类，这种情况，属性值为视图的框架。
-    一个无障碍元素呈现一个非UIView子类的对象应该设置该属性，因为这类对象的屏幕坐标不是已知的。
-    声明：
-    SWIFT
-    var accessibilityFrame: CGRect
-    OBJECTIVE-C
-    @property(nonatomic) CGRect accessibilityFrame
-    版本：
-    Available in iOS 3.0 and later.
+accessibilityFrame <br/>
+　　在屏幕坐标上，无障碍元素的框架；这个属性的默认值是CGRectZero，除非接收器是一个UIView对象或者是一个UIView的子类，这种情况，属性值为视图的框架。 <br/>
+　　一个无障碍元素呈现一个非UIView子类的对象应该设置该属性，因为这类对象的屏幕坐标不是已知的。 <br/>
+声明：
+SWIFT <br/> <br/>
+var accessibilityFrame: CGRect <br/>
+OBJECTIVE-C <br/>
+@property(nonatomic) CGRect accessibilityFrame <br/>
+版本： <br/>
+Available in iOS 3.0 and later. <br/>
 
     accessibilityHint
     用本地语言简单描述无障碍元素的行为结果；这个属性的默认值是nil，除非接收器是一个UIKit控件，这种情况下，系统根据控件类型自动提供hint。
