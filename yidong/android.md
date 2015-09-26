@@ -334,9 +334,9 @@ public void dispatchPopulateAccessibilityEvent(AccessibilityEvent event) {
         event.getText().add(text);
     }
 }```
-    在Android 4.0系统(API级别14)以上，推荐使用onPopulateAccessibilityEvent()和onInitializeAccessibilityEvent()方法来填充或修改一个AccessibilityEvent事件中的信息。专门使用onPopulateAccessibilityEvent()方法为添加或修改事件的文本内容，可以talkback类的辅助服务变转换成声音提示。使用onInitializeAccessibilityEvent()方法来填充关于事件的其他信息，比如视图的选择状态。
-    此外，还应该实现onInitializeAccessibilityNodeInfo()方法。使用这个方法来填充 AccessibilityNodeInfo对象，接收到事件之后，辅助服务访问可以产生无障碍事件的视图层次，获得更详细的上下文信息，并给用户提供适当的反馈。
-    下面的示例代码显示了如何通过使用ViewCompat.setAccessibilityDelegate()重写这三种方法。注意，此示例代码要求添加API级别4的Android支持库(版本5或更高)到您的项目。
+　　在Android 4.0系统(API级别14)以上，推荐使用onPopulateAccessibilityEvent()和onInitializeAccessibilityEvent()方法来填充或修改一个AccessibilityEvent事件中的信息。专门使用onPopulateAccessibilityEvent()方法为添加或修改事件的文本内容，可以talkback类的辅助服务变转换成声音提示。使用onInitializeAccessibilityEvent()方法来填充关于事件的其他信息，比如视图的选择状态。<br/>
+　　此外，还应该实现onInitializeAccessibilityNodeInfo()方法。使用这个方法来填充 AccessibilityNodeInfo对象，接收到事件之后，辅助服务访问可以产生无障碍事件的视图层次，获得更详细的上下文信息，并给用户提供适当的反馈。<br/>
+　　下面的示例代码显示了如何通过使用ViewCompat.setAccessibilityDelegate()重写这三种方法。注意，此示例代码要求添加API级别4的Android支持库(版本5或更高)到您的项目。<br/>
   
 ```
 ViewCompat.setAccessibilityDelegate(new AccessibilityDelegateCompat() {
