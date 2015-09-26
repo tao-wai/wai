@@ -8,7 +8,7 @@
    * [web端常见功能的无障碍问题](web/gongneng.md)
    * [web无障碍建议](web/jianyi.md)
 * 移动端无障碍
-   * [yinyan](yidong/yinyan.md)
+   * [引言](yidong/yinyan.md)
    * [android](yidong/android.md)
    * [ios](yidong/ios.md)
    * [wenti](yidong/wenti.md)
