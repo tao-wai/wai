@@ -11,5 +11,5 @@
    * [引言](yidong/yinyan.md)
    * [android无障碍开发指南](yidong/android.md)
    * [ios无障碍开发指南](yidong/ios.md)
-   * [wenti](yidong/wenti.md)
+   * [移动端无障碍问题](yidong/wenti.md)
 
