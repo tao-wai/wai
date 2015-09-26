@@ -447,27 +447,27 @@ OBJECTIVE-C<br/>
 SWIFT<br/>
 import UIKit<br/>
 
-    UIAccessibilityLayoutChangedNotification
-    当系统的屏幕布局改变时，应用推送该通知，比如当一个元素出现或消失时。这个通知包含一个参数，这个参数是个voiceover讲出的NSSting对象或者可以接收焦点的无障碍元素。使用UIAccessibilityPostNotification功能推送该通知。
-    声明：
-    SWIFT
-    var UIAccessibilityLayoutChangedNotification: UIAccessibilityNotifications
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
+UIAccessibilityLayoutChangedNotification<br/>
+　　当系统的屏幕布局改变时，应用推送该通知，比如当一个元素出现或消失时。这个通知包含一个参数，这个参数是个voiceover讲出的NSSting对象或者可以接收焦点的无障碍元素。使用UIAccessibilityPostNotification功能推送该通知。<br/>
+声明：<br/>
+SWIFT<br/>
+var UIAccessibilityLayoutChangedNotification: UIAccessibilityNotifications<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
 
-    UIAccessibilityMonoAudioStatusDidChangeNotification
-    当系统音频从立体声变为单声道时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-    声明：
-    SWIFT
-    let UIAccessibilityMonoAudioStatusDidChangeNotification: String
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
+UIAccessibilityMonoAudioStatusDidChangeNotification<br/>
+　　当系统音频从立体声变为单声道时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
+声明：<br/>
+SWIFT<br/>
+let UIAccessibilityMonoAudioStatusDidChangeNotification: String<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
     
     UIAccessibilityPageScrolledNotification
     当完成滚动操作且accessibilityScroll被调用时，应用推送该通知。这个通知包含一个参数，这个参数是一个NSString对象，包含新滚动位置的描述。辅助技术输入参数中的描述文本。在用户施行了voiceover滚动手势，可以使用该通知来提供屏幕内容的自定义信息。例如，一个基于tab的应用可能提供一个文本，如“tab 3 of 5”，或者在页面中展示信息的应用提供例如“Page 19 of 27”的文本。当辅助技术重复接收到相同滚动位置文本，这表明用户到达边或边界。使用UIAccessibilityPostNotification功能推送该通知。
