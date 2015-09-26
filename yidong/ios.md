@@ -161,25 +161,25 @@ OBJECTIVE-C <br/>
 @property(nonatomic) BOOL accessibilityViewIsModal <br/>
 版本：Available in iOS 5.0 and later. <br/>
 
-    shouldGroupAccessibilityChildren
-    一个布尔值，用来指明voiceover是否应该将接收器子元素组合在一起讲述，无论这些子元素位于屏幕上的哪个位置；该属性的默认值为NO。
-    例如，假设一个垂直展示条目的app。正常的，voiceover会通过水平方向导航这些元素。在垂直列项里的条目父级视图中，设置这个属性为YES，voiceover会尊重app的分组且正确定位它们。
-    声明：
-    SWIFT
-    var shouldGroupAccessibilityChildren: Bool
-    OBJECTIVE-C
-    @property(nonatomic) BOOL shouldGroupAccessibilityChildren
-    版本：Available in iOS 6.0 and later.
+shouldGroupAccessibilityChildren <br/>
+　　一个布尔值，用来指明voiceover是否应该将接收器子元素组合在一起讲述，无论这些子元素位于屏幕上的哪个位置；该属性的默认值为NO。 <br/>
+　　例如，假设一个垂直展示条目的app。正常的，voiceover会通过水平方向导航这些元素。在垂直列项里的条目父级视图中，设置这个属性为YES，voiceover会尊重app的分组且正确定位它们。 <br/>
+声明： <br/>
+SWIFT <br/>
+var shouldGroupAccessibilityChildren: Bool <br/>
+OBJECTIVE-C <br/>
+@property(nonatomic) BOOL shouldGroupAccessibilityChildren <br/>
+版本：Available in iOS 6.0 and later. <br/>
     
-    accessibilityNavigationStyle
-    应用于对象和它的元素的导航方式。一些辅助技术让用户选择一个父级视图和容器，为了导航自己的元素。这个属性控制行为是不是应用于当前对象。开关控件使用这个技术，但是voiceover和其他辅助技术不使用。
-    这个属性的默认值为UIAccessibilityNavigationStyleAutomatic。
-    声明：
-    SWIFT
-    var accessibilityNavigationStyle: UIAccessibilityNavigationStyle
-    OBJECTIVE-C
-    @property(nonatomic) UIAccessibilityNavigationStyle accessibilityNavigationStyle
-    版本：Available in iOS 8.0 and later.
+accessibilityNavigationStyle <br/>
+　　应用于对象和它的元素的导航方式。一些辅助技术让用户选择一个父级视图和容器，为了导航自己的元素。这个属性控制行为是不是应用于当前对象。开关控件使用这个技术，但是voiceover和其他辅助技术不使用。 <br/>
+　　这个属性的默认值为UIAccessibilityNavigationStyleAutomatic。 <br/>
+声明： <br/>
+SWIFT <br/>
+var accessibilityNavigationStyle: UIAccessibilityNavigationStyle <br/>
+OBJECTIVE-C <br/>
+@property(nonatomic) UIAccessibilityNavigationStyle accessibilityNavigationStyle <br/>
+版本：Available in iOS 8.0 and later. <br/>
 
 
 ### 3.3数据类型
