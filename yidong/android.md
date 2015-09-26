@@ -129,18 +129,21 @@ android"  
 ### 5.2设计焦点引导
 
 
-    应用本该提供更多的引导方法而不仅仅只有触摸屏幕这一种方法。很多android设备都有引导硬件而不是触摸屏，像十字键，方向键，轨迹球。另外，后面版本也支持外部设备，比如以USB或蓝牙为媒介的键盘。 为了使能这种引导方式，对用户来说所有的引导元素如要需要设置焦点，可以通过使用相应UI控件的View.setFocusable()这个方法来设置,或者通过在XML布局文件中android:focusable这个属性。 并且，每一个UI控件有4个属性， android:nextFocusUp, android:nextFocusDown, android:nextFocusLeft 和 android:nextFocusRight。你可以使用这些属性来设计下一个视图从对应的方向接收焦点。尽管平台自动决定引导的顺序是基于布局邻近，如果它不适合于你的应用，你可以使用这些属性去重写那些顺序。 举个例子，下面是如何表示一个按钮和一个标签，两个都设置了focusable属性。当你按下按钮后会转到这个文本视图，松开后又回到这个按钮。  
+　　应用本该提供更多的引导方法而不仅仅只有触摸屏幕这一种方法。很多android设备都有引导硬件而不是触摸屏，像十字键，方向键，轨迹球。另外，后面版本也支持外部设备，比如以USB或蓝牙为媒介的键盘。<br/> 　　为了使能这种引导方式，对用户来说所有的引导元素如要需要设置焦点，可以通过使用相应UI控件的View.setFocusable()这个方法来设置,或者通过在XML布局文件中android:focusable这个属性。 并且，每一个UI控件有4个属性， android:nextFocusUp, android:nextFocusDown, android:nextFocusLeft 和 android:nextFocusRight。你可以使用这些属性来设计下一个视图从对应的方向接收焦点。尽管平台自动决定引导的顺序是基于布局邻近，如果它不适合于你的应用，你可以使用这些属性去重写那些顺序。 举个例子，下面是如何表示一个按钮和一个标签，两个都设置了focusable属性。当你按下按钮后会转到这个文本视图，松开后又回到这个按钮。  <br/>
 ```
 <Button android:id="@+id/doSomething"
     android:focusable="true"
     android:nextFocusDown="@id/label"
     ... />
 <TextView android:id="@+id/label"
+   
     android:focusable="true"
+   
     android:text="@string/labelText"
+   
     android:nextFocusUp="@id/doSomething"
     ... />```
-    直观地验证应用在这些情形所产生效果。最简单的方法是直接在安卓模拟器运行你的应用，使用模拟器上的方向键操作用户界面，用OK键代替触摸动作来选择UI控件。 
+　　直观地验证应用在这些情形所产生效果。最简单的方法是直接在安卓模拟器运行你的应用，使用模拟器上的方向键操作用户界面，用OK键代替触摸动作来选择UI控件。 <br/>
 
 ### 5.3触发辅助性事件
 
