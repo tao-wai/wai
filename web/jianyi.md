@@ -790,7 +790,7 @@ xhtml中的lang使用：```<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" 
 <div id="box">这里有一个弹出框
    <button aria-label="Close" onclick="document.getElementById('box').style.display='none';" class="close-button">X（叉号）</button>			
 </div>```
-    样例2：多区域电话号码
+样例2：多区域电话号码<br/>
 ```
 <div role="group" aria-labelledby="groupLabel">
   <span id="groupLabel>工作电话</span>
@@ -798,26 +798,26 @@ xhtml中的lang使用：```<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" 
   <input type="number" aria-label="地区代码">
   <input type="number" aria-label="详细号码">
 </div>```
-    2）使用aria-labelledby为用户界面控件提供name
-    这个技巧用来为用户界面控件提供name，这些name可以被辅助技术阅读。WAI-ARIA使用aria-labelledby将文本与章节、设计、表单元素、图片等联系起来。这个技巧使用aria-labelledby属性连接用户界面控件，例如表单区域；
-    aria-labelledby可以接受很多id来指向其他网页上的其他元素，使用分隔列表。这个能力将aria-labelledby变得格外有用，在视觉用户使用周围的文字来判定控件目的的时候。使用aria-labelledby可以串联多个文本节点到label，这个文本节点包含状态的样例，这些状态来自其他的网页上的其他文本元素；
-    即使aria-labelledby的功能与标准html控件类似，仍有些不同：
-    aria-labelledby可以引用多个文本元素，label只能引用一个；
-    aria-labelledby可以被应用到多种元素，label元素只能用于表单元素；
-    点击label焦点自动链接到表单元素，这个不会发生在aria-labelledby。这个行为只有在使用label或者使用JS脚本的时候才会发生。
-    注：在老版本的浏览器和辅助技术里面，label比aria-labelledby支持的好；
-    样例1：
-    标记简单文本区域：使用aria-labelledby为简单文本区域提供标签，当没有文本可用来描述，但是在网页上有其他文本可用来精确标记控件;
+2）使用aria-labelledby为用户界面控件提供name
+　　这个技巧用来为用户界面控件提供name，这些name可以被辅助技术阅读。WAI-ARIA使用aria-labelledby将文本与章节、设计、表单元素、图片等联系起来。这个技巧使用aria-labelledby属性连接用户界面控件，例如表单区域；<br/>
+　　aria-labelledby可以接受很多id来指向其他网页上的其他元素，使用分隔列表。这个能力将aria-labelledby变得格外有用，在视觉用户使用周围的文字来判定控件目的的时候。使用aria-labelledby可以串联多个文本节点到label，这个文本节点包含状态的样例，这些状态来自其他的网页上的其他文本元素；<br/>
+即使aria-labelledby的功能与标准html控件类似，仍有些不同：<br/>
+aria-labelledby可以引用多个文本元素，label只能引用一个；<br/>
+aria-labelledby可以被应用到多种元素，label元素只能用于表单元素；<br/>
+点击label焦点自动链接到表单元素，这个不会发生在aria-labelledby。这个行为只有在使用label或者使用JS脚本的时候才会发生。<br/>
+注：在老版本的浏览器和辅助技术里面，label比aria-labelledby支持的好；
+样例1：<br/>
+标记简单文本区域：使用aria-labelledby为简单文本区域提供标签，当没有文本可用来描述，但是在网页上有其他文本可用来精确标记控件;<br/>
 ```
 <input name="searchtxt" type="text" aria-labelledby="searchbtn">
 <input name="searchbtn" id="searchbtn" type="submit" value="Search">```
-    样例2：
-    标记滑块：使用aria-labelledby为滑块控件提供label，它的标记信息来自临近的文本。
+样例2：<br/>
+标记滑块：使用aria-labelledby为滑块控件提供label，它的标记信息来自临近的文本。<br/>
 ```
 <p><span id="mysldr-lbl">请选择旅行时间</span></p>
 <div id="mysldr" role="slider" aria-labelledby="mysldr-lbl"></div>```
-    样例3：
-    来自多个文本的label；
+样例3：
+来自多个文本的label；<br/>
 ```
 <label id="l1" for="f3">通知我</label>
 <select name="amt" id="f3" aria-labelledby="l1 f3 l2">
