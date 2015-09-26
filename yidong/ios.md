@@ -400,28 +400,28 @@ OBJECTIVE-C<br/>
 SWIFT<br/>
 import UIKit<br/>
 
-    UIAccessibilityDarkerSystemColorsStatusDidChangeNotification
-    当系统的变暗颜色（Darken Colors）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-    声明：
-    SWIFT
-    let UIAccessibilityDarkerSystemColorsStatusDidChangeNotification: String
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
-    
-    
-    UIAccessibilityGrayscaleStatusDidChangeNotification
-    当系统的灰阶（Grayscale）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-    声明：
-    SWIFT
-    let UIAccessibilityGrayscaleStatusDidChangeNotification: String
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
+UIAccessibilityDarkerSystemColorsStatusDidChangeNotification<br/>
+　　当系统的变暗颜色（Darken Colors）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。<br/>
+声明：<br/>
+SWIFT<br/>
+let UIAccessibilityDarkerSystemColorsStatusDidChangeNotification: String<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
+
+
+UIAccessibilityGrayscaleStatusDidChangeNotification<br/>
+　　当系统的灰阶（Grayscale）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。<br/>
+声明：<br/>
+SWIFT<br/>
+let UIAccessibilityGrayscaleStatusDidChangeNotification: String<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
 
     UIAccessibilityGuidedAccessStatusDidChangeNotification
     当系统的引导访问（Guided Access ）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。也可以使用
