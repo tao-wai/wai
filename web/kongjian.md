@@ -42,11 +42,13 @@ HTML:
 【修改建议】＜br/＞
 样例1：
 为图片链接添加 ALT 属性：＜br/＞
+```
 <a href="home.html">
-<img src="house.gif" alt="无障碍主页">去到无障碍主页</a>
-样例2：
-为网页中的照片，添加详尽的描述文本；
-<img alt="信息无障碍联盟LOGO" src="img001.gif" />
+<img src="house.gif" alt="无障碍主页">去到无障碍主页</a>```
+样例2：＜br/＞
+为网页中的照片，添加详尽的描述文本；＜br/＞
+```
+<img alt="信息无障碍联盟LOGO" src="img001.gif" />```
 
 
 ## 1.2链接<a> 
