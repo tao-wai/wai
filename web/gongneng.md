@@ -792,14 +792,10 @@ $(document).ready(function(e) {
 
 样例4：
 使用aria-describedby属性为表单区域连接提示<br/>
-```role="tooltip"```表示提示文本
+role="tooltip"表示提示文本
 aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可见)，false表示元素可见。<br/>
-关键代码：<br/>
-<input 此处省略部分代码
-      aria-describedby="tp1"
-      aria-required="false"/>
-全部代码：<br/>
-``````
+
+```
 <html lang="en-us">
 <head>
 <title>行内：提示样例1</title>
@@ -811,9 +807,9 @@ aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可�
 </script>
 <script type="text/javascript" src="../js/globals.js"></script>
 <link rel="icon" href="http://www.cites.uiuc.edu/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="http://www.cites.uiuc.edu/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="http://www.cites.uiuc.edu/favicon.ico"
+type="image/x-icon">
 </head>
-   ...
 <body onload="initApp()">
 <div id="container">
 <h1>提示样例1</h1>
@@ -826,7 +822,8 @@ aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可�
       aria-describedby="tp1"
       aria-required="false"/>
 <div id="tp1" role="tooltip" aria-hidden="true">你的名字可选. </div>
-</div>``````
+</div>```
+<br/>
 (2)使用aria-labelledby连接一个标签和多个文本节点，应用与输入控件，aria-labelledby可以被用于label本地输入和非本地输入，例如contenteditable="true"的自定义输入控件div;aria-labelledby的一个特殊使用是文本输入控件，当一个有意义的标签应该包含多个label；id顺序应该是有逻辑的能被读屏软件读取的顺序；<br/>
 样例1：<br/>
 一个连接超时输入字段标签；<br/>
@@ -837,7 +834,9 @@ aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可�
 <label for="timeout-duration">延长时间到</label>
 </span>
 <input type="text" size="3" id="timeout-duration" value="20" 
-    aria-labelledby="timeout-label timeout-duration timeout-unit">//timeout-label包含label， timeout-duration为label的id; 
+    aria-labelledby="timeout-label timeout-duration timeout-unit">
+    
+    //timeout-label包含label， timeout-duration为label的id; 
 
 timeout-unit是个span元素的id；
 <span id="timeout-unit" tabindex="-1"> 分钟</span>
