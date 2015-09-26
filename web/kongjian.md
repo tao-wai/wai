@@ -78,7 +78,9 @@ HTML:
 样例2：
 图片链接，图片无意义，可为img元素添加alt属性来描述链接目的<br/>
 ```
-<a href="routes.html"> <img src="topo.gif" alt="去到无障碍论坛的路线" /></a>```
+<a href="routes.html"> 
+<img src="topo.gif" alt="去到无障碍论坛的路线" />
+</a>```
 样例3：
 图片和文字链接，图片无意义：<br/>
 ```
@@ -738,7 +740,8 @@ tab浏览到单选框或上下光标在单选框之间移动，不会朗读出�
 <legend>性别</legend> 
 <input type="radio" name="order" id="order_alpha" />
 <label >男</label>
-<input type="radio" name="order" id="order_default" checked="true" />
+<input type="radio" name="order" id="order_default" 
+checked="true" />
 <label >女</label>
 </fieldset>```
 注： 此种方式国内的读屏可以支持（争渡、永德）， 国外的读屏不大支持（nvda）<br/>
@@ -816,7 +819,8 @@ Tab焦点进入单选框，焦点不停留，直接跳过单选框，进入下�
 自绘控件时使用aria中的role="radio"表示单选框；<br/>
 role="radiogroup" 表示单选组
 aria-checked 字符串。表示检查的状态。true表示元素被选择；false表示元素未被选择；mixed表示元素同时有选择和未选择状态。<br/>
-```<h3 id="girl_label">视障工程师</h3>
+```
+<h3 id="girl_label">视障工程师</h3>
 <ul role="radiogroup" aria-labelledby="girl_label">
     <li tabindex="-1" role="radio" aria-checked="false">
         <img role="presentation" src="radio-unchecked.gif" />孟奇
@@ -850,14 +854,18 @@ aria-checked 字符串。表示检查的状态。true表示元素被选择；fal
 样例2：
 使用title属性，给按钮添加目的文本；<br/>
 ```
-<button type="button" title="信息无障碍产品联盟"><img src="logo.jpg" alt=""></button>```
+<button type="button" title="信息无障碍产品联盟"><img 
+src="logo.jpg" alt=""></button>```
 样例3：
 使用 label 为按钮添加目的文本；<br/>
-```<label for="btn-desc">视障工程师</label>
+```
+<label for="btn-desc">视障工程师</label>
 <button type="button" id="btn-desc"></button>```
 样例4：
 使用 alt 属性为图片按钮添加替代文本；<br/>
-```<button type="button" ><img src="1.jpg" alt="信息无障碍研究会"></button>```
+```
+<button type="button" ><img src="1.jpg" 
+alt="信息无障碍研究会"></button>```
 样例5：
 使用 aria-describedby 为按钮提供详细信息；<br/>
 ```
@@ -871,7 +879,8 @@ aria-describedby="font-desc">字体</button>
  aria-describedby="color-desc">颜色</button>
 </p>
 <p><span id="custom-desc">自定义此页面上使用的布局和样式</span>
- <button type="button" id="custom-b" onclick="doAction('Customize');" 
+ <button type="button" id="custom-b" 
+ onclick="doAction('Customize');" 
  aria-describedby="custom-desc">自定义</button>
 </p>```
 样例6：
@@ -882,13 +891,15 @@ aria-describedby="description-close"
 onclick="myDialog.close()">按钮文本</button>
 <!-- id为description-close的控件为button提供描述文本 -->
 ...
-<div id="description-close">关闭此窗口将忽略输入的所有信息，并会返回到主页</div>```
+<div id="description-close">关闭此窗口将忽略输入的所有信息，
+并会返回到主页</div>```
 样例7：
 使用aria-describedby属性将说明与按钮联系起来；<br/>
 ```
 <form>
 <label for="fname">名</label>
-<input type="text" name="fname" id="fname" aria-describedby="int2">
+<input type="text" name="fname" id="fname" 
+aria-describedby="int2">
 <p id="int2">该区域使用aria-describedby关联说明文本。</p>
 </form>```
 
@@ -910,7 +921,8 @@ onclick="myDialog.close()">按钮文本</button>
 ```
 <span class="btn-close" tabindex="0" role="button" 
 onclick="closeCurrentWindow()" 
-onkeydown="if (event.keyCode == 13 || event.keyCode == 32) closeCurrentWindow();">关闭当前窗口</span>```
+onkeydown="if (event.keyCode == 13 || event.keyCode == 32) 
+closeCurrentWindow();">关闭当前窗口</span>```
 
 ### 1.7.3控件类型朗读不正确
 
@@ -935,7 +947,8 @@ role="toolbar" 表示把角色设置为工具栏，屏幕阅读器会自动读�
 aria-activedescendant表示后代的id值<br/>
 ```
 <div role="toolbar" tabindex="0" aria-activedescendant="btn1">
-  <img src="123.jpg" id="btn1" role="button" alt="信息无障碍研究会" />
+  <img src="123.jpg" id="btn1" role="button" 
+  alt="信息无障碍研究会" />
   <img src="456.jpg" id="btn2" role="button" alt="视障工程师" />
   <img src="def.jpg" id="btn3" role="button" alt="按钮3" />
 </div>```
@@ -949,20 +962,27 @@ aria-activedescendant表示后代的id值<br/>
 【可能原因】<br/>
 【修改建议】<br/>
 样例1：submit 点击事件
+```
 <form action="/login" method="post">
 ...
 <input type="submit" value="登录" />
-</form>
+</form>```
 样例2：图片按钮点击事件：<br/>
 ```
-<input type="image" src="example.gif" alt="关闭" onclick="closePopWnd()" keydown="if (event.keyCode == 13) closePopWnd();" />```
+<input type="image" src="example.gif" alt="关闭" 
+onclick="closePopWnd()" keydown="if (event.keyCode == 13) 
+closePopWnd();" />```
 样例3：Button onclick事件:<br/>
-```<button type="button" onclick="closePopWnd()"><img src="btn-closepopwnd.gif" alt="关闭"></button>```
+```
+<button type="button" onclick="closePopWnd()">
+<img src="btn-closepopwnd.gif" alt="关闭"></button>```
 样例4：为按钮添加键盘空格点击事件；<br/>
-```<div role="button" tabindex="0" onclick="closePopWnd()" onkeydown="if (event.keyCode == 13 || event.keyCode == 32) closePopWnd();">关闭</div>```
+```
+<div role="button" tabindex="0" onclick="closePopWnd()" 
+onkeydown="if (event.keyCode == 13 || event.keyCode == 32) 
+closePopWnd();">关闭</div>```
 
 ### 1.8菜单
-
 
 
 ### 1.8.1控件类型朗读不正确
@@ -977,10 +997,13 @@ role="menu"表示菜单<br/>
 role="menubar"表示菜单栏<br/>
 role="menuitem"表示菜单项<br/>
  role="menuitemradio"表示只能单选的菜单项 <br/>
-```<ul role="menubar" title="视障工程师菜单">
-  <li role="menuitem" tabindex="0" aria-haspopup="true">视障工程师
+```
+<ul role="menubar" title="视障工程师菜单">
+  <li role="menuitem" tabindex="0" 
+  aria-haspopup="true">视障工程师
     <ul role="menu" aria-hidden="true">
-      <li role="menuitemradio"  aria-checked="true">王孟琦</li>      <li role="separator">朱广锐</li> 
+      <li role="menuitemradio"  aria-checked="true">王孟琦</li>      
+     <li role="separator">朱广锐</li> 
       <li role="menuitemradio" aria-checked="false">刘彪</li>
       <li role="menuitemradio"aria-checked="false">李鸿利</li>
     </ul>
@@ -1012,9 +1035,12 @@ role="menuitem"表示菜单项<br/>
 添加aria-expanded属性，字符串。表示展开状态。默认为undefined, 表示当前展开状态未知。其它可选值：true表示元素是展开的；false表示元素不是展开的。<br/>
 ```
 <ul role="menu" aria-hidden="true" aria-expanded="false" >
-      <li role="menuitemcheckbox" tabindex="-1" aria-checked="true">晴川</li>
-      <li role="menuitemcheckbox" tabindex="-1" aria-checked="true">静秋</li>
-      <li role="menuitemcheckbox" tabindex="-1" aria-checked="false">黄小仙</li>
+      <li role="menuitemcheckbox" tabindex="-1" 
+      aria-checked="true">晴川</li>
+      <li role="menuitemcheckbox" tabindex="-1" 
+      aria-checked="true">静秋</li>
+      <li role="menuitemcheckbox" tabindex="-1" 
+      aria-checked="false">黄小仙</li>
 </ul>4）```
 
 
@@ -1051,7 +1077,8 @@ role="menuitem"表示菜单项<br/>
 此情况较为复杂，可因菜单项具有onfocus="this.blur()"属性设置或使用了js代码限定了焦点的访问范围。<br/>
 例：使用了不适当的属性HTML；<br/>
 ```
-<li tabindex="0" role="menuitem" onfocus="this.blur()">安全退出</li>```
+<li tabindex="0" role="menuitem" 
+onfocus="this.blur()">安全退出</li>```
 【可能原因】<br/>
 【修改建议】<br/>
 
@@ -1101,9 +1128,12 @@ obj.setAttribute("aria-checked","false");
 <body>
 <div>
 <ul>
-<li tabindex="0" onkeydown="setstate('chk');" role="checkbox" aria-checked="false" id="chk" /><label for="chk">???</label>
-<li tabindex="0" onkeydown="setstate('chk2');" role="checkbox" aria-checked="false" id="chk2" /><label for="chk2">????</label>
-<li tabindex="0" onkeydown="setstate('chk3');" role="checkbox" aria-checked="false" id="chk3" /><label for="chk3">???</label>
+<li tabindex="0" onkeydown="setstate('chk');" role="checkbox" 
+aria-checked="false" id="chk" /><label for="chk">???</label>
+<li tabindex="0" onkeydown="setstate('chk2');" role="checkbox" 
+aria-checked="false" id="chk2" /><label for="chk2">????</label>
+<li tabindex="0" onkeydown="setstate('chk3');" role="checkbox" 
+aria-checked="false" id="chk3" /><label for="chk3">???</label>
 </ul>
 </div>
 </body>
@@ -1152,13 +1182,14 @@ obj.setAttribute("aria-checked","false");
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
-  
+
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en"（语言为英文） xml:lang="en" 
 xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>键盘陷入修复样例</title>
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="text/html; charset=utf-8" 
+    http-equiv="Content-Type"/>
     <script src="swfobject_2_1.js" type="text/javascript"/>
     <script type="text/javascript">
       var flashvars = {};
@@ -1168,15 +1199,18 @@ xmlns="http://www.w3.org/1999/xhtml">
       attributes.id = "FlashSample1SWF";
       attributes.name = "FlashSample1SWF";
       swfobject.embedSWF("keyboard_trap_fix_custom_as3.swf", 
-      "flashSample1", \ "150", "200", "9.0.0", "expressInstall.swf",flashvars, params, attributes);
+     "flashSample1", \ "150", "200", "9.0.0", 
+      "expressInstall.swf",flashvars, params, attributes);
 </script>
   </head>
   <body>
-    <p>下面的这个flash内容自动产生一个可以看到链接在flash内容的前后，允许键盘将焦点移出flash内容。</p>
+    <p>下面的这个flash内容自动产生一个可以看到链接在flash内容的
+    前后，允许键盘将焦点移出flash内容。</p>
     <div id="flashSample1">
       <a href="http://www.adobe.com/go/getflashplayer">
         <img alt="获得flash播放器"
-src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif"/>
+src="图片地址http://www.adobe.com/images/shared/download_buttons
+/get_flash_player.gif"/>
       </a>
     </div>
   </body>
@@ -1210,7 +1244,8 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 嵌入对象包含一个长描述；<br/>
 ```
 <object classid="http://www.example.com/analogclock.py">
-  <p>这里是一些用来描述对象和操作的文本。Here is some text that describes the object and its operation.</p>
+  <p>这里是一些用来描述对象和操作的文本。Here is some text that 
+  describes the object and its operation.</p>
 </object>```
 样例2：
 嵌入对象的无文本内容有替代文本；<br/>
@@ -1235,7 +1270,7 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
   </object>
 </object> ```
 
-## 1.10文本域<textarea>
+## 1.10文本域```<textarea>```
 
 
 
@@ -1254,7 +1289,8 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 样例2：
 当元素的contenteditable属性值为“true时，需要添加title、role、tabindex 属性，为文本域定义角色和添加目的文本，以及焦点可聚焦;<br/>
 ```
-<div contenteditable="true" role="textbox" title="评论内容" tabindex="0"></div>```
+<div contenteditable="true" role="textbox" title="评论内容" 
+tabindex="0"></div>```
 
 ### 1.10.2文本域聚焦后焦点无法跳出
 
@@ -1278,23 +1314,29 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 【修改建议】<br/>
 样例1：
 使用title为文本域添加提示文本；<br/>
-```<textarea title="评论内容"></textarea>```
+```
+<textarea title="评论内容"></textarea>```
 样例2：
 使用placeholder为文本域添加提示文本；<br/>
-```<textarea placeholder="在此输入评论内容"></textarea>```
+```
+<textarea placeholder="在此输入评论内容"></textarea>```
 样例3：
 使用value为文本域添加提示文本；<br/>
-```<textarea>在此输入评论内容</textarea>```
+```
+<textarea>在此输入评论内容</textarea>```
 样例4：
 使用label for为文本域添加提示文本；<br/>
-```<label for="comment-content">评论内容:</label>
+```
+<label for="comment-content">评论内容:</label>
 <textarea id="comment-content"></textarea>```
 样例5：
 使用aria-label为文本域添加提示文本；<br/>
-```<textarea aria-label="你对信息无障碍的理解"></textarea>```
+```
+<textarea aria-label="你对信息无障碍的理解"></textarea>```
 样例6：
 使用aria-describedby为文本与提供提示文本；<br/>
-```<p><span id="message">请输入您对信息无障碍的理解</span>
+```
+<p><span id="message">请输入您对信息无障碍的理解</span>
 <textarea aria-describedby="message"></textarea>
 </p>```
 
@@ -1307,10 +1349,12 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 样例1：
 使用html标准控件；<br/>
 ```
-<label for="message">您对视障工程师的理解:</label><textarea id="message"></textarea>```
+<label for="message">您对视障工程师的理解:</label>
+<textarea id="message"></textarea>```
 样例2：<br/>
 ```
-<div contenteditable="true" role="textbox" title="评论内容" tabindex="0"></div>```
+<div contenteditable="true" role="textbox" title="评论内容" 
+tabindex="0"></div>```
 
 
 ## 1.11Frame
@@ -1438,7 +1482,8 @@ tab找到密码控件后，不会朗读这是什么密码框；<br/>
 样例1：
 使用label提示用户<br/>
 ```
-<label for="user-pwd">密码</label><input type="password" id="user-pwd" />```
+<label for="user-pwd">密码</label><input type="password" 
+id="user-pwd" />```
 样例2：
 ```
 使用title提示用户<br/>
