@@ -121,25 +121,25 @@ OBJECTIVE-C <br/>
 @property(nonatomic, strong, nullable) NSString *accessibilityLanguage <br/>
 版本：Available in iOS 4.0 and later. <br/>
 
-    accessibilityPath
-    在屏幕坐标上，一个元素的路径；该属性的默认值为nil，如果没有路径设置，无障碍框架矩形被用来突出元素。
-    当为一个属性指定一个值，辅助技术使用path对象来突出元素。
-    声明：
-    SWIFT
-    @NSCopying var accessibilityPath: UIBezierPath?
-    OBJECTIVE-C
-    @property(nonatomic, copy, nullable) UIBezierPath *accessibilityPath
-    版本：Available in iOS 7.0 and later.
+accessibilityPath <br/>
+　　在屏幕坐标上，一个元素的路径；该属性的默认值为nil，如果没有路径设置，无障碍框架矩形被用来突出元素。
+当为一个属性指定一个值，辅助技术使用path对象来突出元素。 <br/>
+声明： <br/>
+SWIFT
+@NSCopying var accessibilityPath: UIBezierPath? <br/>
+OBJECTIVE-C <br/>
+@property(nonatomic, copy, nullable) UIBezierPath *accessibilityPath <br/>
+版本：Available in iOS 7.0 and later. <br/>
 
-    accessibilityTraits
-    无障碍特性的组合能最好的展现无障碍元素的特性；该属性的默认为UIAccessibilityTraitNone ，除非接收器是一个UIKit控件，这种情况下，该属性的值应该与该控件有关的标准trait设置。
-    如果实现一个自定义控件和视图，需要去选择所有的最佳描述对象的无障碍特性，且通过执行一个OR操作，使用父类特性将这些特性组合(换句话说，使用super.accessibilityTraits).详见Accessibility Traits。
-    声明：
-    SWIFT
-    var accessibilityTraits: UIAccessibilityTraits
-    OBJECTIVE-C
-    @property(nonatomic) UIAccessibilityTraits accessibilityTraits
-    版本：Available in iOS 3.0 and later.
+accessibilityTraits <br/>
+　　无障碍特性的组合能最好的展现无障碍元素的特性；该属性的默认为UIAccessibilityTraitNone ，除非接收器是一个UIKit控件，这种情况下，该属性的值应该与该控件有关的标准trait设置。 <br/>
+　　如果实现一个自定义控件和视图，需要去选择所有的最佳描述对象的无障碍特性，且通过执行一个OR操作，使用父类特性将这些特性组合(换句话说，使用super.accessibilityTraits).详见Accessibility Traits。 <br/>
+声明： <br/>
+SWIFT <br/>
+var accessibilityTraits: UIAccessibilityTraits <br/>
+OBJECTIVE-C <br/>
+@property(nonatomic) UIAccessibilityTraits accessibilityTraits <br/>
+版本：Available in iOS 3.0 and later. <br/>
 
     accessibilityValue
     一个无障碍元素的value；此属性的默认值为nil，除非接收器为一个UIKit控件，这种情况下该属性呈现的是控件的值，当值与label不同的时候。
