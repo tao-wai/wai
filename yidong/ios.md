@@ -322,34 +322,35 @@ UIAccessibilitySpeechAttributePunctuation ：该键的值一个NSNumber对象，
 UIAccessibilitySpeechAttributeLanguage ：这个键的值是一个NSString对象，包含BCP-47语言编码。当被应用到文本，指定语言规则会决定该文本是怎样发音的。Available in iOS 7.0 and later.<br/>
 UIAccessibilitySpeechAttributePitch ：这个键的值是一个NSNumber对象，包含一个浮点型值，从0.0到2.0.这个值指明文本是否应该使用比默认高或低的声调读出。这个属性的默认值是1.0，是个正常的音调。0.0-1.0的结果是一个低的声调，1.0-2.0的值是一个高的声调。Available in iOS 7.0 and later. <br/>
 
-    Assistive Technology Identifiers
-    但当暂停恢复辅助技术时可以使用的标示符。
-    声明：
-    SWIFT
-    let UIAccessibilityNotificationSwitchControlIdentifier: String
-    OBJECTIVE-C
-    NSString *const UIAccessibilityNotificationSwitchControlIdentifier;
-    常量：
-    UIAccessibilityNotificationSwitchControlIdentifier ：开关控制技术。这个技术允许行动不便的用户使用一个单一物理按键来访问app。当这个技术启动时，ios会在屏幕上圈一个光标，从一个元素到一个元素。用户点击开关来运行光标下的严肃。Available in iOS 8.0 and later.
+Assistive Technology Identifiers<br/>
+但当暂停恢复辅助技术时可以使用的标示符。<br/>
+声明：<br/>
+```SWIFT
+let UIAccessibilityNotificationSwitchControlIdentifier: String
+OBJECTIVE-C
+NSString *const UIAccessibilityNotificationSwitchControlIdentifier;```
+常量：<br/>
+UIAccessibilityNotificationSwitchControlIdentifier ：开关控制技术。这个技术允许行动不便的用户使用一个单一物理按键来访问app。当这个技术启动时，ios会在屏幕上圈一个光标，从一个元素到一个元素。用户点击开关来运行光标下的严肃。Available in iOS 8.0 and later.<br/>
 
-    UIAccessibilityNavigationStyle
-    一个常量，描述了辅助技术应该怎样导航对象元素。
-    SWIFT
-    enum UIAccessibilityNavigationStyle : Int {
-        case Automatic
-        case Separate
-        case Combined
-    }
-    OBJECTIVE-C
-    typedef enum UIAccessibilityNavigationStyle : NSInteger {
-       UIAccessibilityNavigationStyleAutomatic = 0,
-       UIAccessibilityNavigationStyleSeparate = 1,
-       UIAccessibilityNavigationStyleCombined = 2,
-    } UIAccessibilityNavigationStyle;
-    常量：
-    UIAccessibilityNavigationStyleAutomatic ：辅助技术会自动决定接收器元素怎样被导航，这个是默认值。Available in iOS 8.0 and later.
-    UIAccessibilityNavigationStyleSeparate ：接收器元素应该被当做单独元素被导航。Available in iOS 8.0 and later.
-    UIAccessibilityNavigationStyleCombined ：接收器元素应该组合并且被当做单独条目导航。Available in iOS 8.0 and later.
+UIAccessibilityNavigationStyle<br/>
+一个常量，描述了辅助技术应该怎样导航对象元素。<br/>
+声明<br/>
+```SWIFT
+enum UIAccessibilityNavigationStyle : Int {
+    case Automatic
+    case Separate
+    case Combined
+}
+OBJECTIVE-C
+typedef enum UIAccessibilityNavigationStyle : NSInteger {
+   UIAccessibilityNavigationStyleAutomatic = 0,
+   UIAccessibilityNavigationStyleSeparate = 1,
+   UIAccessibilityNavigationStyleCombined = 2,
+} UIAccessibilityNavigationStyle;```
+常量：<br/>
+UIAccessibilityNavigationStyleAutomatic ：辅助技术会自动决定接收器元素怎样被导航，这个是默认值。Available in iOS 8.0 and later.<br/>
+UIAccessibilityNavigationStyleSeparate ：接收器元素应该被当做单独元素被导航。Available in iOS 8.0 and later.<br/>
+UIAccessibilityNavigationStyleCombined ：接收器元素应该组合并且被当做单独条目导航。Available in iOS 8.0 and later.<br/>
 
 ### 3.5通知
 
