@@ -760,28 +760,28 @@ App可以使用UIGuidedAccessRestrictionStateForIdentifier函数来检查限制�
 ### 6.3常量
 
 
-    UIGuidedAccessRestrictionState
-    限制的状态，允许或拒绝；
-    声明：
-    SWIFT
-    enum UIGuidedAccessRestrictionState : Int {
-        case Allow
-        case Deny
-    }
-    OBJECTIVE-C
-    typedef enum : NSInteger {
-       UIGuidedAccessRestrictionStateAllow,
-       UIGuidedAccessRestrictionStateDeny 
-    } UIGuidedAccessRestrictionState;
-    常量：
-    UIGuidedAccessRestrictionStateAllow app  应该允许用户操作，这个操作是被限制控制的。Available in iOS 7.0 and later.
-    UIGuidedAccessRestrictionStateDeny  应该拒绝用户操作，这个操作是被限制控制的。Available in iOS 7.0 and later.
-    引入声明：
-    OBJECTIVE-C
-    @import UIKit;
-    SWIFT
-    import UIKit
-    版本：Available in iOS 7.0 and later.
+UIGuidedAccessRestrictionState<br/>
+限制的状态，允许或拒绝；<br/>
+声明：<br/>
+```SWIFT
+enum UIGuidedAccessRestrictionState : Int {
+    case Allow
+    case Deny
+}
+OBJECTIVE-C
+typedef enum : NSInteger {
+   UIGuidedAccessRestrictionStateAllow,
+   UIGuidedAccessRestrictionStateDeny 
+} UIGuidedAccessRestrictionState;```
+常量：<br/>
+UIGuidedAccessRestrictionStateAllow app  应该允许用户操作，这个操作是被限制控制的。Available in iOS 7.0 and later.<br/>
+UIGuidedAccessRestrictionStateDeny  应该拒绝用户操作，这个操作是被限制控制的。Available in iOS 7.0 and later.<br/>
+引入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit;<br/>
+SWIFT<br/>
+import UIKit<br/>
+版本：Available in iOS 7.0 and later.<br/>
  
 
 
