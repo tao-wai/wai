@@ -240,8 +240,8 @@ role="textbox"代表是一个编辑框， 自绘的编辑框加上role="textbox"
 ```<label for="name">联盟网址：</label>
 <input type="text" id="name" tabindex="0"/>```
 方案3： 
-使用aria-describedby属性为编辑框关联提示文本；＜br/＞
-注： 此方法国内的一些屏幕阅读器可能暂时不支持＜br/＞
+使用aria-describedby属性为编辑框关联提示文本；<br/>
+注： 此方法国内的一些屏幕阅读器可能暂时不支持<br/>
 ```<div id="container">
 <h1>web端信息无障碍</h1>
 <h2>移动端信息无障碍</h2>
@@ -253,8 +253,8 @@ role="textbox"代表是一个编辑框， 自绘的编辑框加上role="textbox"
 <div id="tp1" role="tooltip" aria-hidden="true">无障碍工具可选</div>
 </div>```
 方案4：
-使用aria-labelledby连接一个标签和多个文本节点，应用与输入控件，aria-labelledby可以被用于label本地输入和非本地输入，例如contenteditable="true"的自定义输入控件div;aria-labelledby的一个特殊使用是文本输入控件，当一个有意义的标签应该包含多个label；id顺序应该是有逻辑的能被读屏软件读取的顺序；＜br/＞
-一个连接超时输入字段标签：＜br/＞
+使用aria-labelledby连接一个标签和多个文本节点，应用与输入控件，aria-labelledby可以被用于label本地输入和非本地输入，例如contenteditable="true"的自定义输入控件div;aria-labelledby的一个特殊使用是文本输入控件，当一个有意义的标签应该包含多个label；id顺序应该是有逻辑的能被读屏软件读取的顺序；<br/>
+一个连接超时输入字段标签：<br/>
 ```<form>
 <p>
 <span id="timeout-label" tabindex="-1">
