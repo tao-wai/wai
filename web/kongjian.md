@@ -921,27 +921,27 @@ role="menuitem"表示菜单项<br/>
 ### 1.8.2折叠/展开无法用键盘操作
 
 
-【问题描述】
-屏幕阅读器的用户一般通过键盘导航来对控件进行操作，如果控件不能支持用户的键盘操作，将导致使用屏幕阅读器的用户无法操作这个控件。
-【可能原因】
-【修改建议】
-样例1： 使用keydown事件使回车键可以展开、折叠菜单。 
+【问题描述】<br/>
+屏幕阅读器的用户一般通过键盘导航来对控件进行操作，如果控件不能支持用户的键盘操作，将导致使用屏幕阅读器的用户无法操作这个控件。<br/>
+【可能原因】<br/>
+【修改建议】<br/>
+样例1： 使用keydown事件使回车键可以展开、折叠菜单。 <br/>
 
 
 ### 1.8.3折叠/展开状态无提示
 
 
-【问题描述】
-屏幕阅读器的用户通过反馈得知菜单是否折叠展开来确定是否子菜单项是否可以访问，是否需要改变当前菜单的折叠状态，如果不能提示菜单的折叠状态，将对用户产生困扰。
-【可能原因】
-【修改建议】
+【问题描述】<br/>
+屏幕阅读器的用户通过反馈得知菜单是否折叠展开来确定是否子菜单项是否可以访问，是否需要改变当前菜单的折叠状态，如果不能提示菜单的折叠状态，将对用户产生困扰。<br/>
+【可能原因】<br/>
+【修改建议】<br/>
 样例1：
-添加aria-expanded属性，字符串。表示展开状态。默认为undefined, 表示当前展开状态未知。其它可选值：true表示元素是展开的；false表示元素不是展开的。
-<ul role="menu" aria-hidden="true" aria-expanded="false" >
+添加aria-expanded属性，字符串。表示展开状态。默认为undefined, 表示当前展开状态未知。其它可选值：true表示元素是展开的；false表示元素不是展开的。<br/>
+```<ul role="menu" aria-hidden="true" aria-expanded="false" >
       <li role="menuitemcheckbox" tabindex="-1" aria-checked="true">晴川</li>
       <li role="menuitemcheckbox" tabindex="-1" aria-checked="true">静秋</li>
       <li role="menuitemcheckbox" tabindex="-1" aria-checked="false">黄小仙</li>
-</ul>4）
+</ul>4）`````````
 
 
 ### 1.8.4菜单无法聚焦
