@@ -6,7 +6,7 @@
    * [引言](web/yinyan.md)
    * [web端常见空间的无障碍问题](web/kongjian.md)
    * [web端常见功能的无障碍问题](web/gongneng.md)
-   * [jianyi](web/jianyi.md)
+   * [web无障碍建议](web/jianyi.md)
 * 移动端无障碍
    * [yinyan](yidong/yinyan.md)
    * [android](yidong/android.md)
