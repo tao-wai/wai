@@ -31,24 +31,24 @@
 ## 3.UI无障碍(UIAccessibility)
 
 
-    文档来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibility_Protocol/#//apple_ref/c/data/UIAccessibilityAnnouncementNotification
+　　文档来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibility_Protocol/#//apple_ref/c/data/UIAccessibilityAnnouncementNotificatioｎ<br/>
 
-    UI无障碍非正式协议提供了应用界面元素的无障碍信息。辅助应用，比方说voiceover，将信息传递残障用户来帮助用户使用应用。
-    标准UIKit控件和视图实现了UIAccessibility方法，因此默认支持辅助应用。这意味着如果应用只使用标准控件和视图，例如UIButton，UISegmentedControl和 UITableView，只需要当默认值不完整的时候提供特定应用的详细信息。可以在Interface     Builder中或者该非正式协议中设置这些值。
-    UIAccessibility非正式协议也可以被通过     UIAccessibilityElement类来实现，这个类可以显示自定义用户界面对象。如果创建一个完全的自定义UIView子类，可能需要去创建 UIAccessibilityElement的一个实例来显示它。在这种情况下，应该支持所有UIAccessibility属性来正确的设置和返回无障碍元素的属性。
+　　UI无障碍非正式协议提供了应用界面元素的无障碍信息。辅助应用，比方说voiceover，将信息传递残障用户来帮助用户使用应用。<br/>
+　　标准UIKit控件和视图实现了UIAccessibility方法，因此默认支持辅助应用。这意味着如果应用只使用标准控件和视图，例如UIButton，UISegmentedControl和 UITableView，只需要当默认值不完整的时候提供特定应用的详细信息。可以在Interface     Builder中或者该非正式协议中设置这些值。 <br/>
+　　UIAccessibility非正式协议也可以被通过    UIAccessibilityElement类来实现，这个类可以显示自定义用户界面对象。如果创建一个完全的自定义UIView子类，可能需要去创建 UIAccessibilityElement的一个实例来显示它。在这种情况下，应该支持所有UIAccessibility属性来正确的设置和返回无障碍元素的属性。 <br/>
 
 ### 3.1无障碍判定
 
 
-    isAccessibilityElement
-    是一个布尔值，决定该元素是不是一个辅助技术可以访问的无障碍元素。该属性的默认值为NO，除非接收器是一个标准UIKit控件，值为YES。
-    辅助技术可以获得无障碍元素呈现的信息。因此，如果实现一个自定义控件或者视图，应该对残障用户无障碍，应该设置这个属性为YES。唯一例外的是，一个只为其他无障碍条目提供容器的，这样的视图应该实现UIAccessibilityContainer协议并设置该属性为NO。
-    声明：
-    SWIFT
-    var isAccessibilityElement: Bool
-    OBJECTIVE-C
-    @property(nonatomic) BOOL isAccessibilityElement
-    版本：Available in iOS 3.0 and later.
+isAccessibilityElement <br/>
+　　是一个布尔值，决定该元素是不是一个辅助技术可以访问的无障碍元素。该属性的默认值为NO，除非接收器是一个标准UIKit控件，值为YES。 <br/>
+　　辅助技术可以获得无障碍元素呈现的信息。因此，如果实现一个自定义控件或者视图，应该对残障用户无障碍，应该设置这个属性为YES。唯一例外的是，一个只为其他无障碍条目提供容器的，这样的视图应该实现UIAccessibilityContainer协议并设置该属性为NO。 <br/>
+声明： <br/>
+SWIFT <br/>
+var isAccessibilityElement: Bool <br/>
+OBJECTIVE-C <br/>
+@property(nonatomic) BOOL isAccessibilityElement <br/>
+版本：Available in iOS 3.0 and later. <br/>
 
 ### 3.2配置无障碍元素
 
