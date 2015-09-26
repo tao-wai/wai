@@ -873,7 +873,7 @@ _view = [[[MyCustomView alloc] initWithFrame:CGRectZero] autorelease];
 [_view setIsAccessibilityElement:YES];
 /* Set attributes here. */
 }```
-    另一种方法是实现UIAccessibility协议的isAccessibilityElement方法。如下面的代码片段所示：
+　　另一种方法是实现UIAccessibility协议的isAccessibilityElement方法。如下面的代码片段所示：<br/>
 ```
 @implementation MyCustomView
 /* Implement attribute methods here. */
@@ -885,9 +885,9 @@ return YES;
 ### 9.3通过编程定义自定义属性信息
 
 
-    如果你愿意，可以通过编程来提供自定义属性的信息。如果你没有使Interface Builder的话可能会选择这么做。
-    就像“让自定义独立视图支持无障碍使用”中描述的一样，你可以在实例化视图的视图子类中设置无障碍信息。两种方法都可以用，但是如果你的视图会动态展示数据或者经常改变内容的话，那在子类中实现属性方法比在实例中实现更好。举例来说，如果你想显示时间的话，那应该在子类刷新数据的方法中实现无障碍性，因为如果只在实例化子类的时候设置属性，那更新数据之后就无法支持无障碍使用了。
-    下面的代码片段是基于“让自定义独立视图支持无障碍使用”的方法写成的，包含一些属性特有的方法。如果你想在子类中实现无障碍方法，那可以参考下面的代码：
+　　如果你愿意，可以通过编程来提供自定义属性的信息。如果你没有使Interface Builder的话可能会选择这么做。<br/>
+　　就像“让自定义独立视图支持无障碍使用”中描述的一样，你可以在实例化视图的视图子类中设置无障碍信息。两种方法都可以用，但是如果你的视图会动态展示数据或者经常改变内容的话，那在子类中实现属性方法比在实例中实现更好。举例来说，如果你想显示时间的话，那应该在子类刷新数据的方法中实现无障碍性，因为如果只在实例化子类的时候设置属性，那更新数据之后就无法支持无障碍使用了。<br/>
+　　下面的代码片段是基于“让自定义独立视图支持无障碍使用”的方法写成的，包含一些属性特有的方法。如果你想在子类中实现无障碍方法，那可以参考下面的代码：<br/>
 ```
 @implementation MyCustomView
 - (BOOL)isAccessibilityElement
