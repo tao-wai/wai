@@ -210,20 +210,20 @@ public void onTextChanged(String before, String after) {
 ### 6.2.2焦点控制命令
 
 
-    当用户使用定向控制在任何方向导航，焦点可以而能一个用户界面元素传到另一个，按照设定好的焦点顺序。这个顺序是基于给定方向临近元素的算法来确定的。在真实的案例中，这个算法不会符合使用习惯和用户的逻辑。这种情况下，可以使用以下布局文件的XML属性提供显示覆盖：
-    android:nextFocusDown
-     当用户导航为向下时定义下一个视图接收焦点。 
-    
-    android:nextFocusLeft
-     当用户导航为向左时定义下一个视图接收焦点。
-    
-    android:nextFocusRight
-     当用户导航为向右时定义下一个视图接收焦点。 
-    
-    android:nextFocusUp
-     当用户导航为向上时定义下一个视图接收焦点。 
-    
-    下面的示例XML布局展示了两个可定焦的用户界面元素,android:nextFocusDown和android:nextFocusUp属性被显式地设置。TextView位于右边的EditText。然而,通过这些属性设置,TextView元素现在可以做到当按向下箭头时当前焦点是EditText元素：
+　　当用户使用定向控制在任何方向导航，焦点可以而能一个用户界面元素传到另一个，按照设定好的焦点顺序。这个顺序是基于给定方向临近元素的算法来确定的。在真实的案例中，这个算法不会符合使用习惯和用户的逻辑。这种情况下，可以使用以下布局文件的XML属性提供显示覆盖：<br/>
+android:nextFocusDown<br/>
+ 当用户导航为向下时定义下一个视图接收焦点。 <br/>
+<br/>
+android:nextFocusLeft<br/>
+ 当用户导航为向左时定义下一个视图接收焦点。<br/>
+
+android:nextFocusRight<br/>
+ 当用户导航为向右时定义下一个视图接收焦点。 <br/>
+
+android:nextFocusUp<br/>
+ 当用户导航为向上时定义下一个视图接收焦点。 <br/>
+
+　　下面的示例XML布局展示了两个可定焦的用户界面元素,android:nextFocusDown和android:nextFocusUp属性被显式地设置。TextView位于右边的EditText。然而,通过这些属性设置,TextView元素现在可以做到当按向下箭头时当前焦点是EditText元素：<br/>
       
 ```
 <LinearLayout android:orientation="horizontal"
@@ -237,72 +237,72 @@ public void onTextChanged(String before, String after) {
         android:nextFocusUp=”@id/edit”
         ... />```
 </LinearLayout>
-    当修改焦点顺序的时候和反向导航的时候，保证每一个界面控件所有方向都可以导航。
-    注：可以通过在运行时改变用户界面焦点顺序，使用setNextFocusDownId() 和setNextFocusRightId().
+　　当修改焦点顺序的时候和反向导航的时候，保证每一个界面控件所有方向都可以导航。<br/>
+注：可以通过在运行时改变用户界面焦点顺序，使用setNextFocusDownId() 和setNextFocusRightId().
 
 ### 6.3创建可访问自定义视图
 
 
-如果app需要自定义视图组件，必选做额外的工作来保证自定义视图的无障碍。这是保证视图无障碍最主要的问题：
-处理定向控制器点击；
-实现无障碍API方法；
-发送AccessibilityEvent对象到指定的自定义视图；
-在视图中填充AccessibilityEvent和 AccessibilityNodeInfo。
+　　如果app需要自定义视图组件，必选做额外的工作来保证自定义视图的无障碍。这是保证视图无障碍最主要的问题：<br/>
+处理定向控制器点击；<br/>
+实现无障碍API方法；<br/>
+发送AccessibilityEvent对象到指定的自定义视图；<br/>
+在视图中填充AccessibilityEvent和 AccessibilityNodeInfo。<br/>
 
 ### 6.3.1处理定向控制器的点击
 
 
-    在大多数的设备上，使用定向控制器点击视图发送具有KEYCODE_DPAD_CENTER的KeyEvent到当前焦点视图。所有的标准android视图都已经及时处理KEYCODE_DPAD_CENTER。当创建自定义视图控件时，当触摸视图的时候保证有同样的效果。
-    自定义控件应该将KEYCODE_ENTER事件和KEYCODE_DPAD_CENTER同等看待。这个方法让键盘交互更加容易。
+　　在大多数的设备上，使用定向控制器点击视图发送具有KEYCODE_DPAD_CENTER的KeyEvent到当前焦点视图。所有的标准android视图都已经及时处理KEYCODE_DPAD_CENTER。当创建自定义视图控件时，当触摸视图的时候保证有同样的效果。<br/>
+　　自定义控件应该将KEYCODE_ENTER事件和KEYCODE_DPAD_CENTER同等看待。这个方法让键盘交互更加容易。<br/>
 
 ### 6.3.2实现可访问的API函数方法
 
 
-    无障碍事件就是具有app中视觉界面组件的用户交互信息。这些信息由无障碍服务（ Accessibility Services）处理，无障碍服务使用这些事件中的信息产生反馈和提示。在android4.0（api14）和更高的系统中，产生无障碍事件的方法已经比android1.6（api4）引入的AccessibilityEventSource界面提供了更多的详细信息。扩展的无障碍方法和View.AccessibilityDelegate类同样是View类的一部分。这些方法如下： 
-    sendAccessibilityEvent() 
-    (API级别4)在一个视图中当用户执行任务时，调用这个方法。事件根据一个用户操作类型进行分类，例如类型视图点击。通常不需要实现这个方法，除非正在创建一个自定义的视图。 
-    sendAccessibilityEventUnchecked() 
-    (API级别4)调用的代码需要直接控制检查设备上激活的无障碍性时，使用这种方法(AccessibilityManager.isEnabled())。如果要实现这个方法，假定调用方法已经检查了和可访问性已经被启用了，并且结果是true。通常不需要为一个自定义视图，实现这个方法。 
-    dispatchPopulateAccessibilityEvent() 
-    (API级别4)当自定义视图生成一个可访问性的事件时，系统会调用这个方法。作为API级别14，这个方法默认实现是为视图调用onPopulateAccessibilityEvent()方法，然后对该视图的每个子视图实现dispatchPopulateAccessibilityEvent()方法。为了支持Android 4.0版本之前(API级别14)支持无障碍服务，你必须为您的自定义视图覆盖这个方法和使用getText()来输入描述性文本。 
-    onPopulateAccessibilityEvent() 
-    (API级别14)此方法设置视图的AccessibilityEvent语言输出文本。当一个视图的子视图也生成一个可访问性的事件时，这个方法也会被调用。
+　　无障碍事件就是具有app中视觉界面组件的用户交互信息。这些信息由无障碍服务（ Accessibility Services）处理，无障碍服务使用这些事件中的信息产生反馈和提示。在android4.0（api14）和更高的系统中，产生无障碍事件的方法已经比android1.6（api4）引入的AccessibilityEventSource界面提供了更多的详细信息。扩展的无障碍方法和View.AccessibilityDelegate类同样是View类的一部分。这些方法如下： <br/>
+sendAccessibilityEvent() <br/>
+(API级别4)在一个视图中当用户执行任务时，调用这个方法。事件根据一个用户操作类型进行分类，例如类型视图点击。通常不需要实现这个方法，除非正在创建一个自定义的视图。 <br/>
+sendAccessibilityEventUnchecked() <br/>
+(API级别4)调用的代码需要直接控制检查设备上激活的无障碍性时，使用这种方法(AccessibilityManager.isEnabled())。如果要实现这个方法，假定调用方法已经检查了和可访问性已经被启用了，并且结果是true。通常不需要为一个自定义视图，实现这个方法。 <br/>
+dispatchPopulateAccessibilityEvent() <br/>
+(API级别4)当自定义视图生成一个可访问性的事件时，系统会调用这个方法。作为API级别14，这个方法默认实现是为视图调用onPopulateAccessibilityEvent()方法，然后对该视图的每个子视图实现dispatchPopulateAccessibilityEvent()方法。为了支持Android 4.0版本之前(API级别14)支持无障碍服务，你必须为您的自定义视图覆盖这个方法和使用getText()来输入描述性文本。 <br/>
+onPopulateAccessibilityEvent() <br/>
+(API级别14)此方法设置视图的AccessibilityEvent语言输出文本。当一个视图的子视图也生成一个可访问性的事件时，这个方法也会被调用。<br/>
 
-    注意:在该方法中修改文本之外的附加属性可能会以其他方式覆盖文本属性的设置。所以，虽然你可以使用此方法修改无障碍事件的属性，但您应该只限制更文本内容，仅使用由onInitializeAccessibilityEvent()方法来修改事件的其他属性。
-    注意:如果要求实现事件完全覆盖输出文本，却不允许其他部件的布局来修改其内容，那么就不要在你的代码中调用该方法的超类方法来。 
+注意:在该方法中修改文本之外的附加属性可能会以其他方式覆盖文本属性的设置。所以，虽然你可以使用此方法修改无障碍事件的属性，但您应该只限制更文本内容，仅使用由onInitializeAccessibilityEvent()方法来修改事件的其他属性。
+注意:如果要求实现事件完全覆盖输出文本，却不允许其他部件的布局来修改其内容，那么就不要在你的代码中调用该方法的超类方法来。 <br/>
 
-    onInitializeAccessibilityEvent() 
-    (API级别14)系统调用这个方法来获取视图状态的额外信息，除了文本内容。如果您的自定义视图通过一个简单的文本框或按钮提供互动控制，您应该覆盖这个方法和使用这个方法设置视图的额外信息，如提供用户交互或反馈的口令字段类型，复选框类型或声明。如果你覆盖这个方法，您必须调用它的超类实现方法，然后只修改那些超类尚未设置的属性。 
-    onInitializeAccessibilityNodeInfo() 
-    (API级别14)这个方法来提供带有视图状态信息的无障碍服务。默认的视图实现集和一组标准的视图属性，但是如果您的自定义视图由一个简单的文本框或按钮来提供了互动的控制，您应该重写这个方法和由该方法设置你的视图额外的信息到的AccessibilityNodeInfo对象中。 
-    onRequestSendAccessibilityEvent()
-     (API级别14)当一个视图的子视图生成AccessibilityEvent时系统调用这个方法。这个步骤允许父视图修改可访问性的事件和其他信息。只是如果您的自定义视图有子视图和如果父视图可提供上下文信息到可访问性的事件那么你应该实现这个方法,这样做的可访问性服务就很有用的。 
-    为了在一个自定义视图中支持这些易访问性方法，您应该采取下列的一种方法： 
-    如果你的应用程序目标安卓4.0(API级别14)或更高的系统中，就直接在您的自定义视图类中重写并实现上面列出的可访问性方法。 
-    如果您的自定义视图为了兼容安卓1.6(API级别4)及以上，在项目中添加Android支持库，版本5或更高。然后，在您的自定义视图类，调用android.support.v4.view.AccessibilityDelegateCompat) ViewCompat.setAccessibilityDelegate()方法来实现可访问性上面的方法。对于这种方法的一个示例，请参阅Android支持库(版本5或更高)AccessibilityDelegateSupportActivity例子在(<sdk>/extras/android/support/v4/samples/Support4Demos/)。
-    在任何一种情况下，为自定义视图，应该实现下面的可访问性方法： 
-    dispatchPopulateAccessibilityEvent() 
-    onPopulateAccessibilityEvent() 
-    onInitializeAccessibilityEvent() 
-    onInitializeAccessibilityNodeInfo() 
-    更多信息实现这些方法，请参阅 Populating Accessibility Events。 
+onInitializeAccessibilityEvent() <br/>
+(API级别14)系统调用这个方法来获取视图状态的额外信息，除了文本内容。如果您的自定义视图通过一个简单的文本框或按钮提供互动控制，您应该覆盖这个方法和使用这个方法设置视图的额外信息，如提供用户交互或反馈的口令字段类型，复选框类型或声明。如果你覆盖这个方法，您必须调用它的超类实现方法，然后只修改那些超类尚未设置的属性。 <br/>
+onInitializeAccessibilityNodeInfo() <br/>
+(API级别14)这个方法来提供带有视图状态信息的无障碍服务。默认的视图实现集和一组标准的视图属性，但是如果您的自定义视图由一个简单的文本框或按钮来提供了互动的控制，您应该重写这个方法和由该方法设置你的视图额外的信息到的AccessibilityNodeInfo对象中。 <br/>
+onRequestSendAccessibilityEvent()<br/>
+ (API级别14)当一个视图的子视图生成AccessibilityEvent时系统调用这个方法。这个步骤允许父视图修改可访问性的事件和其他信息。只是如果您的自定义视图有子视图和如果父视图可提供上下文信息到可访问性的事件那么你应该实现这个方法,这样做的可访问性服务就很有用的。 <br/>
+为了在一个自定义视图中支持这些易访问性方法，您应该采取下列的一种方法： <br/>
+如果你的应用程序目标安卓4.0(API级别14)或更高的系统中，就直接在您的自定义视图类中重写并实现上面列出的可访问性方法。 <br/>
+如果您的自定义视图为了兼容安卓1.6(API级别4)及以上，在项目中添加Android支持库，版本5或更高。然后，在您的自定义视图类，调用android.support.v4.view.AccessibilityDelegateCompat) ViewCompat.setAccessibilityDelegate()方法来实现可访问性上面的方法。对于这种方法的一个示例，请参阅Android支持库(版本5或更高)AccessibilityDelegateSupportActivity例子在(<sdk>/extras/android/support/v4/samples/Support4Demos/)。<br/>
+在任何一种情况下，为自定义视图，应该实现下面的可访问性方法： <br/>
+dispatchPopulateAccessibilityEvent() <br/>
+onPopulateAccessibilityEvent() <br/>
+onInitializeAccessibilityEvent() <br/>
+onInitializeAccessibilityNodeInfo() <br/>
+更多信息实现这些方法，请参阅 Populating Accessibility Events。 <br/>
 
 ### 6.3.3发送无障碍事件
 
 
-    根据自定义视图的特性，它可能在不同时间或事件需要发送AccessibilityEvent对象，而不是由默认来实现。视图类提供了一个默认方法来实现这些事件类型：
-     高于API4：
-    TYPE_VIEW_CLICKED 
-    TYPE_VIEW_LONG_CLICKED 
-    TYPE_VIEW_FOCUSED 
-    
-    高于API4： 
-    TYPE_VIEW_SCROLLED 
-    TYPE_VIEW_HOVER_ENTER 
-    TYPE_VIEW_HOVER_EXIT 
+　　根据自定义视图的特性，它可能在不同时间或事件需要发送AccessibilityEvent对象，而不是由默认来实现。视图类提供了一个默认方法来实现这些事件类型：<br/>
+ 高于API4：<br/>
+TYPE_VIEW_CLICKED <br/>
+TYPE_VIEW_LONG_CLICKED <br/>
+TYPE_VIEW_FOCUSED <br/>
 
-    注意:Hover事件与通过触摸功能的探索关联，利用这些事件作为触发器伟输入用户界面元素提供声音提示。 
-    一般来说，当自定义视图的内容有变化时，应该发送一个AccessibilityEvent事件。例如,如果您正在实现一个自定义的滑动条，可以让用户选择一个数字值按下左边或者右边的箭头，这时您的自定义视图应该发出一个TYPE VIEW TEXT CHANGED类型的事件来查看滑块值是否发生变化。下面的示例代码演示了使用sendAccessibilityEvent()方法来说明这个事件：
+高于API4： <br/>
+TYPE_VIEW_SCROLLED <br/>
+TYPE_VIEW_HOVER_ENTER <br/>
+TYPE_VIEW_HOVER_EXIT <br/>
+
+　　注意:Hover事件与通过触摸功能的探索关联，利用这些事件作为触发器伟输入用户界面元素提供声音提示。 
+一般来说，当自定义视图的内容有变化时，应该发送一个AccessibilityEvent事件。例如,如果您正在实现一个自定义的滑动条，可以让用户选择一个数字值按下左边或者右边的箭头，这时您的自定义视图应该发出一个TYPE VIEW TEXT CHANGED类型的事件来查看滑块值是否发生变化。下面的示例代码演示了使用sendAccessibilityEvent()方法来说明这个事件：<br/>
  
 ```
 @Override
@@ -318,8 +318,8 @@ public boolean onKeyUp (int keyCode, KeyEvent event) {
 ### 6.3.4填充无障碍事件
 
 
-    每个AccessibilityEvent有一组必需的属性用来描述当前视图的状态。这些属性包括诸如视图类名称、内容描述和检查状态。对于每个事件类型的特定的性能要求，都在AccessibilityEvent参考文档中进行了描述。视图实现提供了这些属性的默认值。在这些属性值中，包括自动提供的类名和事件时间戳。如果正在创建一个自定义视图组件，必须提供一些视图的信息内容和特点。这些信息可能是简单的按钮标签，而且也包含想要添加到事件的额外状态信息。
-    为一个带自定义视图的无障碍服务提供信息的最低要求是实现dispatchPopulateAccessibilityEvent()方法。系统为一个AccessibilityEvent调用这个方法来请求信息，使您的自定义视图兼容Android 1.6系统(API级别4)和更高的可访问性服务。下面的示例代码展示了该方法的一个基本的实现。
+　　每个AccessibilityEvent有一组必需的属性用来描述当前视图的状态。这些属性包括诸如视图类名称、内容描述和检查状态。对于每个事件类型的特定的性能要求，都在AccessibilityEvent参考文档中进行了描述。视图实现提供了这些属性的默认值。在这些属性值中，包括自动提供的类名和事件时间戳。如果正在创建一个自定义视图组件，必须提供一些视图的信息内容和特点。这些信息可能是简单的按钮标签，而且也包含想要添加到事件的额外状态信息。<br/>
+　　为一个带自定义视图的无障碍服务提供信息的最低要求是实现dispatchPopulateAccessibilityEvent()方法。系统为一个AccessibilityEvent调用这个方法来请求信息，使您的自定义视图兼容Android 1.6系统(API级别4)和更高的可访问性服务。下面的示例代码展示了该方法的一个基本的实现。<br/>
 ```
 @Override
 public void dispatchPopulateAccessibilityEvent(AccessibilityEvent event) {
