@@ -2,8 +2,7 @@
 # （二）Web端常见应用的无障碍问题
 
 
-    该部分参考资料内容来自Web Content Accessibility Guidelines (WCAG)
-2.0（http://www.w3.org/Translations/WCAG20-zh/）、How to Meet WCAG 2.0（http://www.w3.org/WAI/WCAG20/quickref/#qr-text-equiv-all）、WAI-ARIA 1.0 Authoring Practices（http://www.w3.org/TR/wai-aria-practices/）。
+　　该部分参考资料内容来自Web Content Accessibility Guidelines (WCAG)2.0（http://www.w3.org/Translations/WCAG20-zh/）、How to Meet WCAG 2.0（http://www.w3.org/WAI/WCAG20/quickref/#qr-text-equiv-all）、WAI-ARIA 1.0 Authoring Practices（http://www.w3.org/TR/wai-aria-practices/）。<br/>
 
 ## 2.1日期控件
 
@@ -12,12 +11,12 @@
 ### 2.1.1日期控件无法聚焦
 
 
-    【问题描述】
-    自绘的日期控件无法用tab键浏览到；
-    【可能原因】
-    自绘日期控件没有添加tabindex属性；
-    【修改建议】
-    给自绘的日期控件添加tabindex="0"；
+【问题描述】<br/>
+自绘的日期控件无法用tab键浏览到；<br/>
+   【可能原因】   <br/>
+   自绘日期控件没有添加tabindex属性；<br/>
+    【修改建议】<br/>
+给自绘的日期控件添加tabindex="0"；<br/>
 
 ### 2.1.2日期控件无法用键盘选择日期
 
