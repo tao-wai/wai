@@ -559,27 +559,27 @@ SWIFT<br/>
 import UIKit<br/>
 
 
-    UIAccessibilitySwitchControlStatusDidChangeNotification
-    当系统的开关控件设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-    声明：
-    SWIFT
-    let UIAccessibilitySwitchControlStatusDidChangeNotification: String
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
-    
-    UIAccessibilityVoiceOverStatusChanged
-    当voiceover开启和停止时，推送该焦点。这个通知不包含参数。可以使用这个参数为voiceover用户自定义应用用户界面。例如，如果一个UI元素覆盖了UI的其他部分，可以为voiceover用户呈现一样的布局，但是允许非voiceover用户取消。可以使用UIAccessibilityIsVoiceOverRunning功能来判定voiceover是否在运行。使用默认通知中心监听这个通知。
-    声明：
-    SWIFT
-    let UIAccessibilityVoiceOverStatusChanged: String
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
+UIAccessibilitySwitchControlStatusDidChangeNotification<br/>
+　　当系统的开关控件设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。<br/>
+声明：<br/>
+SWIFT<br/>
+let UIAccessibilitySwitchControlStatusDidChangeNotification: String<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
+
+UIAccessibilityVoiceOverStatusChanged<br/>
+　　当voiceover开启和停止时，推送该焦点。这个通知不包含参数。可以使用这个参数为voiceover用户自定义应用用户界面。例如，如果一个UI元素覆盖了UI的其他部分，可以为voiceover用户呈现一样的布局，但是允许非voiceover用户取消。可以使用UIAccessibilityIsVoiceOverRunning功能来判定voiceover是否在运行。使用默认通知中心监听这个通知。<br/>
+声明：<br/>
+SWIFT<br/>
+let UIAccessibilityVoiceOverStatusChanged: String<br/>
+导入声明：
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
 
 ## 4.UI无障碍元素类（UIAccessibilityElement）
 
