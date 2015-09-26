@@ -267,8 +267,8 @@ role="textbox"代表是一个编辑框， 自绘的编辑框加上role="textbox"
 </p>		
 </form>```
 方案5：
-placeholder 属性提供可描述输入字段预期值的提示信息（hint）。该提示会在输入字段为空时显示，并会在字段获得焦点时消失。＜br/＞
-注释：placeholder 属性适用于以下的 <input> 类型：text, search, url, telephone, email 以及 password。＜br/＞
+placeholder 属性提供可描述输入字段预期值的提示信息（hint）。该提示会在输入字段为空时显示，并会在字段获得焦点时消失。<br/>
+注释：placeholder 属性适用于以下的 <input> 类型：text, search, url, telephone, email 以及 password。<br/>
 ```<form action="demo_form.asp" method="get">
 输入要搜索的工程师名字
   <input type="search" name="user_search" placeholder="输入要搜索的工程师名字" />
@@ -278,15 +278,15 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 ### 1.3.4预设文本无法用键盘清除
 
 
-【问题描述】＜br/＞
-编辑框内有预先设定的文本， 用backspace键不能删除编辑框内的预设文本，只能用鼠标删除。＜br/＞
-【可能原因】＜br/＞
-自绘的编辑框控件没有对backspace键或所有键盘操作进行支持。＜br/＞
-【修改建议】＜br/＞
+【问题描述】<br/>
+编辑框内有预先设定的文本， 用backspace键不能删除编辑框内的预设文本，只能用鼠标删除。<br/>
+【可能原因】<br/>
+自绘的编辑框控件没有对backspace键或所有键盘操作进行支持。<br/>
+【修改建议】<br/>
 方案1：
-将自绘控件的contenteditable属性设为true， 然后在自绘编辑框的键盘事件处理代码中支持backspace删除文本；＜br/＞
+将自绘控件的contenteditable属性设为true， 然后在自绘编辑框的键盘事件处理代码中支持backspace删除文本；<br/>
 方案2：
-使用placeholder属性设置编辑框的预设文本；＜br/＞
+使用placeholder属性设置编辑框的预设文本；<br/>
 ```<form>
 无障碍搜索
 <input type="text" placeholder="信息无障碍研究会" tabindex="0"/>
