@@ -648,10 +648,10 @@ UIKit为所有标准控件和视图，提供合适的trait组合。当为一个�
 ## 5.UI无障碍容器（UIAccessibilityContainer）
 
 
-    文档参考来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibilityContainer_Protocol/#//apple_ref/occ/instp/NSObject/accessibilityElements
-    UIAccessibilityContainer非正式协议为UIView子类提供一个方式，将已选择的无障碍元素作为独立元素标记。例如，一个可能包含图标或者文本图片视图，对最终用户来说，出现和功能是作为一个独立条目的。但是因为这些元素不是作为UIView实例实现的，这些元素不会自动对残障用户无障碍。因此，此类容器视图应该实现UIAccessibilityContainer方法来提供这些元素的无障碍信息来帮助像voiceover这样的辅助应用。
-    实现UIAccessibilityContainer非正式协议的视图使用UIAccessibilityElement方法initWithAccessibilityContainer：创建一个无障碍元素呈现每一个需要对残障用户无障碍的非视图元素。注意，但是，容器视图本身不是一个无障碍元素，因为用户不会与之交互。这一位置容器视图实现UIAccessibilityContainer必须将UIAccessibility 非正式协议的 isAccessibilityElement属性为NO。
-    容器视图内无障碍元素的顺序应该与呈现给用户的顺序相同，从左到右，从上到下。
+　　文档参考来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibilityContainer_Protocol/#//apple_ref/occ/instp/NSObject/accessibilityElements<br/>
+　　UIAccessibilityContainer非正式协议为UIView子类提供一个方式，将已选择的无障碍元素作为独立元素标记。例如，一个可能包含图标或者文本图片视图，对最终用户来说，出现和功能是作为一个独立条目的。但是因为这些元素不是作为UIView实例实现的，这些元素不会自动对残障用户无障碍。因此，此类容器视图应该实现UIAccessibilityContainer方法来提供这些元素的无障碍信息来帮助像voiceover这样的辅助应用。<br/>
+　　实现UIAccessibilityContainer非正式协议的视图使用UIAccessibilityElement方法initWithAccessibilityContainer：创建一个无障碍元素呈现每一个需要对残障用户无障碍的非视图元素。注意，但是，容器视图本身不是一个无障碍元素，因为用户不会与之交互。这一位置容器视图实现UIAccessibilityContainer必须将UIAccessibility 非正式协议的 isAccessibilityElement属性为NO。<br/>
+　　容器视图内无障碍元素的顺序应该与呈现给用户的顺序相同，从左到右，从上到下。<br/>
 
 ### 5.1提供有关无障碍元素的信息
 
