@@ -642,8 +642,8 @@ public class MyAccessibilityService extends AccessibilityService {
 </application>```
 　　如果你为这个服务创建一个新的工程的话，且不打算要一个应用程序，你可以把它启动活动的类（通常叫做MainActivity.java)从你的源文件中删除。同时也把相应的活动元素从你的mainfest文件中删除。 <br/>
     
-    配置自己的辅助性服务：
-    为你的辅助性服务设置配置变量，用它来告诉系统，如何和何时你想要它运行。哪一类事件你想要去响应？这个服务对所有的应用程序都是活动的吗？或者只有指定的包名的？它使用什么样的反馈？你有两种方法去设置这些变量。反向兼容的方法是以代码的形式来设置它们，可以使用setServiceInfo(android.accessibilityservice.AccessibilityServiceInfo).如果要这样做的话，要重写onServiceConnected()方法，然后配置在那里配置你的服务。  
+　　配置自己的辅助性服务：<br/>
+　　为你的辅助性服务设置配置变量，用它来告诉系统，如何和何时你想要它运行。哪一类事件你想要去响应？这个服务对所有的应用程序都是活动的吗？或者只有指定的包名的？它使用什么样的反馈？你有两种方法去设置这些变量。反向兼容的方法是以代码的形式来设置它们，可以使用setServiceInfo(android.accessibilityservice.AccessibilityServiceInfo).如果要这样做的话，要重写onServiceConnected()方法，然后配置在那里配置你的服务。  <br/>
 ```
 @Override
 public void onServiceConnected() {
@@ -668,7 +668,7 @@ public void onServiceConnected() {
     info.notificationTimeout = 100;
     this.setServiceInfo(info);
 }```
-    从Android 4.0版本开始，有另外一种方法：使用XML文件来配置这类服务。如果你以XML的形式来定义你的服务，某些像canRetrieveWindowContent可配置的选项就可用了。和上面一样的配置，使用XML来定义，格式如下所示：  
+　　从Android 4.0版本开始，有另外一种方法：使用XML文件来配置这类服务。如果你以XML的形式来定义你的服务，某些像canRetrieveWindowContent可配置的选项就可用了。和上面一样的配置，使用XML来定义，格式如下所示： <br/> 
 ```
 <accessibility-service
      android:accessibilityEventTypes="typeViewClicked|typeViewFocused"
@@ -678,7 +678,7 @@ public void onServiceConnected() {
      android:settingsActivity="com.example.android.apis.accessibility.TestBackActivity"
      android:canRetrieveWindowContent="true"
 />```
-    如果你要使用XML路径，要在你的mainfest文件中指定它，在你的服务声明中添加<meta-data>标签,并指向这个XML资源文件。假如你把你的XML文件存储在res/xml/serviceconfig.xml这个路径下，新的标签格式如下所示：  
+　　如果你要使用XML路径，要在你的mainfest文件中指定它，在你的服务声明中添加<meta-data>标签,并指向这个XML资源文件。假如你把你的XML文件存储在res/xml/serviceconfig.xml这个路径下，新的标签格式如下所示：<br/>  
 ```
 <service android:name=".MyAccessibilityService">
      <intent-filter>
@@ -691,7 +691,7 @@ public void onServiceConnected() {
 ### 9.2响应AccessibilityEvents事件
 
 
-    现在，您的服务被设置为运行和监听事件，写一些代码，这样当一个AccessibilityEvent真的到来，它就知道要做什么了！                    从重写onAccessibilityEvent(AccessibilityEvent)方法开始。然后使用getEventType()来确定事件类型，然后用getContentDescription来取出任何与触发事件相关的标签文本。  
+　　现在，您的服务被设置为运行和监听事件，写一些代码，这样当一个AccessibilityEvent真的到来，它就知道要做什么了！ 从重写onAccessibilityEvent(AccessibilityEvent)方法开始。然后使用getEventType()来确定事件类型，然后用getContentDescription来取出任何与触发事件相关的标签<br/>文本。  <br/>
 ```
 @Override
 public void onAccessibilityEvent(AccessibilityEvent event) {
