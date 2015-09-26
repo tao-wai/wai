@@ -1052,7 +1052,8 @@ UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, nil);
 {
 NSString *weatherCityLabel = [self.weatherCity accessibilityLabel];
 NSString *weatherTempLabel = [self.weatherTemp accessibilityLabel];
-/* Combine the city and temperature information so that VoiceOver users can get the weather information with one gesture. */
+/* Combine the city and temperature information so that VoiceOver users can get the weather 
+information with one gesture. */
 return [NSString stringWithFormat:@"%@, %@", weatherCityLabel, weatherTempLabel];
 }```
 @end
@@ -1060,11 +1061,11 @@ return [NSString stringWithFormat:@"%@, %@", weatherCityLabel, weatherTempLabel]
 ## 10.视图控件角度的无障碍
 
 
-    处理管理视图控件的行为，一个视图控制器可以帮助控制app的无障碍性。一个无障碍app是一个可以被所有人使用的app，无论是残疾还是身体功能障碍，同时作为一个有用的工具保留其的功能性和易用性。
-    为了保证无障碍性，一个ios app必须向Voiceover提供用户界面元素的信息。Voiceover，是一个屏幕阅读技术，被设计用来帮助视障群体，大声读出文本、图片和屏幕上的UI控件，这样视障用户就可以与这些元素进行交互。UIKit对象默认是无障碍的，但是在视图角度仍有事可做来解决无障碍问题。在一个较高的水平，这意味着应该保证：
-    每一个用户可以交互的用户界面元素是无障碍的。这包括仅提供信息的元素，如静态文本和执行操作的控件。
-    所有的无障碍元素提供准确和有用的信息。
-    除了这些基本因素，一个视图控件voiceover的用户体验，可以通过编程式的设置voiceover焦点框、响应voiceover手势、观察无障碍通知等，来提升。
+　　处理管理视图控件的行为，一个视图控制器可以帮助控制app的无障碍性。一个无障碍app是一个可以被所有人使用的app，无论是残疾还是身体功能障碍，同时作为一个有用的工具保留其的功能性和易用性。<br/>
+　　为了保证无障碍性，一个ios app必须向Voiceover提供用户界面元素的信息。Voiceover，是一个屏幕阅读技术，被设计用来帮助视障群体，大声读出文本、图片和屏幕上的UI控件，这样视障用户就可以与这些元素进行交互。UIKit对象默认是无障碍的，但是在视图角度仍有事可做来解决无障碍问题。在一个较高的水平，这意味着应该保证：<br/>
+每一个用户可以交互的用户界面元素是无障碍的。这包括仅提供信息的元素，如静态文本和执行操作的控件。<br/>
+所有的无障碍元素提供准确和有用的信息。<br/>
+　　除了这些基本因素，一个视图控件voiceover的用户体验，可以通过编程式的设置voiceover焦点框、响应voiceover手势、观察无障碍通知等，来提升。<br/>
 
 ### 10.1移动voice光标到一个特定的元素
 
