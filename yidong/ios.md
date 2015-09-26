@@ -1070,11 +1070,11 @@ return [NSString stringWithFormat:@"%@, %@", weatherCityLabel, weatherTempLabel]
 ### 10.1移动voice光标到一个特定的元素
 
 
-    当屏幕布局改变时，voiceover焦点框，也被称为voiceover光标，会被重置在屏幕表单的从左到右，从上倒下第一个元素上。当视图在屏幕上呈现时，可能需要改变第一个被聚焦的元素。
-    例如，当导航控制器将一个视图控制器置到一个导航对战，voiceover光标落在导航条的返回按钮上。基于app，将焦点转移到导航条的标题或其他元素上，将会更有意义。
-    要做到这一点，使用UIAccessibilityScreenChangedNotification和想要聚焦的元素调用 UIAccessibilityPostNotification，如以下样例所示：
-    
-    发布一个无障碍通知可以改变第一个朗读的元素：
+　　当屏幕布局改变时，voiceover焦点框，也被称为voiceover光标，会被重置在屏幕表单的从左到右，从上倒下第一个元素上。当视图在屏幕上呈现时，可能需要改变第一个被聚焦的元素。<br/>
+　　例如，当导航控制器将一个视图控制器置到一个导航对战，voiceover光标落在导航条的返回按钮上。基于app，将焦点转移到导航条的标题或其他元素上，将会更有意义。<br/>
+　　要做到这一点，使用UIAccessibilityScreenChangedNotification和想要聚焦的元素调用 UIAccessibilityPostNotification，如以下样例所示：<br/>
+
+　　发布一个无障碍通知可以改变第一个朗读的元素：<br/>
 ```
 @implementation MyViewController
 - (void)viewDidAppear:(BOOL)animated
@@ -1139,6 +1139,6 @@ objectForKey:UIAccessibilityAnnouncementKeyWasSuccessful];
 }
 @end```
 
-    UIAccessibilityAnnouncementDidFinishNotification将一个 NSNotification 字典作为一个参数，这个参数可以判定有效的讲话，并且讲话是否不间断的完成。如果Voiceover用户执行了暂停讲话手势或者滑到其他元素时，讲话在完成之前就会被终端。
-    另一个需要提交的有用的通知是UIAccessibilityVoiceOverStatusChanged。它可以检测到voiceover的开关。如果voiceover在app之外的翻转，当app回到前台时会收到服务。因为UIAccessibilityVoiceOverStatusChanged不期待任何参数，在选择器中的方法不需要提阿南爱一个尾随冒号（：）。
-    可以参考的全部可能通知的列表，可以参见UIAccessibility Protocol Reference的通知。记住，只可以查看被UIKit发表的通知，这些通知是NSString对象，不是app发表的int类型的通知。
+　　UIAccessibilityAnnouncementDidFinishNotification将一个 NSNotification 字典作为一个参数，这个参数可以判定有效的讲话，并且讲话是否不间断的完成。如果Voiceover用户执行了暂停讲话手势或者滑到其他元素时，讲话在完成之前就会被终端。<br/>
+　　另一个需要提交的有用的通知是UIAccessibilityVoiceOverStatusChanged。它可以检测到voiceover的开关。如果voiceover在app之外的翻转，当app回到前台时会收到服务。因为UIAccessibilityVoiceOverStatusChanged不期待任何参数，在选择器中的方法不需要提阿南爱一个尾随冒号（：）。<br/>
+　　可以参考的全部可能通知的列表，可以参见UIAccessibility Protocol Reference的通知。记住，只可以查看被UIKit发表的通知，这些通知是NSString对象，不是app发表的int类型的通知。<br/>
