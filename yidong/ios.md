@@ -294,33 +294,33 @@ UIAccessibilityTraitCausesPageTurn ：当voiceover读完当前页的文本时，
 UIAccessibilityTraitHeader ：这个无障碍元素是个将内容分段的标题，比如导航条标题。Available in iOS 6.0 and later.<br/>
 
 
-    Notification Dictionary Keys
-    被使用在通知中userInfo参数字典的键。
-    声明：
-    SWITF
-    let UIAccessibilityAnnouncementKeyStringValue: String
-    let UIAccessibilityAnnouncementKeyWasSuccessful: String
-    OBJECTIVE-C
-    NSString *const UIAccessibilityAnnouncementKeyStringValue;
-    NSString *const UIAccessibilityAnnouncementKeyWasSuccessful;
-    常量：
-    UIAccessibilityAnnouncementKeyStringValue ：已完成通知的文本。Available in iOS 6.0 and later.
-    UIAccessibilityAnnouncementKeyWasSuccessful ：指明通知是不是成功制作。这个键的值是个NSNumber对象，应该被翻译为布尔值。Available in iOS 6.0 and later.
+Notification Dictionary Keys<br/>
+被使用在通知中userInfo参数字典的键。<br/>
+声明：<br/>
+```SWITF
+let UIAccessibilityAnnouncementKeyStringValue: String
+let UIAccessibilityAnnouncementKeyWasSuccessful: String
+OBJECTIVE-C
+NSString *const UIAccessibilityAnnouncementKeyStringValue;
+NSString *const UIAccessibilityAnnouncementKeyWasSuccessful;```
+常量：<br/>
+UIAccessibilityAnnouncementKeyStringValue ：已完成通知的文本。Available in iOS 6.0 and later.<br/>
+UIAccessibilityAnnouncementKeyWasSuccessful ：指明通知是不是成功制作。这个键的值是个NSNumber对象，应该被翻译为布尔值。Available in iOS 6.0 and later.<br/>
 
-    Speech Attributes for Attributed Strings
-    可以应用于属性文本的属性，来修改文本是怎样发音的。
-    声明：
-    SWIFT
-    let UIAccessibilitySpeechAttributePunctuation: String
-    let UIAccessibilitySpeechAttributeLanguage: String
-    let UIAccessibilitySpeechAttributePitch: String
-    OBJECTIVE-C
-    NSString *const UIAccessibilitySpeechAttributePunctuation;
-    NSString *const UIAccessibilitySpeechAttributeLanguage;
-    常量
-    UIAccessibilitySpeechAttributePunctuation ：该键的值一个NSNumber对象，可以被翻译为布尔值。当值为YES时，文本中所有标点都会被读出。可以使用这个来读代码或者其他标点有关文本。Available in iOS 7.0 and later.
-    UIAccessibilitySpeechAttributeLanguage ：这个键的值是一个NSString对象，包含BCP-47语言编码。当被应用到文本，指定语言规则会决定该文本是怎样发音的。Available in iOS 7.0 and later.
-    UIAccessibilitySpeechAttributePitch ：这个键的值是一个NSNumber对象，包含一个浮点型值，从0.0到2.0.这个值指明文本是否应该使用比默认高或低的声调读出。这个属性的默认值是1.0，是个正常的音调。0.0-1.0的结果是一个低的声调，1.0-2.0的值是一个高的声调。Available in iOS 7.0 and later. 
+Speech Attributes for Attributed Strings<br/>
+可以应用于属性文本的属性，来修改文本是怎样发音的。<br/>
+声明：<br/>
+```SWIFT
+let UIAccessibilitySpeechAttributePunctuation: String
+let UIAccessibilitySpeechAttributeLanguage: String
+let UIAccessibilitySpeechAttributePitch: String
+OBJECTIVE-C
+NSString *const UIAccessibilitySpeechAttributePunctuation;
+NSString *const UIAccessibilitySpeechAttributeLanguage;```
+常量<br/>
+UIAccessibilitySpeechAttributePunctuation ：该键的值一个NSNumber对象，可以被翻译为布尔值。当值为YES时，文本中所有标点都会被读出。可以使用这个来读代码或者其他标点有关文本。Available in iOS 7.0 and later.<br/>
+UIAccessibilitySpeechAttributeLanguage ：这个键的值是一个NSString对象，包含BCP-47语言编码。当被应用到文本，指定语言规则会决定该文本是怎样发音的。Available in iOS 7.0 and later.<br/>
+UIAccessibilitySpeechAttributePitch ：这个键的值是一个NSNumber对象，包含一个浮点型值，从0.0到2.0.这个值指明文本是否应该使用比默认高或低的声调读出。这个属性的默认值是1.0，是个正常的音调。0.0-1.0的结果是一个低的声调，1.0-2.0的值是一个高的声调。Available in iOS 7.0 and later. <br/>
 
     Assistive Technology Identifiers
     但当暂停恢复辅助技术时可以使用的标示符。
