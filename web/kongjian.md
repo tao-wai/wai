@@ -895,16 +895,16 @@ aria-activedescendant表示后代的id值<br/>
 ### 1.8.1控件类型朗读不正确
 
 
-【问题描述】
-屏幕阅读器用户通过反馈的控件类型来确定这个控件应该如何操作，如菜单则说明执行一条命令，菜单栏则可以进行展开折叠动作来显示隐藏菜单项，因此，设置错误的控件类型会导致用户无法判断控件应该如何操作。
-【可能原因】
-【修改建议】
-样例1：自定义菜单控件使用role=”menu”属性
-role="menu"表示菜单
-role="menubar"表示菜单栏
-role="menuitem"表示菜单项
- role="menuitemradio"表示只能单选的菜单项 
-<ul role="menubar" title="视障工程师菜单">
+【问题描述】<br/>
+屏幕阅读器用户通过反馈的控件类型来确定这个控件应该如何操作，如菜单则说明执行一条命令，菜单栏则可以进行展开折叠动作来显示隐藏菜单项，因此，设置错误的控件类型会导致用户无法判断控件应该如何操作<br/>。
+【可能原因】<br/>
+【修改建议】<br/>
+样例1：自定义菜单控件使用role=”menu”属性<br/>
+role="menu"表示菜单<br/>
+role="menubar"表示菜单栏<br/>
+role="menuitem"表示菜单项<br/>
+ role="menuitemradio"表示只能单选的菜单项 <br/>
+```<ul role="menubar" title="视障工程师菜单">
   <li role="menuitem" tabindex="0" aria-haspopup="true">视障工程师
     <ul role="menu" aria-hidden="true">
       <li role="menuitemradio"  aria-checked="true">王孟琦</li>      <li role="separator">朱广锐</li> 
@@ -915,7 +915,7 @@ role="menuitem"表示菜单项
   <li role="menuitem" aria-haspopup="false">信息无障碍深圳</li>
   <li role="menuitem" aria-haspopup="false">信息无障碍北京</li>
   <li role="menuitem" aria-haspopup="false">信息无障碍上海</li>
-</ul>
+</ul>```
 
 
 ### 1.8.2折叠/展开无法用键盘操作
