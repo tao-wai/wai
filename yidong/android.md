@@ -180,32 +180,32 @@ public void onTextChanged(String before, String after) {
 ### 6.1标志用户界面元素
 
 
-    很多用户界面元素依靠视觉提示来说明含义和用处。例如，一个信息采集app可能使用带有加号图片的ImageButton来说明用户可以添加信息。一个EditText组件可能有一个临近的label来说明目的。视障用户看不到这些提示，将使这些组件失效。
-    可以使用android:contentDescription XML layout属性来使这些控件更加无障碍。这个属性的文本不会出现在屏幕上，但是用户如果激活无障碍服务来提供语音提示，当用户导航到这个控件的时候，文本就会被读出来。
-    因为这个原因，以下ImageButton的设置为加号按钮添加内容描述到add_note string 资源，可以将描述内容定义为添加信息。
+　　很多用户界面元素依靠视觉提示来说明含义和用处。例如，一个信息采集app可能使用带有加号图片的ImageButton来说明用户可以添加信息。一个EditText组件可能有一个临近的label来说明目的。视障用户看不到这些提示，将使这些组件失效。<br/>
+　　可以使用android:contentDescription XML layout属性来使这些控件更加无障碍。这个属性的文本不会出现在屏幕上，但是用户如果激活无障碍服务来提供语音提示，当用户导航到这个控件的时候，文本就会被读出来。<br/>
+　　因为这个原因，以下ImageButton的设置为加号按钮添加内容描述到add_note string 资源，可以将描述内容定义为添加信息。<br/>
 ```
 <ImageButton 
     android:id=”@+id/add_note_button” 
     android:src=”@drawable/add_note” 
     android:contentDescription=”@string/add_note”/>```
-    通过包含描述，提供语音反馈的无障碍服务可以读出“添加信息”，当用户将焦点移到这个按钮，或者划过。
-    注意：对于EditText区域，提供 android:hint属性来帮助用户理解什么内容需要输入，而不是使用android:contentDescription。当编辑框有内容时，talkBack会读出输入内容，而不是hint 文本。
+　　通过包含描述，提供语音反馈的无障碍服务可以读出“添加信息”，当用户将焦点移到这个按钮，或者划过。<br/>
+　　注意：对于EditText区域，提供 android:hint属性来帮助用户理解什么内容需要输入，而不是使用android:contentDescription。当编辑框有内容时，talkBack会读出输入内容，而不是hint 文本。<br/>
 
 ### 6.2启用焦点导航
 
 
-    焦点导航允许残障用户通过用户界面控制使用定向控制来导航app。定向控制可以是物理的，比如轨迹球，方向键（D-PAD）或箭头键，或者视觉，比如 Eyes-Free Keyboard，或者手势导航模式。定向控制对很多android用户来说是首选的导航方式。
-    保证用户可以使用定向控制来导航app，保证所有用户界面输入控件都可以到达并在不触摸的情况下激活。也需要确保点击定向控制的中心按钮和有焦点控件的触摸有同样的效果。定向控制的更多信息，请查阅焦点导航测试（Testing focus navigation）。
+　　焦点导航允许残障用户通过用户界面控制使用定向控制来导航app。定向控制可以是物理的，比如轨迹球，方向键（D-PAD）或箭头键，或者视觉，比如 Eyes-Free Keyboard，或者手势导航模式。定向控制对很多android用户来说是首选的导航方式。<br/>
+　　保证用户可以使用定向控制来导航app，保证所有用户界面输入控件都可以到达并在不触摸的情况下激活。也需要确保点击定向控制的中心按钮和有焦点控件的触摸有同样的效果。定向控制的更多信息，请查阅焦点导航测试（Testing focus navigation）。<br/>
 
 ### 6.2.1启用视图焦点 
 
 
-    当 android:focusable设置为true时，使用定向控制时用户界面元素可到达。这个设置允许用户使用定向控制聚焦到元素上，并与之交互。用户界面控制默认是由android框架提供和通过改变控件的外形来指明焦点。
-    Android提供集中API来让开发者控制用户界面元素是不是可以聚焦，并请求控件给予焦点：
-    setFocusable()
-    isFocusable()
-    requestFocus()
-    如果一个视图默认不能被聚焦，可以在布局文件中将android:focusable 属性设置为true，或者调用setFocusable()方法。
+　　当 android:focusable设置为true时，使用定向控制时用户界面元素可到达。这个设置允许用户使用定向控制聚焦到元素上，并与之交互。用户界面控制默认是由android框架提供和通过改变控件的外形来指明焦点。<br/>
+　　Android提供集中API来让开发者控制用户界面元素是不是可以聚焦，并请求控件给予焦点：<br/>
+setFocusable()<br/>
+isFocusable()<br/>
+requestFocus()<br/>
+　　如果一个视图默认不能被聚焦，可以在布局文件中将android:focusable 属性设置为true，或者调用setFocusable()方法。<br/>
 
 ### 6.2.2焦点控制命令
 
