@@ -1021,24 +1021,24 @@ div[role=radiogroup] {
 3)使用图片来指出必填状态：<br/>
 ```
 <p><img src="req_img.gif" alt="必填控件" /> 指示所需的窗体控件</p>```
-    4)指出单选组和复选组的必填状态：
+4)指出单选组和复选组的必填状态：<br/>
 ```
 <fieldset>
 <legend>I我对以下（要求）感兴趣：</legend>
 <input type="checkbox" id="photo" name="interests" value="ph">
 <label for="photo">摄影</label> </br>
 <input type="checkbox" id="watercol" name="interests" checked="checked" value="wa">```
-    legend 元素为fieldset 元素定义标题（caption）
-    (8)使用fieldset和legend元素来描述表单控件中的组；
-    这个技巧为有关的表单控件提供一个语义组。这可以使用户更快更好的理解控件间的关系更好的交互；可以使用fieldset来将表单控件分组闭合起来。所有的控件都在相关的fieldset内。fieldset的第一控件一定是legend元素，为组提供标签或描述。开发者应该尽量避免嵌套使用fieldset，因为嵌套使用会导致混乱；组控件对单选和复选特别重要，当单选和复选按钮包含明确的说明和区分选择，fieldset和legend不是必须。有时候，开发者会避免使用fieldset，因为有些浏览器会默认为fieldset添加边框。视觉的显示可以通过CSS样式来改变；
-    
-    样例1：多选测试
-    这个立场展示一个测试项目，有一个问题和5个可能的答案。每一个答案通过单选按钮来显示，单选按钮包含在fieldset内，测试问题使用legend标记。
-    fieldset 元素可将表单内的相关元素分组。<legend> 标签为 fieldset 元素定义标题。
-    关键代码： 
+legend 元素为fieldset 元素定义标题（caption）<br/>
+(8)使用fieldset和legend元素来描述表单控件中的组；<br/>
+　　这个技巧为有关的表单控件提供一个语义组。这可以使用户更快更好的理解控件间的关系更好的交互；可以使用fieldset来将表单控件分组闭合起来。所有的控件都在相关的fieldset内。fieldset的第一控件一定是legend元素，为组提供标签或描述。开发者应该尽量避免嵌套使用fieldset，因为嵌套使用会导致混乱；组控件对单选和复选特别重要，当单选和复选按钮包含明确的说明和区分选择，fieldset和legend不是必须。有时候，开发者会避免使用fieldset，因为有些浏览器会默认为fieldset添加边框。视觉的显示可以通过CSS样式来改变<br/>；
+
+样例1：多选测试<br/>
+　　这个立场展示一个测试项目，有一个问题和5个可能的答案。每一个答案通过单选按钮来显示，单选按钮包含在fieldset内，测试问题使用legend标记。<br/>
+　　fieldset 元素可将表单内的相关元素分组。<legend> 标签为 fieldset 元素定义标题。<br/>
+关键代码： <br/>
    ``` 
    <legend>戏剧<cite>哈姆雷特</cite> 作者是:</legend>```
-    全部代码：
+全部代码：<br/>
 ```
 <fieldset>
   <legend>戏剧<cite>哈姆雷特</cite> 作者是:</legend>
@@ -1054,8 +1054,8 @@ div[role=radiogroup] {
   <label for="dickens">狄更斯查尔斯</label>
 </fieldset>  ```
 
-    样例2：复选框
-    个人简介也允许用户指明自己的兴趣，通过选择复选按钮，每一个复选按钮都有一个标签。
+样例2：复选框<br/>
+个人简介也允许用户指明自己的兴趣，通过选择复选按钮，每一个复选按钮都有一个标签。<br/>
 
 ```
 <fieldset>
@@ -1069,8 +1069,8 @@ div[role=radiogroup] {
   …
 </fieldset>  ```
 
-    样例3：
-    相同name属性的单选按钮；
+样例3：
+相同name属性的单选按钮；<br/>
 
 ```
 <form action="http://example.com/vote" method="post">
@@ -1084,8 +1084,8 @@ div[role=radiogroup] {
 <label for="philosopher_aristotle">亚里士多德</label>
 </fieldset>
 </form>   ```
-    样例4：逻辑有关控件；
-    此例子中，居住地址和邮寄地址是分开的;
+样例4：逻辑有关控件；
+此例子中，居住地址和邮寄地址是分开的;<br/>
 
 ```
 <form action="http://example.com/adduser" method="post">
@@ -1106,18 +1106,18 @@ div[role=radiogroup] {
    更多邮寄信息
    </fieldset>
 </form>```
-    (9)使用title属性来区分表单控件，当标签不能用的时候；
-    样例1：
-    一个限制搜索范围的下拉菜单；
-    一个搜索表单使用下拉菜单来限制搜索的范围。当文本输入搜索表单的时候，下拉菜单立即与文本域连接，搜索区域与下拉菜单的关系看起来很清楚，但是没有可见的视觉标签，title属性可以用来明确选择菜单。title属性可以被屏幕阅读器阅读，为使用屏幕放大器的用户提供提示；
+(9)使用title属性来区分表单控件，当标签不能用的时候；<br/>
+样例1：<br/>
+  一个限制搜索范围的下拉菜单；<br/>
+ 一个搜索表单使用下拉菜单来限制搜索的范围。当文本输入搜索表单的时候，下拉菜单立即与文本域连接，搜索区域与下拉菜单的关系看起来很清楚，但是没有可见的视觉标签，title属性可以用来明确选择菜单。title属性可以被屏幕阅读器阅读，为使用屏幕放大器的用户提供提示；
 ```
 <label for="searchTerm">搜索:</label>
 <input id="searchTerm" type="text" size="30" value="" name="searchTerm">
 <select title="在以下中搜索" id="scope">
 …
 </select> ```
-    样例2：电话号码的输入区域
-    美国的电话号码包括三部分，地区代码、交换、后四位；
+样例2：电话号码的输入区域<br/>
+美国的电话号码包括三部分，地区代码、交换、后四位；<br/>
 ```
 <fieldset><legend>电话号码</legend>
 <input id="areaCode" name="areaCode" title="地区代码" 
@@ -1128,16 +1128,16 @@ type="text" size="3" value="" >
 type="text" size="4" value="" >
 </fieldset> ```
 
-    样例3：搜索功能：
-    给文本输入控件添加title属性，用来告知用户功能来位置；
-```
+样例3：搜索功能：<br/>
+给文本输入控件添加title属性，用来告知用户功能来位置；<br/>
+```<br/>
 <input type="text" title="请输入搜索文本" />
 <input type="submit" value="Search"/>```
-    样例4：表单控件的数据表格
-    表单控件的数据表格单元需要将每一个控件都与列和行的表头联系。没有标题，对视障用户来说当tab到表格是，需要停下来使用辅助技术去查看每个行列的值。
-    (10)使用临近按钮来标记区域的目的
-    样例1：搜索功能
-    当一个网页包含文本输入框和一个搜索按钮来实现搜索功能，这个按钮被放置在文本输入框的右边，这样就能很清楚的知道文本输入框是输入文本的地方；
+样例4：表单控件的数据表格
+  表单控件的数据表格单元需要将每一个控件都与列和行的表头联系。没有标题，对视障用户来说当tab到表格是，需要停下来使用辅助技术去查看每个行列的值。<br/>
+(10)使用临近按钮来标记区域的目的<br/>
+样例1：搜索功能<br/>
+    当一个网页包含文本输入框和一个搜索按钮来实现搜索功能，这个按钮被放置在文本输入框的右边，这样就能很清楚的知道文本输入框是输入文本的地方；<br/>
 ```
 <input type="text" name="kw" id="kw" maxsize="100" maxlength="100" />
 <input type="submit" value="搜索" />`````````
