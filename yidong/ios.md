@@ -584,9 +584,9 @@ import UIKit<br/>
 ## 4.UI无障碍元素类（UIAccessibilityElement）
 
 
-    文档参考来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibilityElement_Class/index.html#//apple_ref/occ/cl/UIAccessibilityElement
-    UIAccessibilityElement类封装了应该对残障用户无障碍的条目信息，但是这些条目默认不是无障碍的。例如，一个图标或者文本图片不是自动无障碍的，因为它们不会继承UIView或者UIControl，一个包含非视图条目的视图需要创建了一个无障碍呈现的UIAccessibilityElement视图。
-    一个无障碍元素的属性为辅助应用提供元素的信息，比如位置和当前的值。可能需要去设置元素的属性，即使不需要创建UIAccessibilityElement实例来呈现它。例如，如果应用包含一个含义为solve自定义图标按钮，按钮已经以无障碍元素呈现，因为它是UIButton的一个子类。但是，需要提供label或hint信息，因为这些信息对这个按钮来说是独一无二的。可以在 Interface Builder或者在UIAccessibility非正式协议中设置这些属性。
+　　文档参考来源：https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIAccessibilityElement_Class/index.html#//apple_ref/occ/cl/UIAccessibilityElement<br/>
+　　UIAccessibilityElement类封装了应该对残障用户无障碍的条目信息，但是这些条目默认不是无障碍的。例如，一个图标或者文本图片不是自动无障碍的，因为它们不会继承UIView或者UIControl，一个包含非视图条目的视图需要创建了一个无障碍呈现的UIAccessibilityElement视图。<br/>
+　　一个无障碍元素的属性为辅助应用提供元素的信息，比如位置和当前的值。可能需要去设置元素的属性，即使不需要创建UIAccessibilityElement实例来呈现它。例如，如果应用包含一个含义为solve自定义图标按钮，按钮已经以无障碍元素呈现，因为它是UIButton的一个子类。但是，需要提供label或hint信息，因为这些信息对这个按钮来说是独一无二的。可以在 Interface Builder或者在UIAccessibility非正式协议中设置这些属性。<br/>
 
 ### 4.1创建一个无障碍元素
 
