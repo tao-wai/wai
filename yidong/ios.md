@@ -514,27 +514,27 @@ OBJECTIVE-C<br/>
 SWIFT<br/>
 import UIKit<br/>
     
-    UIAccessibilityResumeAssistiveTechnologyNotification
-    推送此通知来暂时恢复辅助技术的运行。当推送此通知，指定辅助技术作为一个参数。必须推送此通知来平衡之前的UIAccessibilityPauseAssistiveTechnologyNotification推送通知。使用UIAccessibilityPostNotification功能来推送此通知。
-    声明：
-    SWIFT
-    var UIAccessibilityResumeAssistiveTechnologyNotification: UIAccessibilityNotifications
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
+UIAccessibilityResumeAssistiveTechnologyNotification<br/>
+　　推送此通知来暂时恢复辅助技术的运行。当推送此通知，指定辅助技术作为一个参数。必须推送此通知来平衡之前的UIAccessibilityPauseAssistiveTechnologyNotification推送通知。使用UIAccessibilityPostNotification功能来推送此通知。<br/>
+声明：<br/>
+SWIFT<br/>
+var UIAccessibilityResumeAssistiveTechnologyNotification: UIAccessibilityNotifications<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
 
-    UIAccessibilityScreenChangedNotification
-    当一个新的视图出现且占了屏幕的主要部分时，推送该通知。这个通知包含一个参数，是个NSString对象或者可以接收voiceover焦点的无障碍元素。使用UIAccessibilityPostNotification推送该通知。
-    声明：
-    SWIFT
-    var UIAccessibilityScreenChangedNotification: UIAccessibilityNotifications
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
+UIAccessibilityScreenChangedNotification<br/>
+　　当一个新的视图出现且占了屏幕的主要部分时，推送该通知。这个通知包含一个参数，是个NSString对象或者可以接收voiceover焦点的无障碍元素。使用UIAccessibilityPostNotification推送该通知。<br/>
+声明：<br/>
+SWIFT<br/>
+var UIAccessibility<br/>ScreenChangedNotification: UIAccessibilityNotifications<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
 
     UIAccessibilitySpeakScreenStatusDidChangeNotification
     当系统的读屏设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
