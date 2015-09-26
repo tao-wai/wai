@@ -710,33 +710,37 @@ App可以使用UIGuidedAccessRestrictionStateForIdentifier函数来检查限制�
 
 
 
-- guidedAccessRestrictionIdentifiers      Required　　<br/>
+```-guidedAccessRestrictionIdentifiers      Required　```　<br/>
 返回一个文本数组确定自定义限制，是一个NSString对象数组，每一个呈现一个自定义限制。如果想在app中提供自定义引导访问，代理必须实现这个方法，并且为每一个自定义引导访问，返回一个标识符文本数组。<br/>
 声明:<br/>
 ```SWIFT
 func guidedAccessRestrictionIdentifiers() -> [String]?
 OBJECTIVE-C
-- (NSArray<NSString *> * _Nullable)guidedAccessRestrictionIdentifiers```
+- (NSArray<NSString *> *    _Nullable)guidedAccessRestrictionIdentifiers```
 版本：Available in iOS 7.0 and later.<br/>
     
-- textForGuidedAccessRestrictionWithIdentifier:    Required<br/>
+```- textForGuidedAccessRestrictionWithIdentifier:    Required```<br/>
 为提供标识符返回一个简洁的限制描述，一个本地的、可理解的简单文本。<br/>
 声明：<br/>
 ```SWIFT
-func textForGuidedAccessRestrictionWithIdentifier(_ restrictionIdentifier: String) -> String?
+func textForGuidedAccessRestrictionWithIdentifier(
+_restrictionIdentifier: String) -> String?
 OBJECTIVE-C
-- (NSString * _Nullable)textForGuidedAccessRestrictionWithIdentifier:(NSString * _Nonnull)restrictionIdentifier```
+- (NSString * _Nullable)
+textForGuidedAccessRestrictionWithIdentifier:(NSString * _Nonnull)
+restrictionIdentifier```
 参数:<br/>
 restrictionIdentifier	  系统感兴趣的限制标识符；<br/>
 版本：Available in iOS 7.0 and later.<br/>
     
-- detailTextForGuidedAccessRestrictionWithIdentifier:<br/>
+```- detailTextForGuidedAccessRestrictionWithIdentifier:```<br/>
 为提供的标识符限制返回更多详细信息，一个本地化、可理解的附加信息。<br/>
 声明：<br/>
 ```SWIFT
-optional func detailTextForGuidedAccessRestrictionWithIdentifier(_ restrictionIdentifier: String) -> String?
+optional func detailTextForGuidedAccessRestrictionWithIdentifier
+(_ restrictionIdentifier: String) -> String?
 OBJECTIVE-C
-- (NSString * _Nullable)detailTextForGuidedAccessRestrictionWithIdentifier:(NSString * _Nonnull)restrictionIdentifier```
+- (NSString * _Nullable)detailTextForGuidedAccessRestrictionWith Identifier:(NSString * _Nonnull)restrictionIdentifier```
 参数：restrictionIdentifier  系统感兴趣的限制标示符。<br/>
 版本：Available in iOS 7.0 and later.<br/>
  
@@ -746,12 +750,17 @@ OBJECTIVE-C
 - guidedAccessRestrictionWithIdentifier:didChangeState:      　　　Required<br/>
 App需要更改自己的行为去允许和拒绝操作，是特定限制每一次接收到信息时特定限制的。<br/>
 声明：<br/>
+
 ```SWIFT
-func guidedAccessRestrictionWithIdentifier(_ restrictionIdentifier: String,
-                            didChangeState newRestrictionState: UIGuidedAccessRestrictionState)
+func guidedAccessRestrictionWithIdentifier(_ 
+restrictionIdentifier: String,
+didChangeState newRestrictionState: 
+UIGuidedAccessRestrictionState)
 OBJECTIVE-C
-- (void)guidedAccessRestrictionWithIdentifier:(NSString * _Nonnull)restrictionIdentifier
-                               didChangeState:(UIGuidedAccessRestrictionState)newRestrictionState```
+- (void)guidedAccessRestrictionWithIdentifier:(NSString * 
+_Nonnull)restrictionIdentifier 
+didChangeState:(UIGuidedAccessRestrictionState)
+newRestrictionState```
 参数：<br/>
 restrictionIdentifier	——限制标示符，状态会改变。<br/>
 newRestrictionState——限制的新状态。<br/>
@@ -869,7 +878,8 @@ import UIKit<br/>
 @implementation MyCustomViewController
 - (id)init
 {
-_view = [[[MyCustomView alloc] initWithFrame:CGRectZero] autorelease];
+_view = [[[MyCustomView alloc] initWithFrame:CGRectZero] 
+autorelease];
 [_view setIsAccessibilityElement:YES];
 /* Set attributes here. */
 }```
@@ -916,8 +926,10 @@ return NSLocalizedString(@"MyCustomView.hint", nil);
 _view = [[MyCustomView alloc] initWithFrame:CGRectZero];
 [_view setIsAccessibilityElement:YES];
 [_view setAccessibilityTraits:UIAccessibilityTraitButton];
-[_view setAccessibilityLabel:NSLocalizedString(@"view.label", nil)];
-[_view setAccessibilityHind:NSLocalizedString(@"view.hint", nil)];
+[_view setAccessibilityLabel:NSLocalizedString(@"view.label", 
+nil)];
+[_view setAccessibilityHind:NSLocalizedString(@"view.hint", 
+nil)];
 }```
 
 ### 9.4让自定义容器视图支持无障碍使用
@@ -935,22 +947,28 @@ if ( _accessibleElements != nil )
 return _accessibleElements;
 }
 _accessibleElements = [[NSMutableArray alloc] init];
-/* Create an accessibility element to represent the first contained element and initialize it as a component of MultiFacetedView. */
-UIAccessibilityElement *element1 = [[[UIAccessibilityElement alloc] initWithAccessibilityContainer:self] autorelease];
+/* Create an accessibility element to represent the first 
+contained element and initialize it as a component of 
+MultiFacetedView. */
+UIAccessibilityElement *element1 = [[[UIAccessibilityElement 
+alloc] initWithAccessibilityContainer:self] autorelease];
 /* Set attributes of the first contained element here. */
 [_accessibleElements addObject:element1];
 /* Perform similar steps for the second contained element. */
-UIAccessibilityElement *element2 = [[[UIAccessibilityElement alloc] initWithAccessibilityContainer:self] autorelease];
+UIAccessibilityElement *element2 = [[[UIAccessibilityElement 
+alloc] initWithAccessibilityContainer:self] autorelease];
 /* Set attributes of the second contained element here. */
 [_accessibleElements addObject:element2];
 return _accessibleElements;
 }
-/* The container itself is not accessible, so MultiFacetedView should return NO in isAccessiblityElement. */
+/* The container itself is not accessible, so MultiFacetedView 
+should return NO in isAccessiblityElement. */
 - (BOOL)isAccessibilityElement
 {
 return NO;
 }
-/* The following methods are implementations of UIAccessibilityContainer protocol methods. */
+/* The following methods are implementations of 
+UIAccessibilityContainer protocol methods. */
 - (NSInteger)accessibilityElementCount
 {
 return [[self accessibleElements] count];
@@ -968,14 +986,15 @@ return [[self accessibleElements] indexOfObject:element];
 ### 9.5让非文字数据支持无障碍阅读
 
 
-    有时应用会显示一些不能自动支持无障碍方法的数据，比如一张图片，这时需要在无障碍标签中提供信息，这样VoiceOver用户就可以理解图片传达的内容。此外，如果你用图形提供信息，例如一个使用星星进行评价评级的系统，应该确保无障碍label传达了图片背后的意义。
-    下面的代码展示的是一个自定义视图，它会用星星的数量来表示项目的评分。代码展示了如何根据星星数量返回一个合适的无障碍标签：
+　　有时应用会显示一些不能自动支持无障碍方法的数据，比如一张图片，这时需要在无障碍标签中提供信息，这样VoiceOver用户就可以理解图片传达的内容。此外，如果你用图形提供信息，例如一个使用星星进行评价评级的系统，应该确保无障碍label传达了图片背后的意义。<br/>
+　　下面的代码展示的是一个自定义视图，它会用星星的数量来表示项目的评分。代码展示了如何根据星星数量返回一个合适的无障碍标签：<br/>
 ```
 @implementation RatingView
 /* Other subclass implementation code here. */
 - (NSString *)accessibilityLabel
 {
-  /* _starCount is an instance variable that contains how many stars to draw. */
+  /* _starCount is an instance variable that contains how many 
+stars to draw. */
 NSInteger starCount = _starCount;
  if ( starCount == 1 )
    {
@@ -985,7 +1004,8 @@ NSInteger starCount = _starCount;
    {
       ratingString = NSLocalizedString(@"rating.plural.label", nil); // here, ratingString is "stars"
    }
-   return [NSString stringWithFormat:@"%d %@", starCount, ratingString];
+   return [NSString stringWithFormat:@"%d %@", starCount, 
+ratingString];
 }
 @end```
 
@@ -1017,8 +1037,10 @@ return keyLabel;
 }
 (UIAccessibilityTraits)accessibilityTraits
 {
-UIAccessibilityTraits traits = [super accessibilityTraits] | UIAccessibilityTraitKeyboardKey;
-/ If this is the shift key and it's selected, users need to know that shift is currently in effect. /
+UIAccessibilityTraits traits = [super accessibilityTraits] 
+| UIAccessibilityTraitKeyboardKey;
+/ If this is the shift key and it's selected, 
+users need to know that shift is currently in effect. /
 if ( [self isShiftKey] && [self isSelected] )
 {
 traits |= UIAccessibilityTraitSelected;
@@ -1029,7 +1051,8 @@ return traits;
 {
 / Code to perform the change to a number keyboard here. /
 / Send a notification of this change to the screen layout. /
-UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, nil);
+UIAccessibilityPostNotification
+(UIAccessibilityLayoutChangedNotification, nil);
 }
 @end```
 
@@ -1047,14 +1070,18 @@ UIAccessibilityPostNotification(UIAccessibilityLayoutChangedNotification, nil);
 下面这段代码把两个元素的信息组合到一个标签中：<br/>
 ```
 @implementation CurrentWeather
-/* This is a view that provides weather information. It contains a city subview and a temperature subview, each of which provides a separate label. */
+/* This is a view that provides weather information. 
+It contains a city subview and a temperature subview, 
+each of which provides a separate label. */
 - (NSString *)accessibilityLabel
 {
 NSString *weatherCityLabel = [self.weatherCity accessibilityLabel];
 NSString *weatherTempLabel = [self.weatherTemp accessibilityLabel];
-/* Combine the city and temperature information so that VoiceOver users can get the weather 
+/* Combine the city and temperature information so that 
+VoiceOver users can get the weather 
 information with one gesture. */
-return [NSString stringWithFormat:@"%@, %@", weatherCityLabel, weatherTempLabel];
+return [NSString stringWithFormat:@"%@, %@", 
+weatherCityLabel, weatherTempLabel];
 }```
 @end
 
