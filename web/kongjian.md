@@ -677,76 +677,76 @@ obj.setAttribute("aria-checked","false");
 ### 1.6.3单选框无提示文本
 
 
-【问题描述】
-tab浏览到单选框或上下光标在单选框之间移动，不会朗读出这是什么单选框；
-【可能原因】
- 没有给单选框添加label、title或其他任何一种方式的提示文本；
-【修改建议】
+【问题描述】<br/>
+tab浏览到单选框或上下光标在单选框之间移动，不会朗读出这是什么单选框；<br/>
+【可能原因】<br/>
+ 没有给单选框添加label、title或其他任何一种方式的提示文本；<br/>
+【修改建议】<br/>
 样例1：
-为复选框选项添加label;
+为复选框选项添加label;<br/>
 <fieldset>
-<legend>性别</legend> 
+```<legend>性别</legend> 
 <input type="radio" name="order" id="order_alpha" />
 <label >男</label>
 <input type="radio" name="order" id="order_default" checked="true" />
 <label >女</label>
-</fieldset>
-注： 此种方式国内的读屏可以支持（争渡、永德）， 国外的读屏不大支持（nvda）
+</fieldset>```
+注： 此种方式国内的读屏可以支持（争渡、永德）， 国外的读屏不大支持（nvda）<br/>
 样例2：
-使用label for属性为复选框链接提示文本；
-<fieldset>
+使用label for属性为复选框链接提示文本；<br/>
+```<fieldset>
 <legend>性别</legend> 
 <input type="radio" name="order" id="order_alpha" />
 <label for="order_alpha">男</label>
 <input type="radio" name="order" id="order_default" checked="true" />
 <label for="order_default">女</label>
-</fieldset>
+</fieldset>```
 样例3： 
-使用label把radio包起来
-<fieldset>
+使用label把radio包起来<br/>
+```<fieldset>
 <legend>性别</legend>
 <label><input type="radio" name="0"/>男</label>
 <label><input type="radio" name="0"/>女</label>
-</fieldset>
+</fieldset>```
 样例4：
-使用aria-label为单选框添加提示文本；
-<fieldset>
+使用aria-label为单选框添加提示文本；<br/>
+```<fieldset>
 <legend>性别</legend>
 男
 <input type="radio" name="0" aria-label="男"/>
 女
 <input type="radio" name="0" aria-label="女"/>
-</fieldset>
+</fieldset>```
 样例5：
-使用aria-describedby为单选框提供提示文本；
-<fieldset>
+使用aria-describedby为单选框提供提示文本；<br/>
+```<fieldset>
 <legend>性别</legend>
 <label id="male">男</label>
 <input type="radio" name="0" aria-describedby="male"/>
 <label id="femal">女</label>
 <input type="radio" name="0" aria-describedby="femal"/>
-</fieldset>
-注： 此种方式国内的读屏有可能不支持（争渡、永德）， 国外的读屏支持（nvda）
+</fieldset>```
+注： 此种方式国内的读屏有可能不支持（争渡、永德）， 国外的读屏支持（nvda）<br/>
 
 ### 1.6.4焦点无法进入单选框
 
 
-【问题描述】
-Tab焦点进入单选框，焦点不停留，直接跳过单选框，进入下一个元素；
-【可能原因】
-【修改建议】
+【问题描述】<br/>
+Tab焦点进入单选框，焦点不停留，直接跳过单选框，进入下一个元素；<br/>
+【可能原因】<br/>
+【修改建议】<br/>
 
 ### 1.6.5控件类型朗读不正确
 
 
-【问题描述】
-控件类型朗读错误，例如男单选框，朗读成，男按钮；
-【可能原因】
-自定义的单选框没有播报控件类型；
-【修改建议】
+【问题描述】<br/>
+控件类型朗读错误，例如男单选框，朗读成，男按钮；<br/>
+【可能原因】<br/>
+自定义的单选框没有播报控件类型；<br/>
+【修改建议】<br/>
 样例1：
-使用html标准控件；
-<fieldset>
+使用html标准控件；<br/>
+```<fieldset>
 <legend>残疾类型</legend>>
 <input type="radio" name="00" id="00"/>
 <label for="00">盲人</label>
@@ -756,12 +756,12 @@ Tab焦点进入单选框，焦点不停留，直接跳过单选框，进入下�
 <label for="02">肢残</label>
 <input type="radio" id="03" name="00"/>
 <label for="03">其他</label>
-</fieldset>
+</fieldset>```
 样例2：
-自绘控件时使用aria中的role="radio"表示单选框；
+自绘控件时使用aria中的role="radio"表示单选框；<br/>
 role="radiogroup" 表示单选组
-aria-checked 字符串。表示检查的状态。true表示元素被选择；false表示元素未被选择；mixed表示元素同时有选择和未选择状态。
-<h3 id="girl_label">视障工程师</h3>
+aria-checked 字符串。表示检查的状态。true表示元素被选择；false表示元素未被选择；mixed表示元素同时有选择和未选择状态。<br/>
+```<h3 id="girl_label">视障工程师</h3>
 <ul role="radiogroup" aria-labelledby="girl_label">
     <li tabindex="-1" role="radio" aria-checked="false">
         <img role="presentation" src="radio-unchecked.gif" />孟奇
@@ -772,8 +772,8 @@ aria-checked 字符串。表示检查的状态。true表示元素被选择；fal
     <li tabindex="-1" role="radio" aria-checked="false">
         <img role="presentation" src="radio-unchecked.gif" /> 鸿利
     </li>  
-</ul>
-注： 上面的代码书写上没有什么问题， 但是不读状态
+</ul>```
+注： 上面的代码书写上没有什么问题， 但是不读状态<br/>
 
 ## 1.7按钮、图片按钮
 
@@ -782,28 +782,28 @@ aria-checked 字符串。表示检查的状态。true表示元素被选择；fal
 ### 1.7.1按钮缺少目的文本
 
 
-【问题描述】
-由于按钮使用图片或某些特殊性标识符展现，屏幕阅读器无法读出按钮所展现内容，用户难以理解按钮本身所表达的意思，从而无法做出正确的操作。
-【可能原因】
-开发者使用一张图片或一个标识符来展现按钮的用途，屏幕阅读器无法读出图片中内容；
-【修改建议】
-给按钮添加易于理解的提示文本
+【问题描述】<br/>
+由于按钮使用图片或某些特殊性标识符展现，屏幕阅读器无法读出按钮所展现内容，用户难以理解按钮本身所表达的意思，从而无法做出正确的操作。<br/>
+【可能原因】<br/>
+开发者使用一张图片或一个标识符来展现按钮的用途，屏幕阅读器无法读出图片中内容；<br/>
+【修改建议】<br/>
+给按钮添加易于理解的提示文本;<br/>
 样例1：
-给按钮添加目的文本；
-<button type="button">信息无障碍研究会</button>
+给按钮添加目的文本；<br/>
+```<button type="button">信息无障碍研究会</button>```
 样例2：
-使用title属性，给按钮添加目的文本；
-<button type="button" title="信息无障碍产品联盟"><img src="logo.jpg" alt=""></button>
+使用title属性，给按钮添加目的文本；<br/>
+```<button type="button" title="信息无障碍产品联盟"><img src="logo.jpg" alt=""></button>```
 样例3：
-使用 label 为按钮添加目的文本；
-<label for="btn-desc">视障工程师</label>
-<button type="button" id="btn-desc"></button>
+使用 label 为按钮添加目的文本；<br/>
+```<label for="btn-desc">视障工程师</label>
+<button type="button" id="btn-desc"></button>```
 样例4：
-使用 alt 属性为图片按钮添加替代文本；
-<button type="button" ><img src="1.jpg" alt="信息无障碍研究会"></button>
+使用 alt 属性为图片按钮添加替代文本；<br/>
+```<button type="button" ><img src="1.jpg" alt="信息无障碍研究会"></button>```
 样例5：
-使用 aria-describedby 为按钮提供详细信息；
-<p><span id="font-desc">选择该网页的字体大小</span>
+使用 aria-describedby 为按钮提供详细信息；<br/>
+```<p><span id="font-desc">选择该网页的字体大小</span>
 <button type="button" id="font-b" onclick="doAction('Fonts');" aria-describedby="font-desc">字体</button>
 </p>
 <p><span id="color-desc">选择该网页的颜色</span>
@@ -811,62 +811,62 @@ aria-checked 字符串。表示检查的状态。true表示元素被选择；fal
 </p>
 <p><span id="custom-desc">自定义此页面上使用的布局和样式</span>
  <button type="button" id="custom-b" onclick="doAction('Customize');" aria-describedby="custom-desc">自定义</button>
-</p>
+</p>```
 样例6：
-使用aria-describedby属性描述临近按钮元素的行为；
-<button type="button" aria-label="信息无障碍研究会" aria-describedby="description-close" onclick="myDialog.close()">按钮文本</button>
+使用aria-describedby属性描述临近按钮元素的行为；<br/>
+```<button type="button" aria-label="信息无障碍研究会" aria-describedby="description-close" onclick="myDialog.close()">按钮文本</button>
 <!-- id为description-close的控件为button提供描述文本 -->
 ...
-<div id="description-close">关闭此窗口将忽略输入的所有信息，并会返回到主页</div>
+<div id="description-close">关闭此窗口将忽略输入的所有信息，并会返回到主页</div>```
 样例7：
-使用aria-describedby属性将说明与按钮联系起来；
-<form>
+使用aria-describedby属性将说明与按钮联系起来；<br/>
+```<form>
 <label for="fname">名</label>
 <input type="text" name="fname" id="fname" aria-describedby="int2">
 <p id="int2">该区域使用aria-describedby关联说明文本。</p>
-</form>
+</form>```
 
 
 ### 1.7.2按钮无法获得键盘焦点
 
 
-【问题描述】
-使用屏幕阅读器浏览网页，无法聚焦到按钮上，导致无法操作；
-【可能原因】
-开发者为了让按钮更加美观，故意使用各类方式让按钮无法聚焦；
-【修改建议】
+【问题描述】<br/>
+使用屏幕阅读器浏览网页，无法聚焦到按钮上，导致无法操作；<br/>
+【可能原因】<br/>
+开发者为了让按钮更加美观，故意使用各类方式让按钮无法聚焦；<br/>
+【修改建议】<br/>
 样例1：
-使用html标准元素添加按钮；
-<button type="button">视障工程师</button>
+使用html标准元素添加按钮；<br/>
+```<button type="button">视障工程师</button>```
 样例2:
-给自定义按钮添加role和tabindex属性；
-<span class="btn-close" tabindex="0" role="button" onclick="closeCurrentWindow()" onkeydown="if (event.keyCode == 13 || event.keyCode == 32) closeCurrentWindow();">关闭当前窗口</span>
+给自定义按钮添加role和tabindex属性；<br/>
+```<span class="btn-close" tabindex="0" role="button" onclick="closeCurrentWindow()" onkeydown="if (event.keyCode == 13 || event.keyCode == 32) closeCurrentWindow();">关闭当前窗口</span>```
 
 ### 1.7.3控件类型朗读不正确
 
 
-【问题描述】
-自定义按钮，屏幕阅读器无法提示为“按钮”控件，使用屏幕阅读器用户无法对按钮做出正确的操作。
-【可能原因】
-自定义“按钮”缺少 role、tabindex 属性，导致屏幕阅读器无法聚焦到此元素且无法读出正确的控件类型。
-【修改建议】
+【问题描述】<br/>
+自定义按钮，屏幕阅读器无法提示为“按钮”控件，使用屏幕阅读器用户无法对按钮做出正确的操作。<br/>
+【可能原因】<br/>
+自定义“按钮”缺少 role、tabindex 属性，导致屏幕阅读器无法聚焦到此元素且无法读出正确的控件类型。<br/>
+【修改建议】<br/>
 样例1：
-使用html标准元素（button、input type=button/submit）给网页添加按钮;
-<form action="/login" method="post">
+使用html标准元素（button、input type=button/submit）给网页添加按钮;<br/>
+```<form action="/login" method="post">
 ...
 <input type="image" name="submit" src="button.gif" alt="登录" />
-</form>
+</form>```
 样例2：
 自定义按钮时，添加 role="button" 属性，让屏幕阅读器辨识；
-如果输入控件的类型为图片，功能为提交，此时alt表明的是按钮的功能，不是描述图片。当界面上有很多提交按钮的时候，这个属性尤为重要。
-role="button"表示把角色设置为按钮，屏幕阅读器可正确提示为按钮。
-role="toolbar" 表示把角色设置为工具栏，屏幕阅读器会自动读出为工具栏。
-aria-activedescendant表示后代的id值
-<div role="toolbar" tabindex="0" aria-activedescendant="btn1">
+如果输入控件的类型为图片，功能为提交，此时alt表明的是按钮的功能，不是描述图片。当界面上有很多提交按钮的时候，这个属性尤为重要。<br/>
+role="button"表示把角色设置为按钮，屏幕阅读器可正确提示为按钮。<br/>
+role="toolbar" 表示把角色设置为工具栏，屏幕阅读器会自动读出为工具栏。<br/>
+aria-activedescendant表示后代的id值<br/>
+```<div role="toolbar" tabindex="0" aria-activedescendant="btn1">
   <img src="123.jpg" id="btn1" role="button" alt="信息无障碍研究会" />
   <img src="456.jpg" id="btn2" role="button" alt="视障工程师" />
   <img src="def.jpg" id="btn3" role="button" alt="按钮3" />
-</div>
+</div>```
 
 
 ### 1.7.4按钮无法响应键盘点击
