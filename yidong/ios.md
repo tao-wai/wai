@@ -53,16 +53,16 @@ OBJECTIVE-C <br/>
 ### 3.2配置无障碍元素
 
 
-    accessibilityActivationPoint
-    在屏幕坐标上，无障碍元素可激活的点；此属性的默认值是无障碍元素框架的中点，是由accessibilityFrame提供的。一个元素的活跃点是当用户双击该元素时，voiceover激活的特定区域。
-    指定一个活跃点的能力允许一个元素在不同的情况下呈现给voiceover不同的点，而不是改变元素自己的视觉显示，例如，一个主屏幕app图标的标准活跃点是图标的中点，但是当用户在主屏幕上重现安排图标时，活跃点更改为删除控件的中点（即，在图标左上角的圆圈X）。
-    可以使用这个属性来保证一个小元素的活跃点保持精确，尽管呈现给voiceover的是个大版本。
-    声明:
-    SWIFT
-    var accessibilityActivationPoint: CGPoint
-    OBJECTIVE-C
-    @property(nonatomic) CGPoint accessibilityActivationPoint
-    版本：Available in iOS 5.0 and later.
+accessibilityActivationPoint <br/>
+　　在屏幕坐标上，无障碍元素可激活的点；此属性的默认值是无障碍元素框架的中点，是由accessibilityFrame提供的。一个元素的活跃点是当用户双击该元素时，voiceover激活的特定区域。 <br/>
+　　指定一个活跃点的能力允许一个元素在不同的情况下呈现给voiceover不同的点，而不是改变元素自己的视觉显示，例如，一个主屏幕app图标的标准活跃点是图标的中点，但是当用户在主屏幕上重现安排图标时，活跃点更改为删除控件的中点（即，在图标左上角的圆圈X）。 <br/>
+　　可以使用这个属性来保证一个小元素的活跃点保持精确，尽管呈现给voiceover的是个大版本。 <br/>
+声明: <br/>
+SWIFT <br/>
+var accessibilityActivationPoint: CGPoint <br/>
+OBJECTIVE-C <br/>
+@property(nonatomic) CGPoint accessibilityActivationPoint <br/>
+版本：Available in iOS 5.0 and later. <br/>
 
     accessibilityElementsHidden
     是一个布尔值，指明一个无障碍元素内部的无障碍元素是不是隐藏的；这个属性的默认值是No。可能会使用该属性去隐藏视图，这些视图被新来的视图覆盖。在此案例中，隐藏视图仍然是可见的，但是他们不是用户行为的焦点。
