@@ -79,28 +79,28 @@ android"  
 ## 4.特殊情况和建议
 
 
-    以下列表描述了需要使用action来保证app无障碍性的特殊情况。查看以下列表，选择合适的特殊案例和建议。
-    1）文本域提示（text field hints）：
-    对于文本编辑区域，当文本域为空或当完成输入时内容可以读出，使用android:hint 属性来帮助用户理解期待输入的内容，而不是content description；
-    2）带有视觉效果的自定义控件：
-    如果您的应用中包含带有视觉效果的自定义控件（如日历控件），默认的无障碍服务是无法为用户提供良好的体验的，您应该考虑使用AccessibilityNodeProvider为控件提供虚拟的层级视图。
-    3）自定义控件和点击事件处理：
-    如果自定义控件提供对用户触摸交互的处理，例如onTouchEvent（MotionEvent）对MotionEvent.ACTION_DOWN和MotionEvent.ACTION_UP的监听，并将之视为一次点击事件，您必须触发一个等同于一次点击事件的AccessibilityEvent事件，并为这个点击行为提供辅助功能服务。
-    4）会改变功能的控件：
-    如果应用中有button或者其他在正常用户行为中能改变功能的控件（例如，button从play变成了pause），确保button的android:contentDescription也对应做了改变。
-    5）为相关控件提供提示：
-    当用户与一个提供单一功能的控件集（如DatePicker）内的某个控件交互时，需提供有效的音频反馈。
-    6）视频播放与字幕：
-    如果应用提供视频播放功能，必须支持字幕以帮助听力障碍的用户理解信息。视频播放控件也必须清楚地表明字幕是否可用，并提供一个明确的方法以启用字幕。
-    7）添加无障碍特性的音频反馈：
-    只使用Android的无障碍框架为应用提供无障碍特性的音频反馈，如TalkBack这样的辅助功能服务应该是为应用提供无障碍特性的音频提示的唯一服务。在XML Layout中，使用android：contentDescription属性来添加提示信息，这个属性也可以通过无障碍框架的API来动态的添加进去。
-    例如，您的应用有自动翻页功能，您需要使用announceForAccessibility（CharSequence）方法来让talkback之类的辅助功能服务播放此信息的音频从而通知用户已翻页。
-    8）复杂视觉交互的自定义控件：
-    对于提供复杂视觉交互或者非标准视觉交互的自定义控件，使用可为辅助功能服务提供简单交互模型的AccessibilityNodeProvider来提供一个层级视图。如果这种方法不可行，则考虑提供一个不同的无障碍的视图。
-    9）小控件：
-    如果有比推荐最小触摸尺寸还小的控件在应用界面中，考虑使用ViewGroup把他们分组，并为之提供android：ntentDescription。
-    10）装饰性的图像与图形：
-    应用界面内只作为装饰且不提供内容或者不可供用户操作的元素，不应该有无障碍内容描述。
+　　以下列表描述了需要使用action来保证app无障碍性的特殊情况。查看以下列表，选择合适的特殊案例和建议。<br/>
+1）文本域提示（text field hints）：<br/>
+　　对于文本编辑区域，当文本域为空或当完成输入时内容可以读出，使用android:hint 属性来帮助用户理解期待输入的内容，而不是content description；<br/>
+2）带有视觉效果的自定义控件：<br/>
+　　如果您的应用中包含带有视觉效果的自定义控件（如日历控件），默认的无障碍服务是无法为用户提供良好的体验的，您应该考虑使用AccessibilityNodeProvider为控件提供虚拟的层级视图。<br/>
+3）自定义控件和点击事件处理：<br/>
+　　如果自定义控件提供对用户触摸交互的处理，例如onTouchEvent（MotionEvent）对MotionEvent.ACTION_DOWN和MotionEvent.ACTION_UP的监听，并将之视为一次点击事件，您必须触发一个等同于一次点击事件的AccessibilityEvent事件，并为这个点击行为提供辅助功能服务。<br/>
+4）会改变功能的控件：<br/>
+　　如果应用中有button或者其他在正常用户行为中能改变功能的控件（例如，button从play变成了pause），确保button的android:contentDescription也对应做了改变。<br/>
+5）为相关控件提供提示：<br/>
+　　当用户与一个提供单一功能的控件集（如DatePicker）内的某个控件交互时，需提供有效的音频反馈。<br/>
+6）视频播放与字幕：<br/>
+　　如果应用提供视频播放功能，必须支持字幕以帮助听力障碍的用户理解信息。视频播放控件也必须清楚地表明字幕是否可用，并提供一个明确的方法以启用字幕。<br/>
+7）添加无障碍特性的音频反馈：<br/>
+　　只使用Android的无障碍框架为应用提供无障碍特性的音频反馈，如TalkBack这样的辅助功能服务应该是为应用提供无障碍特性的音频提示的唯一服务。在XML Layout中，使用android：contentDescription属性来添加提示信息，这个属性也可以通过无障碍框架的API来动态的添加进去。<br/>
+例如，您的应用有自动翻页功能，您需要使用announceForAccessibility（CharSequence）方法来让talkback之类的辅助功能服务播放此信息的音频从而通知用户已翻页。<br/>
+8）复杂视觉交互的自定义控件：<br/>
+　　对于提供复杂视觉交互或者非标准视觉交互的自定义控件，使用可为辅助功能服务提供简单交互模型的AccessibilityNodeProvider来提供一个层级视图。如果这种方法不可行，则考虑提供一个不同的无障碍的视图。<br/>
+9）小控件：<br/>
+　　如果有比推荐最小触摸尺寸还小的控件在应用界面中，考虑使用ViewGroup把他们分组，并为之提供android：ntentDescription。<br/>
+10）装饰性的图像与图形：<br/>
+　　应用界面内只作为装饰且不提供内容或者不可供用户操作的元素，不应该有无障碍内容描述。<br/>
 
 ## 5.开发无障碍应用（ Developing Accessible Applications）
 
