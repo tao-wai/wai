@@ -1049,26 +1049,26 @@ obj.setAttribute("aria-checked","false");
 ### 1.9.1对于需要键盘访问的嵌入式对象无法聚焦
 
 
-【问题描述】 
-对于需要键盘访问的嵌入式对象，如果无法聚焦，使用键盘TAB键将无法访问。
-【可能原因】
-【修改建议】
+【问题描述】 <br/>
+对于需要键盘访问的嵌入式对象，如果无法聚焦，使用键盘TAB键将无法访问。<br/>
+【可能原因】<br/>
+【修改建议】<br/>
 样例1：
-使用html标准控件；
+使用html标准控件；<br/>
 样例2：
-将自定义控件的tabindex属性设置为0；
-<object tabindex="0" ...>...</object>
+将自定义控件的tabindex属性设置为0；<br/>
+```<object tabindex="0" ...>...</object>```
 
 ### 1.9.2焦点无法移出嵌入对象
 
 
-【问题描述】 
-【可能原因】
-【修改建议】
+【问题描述】 <br/>
+【可能原因】<br/>
+【修改建议】<br/>
 样例1：
-使用SWFFocus类为flash内容生成临近的可获得焦点的元素，在html tab顺序中。默认的，SWFFocus类将会在嵌入的flash内容的前后生成一个隐藏的链接。这两个链接被作为锚当tab出flash内容的时候将焦点移动到这两个链接。这个方法容易实现，不需要开发者的额外工作。但是隐藏的链接会扰乱html的tab顺序，因此，建议使用下面的方法；
-全部代码：
-<?xml version="1.0" encoding="UTF-8"?>
+使用SWFFocus类为flash内容生成临近的可获得焦点的元素，在html tab顺序中。默认的，SWFFocus类将会在嵌入的flash内容的前后生成一个隐藏的链接。这两个链接被作为锚当tab出flash内容的时候将焦点移动到这两个链接。这个方法容易实现，不需要开发者的额外工作。但是隐藏的链接会扰乱html的tab顺序，因此，建议使用下面的方法；<br/>
+全部代码：<br/>
+```<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en"（语言为英文） xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
@@ -1095,24 +1095,24 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
       </a>
     </div>
   </body>
-</html>
+</html>```
 样例2：
 在html tab顺序中，在flash内容的之前和之后，明确定义可获焦点元素。
-使用这个方法，开发者使用ID值来识别html tab顺序中的flash内容前后的元素。这个可通过为flash内容<object>设置特殊的class名字来实现。这个方法很常用，因为这个方法不必引起tab顺序不必要的混乱。但是，这导致开发者更多的工作和无障碍意识。同时，在某些场景中，在flash内容的前后没有可获得焦点的元素。
-全部代码：
-<a href="http://www.lipsum.com/" id="focus1">test 1</a>
+使用这个方法，开发者使用ID值来识别html tab顺序中的flash内容前后的元素。这个可通过为flash内容<object>设置特殊的class名字来实现。这个方法很常用，因为这个方法不必引起tab顺序不必要的混乱。但是，这导致开发者更多的工作和无障碍意识。同时，在某些场景中，在flash内容的前后没有可获得焦点的元素。<br/>
+全部代码：<br/>
+```<a href="http://www.lipsum.com/" id="focus1">test 1</a>
 <object class="swfPrev-focus1 swfNext-focus2"
   data="keyboard_trap_fix_as3.swf" tabindex="0"
   type="application/x-shockwave-flash"/>
-<a href="http://www.lipsum.com/" id="focus2">test 2</a>
+<a href="http://www.lipsum.com/" id="focus2">test 2</a>```
 
 ### 1.9.3嵌入对象不支持键盘操作
 
 
-【问题描述】 
-【可能原因】
-【修改建议】
-样例1：定义键盘响应事件；
+【问题描述】 <br/>
+【可能原因】<br/>
+【修改建议】<br/>
+样例1：定义键盘响应事件；<br/>
 
 ### 1.9.4嵌入对象无替代文本
 
