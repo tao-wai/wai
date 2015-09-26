@@ -908,7 +908,7 @@ return UIAccessibilityTraitButton;
 return NSLocalizedString(@"MyCustomView.hint", nil);
 }
 @end```
-    如果你想在实例化视图的代码中使用UIAccessbility协议中设置属性的方法的话，那可以参考下面的代码：
+　　如果你想在实例化视图的代码中使用UIAccessbility协议中设置属性的方法的话，那可以参考下面的代码：<br/>
 ```
 @implementation MyCustomViewController
 - (id)init
@@ -923,9 +923,9 @@ _view = [[MyCustomView alloc] initWithFrame:CGRectZero];
 ### 9.4让自定义容器视图支持无障碍使用
 
 
-    如果你的应用中展示了一个自定义视图，其中包含其他可以进行用户交互的元素，那你需要实现每个元素的无障碍使用。与此同时，你必须让容器视图本身不支持无障碍使用，因为用户是和容器的内容交互，不是和容器本身交互。
-    为了实现这一点，你自定义的容器视图需要实现UIAccessibilityContainer协议。这个协议会定义一些方法并把可以访问的元素放入一个数组中。
-    下面的代码片段展示了一个自定义容器视图的部分实现。可以看到这个容器视图只会在调用UIAccessibilityContainer协议的方法时才会创建无障碍元素数组。所以，如果iPhone的无障碍并没有被激活，那就不会创建数组。
+　　如果你的应用中展示了一个自定义视图，其中包含其他可以进行用户交互的元素，那你需要实现每个元素的无障碍使用。与此同时，你必须让容器视图本身不支持无障碍使用，因为用户是和容器的内容交互，不是和容器本身交互。<br/>
+　　为了实现这一点，你自定义的容器视图需要实现UIAccessibilityContainer协议。这个协议会定义一些方法并把可以访问的元素放入一个数组中。<br/>
+　　下面的代码片段展示了一个自定义容器视图的部分实现。可以看到这个容器视图只会在调用UIAccessibilityContainer协议的方法时才会创建无障碍元素数组。所以，如果iPhone的无障碍并没有被激活，那就不会创建数组。<br/>****
 ```
 @implementation MultiFacetedView
 - (NSArray *)accessibleElements
