@@ -405,17 +405,15 @@ function createInput(divid){
 1)通过触发link或button控件的onclick/onkeypress事件来加载窗口。<br/>
 2)这个窗口的tab顺序紧跟在触发事件之后，该窗口可见。<br/>
 3)该窗口的HTML应该与其他内容有同样的无障碍标准.<br/>
-关键代码：<br/>
-    ```
-    <button type="button" onclick="TogglePopup(event,true)" name="pop0001">Options</button>```
-    全部代码：<br/>
-    
-  ```  
+
+ ```  
   <button type="button" onclick="TogglePopup(event,true)" name="pop0001">Options</button>
 //onclick事件，弹出的div代码
 <div class="popover" id="pop0001">
 <h3>编辑顺序内容</h3>
-<form action="default.htm" onsubmit="this.parentNode.style.display='none'; return false;" onreset="this.parentNode.style.display='none'; return false;">
+<form action="default.htm" onsubmit="this.parentNode.style.display='none'; 
+return false;" onreset="this.parentNode.style.display='none';
+return false;">
 <fieldset>
 <legend>搜索顺序</legend> 
 <input type="radio" name="order" id="order_alpha" />
@@ -453,8 +451,10 @@ _onKey: function(/*Normalized Event*/ evt){
 if(evt.charOrCode){
 var node = evt.target; // get the target node of the keypress event
 if (evt.charOrCode === keys.TAB){
-// find the first and last tab focusable items in the hierarchy of the dialog container node
-// do this every time if the items may be added / removed from the the dialog may change visibility or state
+// find the first and last tab focusable items in the hierarchy of 
+the dialog container node
+// do this every time if the items may be added / removed from the
+the dialog may change visibility or state
 var focusItemsArray = helper.getFocusItems(dialogContainerNode); 
 dialog.firstFocusItem = focusItemsArray[0];
 dialog.lastFocusItem = focusItemsArray[focusItemsArray.length-1];
@@ -630,7 +630,7 @@ aria-describedby="err_2" />
 $(errFld).attr("aria-invalid", "true").attr("class", "error");
 //将errFld的aria-invalid设置为true，class设置为error
 // Suffix error text: $(errFld).parent().append('<span class="errtext">
-／／Error: Incorrect data</span>');
+//Error: Incorrect data</span>');
 CSS代码为：
 input.error { border: red thin solid;} 
 span.errtext { 
