@@ -769,16 +769,16 @@ $(document).ready(function(e) {
     onclick="myDialog.close()">按钮</button>```//id为descriptionClose的控件为button提供描述文本
 ...
 <div id="descriptionClose">关闭此窗口将忽略输入的所有信息，并回返回到主页</div>```
-    样例2：
-    使用aria-describedby属性将说明与表单联系起来；
+样例2：
+使用aria-describedby属性将说明与表单联系起来；<br/>
 ```
 <form>
 <label for="fname">名</label>
 <input name="" type="text" id="fname" aria-describedby="int2">
 <p id="int2"> 该区域使用aria-describedby连接说明文本. </p>
 </form>```
-    样例3：
-    使用aria-describedby为button提供详细信息
+样例3：
+使用aria-describedby为button提供详细信息<br/>
 ```
 <p><span id="fontDesc">选择该网页的字体大小</span>
 <button type="button" id="fontB" onclick="doAction('Fonts');" aria-describedby="fontDesc">字体</button>
@@ -791,14 +791,14 @@ $(document).ready(function(e) {
 </p>```
 
 样例4：
-使用aria-describedby属性为表单区域连接提示
+使用aria-describedby属性为表单区域连接提示<br/>
 ```role="tooltip"```表示提示文本
-aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可见)，false表示元素可见。
-关键代码：
+aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可见)，false表示元素可见。<br/>
+关键代码：<br/>
 <input 此处省略部分代码
       aria-describedby="tp1"
       aria-required="false"/>
-全部代码：
+全部代码：<br/>
 ``````
 <html lang="en-us">
 <head>
