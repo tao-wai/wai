@@ -609,12 +609,12 @@ public class MyAccessibilityService extends AccessibilityService { 
 ## 9.开发无障碍服务（developing accessibility services）
 
 
-    辅助性服务是安卓框架的一个特性，它的设计是为了让已经安装在安卓设备上的应用程序能够为用户提供一种导航式(引导式）回应。一个辅助性服务能够传达给用户关于这个应用程序的利益，例如把文本转换成语音、当用户手指停留屏幕的一个重要区域时的haptic反馈。这一节涵盖了怎样去创建一个辅助性服务，如何处理应用程序的信息接收，还有如何把信息反馈给用户。 
+　　辅助性服务是安卓框架的一个特性，它的设计是为了让已经安装在安卓设备上的应用程序能够为用户提供一种导航式(引导式）回应。一个辅助性服务能够传达给用户关于这个应用程序的利益，例如把文本转换成语音、当用户手指停留屏幕的一个重要区域时的haptic反馈。这一节涵盖了怎样去创建一个辅助性服务，如何处理应用程序的信息接收，还有如何把信息反馈给用户。<br/> 
 
 ### 9.1创建自己的辅助性服务
 
 
-    一个辅助性服务可以被捆绑到一个标准的应用程序上，或者以一个单独的安卓工程被创建。在任何情况下，创建这类服务的步骤都是一样的。在你的工程中，创建一个类继续AccessibilitySerivce。  
+　　一个辅助性服务可以被捆绑到一个标准的应用程序上，或者以一个单独的安卓工程被创建。在任何情况下，创建这类服务的步骤都是一样的。在你的工程中，创建一个类继续AccessibilitySerivce。<br/>  
 ```
 package com.example.android.apis.accessibility;
 import android.accessibilityservice.AccessibilityService;
@@ -628,7 +628,7 @@ public class MyAccessibilityService extends AccessibilityService {
     }
 ...
 }```
-    像其他服务一样，你也可以在mainfest文件中声明它。记得要指定它处理android.accessibilityservice这个意图。以便当应用程序触发一个AccessibilityEvent时，这个服务能被调用。  
+　　像其他服务一样，你也可以在mainfest文件中声明它。记得要指定它处理android.accessibilityservice这个意图。以便当应用程序触发一个AccessibilityEvent时，这个服务能被调用。 <br/> 
 ```
 <application ...>
 ...
@@ -640,7 +640,7 @@ public class MyAccessibilityService extends AccessibilityService {
 </service>
 ...
 </application>```
-    如果你为这个服务创建一个新的工程的话，且不打算要一个应用程序，你可以把它启动活动的类（通常叫做MainActivity.java)从你的源文件中删除。同时也把相应的活动元素从你的mainfest文件中删除。 
+　　如果你为这个服务创建一个新的工程的话，且不打算要一个应用程序，你可以把它启动活动的类（通常叫做MainActivity.java)从你的源文件中删除。同时也把相应的活动元素从你的mainfest文件中删除。 <br/>
     
     配置自己的辅助性服务：
     为你的辅助性服务设置配置变量，用它来告诉系统，如何和何时你想要它运行。哪一类事件你想要去响应？这个服务对所有的应用程序都是活动的吗？或者只有指定的包名的？它使用什么样的反馈？你有两种方法去设置这些变量。反向兼容的方法是以代码的形式来设置它们，可以使用setServiceInfo(android.accessibilityservice.AccessibilityServiceInfo).如果要这样做的话，要重写onServiceConnected()方法，然后配置在那里配置你的服务。  
