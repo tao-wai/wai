@@ -3,7 +3,7 @@
 
 
 
-# 1.1图片<img>
+# 1.1图片```<img>```
 
 
 
@@ -51,7 +51,7 @@ HTML:
 <img alt="信息无障碍联盟LOGO" src="img001.gif" />```
 
 
-## 1.2链接<a> 
+## 1.2链接```<a>``` 
 
 
 
@@ -103,10 +103,12 @@ HTML:
 使用 title 属性添加链接文本：
 title属性用已描述链接目的：<br/>
 ```
-<a href="index.html" title="了解更多无障碍研究会的内容">无障碍研究会</a>```
+<a href="index.html" 
+title="了解更多无障碍研究会的内容">无障碍研究会</a>```
 Title用来描述新窗口打开方式：<br/>
 ```
-<a href="http://www.siaa.org.cn/" target="_blank"  title="在新窗口中打开"> </a>```
+<a href="http://www.siaa.org.cn/" target="_blank"  
+title="在新窗口中打开"> </a>```
 样例7：
 给列表内链接添加描述文本，用已描述链接目的。<br/>
 
@@ -137,9 +139,11 @@ Title用来描述新窗口打开方式：<br/>
 使用链接文本为链接添加目的描述：<br/>
 ```
 <h3>互联网产品信息无障碍</h3>
-<p>互联网产品信息无障碍大意是，互联网产品可以被视障者等用户顺畅使用...<a href="final15.html">[查看更多]</a></p>
+<p>互联网产品信息无障碍大意是，互联网产品可以被视障者等用户顺畅使用...
+<a href="final15.html">[查看更多]</a></p>
 <h3>Folk artists get awards</h3>
-<p>从即将到来的全国民俗节表演者收到国家文物奖学金。<a href="nheritage.html">[更多]</a></p>```
+<p>从即将到来的全国民俗节表演者收到国家文物奖学金。
+<a href="nheritage.html">[更多]</a></p>```
 更多链接添加 title 属性，会描述的更清楚；<br/>
 样例9：
 为表格内链接添加目的文本：<br/>
@@ -218,7 +222,8 @@ role="textbox"代表是一个编辑框， 自绘的编辑框加上role="textbox"
 【修改建议】 <br/>
 方案1：
 使用html标准控件<br/>
-```<input type="text" title="输入视障工程师年龄" tabindex="0" />```
+```
+<input type="text" title="输入视障工程师年龄" tabindex="0" />```
 方案2：<br/>
 将控件的contenteditable设为true，tabindex 属性设为"0"；<br/>
 
@@ -235,7 +240,8 @@ role="textbox"代表是一个编辑框， 自绘的编辑框加上role="textbox"
 方案1： 
 给控件添加title来说明编辑框的目的：<br/>
 ```
-<input title="请输入信息无障碍产品联盟网址" type="text" size="20" tabindex="0"/>```
+<input title="请输入信息无障碍产品联盟网址" 
+type="text" size="20" tabindex="0"/>```
 方案2： 
 使用 label 为编辑框添加标签，让用户正确判断需要在编辑框内录入哪种类型的数据；<br/>
 ```
@@ -266,17 +272,19 @@ role="textbox"代表是一个编辑框， 自绘的编辑框加上role="textbox"
 </span>
 <input type="text" size="3" id="timeout-duration" value="20" 
     aria-labelledby="timeout-label timeout-unit">
-<!--timeout-label包含label， timeout-duration为label的id; timeout-unit是个span元素的id；-->
+<!--timeout-label包含label， timeout-duration为label的id; 
+timeout-unit是个span元素的id；-->
 <span id="timeout-unit" tabindex="-1">分钟</span>
 </p>		
 </form>```
 方案5：
 placeholder 属性提供可描述输入字段预期值的提示信息（hint）。该提示会在输入字段为空时显示，并会在字段获得焦点时消失。<br/>
-注释：placeholder 属性适用于以下的 <input> 类型：text, search, url, telephone, email 以及 password。<br/>
+注释：placeholder 属性适用于以下的 ```<input> ```类型：text, search, url, telephone, email 以及 password。<br/>
 ```
 <form action="demo_form.asp" method="get">
 输入要搜索的工程师名字
-  <input type="search" name="user_search" placeholder="输入要搜索的工程师名字" />
+  <input type="search" name="user_search" 
+  placeholder="输入要搜索的工程师名字" />
   <input type="submit" value="搜索"/>
 </form>```
 
@@ -328,7 +336,7 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 【问题描述】<br/>
 用TAB或Shift+TAB在网页上浏览，列表无法获得焦点；<br/>
 【可能原因】<br/>
-(1) <select>标签的tabindex属性的值被设置为："-1"<br/>
+(1) ```<select>```标签的tabindex属性的值被设置为："-1"<br/>
 (2) 使用自绘控件作为列表且没有添加tabindex属性<br/>
 【修改建议】<br/>
 方案1：
@@ -372,8 +380,8 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 【问题描述】<br/>
 用方向键在列表项目之间移动的时候列表项没有提示文本；<br/>
 【可能原因】<br/>
-1、 列表的<option></option>之间没有文本；<br/>
-2、 <option>之内添加了图片，但没有给图片添加替代文本；<br/>
+1、 列表的```<option></option>```之间没有文本；<br/>
+2、``` <option>```之内添加了图片，但没有给图片添加替代文本；<br/>
 3、 自绘列表没有给列表项文本提示；<br/>
 【修改建议】<br/>
 方案1: 
@@ -469,7 +477,8 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 <input type="checkbox" tabindex="0" title="支付宝项目" />支付宝项目```
 样例2：
 自绘控件将控件的tabindex属性设为0；<br/>
-```<div tabindex="0" role="checkbox">pc qq项目</div>```
+```
+<div tabindex="0" role="checkbox">pc qq项目</div>```
 注： 此代码只提示控件类型和获得焦点并不是一个完整的无障碍自绘复选框的代码， 因为选中状态不能朗读。<br/>
 
 ### 1.5.3复选框无法响应空格选中或取消选中
@@ -503,11 +512,14 @@ obj.setAttribute("aria-checked","false");
 <body>
 <div>
 <ul>
-<li tabindex="0" onkeydown="setstate('chk');" role="checkbox" aria-checked="false" id="chk" />
+<li tabindex="0" onkeydown="setstate('chk');" role="checkbox" 
+aria-checked="false" id="chk" />
 <label for="chk">正在测试的项目</label>
-<li tabindex="0" onkeydown="setstate('chk2');" role="checkbox" aria-checked="false" id="chk2" />
+<li tabindex="0" onkeydown="setstate('chk2');" role="checkbox" 
+aria-checked="false" id="chk2" />
 <label for="chk2">完成测试的项目</label>
-<li tabindex="0" onkeydown="setstate('chk3');" role="checkbox" aria-checked="false" id="chk3" />
+<li tabindex="0" onkeydown="setstate('chk3');" role="checkbox" 
+aria-checked="false" id="chk3" />
 <label for="chk3">回归测试的项目</label>
 </ul>
 </div>
@@ -533,7 +545,8 @@ tab定位到复选框，辅助程序不朗读是什么复选框；<br/>
 样例2： 
 添加title来说明checkbox的目的；<br/>
 ```
-<input type="checkbox" tabindex="0" title="已经解决的bug"/>已经解决的bug；```
+<input type="checkbox" tabindex="0" 
+title="已经解决的bug"/>已经解决的bug；```
 注： title的值应该与视觉所见的文本一致。<br/>
 样例3： 
 用label标签把checkbox包起来；<br/>
@@ -547,7 +560,8 @@ tab定位到复选框，辅助程序不朗读是什么复选框；<br/>
 样例5：
 使用aria-label为复选框添加提示文本；<br/>
 ```
-<input type="checkbox" tabindex="0" aria-label="结束的项目"/>结束的项目```
+<input type="checkbox" tabindex="0" 
+aria-label="结束的项目"/>结束的项目```
 样例6：
 使用aria-describedby为复选框提供提示文本<br/>
  ```
@@ -596,11 +610,14 @@ obj.setAttribute("aria-checked","false");
 <body>
 <div>
 <ul>
-<li tabindex="0" onkeydown="setstate('chk');" role="checkbox" aria-checked="false" id="chk" />
+<li tabindex="0" onkeydown="setstate('chk');" role="checkbox" 
+aria-checked="false" id="chk" />
 <label for="chk">正在测试的项目</label>
-<li tabindex="0" onkeydown="setstate('chk2');" role="checkbox" aria-checked="false" id="chk2" />
+<li tabindex="0" onkeydown="setstate('chk2');" role="checkbox" 
+aria-checked="false" id="chk2" />
 <label for="chk2">完成测试的项目</label>
-<li tabindex="0" onkeydown="setstate('chk3');" role="checkbox" aria-checked="false" id="chk3" />
+<li tabindex="0" onkeydown="setstate('chk3');" role="checkbox" 
+aria-checked="false" id="chk3" />
 <label for="chk3">回归测试的项目</label>
 </ul>
 </div>
