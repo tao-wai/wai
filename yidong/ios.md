@@ -617,11 +617,11 @@ isAccessibilityElement：<br/>
 ### 4.4访问无障碍元素的属性
 
 
-    accessibilityLabel：
-    属性，简洁指明无障碍元素的文本；label非常短，使用本地语言来指明无障碍元素，不包含控件和视图的类型。例如，一个保存按钮的label为Save，不是Save Button。默认的，标准UIKit控件和视图包含从title中派生出的label信息。如果提供自定义控件或者视图，需要适当的去设置这个属性，这样辅助应用可以提供给残障用户最精确的信息。
-    声明：
-    @property(nonatomic, retain) NSString *accessibilityLabel
-    
+accessibilityLabel：<br/>
+　　属性，简洁指明无障碍元素的文本；label非常短，使用本地语言来指明无障碍元素，不包含控件和视图的类型。例如，一个保存按钮的label为Save，不是Save Button。默认的，标准UIKit控件和视图包含从title中派生出的label信息。如果提供自定义控件或者视图，需要适当的去设置这个属性，这样辅助应用可以提供给残障用户最精确的信息。<br/>
+声明：<br/>
+@property(nonatomic, retain) NSString *accessibilityLabel<br/>
+
     accessibilityHint：
     属性，简洁描述无障碍元素的操作结果；hint是个简短的本地化描述，描述的是一个无障碍元素操作的结果，而不是指明元素或者行为。例如，一个包含email信息的表行应该是“选择信息”。而不是“点击该行去选择信息”。默认的，标准UIKit控件和视图是系统提供hint。如果提供一个自定义控件和视图时，但是，需要适当去设置该属性，这样辅助应用可以为残障用户提供精确信息。
     声明：
