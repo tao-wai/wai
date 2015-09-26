@@ -10,6 +10,6 @@
 * 移动端无障碍
    * [引言](yidong/yinyan.md)
    * [android无障碍开发指南](yidong/android.md)
-   * [ios](yidong/ios.md)
+   * [ios无障碍开发指南](yidong/ios.md)
    * [wenti](yidong/wenti.md)
 
