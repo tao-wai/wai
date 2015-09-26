@@ -1339,28 +1339,28 @@ tab找到密码控件后，不会朗读这是什么密码框；<br/>
 【修改建议】<br/>
 样例1：
 使用label提示用户<br/>
-<label for="user-pwd">密码</label><input type="password" id="user-pwd" />
+```<label for="user-pwd">密码</label><input type="password" id="user-pwd" />```
 样例2：
-使用title提示用户
-<input type="password" title="密码" />
+```使用title提示用户<br/>
+<input type="password" title="密码" />```
 样例3：
-使用placeholder提示用户
-<input type="password" placeholder="请在此输入密码" />
+使用placeholder提示用户<br/>
+```<input type="password" placeholder="请在此输入密码" />```
 样例4：
-使用aria-label提示用户
-<input type="password" aria-label="密码" />
+使用aria-label提示用户<br/>
+```<input type="password" aria-label="密码" />```
 
 ### 1.13.4密码控件键盘焦点无法移出
 
 
-【问题描述】
-使用屏幕阅读器浏览网页，tab到达密码框后，无法用tab跳出密码框；
-【可能原因】
-【修改建议】
-使用以下机制可以有效避免该陷阱：
-1.事先定义好内容焦点（通常使用tabindex），当子集或插件导航到最后位置时，跳出子集或插件，事先定义好的焦点可以获得。
-2.定义键盘事件，将焦点移出子集内容。
-3.如果子集使用的技术里面包含回到父级的键盘命令，在用户进入该子集前提示用户该命令。
+【问题描述】<br/>
+使用屏幕阅读器浏览网页，tab到达密码框后，无法用tab跳出密码框；<br/>
+【可能原因】<br/>
+【修改建议】<br/>
+使用以下机制可以有效避免该陷阱：<br/>
+1.事先定义好内容焦点（通常使用tabindex），当子集或插件导航到最后位置时，跳出子集或插件，事先定义好的焦点可以获得。<br/>
+2.定义键盘事件，将焦点移出子集内容。<br/>
+3.如果子集使用的技术里面包含回到父级的键盘命令，在用户进入该子集前提示用户该命令。<br/>
 
 ### 1.13.5密码控件光标无法移动，或能移动不会读出字符
 
