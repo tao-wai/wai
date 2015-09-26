@@ -75,14 +75,18 @@
 ```
 <!-- 自定义树视图元素。 -->
 <div id="folders" class="tree" role="tree" aria-label="文件夹" tabindex="0"
+       
         aria-activedescendant="n-0"><!--文件组-->
-    <div id="n-0" class="selected" role="treeitem" aria-expanded="true" 
+    <div iｄ="n-0" class="selected" role="treeitem" aria-expanded="true" 
             onclick="alert('点击了库。');">
         库</div>
     <div role="group">
-        <div id="n-0-1" role="treeitem" aria-expanded="false" onclick="alert('点击了无障碍文档。');">文档</div>
-        <div id="n-0-2" role="treeitem" aria-expanded="false" onclick="alert('点击了无障碍音频');">音乐</div>
-        <div id="n-0-3" role="treeitem" aria-expanded="false" onclick="alert('点击了无障碍图片。');">图片</div>
+        <div id="n-0-1" role="treeitem" aria-expanded="false" 
+        onclick="alert('点击了无障碍文档。');">文档</div>
+        <div id="n-0-2" role="treeitem" aria-expanded="false" 
+        onclick="alert('点击了无障碍音频');">音乐</div>
+        <div id="n-0-3" role="treeitem" aria-expanded="false" 
+        onclick="alert('点击了无障碍图片。');">图片</div>
     </div>
 </div>
 <script>
@@ -91,10 +95,11 @@
 // 添加对keydown事件的监听
     folders.addEventListener('keydown', function(e) {
         var itm = e.srcElement; // 获取触发Keydown事件的元素对象。
-        if (e.keyCode === Win.Utilities.Key.upArrow) // 当按下的键是上方向键
+        if (e.keyCode === Win.Utilities.Key.upArrow) 
+        // 当按下的键是上方向键
         {
-            // 位上一个节点ID更新aria-activedescendant the previous node id.
-            // 更新class属性来标记选中的元素节点。
+          // 位上一个节点ID更新aria-activedescendant the previous node id.
+    // 更新class属性来标记选中的元素节点。
         } else if (e.keyCode === Win.Utilities.Key.downArrow) // 当在元素上按下了下方向键
         {
             // Update aria-activedescendant with the next node id.
@@ -107,12 +112,16 @@
 <!-- 自定义树视图元素。 -->
 <div id="文件夹组" role="tree" aria-label="文件夹" >
 <!--视图元素-->
-    <div id="n-0" role="treeitem" aria-expanded="true（真）" tabindex="0">库</div>
+    <div id="n-0" role="treeitem" aria-expanded="true（真）" 
+    tabindex="0">库</div>
     <div role="group" >
         <!-- Child tree items: Documents, Music, Pictures ... -->
-        <div id="n-0-1" role="treeitem" aria-expanded="false" tabindex="-1">无障碍文档</div>
-        <div id="n-0-2" role="treeitem" aria-expanded="false" tabindex="-1">无障碍音频</div>
-        <div id="n-0-3" role="treeitem" aria-expanded="false" tabindex="-1">无障碍图片</div>
+        <div id="n-0-1" role="treeitem" aria-expanded="false" 
+        tabindex="-1">无障碍文档</div>
+        <div id="n-0-2" role="treeitem" aria-expanded="false" 
+        tabindex="-1">无障碍音频</div>
+        <div id="n-0-3" role="treeitem" aria-expanded="false" 
+        tabindex="-1">无障碍图片</div>
     </div>
 </div>
 <script>
@@ -146,13 +155,16 @@
  function doSomething(event) {
    var msg=document.getElementById("message");
    msg.style.display = msg.style.display=="none" ? "" : "none";
-   //return false from the function to make certain that the href of the link does not get invoked
+   //return false from the function to make certain that the href 
+   of the link does not get invoked
    return false;
  }
- // this is the function to perform the action when the Enter key has been pressed.  
+ // this is the function to perform the action when the Enter key has
+ been pressed.  
  function doSomethingOnEnter(event) {
    var key = 0;
-   // Determine the key pressed, depending on whether window.event or the event object is in use
+   // Determine the key pressed, depending on whether window.event or 
+   the event object is in use
    if (window.event) {
      key = window.event.keyCode;
    } else if (event) {
@@ -165,14 +177,17 @@
    // The event has not been handled, so return true
    return true;
  }
- // This setUpActions() function must be called to set the onclick and onkeyup event handlers onto the existing 
+ // This setUpActions() function must be called to set the onclick and
+ onkeyup event handlers onto the existing 
  // div element. This function must be called after the div element with id="active" has been loaded into the DOM.
- // In this example the setUpActions() function is called from the onload event for the body element.
+ // In this example the setUpActions() function is called from the onload
+ event for the body element.
  function setUpActions() {
    // get the div object
    var active=document.getElementById("active");
    // assign the onclick handler to the object.
-   // It is important to return false from the onclick handler to prevent the href attribute
+   // It is important to return false from the onclick handler to prevent 
+   the href attribute
    // from being followed after the function returns.
    active.onclick=doSomething;
    // assign the onkeyup handler to the object.
@@ -314,7 +329,8 @@ live region<br/>
 　　实时区域role被应用于很强本土语义元素与平台无障碍API映射不一致。建议开发者将实时区域使用在div或者span元素中。<br/>
     样例：<br/>
 ```
-<!-- Live region 'log' role used with TABLE element:  the 'log' role is not consistently mapped to platform AAPI. -->
+<!-- Live region 'log' role used with TABLE element:  the 'log' role is not 
+consistently mapped to platform AAPI. -->
 <!-- Do not use. -->
 <table role="log" … >
   …
@@ -366,9 +382,12 @@ function createInput(divid){
 }
 </script>
 <div id="divid">
-<input name="but1" id="but1" type="button" onclick="createInput('divid');" value="新增输入框1" /><br />
-<input name="but2" id="but2" type="button" onclick="createInput('divid');" value="新增输入框2" /><br />
-<input name="but3" id="but3" type="button" onclick="createInput('divid');" value="新增输入框3" /><br />
+<input name="but1" id="but1" type="button" onclick="createInput('divid');" 
+value="新增输入框1" /><br />
+<input name="but2" id="but2" type="button" onclick="createInput('divid');" 
+value="新增输入框2" /><br />
+<input name="but3" id="but3" type="button" onclick="createInput('divid');" 
+value="新增输入框3" /><br />
 </div>```
 
 
@@ -407,7 +426,7 @@ function createInput(divid){
 3)该窗口的HTML应该与其他内容有同样的无障碍标准.<br/>
 
  ```  
-  <button type="button" onclick="TogglePopup(event,true)" name="pop0001">Options</button>
+<button type="button" onclick="TogglePopup(event,true)" name="pop0001">Options</button>
 //onclick事件，弹出的div代码
 <div class="popover" id="pop0001">
 <h3>编辑顺序内容</h3>
