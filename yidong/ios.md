@@ -536,27 +536,27 @@ OBJECTIVE-C<br/>
 SWIFT<br/>
 import UIKit<br/>
 
-    UIAccessibilitySpeakScreenStatusDidChangeNotification
-    当系统的读屏设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-    声明：
-    SWIFT
-    let UIAccessibilitySpeakScreenStatusDidChangeNotification: String
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
-    
-    UIAccessibilitySpeakSelectionStatusDidChangeNotification
-    当系统的声音选择设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-    声明：
-    SWIFT
-    let UIAccessibilitySpeakSelectionStatusDidChangeNotification: String
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
+UIAccessibilitySpeakScreenStatusDidChangeNotification<br/>
+　　当系统的读屏设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。<br/>
+声明：<br/>
+SWIFT<br/>
+let UIAccessibilitySpeakScreenStatusDidChangeNotification: String<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
+
+UIAccessibilitySpeakSelectionStatusDidChangeNotification<br/>
+　　当系统的声音选择设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。<br/>
+声明：<br/>
+SWIFT<br/>
+let UIAccessibilitySpeakSelectionStatusDidChangeNotification: String<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
 
 
     UIAccessibilitySwitchControlStatusDidChangeNotification
