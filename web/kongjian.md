@@ -14,7 +14,7 @@
 【可能原因】<br/>
 【修改建议】<br/>
 样例1：
-将图片设置为背景图片：】<br/>
+将图片设置为背景图片：<br/>
 ```
 CSS:
 #bgimg
@@ -24,7 +24,7 @@ CSS:
 HTML:
 <div id="bgimg"></div>```
 样例2:<br/>
-将图片的tabindex属性设置为-1；（此条仅适用于删除具有焦点的图片访问。）】<br/>
+将图片的tabindex属性设置为-1；（此条仅适用于删除具有焦点的图片访问。<br/>
 ```
 <img tabindex="-1" src="img001.gif" />```
 样例3：<br/>
@@ -234,15 +234,18 @@ role="textbox"代表是一个编辑框， 自绘的编辑框加上role="textbox"
 当需要用户输入内容时，要给出标签或说明：为交互组件提交必要的目的说明，说明信息输入的必要性。<br/>
 方案1： 
 给控件添加title来说明编辑框的目的：<br/>
-```<input title="请输入信息无障碍产品联盟网址" type="text" size="20" tabindex="0"/>```
+```
+<input title="请输入信息无障碍产品联盟网址" type="text" size="20" tabindex="0"/>```
 方案2： 
 使用 label 为编辑框添加标签，让用户正确判断需要在编辑框内录入哪种类型的数据；<br/>
-```<label for="name">联盟网址：</label>
+```
+<label for="name">联盟网址：</label>
 <input type="text" id="name" tabindex="0"/>```
 方案3： 
 使用aria-describedby属性为编辑框关联提示文本；<br/>
 注： 此方法国内的一些屏幕阅读器可能暂时不支持<br/>
-```<div id="container">
+```
+<div id="container">
 <h1>web端信息无障碍</h1>
 <h2>移动端信息无障碍</h2>
 <div>
@@ -255,7 +258,8 @@ role="textbox"代表是一个编辑框， 自绘的编辑框加上role="textbox"
 方案4：
 使用aria-labelledby连接一个标签和多个文本节点，应用与输入控件，aria-labelledby可以被用于label本地输入和非本地输入，例如contenteditable="true"的自定义输入控件div;aria-labelledby的一个特殊使用是文本输入控件，当一个有意义的标签应该包含多个label；id顺序应该是有逻辑的能被读屏软件读取的顺序；<br/>
 一个连接超时输入字段标签：<br/>
-```<form>
+```
+<form>
 <p>
 <span id="timeout-label" tabindex="-1">
 <label for="timeout-duration">延长时间到</label>
@@ -269,7 +273,8 @@ role="textbox"代表是一个编辑框， 自绘的编辑框加上role="textbox"
 方案5：
 placeholder 属性提供可描述输入字段预期值的提示信息（hint）。该提示会在输入字段为空时显示，并会在字段获得焦点时消失。<br/>
 注释：placeholder 属性适用于以下的 <input> 类型：text, search, url, telephone, email 以及 password。<br/>
-```<form action="demo_form.asp" method="get">
+```
+<form action="demo_form.asp" method="get">
 输入要搜索的工程师名字
   <input type="search" name="user_search" placeholder="输入要搜索的工程师名字" />
   <input type="submit" value="搜索"/>
@@ -287,7 +292,8 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 将自绘控件的contenteditable属性设为true， 然后在自绘编辑框的键盘事件处理代码中支持backspace删除文本；<br/>
 方案2：
 使用placeholder属性设置编辑框的预设文本；<br/>
-```<form>
+```
+<form>
 无障碍搜索
 <input type="text" placeholder="信息无障碍研究会" tabindex="0"/>
 </form>```
@@ -301,7 +307,8 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 自绘控件没有对TAB键进行支持或对TAB键做了支持但形成了键盘陷阱（就是焦点跳转形成一个死循环， 无法用TAB跳转出循环区域）；<br/>
 【修改建议】<br/>
 方案1： 使用标准控件<br/>
-```<input type="search" title="请输入无障碍内容" tabindex="0"/>```
+```
+<input type="search" title="请输入无障碍内容" tabindex="0"/>```
 方案2： 在自绘编辑框的键盘处理事件代码中对tab键进行支持<br/>
 方案3： 避免键盘陷阱<br/>
 　　保证键盘用户不会陷入子集出不来，这些子集仅在使用鼠标和点触设备时可用。最常见的是插件，如果插件可以获得焦点，但是没 有提供可以跳出插件将焦点返回父窗口的机制，插件就会成为陷阱。编辑框内无法用tab键跳出也是此问题。<br/>
@@ -326,7 +333,8 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 【修改建议】<br/>
 方案1：
 使用html标准控件并把tabindex属性设置为适当的值<br/>
-```<select tabindex="0" title="信息无障碍项目列表">
+```
+<select tabindex="0" title="信息无障碍项目列表">
 <option>手机qq android项目</option>
 <option>手机qq ios项目</option>
 <option>手机淘宝无障碍项目</option>
@@ -370,7 +378,8 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 【修改建议】<br/>
 方案1: 
 给option之内添加文本<br/>
-```<select title="无障碍bug严重程度" tabindex="0">
+```
+<select title="无障碍bug严重程度" tabindex="0">
 <option>致命</option>
 <option>严重</option>
 <option>一般</option>
@@ -405,7 +414,8 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 【修改建议】<br/>
 方案1：
 使用html标准控件；<br/>
-```<select title="无障碍测试报告" tabindex="0">
+```
+<select title="无障碍测试报告" tabindex="0">
 <option>手机qq无障碍测试报告</option>
 <option>手机淘宝无障碍测试报告</option>
 <option>手机qq轻聊无障碍测试报告</option>
@@ -414,7 +424,8 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 方案2：
 使用aria的role属性来告诉屏幕阅读器此控件的类型， role="combobox"表示下拉列表框、role="option"表示选项、role="listbox"表示列表框。<br/>
 注： 下面的代码只展示了如何让屏幕阅读器知道自绘控件是一个列表，但不是一个完全无障碍支持的自绘列表的代码。<br/>
-```<label for="cb1-list">视障工程师列表</label>
+```
+<label for="cb1-list">视障工程师列表</label>
 <ul id="cb1-list" tabindex="0" role="listbox" aria-expanded="true">
     <li id="cb1-opt1" role="option">一同</li>
     <li id="cb1-opt2" role="option">槐荫飞龙</li>
@@ -435,10 +446,12 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 【修改建议】<br/>
 样例1：
 使用html标准控件；<br/>
- ```<input type="checkbox" title="qq项目" tabindex="0"/>qq项目```
+ ```
+ <input type="checkbox" title="qq项目" tabindex="0"/>qq项目```
 样例2：
 自绘控件使用aria的role属性描述控件类型， role=”checkbox”表示复选框；<br/>
-```<div tabindex="0" role="checkbox">淘宝项目</div>```
+```
+<div tabindex="0" role="checkbox">淘宝项目</div>```
 注： 此代码只提示控件类型并不是一个完整的无障碍自绘复选框的代码， 因为选中状态不能朗读。<br/>
 
 ### 1.5.2复选框无法获得键盘焦点
@@ -452,7 +465,8 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 【修改建议】<br/>
 样例1：
 使用html标准控件，  且tabindex属性的值不能为-1；<br/>
-``` <input type="checkbox" tabindex="0" title="支付宝项目" />支付宝项目```
+``` 
+<input type="checkbox" tabindex="0" title="支付宝项目" />支付宝项目```
 样例2：
 自绘控件将控件的tabindex属性设为0；<br/>
 ```<div tabindex="0" role="checkbox">pc qq项目</div>```
@@ -468,7 +482,8 @@ tab定位到复选框后，无法用空格选中或取消选中该复选框；<b
 【修改建议】<br/>
 样例1：
 使用html标准控件；<br/>
-``` <input type="checkbox" title="工程师名字" tabindex="0"/>工程师名字```
+``` 
+<input type="checkbox" title="工程师名字" tabindex="0"/>工程师名字```
 样例2：
 为控件添加空格点击响应事件；<br/>
 ```<html>
@@ -511,27 +526,32 @@ tab定位到复选框，辅助程序不朗读是什么复选框；<br/>
 【修改建议】<br/>
 样例1：
 为复选框选项添加label;<br/>
-```<input type="checkbox" id="checkbox" tabindex="0"/>
+```
+<input type="checkbox" id="checkbox" tabindex="0"/>
  <label>已经回归的项目</label>```
 注： 1、 label必须在checkbox的后面；2、此种方法对nvda无效， 争渡和永德读屏有效。<br/>
 样例2： 
 添加title来说明checkbox的目的；<br/>
-```<input type="checkbox" tabindex="0" title="已经解决的bug"/>已经解决的bug；```
+```
+<input type="checkbox" tabindex="0" title="已经解决的bug"/>已经解决的bug；```
 注： title的值应该与视觉所见的文本一致。<br/>
 样例3： 
 用label标签把checkbox包起来；<br/>
 ```<label><input type="checkbox" >qq project</label>```
 样例4：
 使用label 的for属性为复选框链接提示文本；<br/>
-``` <input type="checkbox" id="checkbox" tabindex="0"/>
+``` 
+<input type="checkbox" id="checkbox" tabindex="0"/>
 <label for="checkbox">未解决的bug</label>```
 注： label标签的for属性的值必须与checkbox的id属性的值一致。此种方法label放在什么地方都没有问题。<br/>
 样例5：
 使用aria-label为复选框添加提示文本；<br/>
-```<input type="checkbox" tabindex="0" aria-label="结束的项目"/>结束的项目```
+```
+<input type="checkbox" tabindex="0" aria-label="结束的项目"/>结束的项目```
 样例6：
 使用aria-describedby为复选框提供提示文本<br/>
- ```<input type="checkbox" tabindex="0" aria-describedby="label"/>
+ ```
+ <input type="checkbox" tabindex="0" aria-describedby="label"/>
 <div id="label">male</div>```
 注： 国内的一些读屏可能暂时不支持aria-describedby<br/>
 
@@ -553,11 +573,13 @@ tab定位到该复选框后，不朗读复选框的选中状态；<br/>
 【修改建议】<br/>
 样例1：
 使用标准html控件；<br/>
-``` <input type="checkbox" tabindex="0" title="项目名称"/>项目名称```
+``` 
+<input type="checkbox" tabindex="0" title="项目名称"/>项目名称```
 样例2：
 自会控件role=checkbox的情况下，使用aria-checked属性；
 aria-checked属性是true代表选中， 是false代表没有选中， 此选项应该用编程动态确定。<br/>
-```<html>
+```
+<html>
 <head>
 <title>test</title>
 <script>
@@ -596,10 +618,12 @@ tab定位到该复选框后，选中或取消选中，不会及时朗读选中�
 【修改建议】<br/>
 样例1：
 使用html标准控件；<br/>
-```<input type="checkbox" tabindex="0" title="项目名称"/>项目名称```
+```
+<input type="checkbox" tabindex="0" title="项目名称"/>项目名称```
 样例2： 
 使用编程是和aria-checked属性及时播报选中状态;<br/>
-```<html>
+```
+<html>
 <head>
 <title>test</title>
 <script>
@@ -685,7 +709,8 @@ tab浏览到单选框或上下光标在单选框之间移动，不会朗读出�
 样例1：
 为复选框选项添加label;<br/>
 <fieldset>
-```<legend>性别</legend> 
+```
+<legend>性别</legend> 
 <input type="radio" name="order" id="order_alpha" />
 <label >男</label>
 <input type="radio" name="order" id="order_default" checked="true" />
@@ -703,7 +728,8 @@ tab浏览到单选框或上下光标在单选框之间移动，不会朗读出�
 </fieldset>```
 样例3： 
 使用label把radio包起来<br/>
-```<fieldset>
+```
+<fieldset>
 <legend>性别</legend>
 <label><input type="radio" name="0"/>男</label>
 <label><input type="radio" name="0"/>女</label>
@@ -719,7 +745,8 @@ tab浏览到单选框或上下光标在单选框之间移动，不会朗读出�
 </fieldset>```
 样例5：
 使用aria-describedby为单选框提供提示文本；<br/>
-```<fieldset>
+```
+<fieldset>
 <legend>性别</legend>
 <label id="male">男</label>
 <input type="radio" name="0" aria-describedby="male"/>
@@ -746,7 +773,8 @@ Tab焦点进入单选框，焦点不停留，直接跳过单选框，进入下�
 【修改建议】<br/>
 样例1：
 使用html标准控件；<br/>
-```<fieldset>
+```
+<fieldset>
 <legend>残疾类型</legend>>
 <input type="radio" name="00" id="00"/>
 <label for="00">盲人</label>
@@ -790,10 +818,12 @@ aria-checked 字符串。表示检查的状态。true表示元素被选择；fal
 给按钮添加易于理解的提示文本;<br/>
 样例1：
 给按钮添加目的文本；<br/>
-```<button type="button">信息无障碍研究会</button>```
+```
+<button type="button">信息无障碍研究会</button>```
 样例2：
 使用title属性，给按钮添加目的文本；<br/>
-```<button type="button" title="信息无障碍产品联盟"><img src="logo.jpg" alt=""></button>```
+```
+<button type="button" title="信息无障碍产品联盟"><img src="logo.jpg" alt=""></button>```
 样例3：
 使用 label 为按钮添加目的文本；<br/>
 ```<label for="btn-desc">视障工程师</label>
@@ -803,24 +833,33 @@ aria-checked 字符串。表示检查的状态。true表示元素被选择；fal
 ```<button type="button" ><img src="1.jpg" alt="信息无障碍研究会"></button>```
 样例5：
 使用 aria-describedby 为按钮提供详细信息；<br/>
-```<p><span id="font-desc">选择该网页的字体大小</span>
-<button type="button" id="font-b" onclick="doAction('Fonts');" aria-describedby="font-desc">字体</button>
+```
+<p><span id="font-desc">选择该网页的字体大小</span>
+<button type="button" id="font-b" onclick="doAction('Fonts');" 
+aria-describedby="font-desc">字体</button>
 </p>
 <p><span id="color-desc">选择该网页的颜色</span>
- <button type="button" id="color-b" onclick="doAction('Colors');" aria-describedby="color-desc">颜色</button>
+ <button type="button" id="color-b" 
+ onclick="doAction('Colors');" 
+ aria-describedby="color-desc">颜色</button>
 </p>
 <p><span id="custom-desc">自定义此页面上使用的布局和样式</span>
- <button type="button" id="custom-b" onclick="doAction('Customize');" aria-describedby="custom-desc">自定义</button>
+ <button type="button" id="custom-b" onclick="doAction('Customize');" 
+ aria-describedby="custom-desc">自定义</button>
 </p>```
 样例6：
 使用aria-describedby属性描述临近按钮元素的行为；<br/>
-```<button type="button" aria-label="信息无障碍研究会" aria-describedby="description-close" onclick="myDialog.close()">按钮文本</button>
+```
+<button type="button" aria-label="信息无障碍研究会" 
+aria-describedby="description-close" 
+onclick="myDialog.close()">按钮文本</button>
 <!-- id为description-close的控件为button提供描述文本 -->
 ...
 <div id="description-close">关闭此窗口将忽略输入的所有信息，并会返回到主页</div>```
 样例7：
 使用aria-describedby属性将说明与按钮联系起来；<br/>
-```<form>
+```
+<form>
 <label for="fname">名</label>
 <input type="text" name="fname" id="fname" aria-describedby="int2">
 <p id="int2">该区域使用aria-describedby关联说明文本。</p>
@@ -837,10 +876,14 @@ aria-checked 字符串。表示检查的状态。true表示元素被选择；fal
 【修改建议】<br/>
 样例1：
 使用html标准元素添加按钮；<br/>
-```<button type="button">视障工程师</button>```
+```
+<button type="button">视障工程师</button>```
 样例2:
 给自定义按钮添加role和tabindex属性；<br/>
-```<span class="btn-close" tabindex="0" role="button" onclick="closeCurrentWindow()" onkeydown="if (event.keyCode == 13 || event.keyCode == 32) closeCurrentWindow();">关闭当前窗口</span>```
+```
+<span class="btn-close" tabindex="0" role="button" 
+onclick="closeCurrentWindow()" 
+onkeydown="if (event.keyCode == 13 || event.keyCode == 32) closeCurrentWindow();">关闭当前窗口</span>```
 
 ### 1.7.3控件类型朗读不正确
 
@@ -852,7 +895,8 @@ aria-checked 字符串。表示检查的状态。true表示元素被选择；fal
 【修改建议】<br/>
 样例1：
 使用html标准元素（button、input type=button/submit）给网页添加按钮;<br/>
-```<form action="/login" method="post">
+```
+<form action="/login" method="post">
 ...
 <input type="image" name="submit" src="button.gif" alt="登录" />
 </form>```
@@ -862,7 +906,8 @@ aria-checked 字符串。表示检查的状态。true表示元素被选择；fal
 role="button"表示把角色设置为按钮，屏幕阅读器可正确提示为按钮。<br/>
 role="toolbar" 表示把角色设置为工具栏，屏幕阅读器会自动读出为工具栏。<br/>
 aria-activedescendant表示后代的id值<br/>
-```<div role="toolbar" tabindex="0" aria-activedescendant="btn1">
+```
+<div role="toolbar" tabindex="0" aria-activedescendant="btn1">
   <img src="123.jpg" id="btn1" role="button" alt="信息无障碍研究会" />
   <img src="456.jpg" id="btn2" role="button" alt="视障工程师" />
   <img src="def.jpg" id="btn3" role="button" alt="按钮3" />
@@ -882,7 +927,8 @@ aria-activedescendant表示后代的id值<br/>
 <input type="submit" value="登录" />
 </form>
 样例2：图片按钮点击事件：<br/>
-```<input type="image" src="example.gif" alt="关闭" onclick="closePopWnd()" keydown="if (event.keyCode == 13) closePopWnd();" />```
+```
+<input type="image" src="example.gif" alt="关闭" onclick="closePopWnd()" keydown="if (event.keyCode == 13) closePopWnd();" />```
 样例3：Button onclick事件:<br/>
 ```<button type="button" onclick="closePopWnd()"><img src="btn-closepopwnd.gif" alt="关闭"></button>```
 样例4：为按钮添加键盘空格点击事件；<br/>
@@ -937,7 +983,8 @@ role="menuitem"表示菜单项<br/>
 【修改建议】<br/>
 样例1：
 添加aria-expanded属性，字符串。表示展开状态。默认为undefined, 表示当前展开状态未知。其它可选值：true表示元素是展开的；false表示元素不是展开的。<br/>
-```<ul role="menu" aria-hidden="true" aria-expanded="false" >
+```
+<ul role="menu" aria-hidden="true" aria-expanded="false" >
       <li role="menuitemcheckbox" tabindex="-1" aria-checked="true">晴川</li>
       <li role="menuitemcheckbox" tabindex="-1" aria-checked="true">静秋</li>
       <li role="menuitemcheckbox" tabindex="-1" aria-checked="false">黄小仙</li>
@@ -953,7 +1000,8 @@ role="menuitem"表示菜单项<br/>
 【修改建议】<br/>
 样例1：
 将自定义菜单控件的tabindex属性设置为0； <br/>
-```<li role="menuitem" tabindex="0" href="...">安全退出</li>```
+```
+<li role="menuitem" tabindex="0" href="...">安全退出</li>```
 
 
 ### 1.8.5键盘焦点无法进入
@@ -965,7 +1013,8 @@ role="menuitem"表示菜单项<br/>
 【修改建议】<br/>
 样例1：
 给子菜单项添加键盘焦点，如添加tabinedx属性；<br/>
-```<li role="menuitem" tabindex="0" href="...">安全退出</li>```
+```
+<li role="menuitem" tabindex="0" href="...">安全退出</li>```
 
 
 ### 1.8.6键盘焦点无法离开
@@ -974,7 +1023,8 @@ role="menuitem"表示菜单项<br/>
 【问题描述】<br/>
 此情况较为复杂，可因菜单项具有onfocus="this.blur()"属性设置或使用了js代码限定了焦点的访问范围。<br/>
 例：使用了不适当的属性HTML；<br/>
-```<li tabindex="0" role="menuitem" onfocus="this.blur()">安全退出</li>```
+```
+<li tabindex="0" role="menuitem" onfocus="this.blur()">安全退出</li>```
 【可能原因】<br/>
 【修改建议】<br/>
 
@@ -988,7 +1038,8 @@ role="menuitem"表示菜单项<br/>
 【修改建议】<br/>
 样例1：
 为自定义控件添加role="menuitem"表示菜单项；<br/>
-```<li role="menuitem" tabindex="-1" aria-haspopup="false">靓女</li>```
+```
+<li role="menuitem" tabindex="-1" aria-haspopup="false">靓女</li>```
 样例2：
 为自定义控件添加tabindex属性；<br/>
 ```<li tabindex="0" aria-haspopup="false">靓女</li>```
@@ -1005,7 +1056,8 @@ role="menuitem"表示菜单项<br/>
 使用keydown事件使回车键可以展开、折叠菜单；<br/>
 样例2：
 添加空格点击选中事件；<br/>
-```<html>
+```
+<html>
 <head>
 <title>test</title>
 <script>
@@ -1040,7 +1092,8 @@ obj.setAttribute("aria-checked","false");
 【修改建议】<br/>
 样例1：
 子菜单项为图片时，添加alt属性给出替代文本；<br/>
-```<li ><img src=”1.jpg”  alt=”第一”/></li>```
+```
+<li ><img src=”1.jpg”  alt=”第一”/></li>```
 
 ## 1.9嵌入对象<object>
 
@@ -1057,7 +1110,8 @@ obj.setAttribute("aria-checked","false");
 使用html标准控件；<br/>
 样例2：
 将自定义控件的tabindex属性设置为0；<br/>
-```<object tabindex="0" ...>...</object>```
+```
+<object tabindex="0" ...>...</object>```
 
 ### 1.9.2焦点无法移出嵌入对象
 
@@ -1068,10 +1122,13 @@ obj.setAttribute("aria-checked","false");
 样例1：
 使用SWFFocus类为flash内容生成临近的可获得焦点的元素，在html tab顺序中。默认的，SWFFocus类将会在嵌入的flash内容的前后生成一个隐藏的链接。这两个链接被作为锚当tab出flash内容的时候将焦点移动到这两个链接。这个方法容易实现，不需要开发者的额外工作。但是隐藏的链接会扰乱html的tab顺序，因此，建议使用下面的方法；<br/>
 全部代码：<br/>
-```<?xml version="1.0" encoding="UTF-8"?>
+```
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html lang="en"（语言为英文） xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en"（语言为英文） xml:lang="en" 
+xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>键盘陷入修复样例</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
@@ -1083,7 +1140,8 @@ obj.setAttribute("aria-checked","false");
       var attributes = {};
       attributes.id = "FlashSample1SWF";
       attributes.name = "FlashSample1SWF";
-      swfobject.embedSWF("keyboard_trap_fix_custom_as3.swf", "flashSample1", \ "150", "200", "9.0.0", "expressInstall.swf",flashvars, params, attributes);
+      swfobject.embedSWF("keyboard_trap_fix_custom_as3.swf", 
+      "flashSample1", \ "150", "200", "9.0.0", "expressInstall.swf",flashvars, params, attributes);
 </script>
   </head>
   <body>
@@ -1100,7 +1158,8 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 在html tab顺序中，在flash内容的之前和之后，明确定义可获焦点元素。
 使用这个方法，开发者使用ID值来识别html tab顺序中的flash内容前后的元素。这个可通过为flash内容<object>设置特殊的class名字来实现。这个方法很常用，因为这个方法不必引起tab顺序不必要的混乱。但是，这导致开发者更多的工作和无障碍意识。同时，在某些场景中，在flash内容的前后没有可获得焦点的元素。<br/>
 全部代码：<br/>
-```<a href="http://www.lipsum.com/" id="focus1">test 1</a>
+```
+<a href="http://www.lipsum.com/" id="focus1">test 1</a>
 <object class="swfPrev-focus1 swfNext-focus2"
   data="keyboard_trap_fix_as3.swf" tabindex="0"
   type="application/x-shockwave-flash"/>
@@ -1122,22 +1181,26 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 【修改建议】<br/>
 样例1：
 嵌入对象包含一个长描述；<br/>
-```<object classid="http://www.example.com/analogclock.py">
+```
+<object classid="http://www.example.com/analogclock.py">
   <p>这里是一些用来描述对象和操作的文本。Here is some text that describes the object and its operation.</p>
 </object>```
 样例2：
 嵌入对象的无文本内容有替代文本；<br/>
-```<object classid="http://www.example.com/animatedlogo.py">
+```
+<object classid="http://www.example.com/animatedlogo.py">
   <img src="staticlogo.gif" alt="公司名称" />
 </object> ```
 样例3：
 图片类嵌入对象提供一个简短的描述来说明图片的目的；<br/>
-```<object data="companylogo.gif" type="image/gif">
+```
+<object data="companylogo.gif" type="image/gif">
   <p>公司名称</p>
 </object>```
 样例4：
 使用临近元素来提供替代说明；<br/>
-```<object classid="java:Press.class" width="500" height="500">
+```
+<object classid="java:Press.class" width="500" height="500">
   <object data="Pressure.mpeg" type="video/mpeg">
     <object data="Pressure.gif" type="image/gif">
       As temperature increases, the molecules in the balloon...
@@ -1159,10 +1222,12 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 【修改建议】<br/>
 样例1：
 使用html标准控件；<br/>
-```<textarea title="评论内容"></textarea>```
+```
+<textarea title="评论内容"></textarea>```
 样例2：
 当元素的contenteditable属性值为“true时，需要添加title、role、tabindex 属性，为文本域定义角色和添加目的文本，以及焦点可聚焦;<br/>
-```<div contenteditable="true" role="textbox" title="评论内容" tabindex="0"></div>```
+```
+<div contenteditable="true" role="textbox" title="评论内容" tabindex="0"></div>```
 
 ### 1.10.2文本域聚焦后焦点无法跳出
 
@@ -1214,9 +1279,11 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 【修改建议】<br/>
 样例1：
 使用html标准控件；<br/>
-```<label for="message">您对视障工程师的理解:</label><textarea id="message"></textarea>```
+```
+<label for="message">您对视障工程师的理解:</label><textarea id="message"></textarea>```
 样例2：<br/>
-```<div contenteditable="true" role="textbox" title="评论内容" tabindex="0"></div>```
+```
+<div contenteditable="true" role="textbox" title="评论内容" tabindex="0"></div>```
 
 
 ## 1.11Frame
@@ -1243,7 +1310,8 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 【修改建议】
 样例1：<br/>
 使用title属性来描述带有导航条和文件的框架；<br/>
-```<html xmlns="http://www.w3.org/1999/xhtml">
+```
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>一个简单的框架文件</title>
   </head>
@@ -1268,8 +1336,9 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 【修改建议】
 样例1：
 强制去除框架前焦点的聚焦会导致该问题的出现：
+```
 <a href="#" onfocus="this.blur()">TAB焦点切不到我</a>
-<iframe src="example.html" title="IFrame框架" />
+<iframe src="example.html" title="IFrame框架" />```
 
 ## 1.12Iframe
 
@@ -1286,7 +1355,8 @@ src="图片地址http://www.adobe.com/images/shared/download_buttons/get_flash_p
 【修改建议】<br/>
 样例1：
 强制去除框架前焦点的聚焦会导致该问题的出现：<br/>
-```<a href="#" onfocus="this.blur()">TAB焦点切不到我</a>```
+```
+<a href="#" onfocus="this.blur()">TAB焦点切不到我</a>```
 样例2：
 为内联框架的子集添加焦点；<br/>
 ```example2.html:
@@ -1318,7 +1388,8 @@ tab无法找到密码框；<br/>
 【可能原因】<br/>
 【修改建议】<br/>
 样例1：<br/>
-```<input type="password" />
+```
+<input type="password" />
 定义密码字段。密码字段中的字符会被掩码（显示为星号或原点）。
 <input type="password" name="pwd" />```
 
@@ -1339,16 +1410,20 @@ tab找到密码控件后，不会朗读这是什么密码框；<br/>
 【修改建议】<br/>
 样例1：
 使用label提示用户<br/>
-```<label for="user-pwd">密码</label><input type="password" id="user-pwd" />```
+```
+<label for="user-pwd">密码</label><input type="password" id="user-pwd" />```
 样例2：
-```使用title提示用户<br/>
+```
+使用title提示用户<br/>
 <input type="password" title="密码" />```
 样例3：
 使用placeholder提示用户<br/>
-```<input type="password" placeholder="请在此输入密码" />```
+```
+<input type="password" placeholder="请在此输入密码" />```
 样例4：
 使用aria-label提示用户<br/>
-```<input type="password" aria-label="密码" />```
+```
+<input type="password" aria-label="密码" />```
 
 ### 1.13.4密码控件键盘焦点无法移出
 
