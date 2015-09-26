@@ -591,11 +591,11 @@ import UIKit<br/>
 ### 4.1创建一个无障碍元素
 
 
-    - initWithAccessibilityContainer:
-    创建并初始化一个无障碍元素，在一个指定容器中呈现条目。一般情况下，不需要在应用中为条目创建无障碍元素，因为标准UIKit控件和视图默认是无障碍的。但是如果视图包含一个非视图条某，比如图标和文本图像，需要对残障用户无障碍，需要为它们创建无障碍元素。在这个案例中，包含视图应该实现UIAccessibilityContainer非正式协议，并且使用这个方法去创建一个无障碍元素来呈现每一个条目，这些条目应该被辅助应用获得。
-    声明：
-    - (id)initWithAccessibilityContainer:(id)container
-    参数：container——包含条目的视图。
+- initWithAccessibilityContainer:<br/>
+　创建并初始化一个无障碍元素，在一个指定容器中呈现条目。一般情况下，不需要在应用中为条目创建无障碍元素，因为标准UIKit控件和视图默认是无障碍的。但是如果视图包含一个非视图条某，比如图标和文本图像，需要对残障用户无障碍，需要为它们创建无障碍元素。在这个案例中，包含视图应该实现UIAccessibilityContainer非正式协议，并且使用这个方法去创建一个无障碍元素来呈现每一个条目，这些条目应该被辅助应用获得。<br/>
+声明：<br/>
+- (id)initWithAccessibilityContainer:(id)container<br/>
+参数：container——包含条目的视图。<br/>
 
 ### 4.2访问包含视图（Accessing the Containing View）
 
