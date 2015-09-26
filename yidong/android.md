@@ -556,22 +556,22 @@ class CustomTouchView extends View {
 ### 8.3获取事件详情
 
 
-    无障碍服务通过系统传递AccessibilityEvent 到服务的onAccessibilityEvent()来获得用户界面事件。这个对象提供事件的详细信息，包括对象的类型、描述文本和其他细节。Android4.0以后的版本，可以通过使用以下的方法来获得附加信息。
-    AccessibilityEvent.getRecordCount（）和getRecord（INT） -- 这些方法允许检索AccessibilityRecord对象的设置，这些设置促使系统将AccessibilityEvent传递给用户。这种详细程度为触发无障碍服务的事件提供详细内容。
-    AccessibilityEvent.getSource（） - 这个方法返回一个AccessibilityNodeInfo对象。这个对象允许您请求无障碍事件有关的组件视图布局层次（父母和子女）。此功能允许访问服务调查一个事件的完整上下文，包括任何封闭意见或子视图的内容和状态。
-    重要提示：从 AccessibilityEvent 中调查视图层次的能力可能会暴露用户私人信息到app。因为这个原因，app必须通过无障碍服务配置XML文件来请求访问级别，通过包含canRetrieveWindowContent 属性并设为true。如果在配置文件中不包含这个设置，会导致调用getSource()失败。
-    注意：在android4.1（API等级16）和更高的系统中，getSource（）方法，以及AccessibilityNodeInfo.getChild（）和getParent（），只返回对无障碍很重要的视图对象（内容视图或回应用户操作）。如果您的服务请求多有的视图，可以将AccessibilityServiceInfo实例设置为FLAG_INCLUDE_NOT_IMPORTANT_VIEWS。
+　　无障碍服务通过系统传递AccessibilityEvent 到服务的onAccessibilityEvent()来获得用户界面事件。这个对象提供事件的详细信息，包括对象的类型、描述文本和其他细节。Android4.0以后的版本，可以通过使用以下的方法来获得附加信息。<br/>
+　　AccessibilityEvent.getRecordCount（）和getRecord（INT） -- 这些方法允许检索AccessibilityRecord对象的设置，这些设置促使系统将AccessibilityEvent传递给用户。这种详细程度为触发无障碍服务的事件提供详细内容。<br/>
+　　AccessibilityEvent.getSource（） - 这个方法返回一个AccessibilityNodeInfo对象。这个对象允许您请求无障碍事件有关的组件视图布局层次（父母和子女）。此功能允许访问服务调查一个事件的完整上下文，包括任何封闭意见或子视图的内容和状态。<br/>
+重要提示：从 AccessibilityEvent 中调查视图层次的能力可能会暴露用户私人信息到app。因为这个原因，app必须通过无障碍服务配置XML文件来请求访问级别，通过包含canRetrieveWindowContent 属性并设为true。如果在配置文件中不包含这个设置，会导致调用getSource()失败。<br/>
+注意：在android4.1（API等级16）和更高的系统中，getSource（）方法，以及AccessibilityNodeInfo.getChild（）和getParent（），只返回对无障碍很重要的视图对象（内容视图或回应用户操作）。如果您的服务请求多有的视图，可以将AccessibilityServiceInfo实例设置为FLAG_INCLUDE_NOT_IMPORTANT_VIEWS。<br/>
 
 ### 8.4为用户采取行动（taking action for users）
 
 
-    从android4.0开始（api14），无障碍服务可以为用户服务，包括改变输入焦点和选择（激活）用户界面元素。在android4.1中，无障碍行为增多到包括滚动列表、与文本字段交互。无障碍服务同时采用可以全局性行为，比如导航到注屏幕、按返回按钮、打开通知屏幕和最近应用列表。Android4.1还包括一个新类型的焦点，无障碍焦点，可以使所有视觉元素在无障碍服务用可选择。
-    这些新功能让无障碍服务的开发者去创建替代导航模式成为可能，如手势导航，给残障用户改善android设备的控制。
+　　从android4.0开始（api14），无障碍服务可以为用户服务，包括改变输入焦点和选择（激活）用户界面元素。在android4.1中，无障碍行为增多到包括滚动列表、与文本字段交互。无障碍服务同时采用可以全局性行为，比如导航到注屏幕、按返回按钮、打开通知屏幕和最近应用列表。Android4.1还包括一个新类型的焦点，无障碍焦点，可以使所有视觉元素在无障碍服务用可选择。<br/>
+　　这些新功能让无障碍服务的开发者去创建替代导航模式成为可能，如手势导航，给残障用户改善android设备的控制。<br/>
 
 ### 8.4.1手势监听
 
     
-    无障碍服务可以监听特殊手势，并通过用户代理响应。这个特性被添加到android4.1（api16），并且要求无障碍服务通过触摸手势来请求激活。服务通过设置服务的AccessibilityServiceInfo 实例的flags数到toFLAG_REQUEST_TOUCH_EXPLORATION_MODE，如以下样例所示：
+　　无障碍服务可以监听特殊手势，并通过用户代理响应。这个特性被添加到android4.1（api16），并且要求无障碍服务通过触摸手势来请求激活。服务通过设置服务的AccessibilityServiceInfo 实例的flags数到toFLAG_REQUEST_TOUCH_EXPLORATION_MODE，如以下样例所示：<br/>
 
 ```
 public class MyAccessibilityService extends AccessibilityService {     @Override     public void onCreate() {         getServiceInfo().flags = AccessibilityServiceInfo.FLAG_REQUEST_TOUCH_EXPLORATION_MODE;     }     ... }```
