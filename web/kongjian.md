@@ -447,31 +447,31 @@ placeholder 属性提供可描述输入字段预期值的提示信息（hint）�
 【问题描述】<br/>
 用tab键，无法定位到复选框；<br/>
 【可能原因】<br/>
-1、 标准控件的tabindex属性的值设置为-1；
-2、 没有给自定义的复选框设置tabindex属性；
-【修改建议】
+1、 标准控件的tabindex属性的值设置为-1；<br/>
+2、 没有给自定义的复选框设置tabindex属性；<br/>
+【修改建议】<br/>
 样例1：
-使用html标准控件，  且tabindex属性的值不能为-1；
- <input type="checkbox" tabindex="0" title="支付宝项目" />支付宝项目
+使用html标准控件，  且tabindex属性的值不能为-1；<br/>
+``` <input type="checkbox" tabindex="0" title="支付宝项目" />支付宝项目```
 样例2：
-自绘控件将控件的tabindex属性设为0；
-<div tabindex="0" role="checkbox">pc qq项目</div>
-注： 此代码只提示控件类型和获得焦点并不是一个完整的无障碍自绘复选框的代码， 因为选中状态不能朗读。
+自绘控件将控件的tabindex属性设为0；<br/>
+```<div tabindex="0" role="checkbox">pc qq项目</div>```
+注： 此代码只提示控件类型和获得焦点并不是一个完整的无障碍自绘复选框的代码， 因为选中状态不能朗读。<br/>
 
 ### 1.5.3复选框无法响应空格选中或取消选中
 
 
-【问题描述】
-tab定位到复选框后，无法用空格选中或取消选中该复选框；
-【可能原因】
-自定义控件没有提供键盘处理事件；
-【修改建议】
+【问题描述】<br/>
+tab定位到复选框后，无法用空格选中或取消选中该复选框；<br/>
+【可能原因】<br/>
+自定义控件没有提供键盘处理事件；<br/>
+【修改建议】<br/>
 样例1：
-使用html标准控件；
- <input type="checkbox" title="工程师名字" tabindex="0"/>工程师名字
+使用html标准控件；<br/>
+``` <input type="checkbox" title="工程师名字" tabindex="0"/>工程师名字```
 样例2：
-为控件添加空格点击响应事件；
-<html>
+为控件添加空格点击响应事件；<br/>
+```<html>
 <head>
 <title>test</title>
 <script>
@@ -497,67 +497,67 @@ obj.setAttribute("aria-checked","false");
 </ul>
 </div>
 </body>
-</html>
+</html>```
 
-注： 上面的代码添加了键盘处理事件， 键盘处理事件里面改变aria-checked的属性值， 在实际应用中开发者可以根据实际需要修改键盘事件代码。
+注： 上面的代码添加了键盘处理事件， 键盘处理事件里面改变aria-checked的属性值， 在实际应用中开发者可以根据实际需要修改键盘事件代码。<br/>
 
 ### 1.5.4复选框无提示文本
 
 
-【问题描述】
-tab定位到复选框，辅助程序不朗读是什么复选框；
-【可能原因】
-没有用label、title或其他方式提供目的文本；
-【修改建议】
+【问题描述】<br/>
+tab定位到复选框，辅助程序不朗读是什么复选框；<br/>
+【可能原因】<br/>
+没有用label、title或其他方式提供目的文本；<br/>
+【修改建议】<br/>
 样例1：
-为复选框选项添加label;
-<input type="checkbox" id="checkbox" tabindex="0"/>
- <label>已经回归的项目</label>
-注： 1、 label必须在checkbox的后面；2、此种方法对nvda无效， 争渡和永德读屏有效。
+为复选框选项添加label;<br/>
+```<input type="checkbox" id="checkbox" tabindex="0"/>
+ <label>已经回归的项目</label>```
+注： 1、 label必须在checkbox的后面；2、此种方法对nvda无效， 争渡和永德读屏有效。<br/>
 样例2： 
-添加title来说明checkbox的目的；
-<input type="checkbox" tabindex="0" title="已经解决的bug"/>已经解决的bug；
-注： title的值应该与视觉所见的文本一致。
+添加title来说明checkbox的目的；<br/>
+```<input type="checkbox" tabindex="0" title="已经解决的bug"/>已经解决的bug；```
+注： title的值应该与视觉所见的文本一致。<br/>
 样例3： 
-用label标签把checkbox包起来；
-<label><input type="checkbox" >qq project</label>
+用label标签把checkbox包起来；<br/>
+```<label><input type="checkbox" >qq project</label>```
 样例4：
-使用label 的for属性为复选框链接提示文本；
- <input type="checkbox" id="checkbox" tabindex="0"/>
-<label for="checkbox">未解决的bug</label>
-注： label标签的for属性的值必须与checkbox的id属性的值一致。此种方法label放在什么地方都没有问题。
+使用label 的for属性为复选框链接提示文本；<br/>
+``` <input type="checkbox" id="checkbox" tabindex="0"/>
+<label for="checkbox">未解决的bug</label>```
+注： label标签的for属性的值必须与checkbox的id属性的值一致。此种方法label放在什么地方都没有问题。<br/>
 样例5：
-使用aria-label为复选框添加提示文本；
-<input type="checkbox" tabindex="0" aria-label="结束的项目"/>结束的项目
+使用aria-label为复选框添加提示文本；<br/>
+```<input type="checkbox" tabindex="0" aria-label="结束的项目"/>结束的项目```
 样例6：
-使用aria-describedby为复选框提供提示文本；
- <input type="checkbox" tabindex="0" aria-describedby="label"/>
-<div id="label">male</div>
-注： 国内的一些读屏可能暂时不支持aria-describedby
+使用aria-describedby为复选框提供提示文本<br/>
+ ```<input type="checkbox" tabindex="0" aria-describedby="label"/>
+<div id="label">male</div>```
+注： 国内的一些读屏可能暂时不支持aria-describedby<br/>
 
 ### 1.5.5勾选后刷新，当前控件焦点丢失
 
 
-【问题描述】
-tab定位到复选框后，空格选中，页面自动刷新，焦点不会重新定位回该复选框；
-【可能原因】
+【问题描述】<br/>
+tab定位到复选框后，空格选中，页面自动刷新，焦点不会重新定位回该复选框；<br/>
+【可能原因】<br/>
 【修改建议】
-
+<br/>
 ### 1.5.6选中和取消选中状态不朗读
 
 
-【问题描述】
-tab定位到该复选框后，不朗读复选框的选中状态；
-【可能原因】
-自定义的控件没有播报状态给读屏；
-【修改建议】
+【问题描述】<br/>
+tab定位到该复选框后，不朗读复选框的选中状态；<br/>
+【可能原因】<br/>
+自定义的控件没有播报状态给读屏；<br/>
+【修改建议】<br/>
 样例1：
-使用标准html控件；
- <input type="checkbox" tabindex="0" title="项目名称"/>项目名称
+使用标准html控件；<br/>
+``` <input type="checkbox" tabindex="0" title="项目名称"/>项目名称```
 样例2：
 自会控件role=checkbox的情况下，使用aria-checked属性；
-aria-checked属性是true代表选中， 是false代表没有选中， 此选项应该用编程动态确定。
-<html>
+aria-checked属性是true代表选中， 是false代表没有选中， 此选项应该用编程动态确定。<br/>
+```<html>
 <head>
 <title>test</title>
 <script>
@@ -583,23 +583,23 @@ obj.setAttribute("aria-checked","false");
 </ul>
 </div>
 </body>
-</html>
+</html>```
 
 
 ### 1.5.7选中或取消选中后，没有及时读出选中状态
 
 
-【问题描述】
-tab定位到该复选框后，选中或取消选中，不会及时朗读选中状态，要重新定位回该焦点，才会朗读出选中状态；
-【可能原因】
-自定义复选框没有及时播报选中状态；
-【修改建议】
+【问题描述】<br/>
+tab定位到该复选框后，选中或取消选中，不会及时朗读选中状态，要重新定位回该焦点，才会朗读出选中状态；<br/>
+【可能原因】<br/>
+自定义复选框没有及时播报选中状态；<br/>
+【修改建议】<br/>
 样例1：
-使用html标准控件；
-<input type="checkbox" tabindex="0" title="项目名称"/>项目名称
+使用html标准控件；<br/>
+```<input type="checkbox" tabindex="0" title="项目名称"/>项目名称```
 样例2： 
-使用编程是和aria-checked属性及时播报选中状态
-<html>
+使用编程是和aria-checked属性及时播报选中状态;<br/>
+```<html>
 <head>
 <title>test</title>
 <script>
@@ -625,7 +625,7 @@ obj.setAttribute("aria-checked","false");
 </ul>
 </div>
 </body>
-</html>
+</html>```
 
 
 ## 1.6单选框
@@ -635,44 +635,44 @@ obj.setAttribute("aria-checked","false");
 ### 1.6.1单选框键盘无法获得焦点
 
 
-【问题描述】
-使用屏幕阅读器浏览网页，使用tab在网页内的控件间切换，tab找不到该单选框；
-【可能原因】
-自定义的单选框没有添加tabindex属性；
-【修改建议】
+【问题描述】<br/>
+使用屏幕阅读器浏览网页，使用tab在网页内的控件间切换，tab找不到该单选框；<br/>
+【可能原因】<br/>
+自定义的单选框没有添加tabindex属性；<br/>
+【修改建议】<br/>
 样例1：
-使用html标准控件；
-<fieldset>
+使用html标准控件；<br/>
+```<fieldset>
 <legend>搜索顺序</legend> 
 <input type="radio" name="order" id="order_alpha" />
 <label for="order_alpha">按字母排序</label>
 <input type="radio" name="order" id="order_default" checked="true" />
 <label for="order_default">默认</label>
-</fieldset>
+</fieldset>```
 样例2：
-自绘控件时，将role设置为radio，且tabindex属性设为0；
- <div role="radio" tabindex="0">男</div>
+自绘控件时，将role设置为radio，且tabindex属性设为0；<br/>
+ ```<div role="radio" tabindex="0">男</div>```
 
 ### 1.6.2无法使用方向键在单选框与单选框之间切换
 
 
-【问题描述】
-焦点到达单选框，用上下方向键无法改变单选按钮的选中状态；
-【可能原因】
-1、 一组标准控件单选框的name属性的值不一致；
-2、 自定义单选框没有做光标在单选框之间选择的支持；
-【修改建议】
+【问题描述】<br/>
+焦点到达单选框，用上下方向键无法改变单选按钮的选中状态；<br/>
+【可能原因】<br/>
+1、 一组标准控件单选框的name属性的值不一致；<br/>
+2、 自定义单选框没有做光标在单选框之间选择的支持；<br/>
+【修改建议】<br/>
 样例1：
-标准控件的单选框的一组的name属性的值设置为一致；
-<fieldset>
+标准控件的单选框的一组的name属性的值设置为一致；<br/>
+```<fieldset>
 <legend>性别</legend> 
 <input type="radio" name="order" id="order_alpha" />
 <label for="order_alpha">男</label>
 <input type="radio" name="order" id="order_default" checked="true" />
 <label for="order_default" >女</label>
-</fieldset>
+</fieldset>```
 样例2：
-自定义控件的单选框对上下光标选中单选框做支持；
+自定义控件的单选框对上下光标选中单选框做支持；<br/>
 
 ### 1.6.3单选框无提示文本
 
