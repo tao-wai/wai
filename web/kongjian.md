@@ -242,7 +242,7 @@ role="textbox"代表是一个编辑框， 自绘的编辑框加上role="textbox"
 方案3： 
 使用aria-describedby属性为编辑框关联提示文本；＜br/＞
 注： 此方法国内的一些屏幕阅读器可能暂时不支持＜br/＞
-<div id="container">
+```<div id="container">
 <h1>web端信息无障碍</h1>
 <h2>移动端信息无障碍</h2>
 <div>
@@ -251,11 +251,11 @@ role="textbox"代表是一个编辑框， 自绘的编辑框加上role="textbox"
       aria-describedby="tp1"
       aria-required="false"/>
 <div id="tp1" role="tooltip" aria-hidden="true">无障碍工具可选</div>
-</div>
+</div>```
 方案4：
-使用aria-labelledby连接一个标签和多个文本节点，应用与输入控件，aria-labelledby可以被用于label本地输入和非本地输入，例如contenteditable="true"的自定义输入控件div;aria-labelledby的一个特殊使用是文本输入控件，当一个有意义的标签应该包含多个label；id顺序应该是有逻辑的能被读屏软件读取的顺序；
-一个连接超时输入字段标签：
-<form>
+使用aria-labelledby连接一个标签和多个文本节点，应用与输入控件，aria-labelledby可以被用于label本地输入和非本地输入，例如contenteditable="true"的自定义输入控件div;aria-labelledby的一个特殊使用是文本输入控件，当一个有意义的标签应该包含多个label；id顺序应该是有逻辑的能被读屏软件读取的顺序；＜br/＞
+一个连接超时输入字段标签：＜br/＞
+```<form>
 <p>
 <span id="timeout-label" tabindex="-1">
 <label for="timeout-duration">延长时间到</label>
@@ -265,15 +265,15 @@ role="textbox"代表是一个编辑框， 自绘的编辑框加上role="textbox"
 <!--timeout-label包含label， timeout-duration为label的id; timeout-unit是个span元素的id；-->
 <span id="timeout-unit" tabindex="-1">分钟</span>
 </p>		
-</form>
+</form>```
 方案5：
-placeholder 属性提供可描述输入字段预期值的提示信息（hint）。该提示会在输入字段为空时显示，并会在字段获得焦点时消失。
-注释：placeholder 属性适用于以下的 <input> 类型：text, search, url, telephone, email 以及 password。
-<form action="demo_form.asp" method="get">
+placeholder 属性提供可描述输入字段预期值的提示信息（hint）。该提示会在输入字段为空时显示，并会在字段获得焦点时消失。＜br/＞
+注释：placeholder 属性适用于以下的 <input> 类型：text, search, url, telephone, email 以及 password。＜br/＞
+```<form action="demo_form.asp" method="get">
 输入要搜索的工程师名字
   <input type="search" name="user_search" placeholder="输入要搜索的工程师名字" />
   <input type="submit" value="搜索"/>
-</form>
+</form>```
 
 ### 1.3.4预设文本无法用键盘清除
 
