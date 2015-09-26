@@ -217,19 +217,19 @@ SWIFT <br/>
 import UIKit <br/>
 版本：Available in iOS 5.0 and later. <b <br/>r/>
     
-    UIAccessibilityNotifications
-    一个无障碍应用可以发送的通知；
-    声明：
-    SWIFT
-    typealias UIAccessibilityNotifications = UInt32
-    OBJECTIVE-C
-    typedef uint32_t UIAccessibilityNotifications;
-    引入声明：
-    OBJECTIVE-C
-    @import UIKit;
-    SWIFT
-    import UIKit
-    版本：Available in iOS 3.0 and later.
+UIAccessibilityNotifications <br/>
+　　一个无障碍应用可以发送的通知； <br/>
+声明：<br/>
+SWIFT <br/> 
+typealias UIAccessibilityNotifications = UInt32<br/>
+OBJECTIVE-C<br/>
+typedef uint32_t UIAccessibilityNotifications;<br/>
+引入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit;<br/>
+SWIFT<br/>
+import UIKit<br/>
+版本：Available in iOS 3.0 and later.<br/>
 
 
 ### 3.4常量
