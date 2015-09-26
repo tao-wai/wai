@@ -600,19 +600,19 @@ import UIKit<br/>
 ### 4.2访问包含视图（Accessing the Containing View）
 
 
-    accessibilityContainer：
-    包含无障碍元素的视图。
-    声明：
-    @property(nonatomic, assign) id accessibilityContainer
+accessibilityContainer：<br/>
+包含无障碍元素的视图。<br/>
+声明：<br/>
+@property(nonatomic, assign) id accessibilityContainer<br/>
 
 
 ### 4.3判定无障碍
 
 
-    isAccessibilityElement：
-    一个布尔值，指明该条目是不是一个无障碍应用可以访问的无障碍元素。这个属性的默认值是flase。如果接收器是个UIKit控件，默认值是true。
-    声明：
-    @property(nonatomic, assign) BOOL isAccessibilityElement
+isAccessibilityElement：<br/>
+　　一个布尔值，指明该条目是不是一个无障碍应用可以访问的无障碍元素。这个属性的默认值是flase。如果接收器是个UIKit控件，默认值是true。<br/>
+声明：<br/>
+@property(nonatomic, assign) BOOL isAccessibilityElement<br/>
 
 ### 4.4访问无障碍元素的属性
 
