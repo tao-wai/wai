@@ -941,42 +941,42 @@ role="menuitem"表示菜单项<br/>
       <li role="menuitemcheckbox" tabindex="-1" aria-checked="true">晴川</li>
       <li role="menuitemcheckbox" tabindex="-1" aria-checked="true">静秋</li>
       <li role="menuitemcheckbox" tabindex="-1" aria-checked="false">黄小仙</li>
-</ul>4）`````````
+</ul>4）```
 
 
 ### 1.8.4菜单无法聚焦
 
 
-【问题描述】
-使用标准键盘操作方式，一个没有聚焦的元素，是不能被操作的。因而，菜单相关元素必须是可以聚焦的，否则用户将无法对他们进行操作。
-【可能原因】
-【修改建议】
+【问题描述】<br/>
+使用标准键盘操作方式，一个没有聚焦的元素，是不能被操作的。因而，菜单相关元素必须是可以聚焦的，否则用户将无法对他们进行操作。<br/>
+【可能原因】<br/>
+【修改建议】<br/>
 样例1：
-将自定义菜单控件的tabindex属性设置为0； 
-<li role="menuitem" tabindex="0" href="...">安全退出</li>
+将自定义菜单控件的tabindex属性设置为0； <br/>
+```<li role="menuitem" tabindex="0" href="...">安全退出</li>```
 
 
 ### 1.8.5键盘焦点无法进入
 
 
-【问题描述】
-通过键盘操作，一个无法聚焦的元素将无法操作，一个菜单栏内的菜单项无法聚焦，则键盘焦点无法进入这个菜单，用户将不能进行菜单相关的操作。
-【可能原因】
-【修改建议】
+【问题描述】<br/>
+通过键盘操作，一个无法聚焦的元素将无法操作，一个菜单栏内的菜单项无法聚焦，则键盘焦点无法进入这个菜单，用户将不能进行菜单相关的操作。<br/>
+【可能原因】<br/>
+【修改建议】<br/>
 样例1：
-给子菜单项添加键盘焦点，如添加tabinedx属性；
-<li role="menuitem" tabindex="0" href="...">安全退出</li>
+给子菜单项添加键盘焦点，如添加tabinedx属性；<br/>
+```<li role="menuitem" tabindex="0" href="...">安全退出</li>```
 
 
 ### 1.8.6键盘焦点无法离开
 
 
-【问题描述】
-此情况较为复杂，可因菜单项具有onfocus="this.blur()"属性设置或使用了js代码限定了焦点的访问范围。
-例：使用了不适当的属性HTML；
-<li tabindex="0" role="menuitem" onfocus="this.blur()">安全退出</li>
-【可能原因】
-【修改建议】
+【问题描述】<br/>
+此情况较为复杂，可因菜单项具有onfocus="this.blur()"属性设置或使用了js代码限定了焦点的访问范围。<br/>
+例：使用了不适当的属性HTML；<br/>
+```<li tabindex="0" role="menuitem" onfocus="this.blur()">安全退出</li>```
+【可能原因】<br/>
+【修改建议】<br/>
 
 
 ### 1.8.7子菜单项无法获得焦点
