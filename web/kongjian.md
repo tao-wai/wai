@@ -109,8 +109,8 @@ Title用来描述新窗口打开方式：＜br/＞
 <a href="http://www.siaa.org.cn/" target="_blank"  title="在新窗口中打开"> </a>```
 样例7：
 给列表内链接添加描述文本，用已描述链接目的。＜br/＞
-关键代码：<a href="tomb_raider.htm">古墓丽影：传奇</a>
-全部代码：
+
+```
 <ul>
 <li>
 <a href="tomb_raider.htm">视障工程师王</a>
@@ -132,13 +132,14 @@ Title用来描述新窗口打开方式：＜br/＞
 <a href="warhammer_40k_images.htm">看图片</a>
 <a href="Warhammer_40k.mpeg">下载demo</a>
 </li>
-</ul>   
+</ul>```   
 样例8：
-使用链接文本为链接添加目的描述：
+使用链接文本为链接添加目的描述：＜br/＞
+```
 <h3>互联网产品信息无障碍</h3>
 <p>互联网产品信息无障碍大意是，互联网产品可以被视障者等用户顺畅使用...<a href="final15.html">[查看更多]</a></p>
 <h3>Folk artists get awards</h3>
-<p>从即将到来的全国民俗节表演者收到国家文物奖学金。<a href="nheritage.html">[更多]</a></p>
+<p>从即将到来的全国民俗节表演者收到国家文物奖学金。<a href="nheritage.html">[更多]</a></p>```
 更多链接添加 title 属性，会描述的更清楚；
 样例9：
 为表格内链接添加目的文本：
