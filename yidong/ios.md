@@ -1080,12 +1080,13 @@ return [NSString stringWithFormat:@"%@, %@", weatherCityLabel, weatherTempLabel]
 - (void)viewDidAppear:(BOOL)animated
 {
 [super viewDidAppear:animated];
-UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification,
+UIAccessibilityPostNotification
+(UIAccessibilityScreenChangedNotification,
 self.myFirstElement);
 }
 @end```
 
-　　如果只是布局改变，而不是屏幕内容改变，比如从人像模式转换到风景模式，使用UIAccessibilityLayoutChangedNotification而不是使用UIAccessibilityScreenChangedNotification。
+　　如果只是布局改变，而不是屏幕内容改变，比如从人像模式转换到风景模式，使用UIAccessibilityLayoutChangedNotification而不是使用UIAccessibilityScreenChangedNotification。<br/>
 　　注意：设备旋转引起的布局改变，需要重置voiceover光标的位置。<br/>
 
 ### 10.2响应特殊voiceover手势
