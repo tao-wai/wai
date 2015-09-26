@@ -1430,7 +1430,7 @@ tabindex="0"></div>```
 <a href="#" onfocus="this.blur()">TAB焦点切不到我</a>```
 样例2：
 为内联框架的子集添加焦点；<br/>
-```example2.html:
+```
 <iframe src="child.html" title="IFrame框架" />
 child.html:
 <ul>
