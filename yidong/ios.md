@@ -100,16 +100,16 @@ OBJECTIVE-C <br/>
 @property(nonatomic, copy, nullable) NSString *accessibilityHint <br/>
 版本：Available in iOS 3.0 and later. <br/>
 
-    accessibilityLabel
-    用本地语言简洁标签定义无障碍元素；这个属性的默认值为nil，除非接收器是个UIKit控件，这种情况下自动派生控件的label。
-    注意：如果在一个UISegmentedControl中提供一个UIImage对象，可以设置每个图片的这个属性来保证该部分可以正常访问。
-    如果实现一个自定义控件和视图，或者在UIKit空间上显示一个自定义图标，应该设置这个属性来保证无障碍元素有合适的label。如果一个无障碍元素不显示一个描述label，这个属性应该是简短的、本地化的指明该元素的label。例如，一个“播放音乐”的按钮可能会为近视用户显示该按钮是做什么的。为了可访问性，按钮应该有无障碍；label“播放”“播放音乐”，这样辅助应用可以提供这些信息给残障用户。注意，但是，label应该永远不包括控件类型因为类型信息被包含在与无障碍元素有关的特性中。
-    声明：
-    SWIFT
-    var accessibilityLabel: String?
-    OBJECTIVE-C
-    @property(nonatomic, copy, nullable) NSString *accessibilityLabel
-    版本：Available in iOS 3.0 and later.
+accessibilityLabel <br/>
+　　用本地语言简洁标签定义无障碍元素；这个属性的默认值为nil，除非接收器是个UIKit控件，这种情况下自动派生控件的label。 <br/>
+　　注意：如果在一个UISegmentedControl中提供一个UIImage对象，可以设置每个图片的这个属性来保证该部分可以正常访问。 <br/>
+　　如果实现一个自定义控件和视图，或者在UIKit空间上显示一个自定义图标，应该设置这个属性来保证无障碍元素有合适的label。如果一个无障碍元素不显示一个描述label，这个属性应该是简短的、本地化的指明该元素的label。例如，一个“播放音乐”的按钮可能会为近视用户显示该按钮是做什么的。为了可访问性，按钮应该有无障碍；label“播放”“播放音乐”，这样辅助应用可以提供这些信息给残障用户。注意，但是，label应该永远不包括控件类型因为类型信息被包含在与无障碍元素有关的特性中。 <br/>
+声明： <br/>
+SWIFT <br/>
+var accessibilityLabel: String? <br/>
+OBJECTIVE-C <br/>
+@property(nonatomic, copy, nullable) NSString *accessibilityLabel <br/>
+版本：Available in iOS 3.0 and later. <br/>
 
     accessibilityLanguage
     读出label、hint、value值的语言；此属性的默认值是nil，如果没有语言设置，会使用用户当前的语言。
