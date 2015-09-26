@@ -141,25 +141,25 @@ OBJECTIVE-C <br/>
 @property(nonatomic) UIAccessibilityTraits accessibilityTraits <br/>
 版本：Available in iOS 3.0 and later. <br/>
 
-    accessibilityValue
-    一个无障碍元素的value；此属性的默认值为nil，除非接收器为一个UIKit控件，这种情况下该属性呈现的是控件的值，当值与label不同的时候。
-    当一个无障碍元素有一个静态label，和一个动态值，应该设置这个属性来返回值。例如，虽然一个无障碍元素有一个“信息”label，它的值是当前文本域内的文本。
-    声明：
-    SWIFT
-    var accessibilityValue: String?
-    OBJECTIVE-C
-    @property(nonatomic, copy, nullable) NSString *accessibilityValue
-    版本：Available in iOS 3.0 and later.
+accessibilityValue <br/>
+一个无障碍元素的value；此属性的默认值为nil，除非接收器为一个UIKit控件，这种情况下该属性呈现的是控件的值，当值与label不同的时候。 <br/>
+当一个无障碍元素有一个静态label，和一个动态值，应该设置这个属性来返回值。例如，虽然一个无障碍元素有一个“信息”label，它的值是当前文本域内的文本。 <br/>
+声明： <br/>
+SWIFT <br/>
+var accessibilityValue: String? <br/>
+OBJECTIVE-C <br/>
+@property(nonatomic, copy, nullable) NSString *accessibilityValue <br/>
+版本：Available in iOS 3.0 and later. <br/>
 
-    accessibilityViewIsModal
-    一个布尔值，用来指明视图内的无障碍元素是否应该被voiceover忽略，这些视图是接收器的兄弟；该属性的默认值为NO。当该属性的值为YES时，voiceover忽略接收视图的兄弟视图中的元素。
-    例如，一个窗口包含兄弟视图A和B，设置B的accessibilityViewIsModal为YES，voiceover会忽略A元素。另一方面，如果视图B包含一个子视图C，且设置C的accessibilityViewIsModal为YES，voiceover不会忽略A中的元素。
-    声明：
-    SWIFT
-    var accessibilityViewIsModal: Bool
-    OBJECTIVE-C
-    @property(nonatomic) BOOL accessibilityViewIsModal
-    版本：Available in iOS 5.0 and later.
+accessibilityViewIsModal <br/>
+　　一个布尔值，用来指明视图内的无障碍元素是否应该被voiceover忽略，这些视图是接收器的兄弟；该属性的默认值为NO。当该属性的值为YES时，voiceover忽略接收视图的兄弟视图中的元素。 <br/>
+　　例如，一个窗口包含兄弟视图A和B，设置B的accessibilityViewIsModal为YES，voiceover会忽略A元素。另一方面，如果视图B包含一个子视图C，且设置C的accessibilityViewIsModal为YES，voiceover不会忽略A中的元素。 <br/>
+声明： <br/>
+SWIFT <br/>
+var accessibilityViewIsModal: Bool <br/>
+OBJECTIVE-C <br/>
+@property(nonatomic) BOOL accessibilityViewIsModal <br/>
+版本：Available in iOS 5.0 and later. <br/>
 
     shouldGroupAccessibilityChildren
     一个布尔值，用来指明voiceover是否应该将接收器子元素组合在一起讲述，无论这些子元素位于屏幕上的哪个位置；该属性的默认值为NO。
