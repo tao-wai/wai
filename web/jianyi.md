@@ -131,36 +131,36 @@ CSS代码:
 ### 3.3.1在网页第一交互条目就是添加一个链接到主内容的开始
 
 
-    样例1：
-    在线报纸网页，第一个tab就是跳到主要故事；
-    样例2：
-    第一个链接为跳到主要内容；
+样例1：<br/>
+在线报纸网页，第一个tab就是跳到主要故事；<br/>
+样例2：<br/>
+第一个链接为跳到主要内容；<br/>
 
 ### 3.3.2提供一种机制从网页模块开头跳转到模块尾部
 
 
-    当有许多模块需要跳转的时候，用户使用这种机制跳转；
-    样例1：
-    跳过导航链接，网页第一个链接的title为（跳过导航区域）；
-    样例2：
-    书目导航，在目录前边有术语解释或者其他内容，这个区域的第一个链接应该是：跳过给区域到目录；
-    样例3：
-    一个网站的所有网页包含网站地图的链接、杂志信息、怎样联系机构。所有的链接都包含子链接，第一个模块的第一个链接的title应为跳过导航链接，第二个模块的title应为跳过章节链接，跳过所有子链接。
+　　当有许多模块需要跳转的时候，用户使用这种机制跳转；
+样例1：<br/>
+　　跳过导航链接，网页第一个链接的title为（跳过导航区域）；<br/>
+样例2：<br/>
+　　书目导航，在目录前边有术语解释或者其他内容，这个区域的第一个链接应该是：跳过给区域到目录；<br/>
+样例3：<br/>
+　　一个网站的所有网页包含网站地图的链接、杂志信息、怎样联系机构。所有的链接都包含子链接，第一个模块的第一个链接的title应为跳过导航链接，第二个模块的title应为跳过章节链接，跳过所有子链接<br/>。
 
 ### 3.3.3在网页顶端添加网页各内容的链接
 
 
-    样例1：
-    在所有网页开始都有三个链接：跳转到主页、搜索区域、导航条。
+样例1：<br/>
+在所有网页开始都有三个链接：跳转到主页、搜索区域、导航条。<br/>
     
 ### 3.3.4使用ARIA路标（landmark）来区分网页中的区域
 
 
-    网页内的某一区域作为导航路标。辅助技术应该允许用户快速导航到该区域，主流的用户代理允许用户快速的导航到路标区域。注：路标是网页集的规则简介。开发者不建议在内容中使用该角色。
-    landmark是网页上用户想快速浏览的某一区域，这个区域的内容与其他区域的用户目的不同，比如导航、搜索、查看详细内容做作用。
-    路标通过添加role属性来标记区域。role属性的值就是路标的名字，值有：banner（旗帜）、complemenary（附加）、contentinfo（引用）、form（表单）、navigation（导航）、search（搜索）、application（应用）。最好landmark中包含网页中的所有内容，读屏使用者不会丢失内容。
-    landmark上一级role是region（区域），下一级role有application（应用）、banner（旗帜）、complementary（补充）、contentinfo、form（表单）、main（主题）、navigation（导航）、search（搜索）；
-    样例1：简单路标
+　　网页内的某一区域作为导航路标。辅助技术应该允许用户快速导航到该区域，主流的用户代理允许用户快速的导航到路标区域。注：路标是网页集的规则简介。开发者不建议在内容中使用该角色<br/>。
+　　landmark是网页上用户想快速浏览的某一区域，这个区域的内容与其他区域的用户目的不同，比如导航、搜索、查看详细内容做作用。<br/>
+　　路标通过添加role属性来标记区域。role属性的值就是路标的名字，值有：banner（旗帜）、complemenary（附加）、contentinfo（引用）、form（表单）、navigation（导航）、search（搜索）、application（应用）。最好landmark中包含网页中的所有内容，读屏使用者不会丢失内容。<br/>
+　　landmark上一级role是region（区域），下一级role有application（应用）、banner（旗帜）、complementary（补充）、contentinfo、form（表单）、main（主题）、navigation（导航）、search（搜索）；<br/>
+样例1：简单路标
 ```
 <div id="header" role="banner">旗帜图片和介绍性标题</div>
 <div id="sitelookup" role="search">搜索区域</div>
@@ -168,8 +168,8 @@ CSS代码:
 <div id="content" role="main">渥太华是加拿大的首都</div>
 <div id="rightsideadvert" role="complementary">.这有一个广告</div>
 <div id="footer" role="contentinfo">(c)自由公司、123自由路、美国T</div>```
-    样例2：
-    如果使用多次同一role值的路标，应该依靠aria-labelledby属性来区分，aria-labelledby属性值是子元素的id值；
+样例2：<br/>
+如果使用多次同一role值的路标，应该依靠aria-labelledby属性来区分，aria-labelledby属性值是子元素的id值；<br/>
 ```
 <div id="leftnav" role="navigaton" aria-labelledby="leftnavheading">
 <h2 id="leftnavheading">系统链接</h2>
@@ -177,15 +177,15 @@ CSS代码:
 <div id="rightnav" role="navigation" aria-labelledby="rightnavheading">
 <h2 id="rightnavheading">有关的题目</h2>
 <ul><li>这里有一堆信息无障碍相关链接</li></ul></div>```
-    样例3：
-    同一role值的路标，没有可以区分的文本，使用aria-label来区分；
+样例3：<br/>
+同一role值的路标，没有可以区分的文本，使用aria-label来区分；<br/>
 ```
 <div id="leftnav" role="navigaton" aria-label="Primary">
 <ul><li>这里有一堆信息无障碍相关链接 </li></ul> </div>
 <div id="rightnav" role="navigation" aria-label="Secondary">
 <ul><li>这里有一堆信息无障碍相关链接 </li> </ul></div>```
-    样例4：
-    搜索表单；
+样例4：<br/>
+搜索表单；<br/>
 ```
 <form role="search">
 <label for="s6">搜索</label><input id="s6" type="text" size="20">
@@ -194,8 +194,8 @@ CSS代码:
 ###   3.3.5在每一个章节内容前提供标题元素：要求上下级标题有继承和逻辑关系
 
 
-    样例1：
-    通过使用h2标签组织章节；
+样例1：
+通过使用h2标签组织章节；<br/>
 ```
 <h1>搜索信息无障碍技术周刊</h1>
  <h2>搜索</h2>
@@ -212,7 +212,7 @@ CSS代码:
  </div>
  <h2>搜索期刊</h2>
   搜索到的期刊   ``` 
-    样例2：使用标题展示网页内容的组织；
+样例2：使用标题展示网页内容的组织；<br/>
 ```
 <!-- Logo, 旗帜广告, 搜索表单, 等等.  -->
   <h2>导航</h2>
