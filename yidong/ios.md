@@ -491,28 +491,28 @@ OBJECTIVE-C<br/>
 SWIFT<br/><br/>
 import UIKit<br/>
     
-    UIAccessibilityReduceMotionStatusDidChangeNotification
-    当系统的减少运动（reduce motion）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-    使用UIAccessibilityPostNotification功能推送这个通知。
-    声明：
-    SWIFT
-    let UIAccessibilityReduceMotionStatusDidChangeNotification: String
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
+UIAccessibilityReduceMotionStatusDidChangeNotification<br/>
+　　当系统的减少运动（reduce motion）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
+使用UIAccessibilityPostNotification功能推送这个通知。<br/>
+声明：<br/>
+SWIFT<br/>
+let UIAccessibilityReduceMotionStatusDidChangeNotification: String<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
 
-    UIAccessibilityReduceTransparencyStatusDidChangeNotification
-    当系统的降低透明度（Reduce Transparency）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-    声明：
-    SWIFT
-    let UIAccessibilityReduceTransparencyStatusDidChangeNotification: String
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
+UIAccessibilityReduceTransparencyStatusDidChangeNotification<br/>
+　　当系统的降低透明度（Reduce Transparency）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。<br/>
+声明：<br/>
+SWIFT<br/>
+let UIAccessibilityReduceTransparencyStatusDidChangeNotification: String<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
     
     UIAccessibilityResumeAssistiveTechnologyNotification
     推送此通知来暂时恢复辅助技术的运行。当推送此通知，指定辅助技术作为一个参数。必须推送此通知来平衡之前的UIAccessibilityPauseAssistiveTechnologyNotification推送通知。使用UIAccessibilityPostNotification功能来推送此通知。
