@@ -632,19 +632,19 @@ accessibilityValue：<br/>
 声明：<br/>
 @property(nonatomic, retain) NSString *accessibilityValue<br/>
 
-    accessibilityFrame：
-    属性，在屏幕坐标上无障碍元素的框架；当创建一个无障碍元素来呈现应用中的一个元素，必须设置这个属性到CGRect结构，这个结构指明对象的屏幕位置和大小。（继承自UIView的对象默认包含该信息）。
-    声明：
-    @property(nonatomic, assign) CGRect accessibilityFrame
+accessibilityFrame：<br/>
+　　属性，在屏幕坐标上无障碍元素的框架；当创建一个无障碍元素来呈现应用中的一个元素，必须设置这个属性到CGRect结构，这个结构指明对象的屏幕位置和大小。（继承自UIView的对象默认包含该信息）。<br/>
+声明：<br/>
+@property(nonatomic, assign) CGRect accessibilityFrame<br/>
 
-    accessibilityTraits：
-    属性，最能描述无障碍元素的特性组合。一个trait描述了一个元素行为、状态、使用中的一个方面。这个属性将几个trait组合，给辅助应用关于该元素一个全面的描述。可查看UIAccessibility Protocol Reference中“Accessibility Traits”的traits列表。
-    UIKit为所有标准控件和视图，提供合适的trait组合。当为一个自定义无障碍元素组合特性时，要保证：
-    使用常识。如果描述元素的特性是相互排斥的，不要组合特性，比如将按钮和搜索区域的特性组合。
-    使用superclass特性组合已选择的特性。具体的说，使用[super accessibilityTraits]和用来设置自定义特性的方法组合自定义特性。
-    声明：
-    @property(nonatomic, assign) UIAccessibilityTraits accessibilityTraits
-
+accessibilityTraits：<br/>
+　　属性，最能描述无障碍元素的特性组合。一个trait描述了一个元素行为、状态、使用中的一个方面。这个属性将几个trait组合，给辅助应用关于该元素一个全面的描述。可查看UIAccessibility Protocol Reference中“Accessibility Traits”的traits列表。<br/>
+UIKit为所有标准控件和视图，提供合适的trait组合。当为一个自定义无障碍元素组合特性时，要保证：<br/>
+使用常识。如果描述元素的特性是相互排斥的，不要组合特性，比如将按钮和搜索区域的特性组合。<br/>
+使用superclass特性组合已选择的特性。具体的说，使用[super< accessibilityTraits]和用来设置自定义特性的方法组合自定义特性。<br/>
+声明：<br/>
+@property(nonatomic, assign) UIAccessibilityTraits accessibilityTraits
+<br/>
 ## 5.UI无障碍容器（UIAccessibilityContainer）
 
 
