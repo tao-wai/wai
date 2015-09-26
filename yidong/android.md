@@ -576,13 +576,13 @@ class CustomTouchView extends View {
 ```
 public class MyAccessibilityService extends AccessibilityService {     @Override     public void onCreate() {         getServiceInfo().flags = AccessibilityServiceInfo.FLAG_REQUEST_TOUCH_EXPLORATION_MODE;     }     ... }```
 
-    一旦通过触摸打开请求激活无障碍服务，用户必须允许这个特性打开，如果这个特性不是已经激活。当这个特性激活的时候，无障碍服务通过服务的onGesture()接收到无障碍手势的通知，并且通过用户代理响应。
+　　一旦通过触摸打开请求激活无障碍服务，用户必须允许这个特性打开，如果这个特性不是已经激活。当这个特性激活的时候，无障碍服务通过服务的onGesture()接收到无障碍手势的通知，并且通过用户代理响应。<br/>
 
 ### 8.4.2使用无障碍行为
 
 
-    无障碍服务通过用户代理让与应用的交互更简单更有效。这个功能起始于android4.0，在android4.1（api16）有很大的扩展。
-    为了在用户代理上采取行动。无障碍服务必须注册来从少量或者很多应用中接收事件，并通过在服务配置文件将android:canRetrieveWindowContent设置为true来请求允许查看应用内容。当无障碍服务接收到事件，它会使用getSource()从事件中检索AccessibilityNodeInfo对象。使用AccessibilityNodeInfo对象，无障碍服务可以通过视图层级来决定采取什么响应，使用performAction()响应用户。
+　　无障碍服务通过用户代理让与应用的交互更简单更有效。这个功能起始于android4.0，在android4.1（api16）有很大的扩展。<br/>
+　　为了在用户代理上采取行动。无障碍服务必须注册来从少量或者很多应用中接收事件，并通过在服务配置文件将android:canRetrieveWindowContent设置为true来请求允许查看应用内容。当无障碍服务接收到事件，它会使用getSource()从事件中检索AccessibilityNodeInfo对象。使用AccessibilityNodeInfo对象，无障碍服务可以通过视图层级来决定采取什么响应，使用performAction()响应用户。<br/>
 
 ```
 public class MyAccessibilityService extends AccessibilityService { 
