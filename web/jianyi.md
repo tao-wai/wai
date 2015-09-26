@@ -812,7 +812,7 @@ aria-labelledby可以被应用到多种元素，label元素只能用于表单元
 <input name="searchtxt" type="text" aria-labelledby="searchbtn">
 <input name="searchbtn" id="searchbtn" type="submit" value="Search">```
 样例2：<br/>
-标记滑块：使用aria-labelledby为滑块控件提供label，它的标记信息来自临近的文本。<br/>
+　　标记滑块：使用aria-labelledby为滑块控件提供label，它的标记信息来自临近的文本。<br/>
 ```
 <p><span id="mysldr-lbl">请选择旅行时间</span></p>
 <div id="mysldr" role="slider" aria-labelledby="mysldr-lbl"></div>```
@@ -825,16 +825,16 @@ aria-labelledby可以被应用到多种元素，label元素只能用于表单元
   <option value="2">2</option>
 </select>
 <span id="l2" tabindex="-1">提前多少天</span>```
-    3）使用标记功能暴露出元素的名称和角色，允许用户直接更改的属性可以直接设置，并提供更改通知；
-    使用html控件和链接；
-    使用label元素连接文本label和表单控件；
-    使用框架和内置框架的title的属性；
-    当label不能使用的时候使用title属性来识别表单元素；
-    4）使用wai-aria角色来暴露用户界面元素；
-    使用这个技巧可以定义一个元素的角色，角色role的属性值是wai-aria定义的非抽象值。wai-aria说明文档为每一个角色提供了描述信息，怎样连接其他元素，每个角色的状态和属性。当丰富互联网应用定义新的用户界面小程序，暴露出的role可以让用户更好的理解小程序并与之交互；
-    样例1：
-    一个简单的工具条；
-    wai-aria开发实践文档定义包含三个按钮的工具条。div有一个toolbar属性，图片元素有一个button属性。
+3）使用标记功能暴露出元素的名称和角色，允许用户直接更改的属性可以直接设置，并提供更改通知；<br/>
+使用html控件和链接；<br/>
+使用label元素连接文本label和表单控件；<br/>
+使用框架和内置框架的title的属性；<br/>
+当label不能使用的时候使用title属性来识别表单元素；<br/>
+4）使用wai-aria角色来暴露用户界面元素；<br/>
+　　使用这个技巧可以定义一个元素的角色，角色role的属性值是wai-aria定义的非抽象值。wai-aria说明文档为每一个角色提供了描述信息，怎样连接其他元素，每个角色的状态和属性。当丰富互联网应用定义新的用户界面小程序，暴露出的role可以让用户更好的理解小程序并与之交互；<br/>
+样例1：<br/>
+一个简单的工具条；<br/>
+  wai-aria开发实践文档定义包含三个按钮的工具条。div有一个toolbar属性，图片元素有一个button属性。<br/>
  ```
  <div role="toolbar"
       tabindex="0" 
@@ -864,12 +864,12 @@ aria-labelledby可以被应用到多种元素，label元素只能用于表单元
            id="b3" 
            title="Help"> 
  </div>  ```
-    样例2：
-    树形应用；
-    tree、treeitem、group的role值用来辨别树和它的结构。
-    role="tree"表示树形
-    role="treeitem"表示树结构选项
-    role="group"表示组合并
+样例2：<br/>
+树形应用；<br/>
+tree、treeitem、group的role值用来辨别树和它的结构。<br/>
+role="tree"表示树形<br/>
+role="treeitem"表示树结构选项<br/>
+role="group"表示组合并<br/>
 
 ```
 <ul role="tree" tabindex="0">
@@ -892,11 +892,11 @@ aria-labelledby可以被应用到多种元素，label元素只能用于表单元
     </ul>
   </li>
 </ul>```
-    5）使用wai-aria状态和属性来暴露用户界面元素的状态；
-    这个技巧使用来暴露用户界面元素的状态属性和值，这样就可以被辅助技术读取和设置，辅助技术也可以被告知这些值的改变。wai-aria说明提供每个属性和每个role的正式描述。当丰富互联网应用定义新的用户界面小程序，暴露出的role可以让用户更好的理解小程序并与之交互；
-    样例1：切换按钮
-    有role的值为button为小程序当有aira-pressed属性的时候可以作为切换按钮。当aria-pressed为真时，按钮在按下的状态。当aria-pressed为假时，未被按下。如果aria-pressed不存在时，按钮只是个简单的控制按钮。
-    全部代码：
+5）使用wai-aria状态和属性来暴露用户界面元素的状态；<br/>
+　　这个技巧使用来暴露用户界面元素的状态属性和值，这样就可以被辅助技术读取和设置，辅助技术也可以被告知这些值的改变。wai-aria说明提供每个属性和每个role的正式描述。当丰富互联网应用定义新的用户界面小程序，暴露出的role可以让用户更好的理解小程序并与之交互；<br/>
+样例1：切换按钮<br/>
+ 有role的值为button为小程序当有aira-pressed属性的时候可以作为切换按钮。当aria-pressed为真时，按钮在按下的状态。当aria-pressed为假时，未被按下。如果aria-pressed不存在时，按钮只是个简单的控制按钮。<br/>
+全部代码：<br/>
 ```
 <li id="bold1"  
     class="toggleButton"
@@ -907,7 +907,7 @@ aria-labelledby可以被应用到多种元素，label元素只能用于表单元
     aria-controls="text1">//此时列表只是个控制按钮
     <img src="http://www.oaa-accessibility.org/media/examples/images/button-bold.png" alt="bold text" align="middle">
 </li>```
-    脚本程序：用来切换aria-pressed的true和false的状态；
+脚本程序：用来切换aria-pressed的true和false的状态；<br/>
 ```
 function togglePressed(id) {
     // reverse the aria-pressed state
@@ -918,9 +918,9 @@ function togglePressed(id) {
       $(id).attr('aria-pressed', 'true');
     }
   }```
-    样例2：滑块
-    一个role为slider的小程序，允许用户在一个规定范围内选择一个值。滑块通过滑块的大小和位置来呈现的当前值和范围。这些滑块的属性通过aria-valuemin、aria-valuemax、aria-valuenow来呈现；
-    以下为ajax无障碍样例，展示了使用js创建滑块。
+样例2：滑块<br/>
+　　一个role为slider的小程序，允许用户在一个规定范围内选择一个值。滑块通过滑块的大小和位置来呈现的当前值和范围。这些滑块的属性通过aria-valuemin、aria-valuemax、aria-valuenow来呈现<br/>；
+　　以下为ajax无障碍样例，展示了使用js创建滑块。<br/>
 ```
 var handle = '<img 
 id="' + id + '" 
