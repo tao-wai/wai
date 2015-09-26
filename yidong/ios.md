@@ -21,11 +21,11 @@
 ## 2.IOS UI无障碍编程接口
 
 
-    UI无障碍编程接口包含两个非正式协议，一个类，一个函数，还有一些常量。
-    UIAccessibility非正式协议。实现UIAccessibility协议的对象可以报告无障碍状态（即他们是否是无障碍的）并且提供关于他们的描述性信息。UIAccessibility协议默认由标准UIKit控件和视图实现。
-    UIAccessibilityContainer非正式协议。此协议通过子类UIView来使它所包含的部分或者全部对象是无障碍的分离元素，当非UIView子类的对象被UIView视图包含时，这些元素不会自动变成无障碍元素，此时UIAccessibilityContainer协议就非常有用。
-    UIAccessibilityElement类。定义了一个对象是否能通过UIAccessibilityContainer协议返回。你可以创建UIAccessibilityElement实例来代表无法自动变为无障碍的元素，例如一个没有继承自UIView的对象，或者一个不存在的对象。
-    UIAccessibilityConstants.h头文件。此头文件定义了用来描述某些特征的常量。这些常量即可展示的无障碍元素，还有可被应用发布的通知。
+　　UI无障碍编程接口包含两个非正式协议，一个类，一个函数，还有一些常量。<br/>
+UIAccessibility非正式协议。实现UIAccessibility协议的对象可以报告无障碍状态（即他们是否是无障碍的）并且提供关于他们的描述性信息。UIAccessibility协议默认由标准UIKit控件和视图实现。<br/>
+UIAccessibilityContainer非正式协议。此协议通过子类UIView来使它所包含的部分或者全部对象是无障碍的分离元素，当非UIView子类的对象被UIView视图包含时，这些元素不会自动变成无障碍元素，此时UIAccessibilityContainer协议就非常有用。<br/>
+UIAccessibilityElement类。定义了一个对象是否能通过UIAccessibilityContainer协议返回。你可以创建UIAccessibilityElement实例来代表无法自动变为无障碍的元素，例如一个没有继承自UIView的对象，或者一个不存在的对象。<br/>
+UIAccessibilityConstants.h头文件。此头文件定义了用来描述某些特征的常量。这些常量即可展示的无障碍元素，还有可被应用发布的通知。<br/>
 
 
 ## 3.UI无障碍(UIAccessibility)
