@@ -7,25 +7,26 @@
 ## 1.Android无障碍设计指导原则
 
 
-    Android 设计原则中“让哥知道现在在哪儿”是无障碍性的关键。当用户在应用中浏览时，他们需要通过一定的反馈来知道自己的位置。设计一个合理的应用结构是关键。大多数用户可以通过视觉和振动反馈了解浏览的位置 (例如文字标签、颜色、图标和触摸反馈)，视觉障碍的用户则需要通过语音提示和高对比视觉效果来了解位置。
-    设计应用时，请记住有时文字标签是需要通过语音进行提示的。当使用 Explore by Touch 时，用户可以通过声音来了解你的应用结构，它们应当是简洁、清楚且明了的。请按照下面的指导进行设计，以满足各种用户的需求。
-    1）使导航符合直觉
-    设计一个清晰且明确的工作流程，减少导航步骤，尤其是对于重要的任务。保证各种任务都能通过控件进行操作。
-    2)使用推荐的触摸控件大小
-    48 dp 是推荐的触摸控件大小。控件之间留白为8dp；阅读度量单位和网格一节，了解如何帮助你的用户使用。对于一些特别的用户，可能需要使用更大一些的控件。例如对于教育应用，更大的控件会比较适合儿童或者有行动障碍的人士使用。
-    3）视觉元素的文字标签要有意义
-    在你做设计时，label functional UI 控件可能没有文字标签，例如按钮、图标、图标标签和状态图标。开发者可以通过阅读 contentDescription 了解如何设置这些控件的文字标签属性。
-    这个属性的主要功能是为视力有障碍的人增加对控件的解释。这个属性必须在用户的Accessible中的相应属性开启后才能使用。设置View的备注说明，作为一种辅助功能提供,为一些没有文字描述的View提供说明，如ImageButton。这里在界面上不会有效果，自己在程序中控制，可临时放一点字符串数据。
-    设置View的备注说明，作为一种辅助功能提供,为一些没有文字描述的View提供说明，如ImageButton。这里在界面上不会有效果，自己在程序中控制，可临时放一点字符串数据。
-    （1）首先下载google的应用 TalkBack (an accessibility service published by Google) 并且将功能打开 Settings > Accessibility > TalkBack 设置为On。
-    （2）在应用中添加这个属性。
+　　Android 设计原则中“让哥知道现在在哪儿”是无障碍性的关键。当用户在应用中浏览时，他们需要通过一定的反馈来知道自己的位置。设计一个合理的应用结构是关键。大多数用户可以通过视觉和振动反馈了解浏览的位置 (例如文字标签、颜色、图标和触摸反馈)，视觉障碍的用户则需要通过语音提示和高对比视觉效果来了解位置。<br/>
+　　设计应用时，请记住有时文字标签是需要通过语音进行提示的。当使用 Explore by Touch 时，用户可以通过声音来了解你的应用结构，它们应当是简洁、清楚且明了的。请按照下面的指导进行设计，以满足各种用户的需求。<br/>
+1）使导航符合直觉<br/>
+　　设计一个清晰且明确的工作流程，减少导航步骤，尤其是对于重要的任务。保证各种任务都能通过控件进行操作。<br/>
+2)使用推荐的触摸控件大小<br/>
+　　48 dp 是推荐的触摸控件大小。控件之间留白为8dp；阅读度量单位和网格一节，了解如何帮助你的用户使用。对于一些特别的用户，可能需要使用更大一些的控件。例如对于教育应用，更大的控件会比较适合儿童或者有行动障碍的人士使用。<br/>
+3）视觉元素的文字标签要有意义<br/>
+　　在你做设计时，label functional UI 控件可能没有文字标签，例如按钮、图标、图标标签和状态图标。开发者可以通过阅读 contentDescription 了解如何设置这些控件的文字标签属性。<br/>
+　　这个属性的主要功能是为视力有障碍的人增加对控件的解释。这个属性必须在用户的Accessible中的相应属性开启后才能使用。设置View的备注说明，作为一种辅助功能提供,为一些没有文字描述的View提供说明，如ImageButton。这里在界面上不会有效果，自己在程序中控制，可临时放一点字符串数据。<br/>
+　　设置View的备注说明，作为一种辅助功能提供,为一些没有文字描述的View提供说明，如ImageButton。这里在界面上不会有效果，自己在程序中控制，可临时放一点字符串数据。<br/>
+（1）首先下载google的应用 TalkBack (an accessibility service published by Google) 并且将功能打开 Settings > Accessibility > TalkBack 设置为On。<br/>
+（2）在应用中添加这个属性。<br/>
     ```<Button
     android:id=”@+id/pause_button”
     android:src=”@drawable/pause”
-    android:contentDescription=”@string/pause”/>```
-    （3）由于这个控件没有text属性，对于一些用户来说，无法理解这个控件是做什么的。这时用户点击这个控件。android系统会自动使用人声朗读控件上android:contentDescription属性说指向的内容。这样用户就可以知道这个控件是做什么用的。Android布局contentDescription属性：
+   android:contentDescription=”@string/pause”/>```
+（3）由于这个控件没有text属性，对于一些用户来说，无法理解这个控件是做什么的。这时用户点击这个控件。android系统会自动使用人声朗读控件上android:contentDescription属性说指向的内容。这样用户就可以知道这个控件是做什么用的。Android布局contentDescription属性：<br/>
 ```
-1.<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+1.<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/
+android"  
 2.    xmlns:tools="http://schemas.android.com/tools"  
 3.    android:layout_width="match_parent"  
 4.    android:layout_height="match_parent"  
