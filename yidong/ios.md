@@ -10,12 +10,12 @@
 
 　　VoiceOver 是苹果公司创新的读屏技术，通过这个技术，用户无需看屏幕就可以控制设备。VoiceOver在用户界面与用户触控之间充当媒介，描述了应用程序中的元素与行为。当VoiceOver激活时，用户无需担心意外地删除了联系人或者拨打了电话，因为VoiceOver会提醒用户界面位置，他们可以操作什么，结果如何。<br/>
 　　一个程序是不是无障碍的，取决于用户可以交互的所有界面元素是否是无障碍的。一个界面元素是否是无障碍的取决于它是否在恰当的时候告知用户它是一个无障碍的元素。<br/>
-一个无障碍的界面元素必须准确提供关于它的信息才能被使用。这些信息包括它在屏幕的位置、名称、行为、值和类型。这　　正是VoiceOver播报给用户的信息。iOS SDK包含了编程接口和工具，来帮你确保程序中的用户界面元素是无障碍且好用的。
+一个无障碍的界面元素必须准确提供关于它的信息才能被使用。这些信息包括它在屏幕的位置、名称、行为、值和类型。这　　正是VoiceOver播报给用户的信息。iOS SDK包含了编程接口和工具，来帮你确保程序中的用户界面元素是无障碍且好用的。<br/>
 应该让iPhone应用能被VoiceOver的用户们无障碍的使用，因为：<br/>
-这会增加你的用户基数。你已经努力的创造优秀的程序，不要错过让你的程序能被更多用户使用的机会。<br/>
-无障碍应用可以使你的用户无需看屏幕。视障用户可以通过VoiceOver的帮助来使用的你的应用。<br/>
-写无障碍程序使你理解无障碍准则。很多管理部门编写了无障碍准则，你为VoiceOver用户编写无障碍的iPhone应用能帮助你满足这些准则。<br/>
-这是正确的决定。<br/>
+1.这会增加你的用户基数。你已经努力的创造优秀的程序，不要错过让你的程序能被更多用户使用的机会。<br/>
+2.无障碍应用可以使你的用户无需看屏幕。视障用户可以通过VoiceOver的帮助来使用的你的应用。<br/>
+3.写无障碍程序使你理解无障碍准则。很多管理部门编写了无障碍准则，你为VoiceOver用户编写无障碍的iPhone应用能帮助你满足这些准则。<br/>
+4.这是正确的决定。<br/>
 　　支持无障碍特性不会影响你创造优异iPhone应用的能力，记得这点非常重要。为用户界面编程接口增加薄薄的一个功能层，不会改变应用的外观，也不会妨碍到应用的主要逻辑。<br/>
 
 ## 2.IOS UI无障碍编程接口
@@ -250,10 +250,10 @@ var UIAccessibilityTraitKeyboardKey: UIAccessibilityTraits
 var UIAccessibilityTraitStaticText: UIAccessibilityTraits
 var UIAccessibilityTraitSummaryElement: UIAccessibilityTraits
 var UIAccessibilityTraitNotEnabled: UIAccessibilityTraits
-var UIAccessibilityTraitUpdatesFrequently: UIAccessibilityTraits
+var UIAccessibilityTraitUpdatesFrequently:UIAccessibilityTraits
 var UIAccessibilityTraitStartsMediaSession: UIAccessibilityTraits
 var UIAccessibilityTraitAdjustable: UIAccessibilityTraits
-var UIAccessibilityTraitAllowsDirectInteraction: UIAccessibilityTraits
+varUIAccessibilityTraitAllowsDirectInteraction:UIAccessibilityTraits
 var UIAccessibilityTraitCausesPageTurn: UIAccessibilityTraits
 var UIAccessibilityTraitHeader: UIAccessibilityTraits
 OBJECTIVE-C
@@ -328,7 +328,8 @@ Assistive Technology Identifiers<br/>
 ```SWIFT
 let UIAccessibilityNotificationSwitchControlIdentifier: String
 OBJECTIVE-C
-NSString *const UIAccessibilityNotificationSwitchControlIdentifier;```
+NSString *const 
+UIAccessibilityNotificationSwitchControlIdentifier;```
 常量：<br/>
 UIAccessibilityNotificationSwitchControlIdentifier ：开关控制技术。这个技术允许行动不便的用户使用一个单一物理按键来访问app。当这个技术启动时，ios会在屏幕上圈一个光标，从一个元素到一个元素。用户点击开关来运行光标下的严肃。Available in iOS 8.0 and later.<br/>
 
@@ -343,9 +344,9 @@ enum UIAccessibilityNavigationStyle : Int {
 }
 OBJECTIVE-C
 typedef enum UIAccessibilityNavigationStyle : NSInteger {
-   UIAccessibilityNavigationStyleAutomatic = 0,
-   UIAccessibilityNavigationStyleSeparate = 1,
-   UIAccessibilityNavigationStyleCombined = 2,
+  UIAccessibilityNavigationStyleAutomatic = 0,
+  UIAccessibilityNavigationStyleSeparate = 1,
+ UIAccessibilityNavigationStyleCombined = 2,
 } UIAccessibilityNavigationStyle;```
 常量：<br/>
 UIAccessibilityNavigationStyleAutomatic ：辅助技术会自动决定接收器元素怎样被导航，这个是默认值。Available in iOS 8.0 and later.<br/>
@@ -591,10 +592,10 @@ import UIKit<br/>
 ### 4.1创建一个无障碍元素
 
 
-- initWithAccessibilityContainer:<br/>
+```- initWithAccessibilityContainer:```<br/>
 　创建并初始化一个无障碍元素，在一个指定容器中呈现条目。一般情况下，不需要在应用中为条目创建无障碍元素，因为标准UIKit控件和视图默认是无障碍的。但是如果视图包含一个非视图条某，比如图标和文本图像，需要对残障用户无障碍，需要为它们创建无障碍元素。在这个案例中，包含视图应该实现UIAccessibilityContainer非正式协议，并且使用这个方法去创建一个无障碍元素来呈现每一个条目，这些条目应该被辅助应用获得。<br/>
 声明：<br/>
-- (id)initWithAccessibilityContainer:(id)container<br/>
+```- (id)initWithAccessibilityContainer:(id)container```<br/>
 参数：container——包含条目的视图。<br/>
 
 ### 4.2访问包含视图（Accessing the Containing View）
@@ -656,42 +657,47 @@ UIKit为所有标准控件和视图，提供合适的trait组合。当为一个�
 ### 5.1提供有关无障碍元素的信息
 
 
-- accessibilityElementCount<br/>
+```- accessibilityElementCount```<br/>
 返回容器内无障碍元素的数量。默认为0。<br/>
 声明：<br/>
-```SWIFT
+```
+SWIFT
 func accessibilityElementCount() -> Int
 OBJECTIVE-C
 - (NSInteger)accessibilityElementCount```
 版本信息：Available in iOS 3.0 and later.<br/>
 
-- accessibilityElementAtIndex:<br/>
+```- accessibilityElementAtIndex:```<br/>
 按照特定索引返回无障碍信息，没有元素返回nil。<br/>
 声明：<br/>
-```SWIFT
+```
+SWIFT
 func accessibilityElementAtIndex(_ index: Int) -> AnyObject?
 OBJECTIVE-C
 - (id _Nullable)accessibilityElementAtIndex:(NSInteger)index```
 参数：index——无障碍元素的索引。<br/>
 版本：Available in iOS 3.0 and later.<br/>
 
-- indexOfAccessibilityElement:<br/>
+```- indexOfAccessibilityElement:```<br/>
 返回指定无障碍元素的索引，无元素返回NSNotFount。<br/>
 声明：<br/>
-```SWIFT
+```
+SWIFT
 func indexOfAccessibilityElement(_ element: AnyObject) -> Int
 OBJECTIVE-C
 - (NSInteger)indexOfAccessibilityElement:(id _Nonnull)element```
 参数：element——无障碍元素<br/>
 版本：Available in iOS 3.0 and later.<br/>
 
-accessibilityElements<br/>
+```accessibilityElements```<br/>
 容器内无障碍元素的数组，默认值为nil。<br/>
 声明：<br/>
-```SWIFT
+```
+SWIFT
 var accessibilityElements: [AnyObject]?
 OBJECTIVE-C
-@property(nonatomic, strong, nullable) NSArray *accessibilityElements```
+@property(nonatomic, strong, nullable) 
+NSArray *accessibilityElements```
 版本：Available in iOS 8.0 and later.<br/>
 
 ## 6.UIGuidedAccessRestrictionDelegate
@@ -716,19 +722,21 @@ App可以使用UIGuidedAccessRestrictionStateForIdentifier函数来检查限制�
 ```SWIFT
 func guidedAccessRestrictionIdentifiers() -> [String]?
 OBJECTIVE-C
-- (NSArray<NSString *> *    _Nullable)guidedAccessRestrictionIdentifiers```
+- (NSArray<NSString *> *    
+_Nullable)guidedAccessRestrictionIdentifiers```
 版本：Available in iOS 7.0 and later.<br/>
-    
+
 ```- textForGuidedAccessRestrictionWithIdentifier:    Required```<br/>
 为提供标识符返回一个简洁的限制描述，一个本地的、可理解的简单文本。<br/>
 声明：<br/>
-```SWIFT
+```
+SWIFT
 func textForGuidedAccessRestrictionWithIdentifier(
 _restrictionIdentifier: String) -> String?
 OBJECTIVE-C
 - (NSString * _Nullable)
-textForGuidedAccessRestrictionWithIdentifier:(NSString * _Nonnull)
-restrictionIdentifier```
+textForGuidedAccessRestrictionWithIdentifier:
+(NSString * _Nonnull)restrictionIdentifier```
 参数:<br/>
 restrictionIdentifier	  系统感兴趣的限制标识符；<br/>
 版本：Available in iOS 7.0 and later.<br/>
@@ -736,29 +744,34 @@ restrictionIdentifier	  系统感兴趣的限制标识符；<br/>
 ```- detailTextForGuidedAccessRestrictionWithIdentifier:```<br/>
 为提供的标识符限制返回更多详细信息，一个本地化、可理解的附加信息。<br/>
 声明：<br/>
-```SWIFT
+```
+SWIFT
 optional func detailTextForGuidedAccessRestrictionWithIdentifier
 (_ restrictionIdentifier: String) -> String?
 OBJECTIVE-C
-- (NSString * _Nullable)detailTextForGuidedAccessRestrictionWith Identifier:(NSString * _Nonnull)restrictionIdentifier```
+- (NSString * _Nullable)
+detailTextForGuidedAccessRestrictionWith Identifier:
+(NSString * _Nonnull)restrictionIdentifier```
 参数：restrictionIdentifier  系统感兴趣的限制标示符。<br/>
 版本：Available in iOS 7.0 and later.<br/>
  
 ###    6.2实现限制
 
 
-- guidedAccessRestrictionWithIdentifier:didChangeState:      　　　Required<br/>
+```- guidedAccessRestrictionWithIdentifier:didChangeState:      　　　Required```<br/>
 App需要更改自己的行为去允许和拒绝操作，是特定限制每一次接收到信息时特定限制的。<br/>
 声明：<br/>
 
-```SWIFT
+```
+SWIFT
 func guidedAccessRestrictionWithIdentifier(_ 
 restrictionIdentifier: String,
 didChangeState newRestrictionState: 
 UIGuidedAccessRestrictionState)
 OBJECTIVE-C
 - (void)guidedAccessRestrictionWithIdentifier:(NSString * 
-_Nonnull)restrictionIdentifier 
+_No
+nnull)restrictionIdentifier 
 didChangeState:(UIGuidedAccessRestrictionState)
 newRestrictionState```
 参数：<br/>
