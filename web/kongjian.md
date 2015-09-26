@@ -23,12 +23,14 @@ CSS:
 }
 HTML:
 <div id="bgimg"></div>```
-样例2：
-将图片的tabindex属性设置为-1；（此条仅适用于删除具有焦点的图片访问。）
-<img tabindex="-1" src="img001.gif" />
-样例3：
-当图片没有title属性且alt属性值为空时，可被屏幕阅读器忽略。
-<img src="squiggle.gif" alt="" />
+样例2：＜br/＞
+将图片的tabindex属性设置为-1；（此条仅适用于删除具有焦点的图片访问。）＜br/＞
+```
+<img tabindex="-1" src="img001.gif" />```
+样例3：＜br/＞
+当图片没有title属性且alt属性值为空时，可被屏幕阅读器忽略。＜br/＞
+```
+<img src="squiggle.gif" alt="" />```
 
 ### 1.1.2非装饰性图片无替代文本
 
