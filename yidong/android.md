@@ -517,8 +517,8 @@ class CustomTouchView extends View {
 ### 8.1.2无障碍服务配置
 
 
-    无障碍服务必须包含一个指明无障碍事件类型的配置，包含无障碍服务要处理的事件和附加信息。无障碍服务配置被包含在AccessibilityServiceInfo类中。服务可以使用这个类的样例和在运行时 执行setServiceInfo()来建立和设置配置。但是，不是所有的配置项都可以用这个方法获得。
-    从android4.0开始，可以在清单中包含一个<meta-data>元素，这个元素是配置文件的索引，这个元素允许大范围的设置无障碍服务项，详情见下面的例子：
+　　无障碍服务必须包含一个指明无障碍事件类型的配置，包含无障碍服务要处理的事件和附加信息。无障碍服务配置被包含在AccessibilityServiceInfo类中。服务可以使用这个类的样例和在运行时 执行setServiceInfo()来建立和设置配置。但是，不是所有的配置项都可以用这个方法获得。<br/>
+　　从android4.0开始，可以在清单中包含一个<meta-data>元素，这个元素是配置文件的索引，这个元素允许大范围的设置无障碍服务项，详情见下面的例子：<br/>
 ```
 <service android:name=".MyAccessibilityService"> 
   ... 
@@ -526,19 +526,19 @@ class CustomTouchView extends View {
     android:name="android.accessibilityservice" 
     android:resource="@xml/accessibility_service_config" /> 
 </service>```
-	Meta-data元素指向的是个在应用资源目录中的XML文件（<project_dir>/res/xml/accessibility_service_config.xml），下面大代码展示了服务配置文件的样例内容：
+　　Meta-data元素指向的是个在应用资源目录中的XML文件（<project_dir>/res/xml/accessibility_service_config.xml），下面大代码展示了服务配置文件的样例内容：<br/>
 <accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"     android:description="@string/accessibility_service_description"     android:packageNames="com.example.android.apis"     android:accessibilityEventTypes="typeAllMask"     android:accessibilityFlags="flagDefault"     android:accessibilityFeedbackType="feedbackSpoken"     android:notificationTimeout="100"     android:canRetrieveWindowContent="true"     android:settingsActivity="com.example.android.accessibility.ServiceSettingsActivity" />
 
-    更多关于XML属性的信息，详见以下列表：
-    •android:description
-    •android:packageNames
-    •android:accessibilityEventTypes
-    •android:accessibilityFlags
-    •android:accessibilityFeedbackType
-    •android:notificationTimeout
-    •android:canRetrieveWindowContent
-    •android:settingsActivity
-    更多关于配置文件的信息，请关注AccessibilityServiceInfo参考文档。
+更多关于XML属性的信息，详见以下列表：<br/>
+•android:description<br/>
+•android:packageNames<br/>
+•android:accessibilityEventTypes<br/>
+•android:accessibilityFlags<br/>
+•android:accessibilityFeedbackType<br/>
+•android:notificationTimeout<br/>
+•android:canRetrieveWindowContent<br/>
+•android:settingsActivity<br/>
+更多关于配置文件的信息，请关注AccessibilityServiceInfo参考文档。<br/>
 
 ### 8.2无障碍事件注册
     无障碍服务配置文件的一个重要功能就是允许指定哪些无障碍事件app可以处理。能够指定这些信息使无障碍服务可以与其他服务相互配合，允许开发者灵活处理应用中特定的事件类型。事件过滤应该包含以下的标准：
