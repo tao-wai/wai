@@ -74,40 +74,41 @@ button.setText("确定");```<br/>
 ```<ImageButton
 android:id=”@+id/add_note_button”
 android:src=”@drawable/add_note”
-android:contentDescription=”@string/add_note" />```<br/>
+android:contentDescription=”@string/add_note" />```
+<br/>
 (2) 用java代码设置替代文本，此种方法适用于按钮在运行中功能会改变或开关状态等播放按钮在歌曲没有播放的时候功能是播放歌曲，图标也是播放的图标， 可以这样设置替代文本：<br/>
 button.setContentDescription("播放");<br/>
-当歌曲播放的时候按钮的功能是暂停， 图标变成了暂停的图标，< 可以这样设置替代文本：br/>
-button.setContentDescription("暂停");br/>
-ios：br/>
-所有的控件的标签属性都赋予适当的值， 有必要的时候给提示属性赋值。br/>
+当歌曲播放的时候按钮的功能是暂停， 图标变成了暂停的图标， 可以这样设置替代文本：<br/>
+button.setContentDescription("暂停");<br/>
+ios：<br/>
+所有的控件的标签属性都赋予适当的值， 有必要的时候给提示属性赋值。<br/>
 
 
 ### 1.1.3按钮不可操作
 
 
-    【问题描述】
-    在开着屏幕阅读器的情况下， 按钮点击后没有响应；
-    【可能原因】
-    自定义按钮没有处理定向控制器的点击事件；
-    【修改建议】
-    在多数的设备,单击视图利用定向控制器发送一个带有KEYCODE_DPAD_CENTER的按键事件到当前具有焦点的视图。所有标准的Android的视图已经适当地处理KEYCODE_DPAD_CENTER。当构建一个定制的视图控件,确保这个事件的产生的效果跟触摸触摸屏上的视图的效果一样。你的自定义控件处理 KEYCODE_ENTER事件时应该和处理 KEYCODE_DPAD_CENTER一样。这种方法更便于与一个使用全键盘的用户进行交互操作。 
+【问题描述】<br/>
+在开着屏幕阅读器的情况下， 按钮点击后没有响应；<br/>
+【可能原因】<br/>
+自定义按钮没有处理定向控制器的点击事件；<br/>
+【修改建议】<br/>
+在多数的设备,单击视图利用定向控制器发送一个带有KEYCODE_DPAD_CENTER的按键事件到当前具有焦点的视图。所有标准的Android的视图已经适当地处理KEYCODE_DPAD_CENTER。当构建一个定制的视图控件,确保这个事件的产生的效果跟触摸触摸屏上的视图的效果一样。你的自定义控件处理 KEYCODE_ENTER事件时应该和处理 KEYCODE_DPAD_CENTER一样。这种方法更便于与一个使用全键盘的用户进行交互操作。 <br/>
 
 ### 1.1.4控件类型朗读不正确
 
 
-    【问题描述】
-    自定义的按钮不朗读控件类型或者朗读错误；
-    【可能原因】
-    自定义按钮的无障碍支持不够全面；
-    【修改建议】
-    android：
-    在任何一种情况下,为您的自定义视图类您应该执行下面的可访问性方法： 
+【问题描述】<br/>
+自定义的按钮不朗读控件类型或者朗读错误；<br/>
+【可能原因】<br/>
+自定义按钮的无障碍支持不够全面；<br/>
+【修改建议】<br/>
+android：<br/>
+在任何一种情况下,为您的自定义视图类您应该执行下面的可访问性方法： <br/>
 ```dispatchPopulateAccessibilityEvent() 
-onPopulateAccessibilityEvent() 
-onInitializeAccessibilityEvent() 
-onInitializeAccessibilityNodeInfo() ```
-    通常是在onInitializeAccessibilityEvent()方法中提供类名（控件类型）；
+    onPopulateAccessibilityEvent() 
+    onInitializeAccessibilityEvent() 
+    onInitializeAccessibilityNodeInfo() ```
+通常是在onInitializeAccessibilityEvent()方法中提供类名（控件类型）；
 
 
 ## 1.2复选框
@@ -117,113 +118,121 @@ onInitializeAccessibilityNodeInfo() ```
 ### 1.2.1复选框无焦点
 
 
-    【问题描述】
-    复选框无法滑动和触摸浏览，或者复选框只能触摸浏览；
-    【可能原因】
-    1.没有给标准控件复选框设置焦点；
-    2.自定义的复选框没有支持无障碍访问；
-    【修改建议】
-    android：
-    方案1：
-    在布局xml文件中设置；
-    在布局xml文件中把控件的android：focusable属性设置为true；
-    方案2： 
-    在java代码中设置；
-    在java代码中调用需要设置焦点的控件的setfocusable（）函数，参数为true是获得焦点， 参数为false是不获得焦点；
-    方案3： 
-    让自定义的复选框控件支持无障碍访问；
-    ios：
-    让自定义的复选框支持无障碍使用；
-    （注： 下面的文字摘抄与《ios-accessibility-programming-guide-in-chinese》）
-    除了使用 Interface Builder，还可以通过两种编程方法让自定义独立视图支持无障碍使用。第一种方法是在初始化视图的时候；设置它的无障碍状态。如下面的代码片段所示；
-    ```@implementation MyCustomViewController 
-    -(id)init 
-    { 
-    _view = [[[MyCustomView alloc] initWithFrame:CGRectZero] autorelease]; 
-    [_view setIsAccessibilityElement:YES]; 
-    /* Set attributes here. */ 
-    }```
-    另一种方法是实现 ：UIAccessibility协议的isAccessibilityElement方法。如下面的代码片段所示： 
-    ```@implementation MyCustomView 
-    /* Implement attribute methods here. */
-    -(BOOL)isAccessibilityElement 
-    {
-    return YES; 
-    }```
-    注意：在这两个代码片段中，都是用注释来代替真实的代码；
+【问题描述】<br/>
+复选框无法滑动和触摸浏览，或者复选框只能触摸浏览；<br/>
+【可能原因】<br/>
+1.没有给标准控件复选框设置焦点；<br/>
+2.自定义的复选框没有支持无障碍访问；<br/>
+【修改建议】<br/>
+android：<br/>
+方案1：<br/>
+在布局xml文件中设置；<br/>
+在布局xml文件中把控件的android：focusable属性设置为true；<br/>
+方案2： <br/>
+在java代码中设置；<br/>
+在java代码中调用需要设置焦点的控件的setfocusable（）函数，参数为true是获得焦点， 参数为false是不获得焦点；<br/>
+方案3： <br/>
+让自定义的复选框控件支持无障碍访问；<br/>
+ios：<br/>
+让自定义的复选框支持无障碍使用；
+（注： 下面的文字摘抄与《ios-accessibility-programming-guide-in-chinese》）<br/>
+除了使用 Interface Builder，还可以通过两种编程方法让自定义独立视图支持无障碍使用。第一种方法是在初始化视图的时候；设置它的无障碍状态。如下面的代码片段所示；<br/>
+```
+@implementation MyCustomViewController 
+-(id)init 
+{ 
+_view = [[[MyCustomView alloc] initWithFrame:CGRectZero] 
+autorelease]; 
+[_view setIsAccessibilityElement:YES]; 
+/* Set attributes here. */ 
+}```
+　　另一种方法是实现 ：UIAccessibility协议的isAccessibilityElement方法。如下面的代码片段所示： 
+```
+@implementation MyCustomView 
+/* Implement attribute methods here. */
+-(BOOL)isAccessibilityElement 
+{
+return YES; 
+}```
+注意：在这两个代码片段中，都是用注释来代替真实的代码；
 
 ### 1.2.2复选框无法操作
 
 
-    【问题描述】
-    在屏幕阅读器开着的情况下点击复选框无法改变复选框的状态；
-    【可能原因】
-    自定义复选框没有处理定向控制器的点击事件；
-    【修改建议】
-    在多数的设备,单击视图利用定向控制器发送一个带有KEYCODE_DPAD_CENTER的按键事件到当前具有焦点的视图。所有标准的Android的视图已经适当地处理KEYCODE_DPAD_CENTER。当构建一个定制的视图控件,确保这个事件的产生的效果跟触摸触摸屏上的视图的效果一样。你的自定义控件处理 KEYCODE_ENTER事件时应该和处理KEYCODE_DPAD_CENTER一样。这种方法更便于与一个使用全键盘的用户进行交互操作。 
-
+【问题描述】<br/>
+在屏幕阅读器开着的情况下点击复选框无法改变复选框的状态；<br/>
+【可能原因】<br/>
+自定义复选框没有处理定向控制器的点击事件；<br/>
+【修改建议】<br/>
+　　在多数的设备,单击视图利用定向控制器发送一个带有KEYCODE_DPAD_CENTER的按键事件到当前具有焦点的视图。所有标准的Android的视图已经适当地处理KEYCODE_DPAD_CENTER。当构建一个定制的视图控件,确保这个事件的产生的效果跟触摸触摸屏上的视图的效果一样。你的自定义控件处理 KEYCODE_ENTER事件时应该和处理KEYCODE_DPAD_CENTER一样。这种方法更便于与一个使用全键盘的用户进行交互操作。 <br/>
+<br/>
 ### 1.2.3复选框没有标签
 
-    【问题描述】
-    复选框没有提示文本， 不知道此复选框是选择什么的；
-    【可能原因】
-    1.复选框没有给标签赋值；
-    2.复选框的图形没有替代文本；
-    3.自定义的复选框的文本无法被屏幕阅读器识别；
-    【修改建议】
-    1.给复选框的标签赋予适当的值；
-    2.给复选框添加contentdescription属性并赋予适当的值；
-    3.在任何一种情况下,为您的自定义视图类您应该执行下面的可访问性方法： （android)
+【问题描述】<br/>
+复选框没有提示文本， 不知道此复选框是选择什么的；<br/>
+【可能原因】<br/>
+1.复选框没有给标签赋值；<br/>
+2.复选框的图形没有替代文本；<br/>
+3.自定义的复选框的文本无法被屏幕阅读器识别；<br/>
+【修改建议】<br/>
+1.给复选框的标签赋予适当的值；<br/>
+2.给复选框添加contentdescription属性并赋予适当的值；<br/>
+3.在任何一种情况下,为您的自定义视图类您应该执行下面的可访问性方法： （android)
 ```
 dispatchPopulateAccessibilityEvent()
 onPopulateAccessibilityEvent() 
 onInitializeAccessibilityEvent()
 onInitializeAccessibilityNodeInfo() ```
-    使用onPopulateAccessibilityEvent()函数输出accessibilityEvent的文本；
-    注意:在该方法中修改文本之外的附加属性可能会以其他方式覆盖属性的设置。所以,虽然你可以使用此方法修改可访问性事件的属性,但您应该只限制这些更改只作用于文本内容和仅使用由onInitializeAccessibilityEvent()方法来修改事件的其他属性。
-   ```
-   @Override
-    public void onPopulateAccessibilityEvent(View host, AccessibilityEvent event) {
-        super.onPopulateAccessibilityEvent(host, event);
-        // We call the super implementation to populate its text for the
-        // event. Then we add our text not present in a super class.
-        // Very often you only need to add the text for the custom view.
-        CharSequence text = getText();
-        if (!TextUtils.isEmpty(text)) {
-            event.getText().add(text);
-        }
-    }```
+　　使用onPopulateAccessibilityEvent()函数输出accessibilityEvent的文本；<br/>
+　　注意:在该方法中修改文本之外的附加属性可能会以其他方式覆盖属性的设置。所以,虽然你可以使用此方法修改可访问性事件的属性,但您应该只限制这些更改只作用于文本内容和仅使用由onInitializeAccessibilityEvent()方法来修改事件的其他属性。<br/>
+```
+@Override
+public void onPopulateAccessibilityEvent(View host, 
+AccessibilityEvent event) {
+    super.onPopulateAccessibilityEvent(host, event);
+    // We call the super implementation to populate its text fo
+    the
+    // event. Then we add our text not present in a super class.
+    // Very often you only need to add the text for the custom 
+    view.
+    CharSequence text = getText();
+    if (!TextUtils.isEmpty(text)) {
+        event.getText().add(text);
+    }
+}```
 
 ### 1.2.4聚焦时，不朗读选中状态
 
-    【问题描述】
-    复选框聚焦的时候无法正确朗读出当前选中状态；
-    【可能原因】
-    自定义的复选框对无障碍支持不全面；
-    【修改建议】
-    android：
-    在任何一种情况下,为您的自定义视图类您应该执行下面的可访问性方法：
-    ```
-    dispatchPopulateAccessibilityEvent()
-    onPopulateAccessibilityEvent() 
-    onInitializeAccessibilityEvent()
-    onInitializeAccessibilityNodeInfo() ```
-    利用onInitializeAccessibilityEvent() 修改状态属性
-    ```
-    @Override
-    public void onInitializeAccessibilityEvent(View host, AccessibilityEvent event) {
-        super.onInitializeAccessibilityEvent(host, event);
-        // We call the super implementation to let super classes
-        // set appropriate event properties. Then we add the new property
-        // (checked) which is not supported by a super class.
-        event.setChecked(isChecked());
-    }```
+【问题描述】<br/>
+复选框聚焦的时候无法正确朗读出当前选中状态；<br/>
+【可能原因】<br/>
+自定义的复选框对无障碍支持不全面；<br/>
+【修改建议】<br/>
+android：<br/>
+在任何一种情况下,为您的自定义视图类您应该执行下面的可访问性方法：<br/>
+```
+dispatchPopulateAccessibilityEvent()
+onPopulateAccessibilityEvent() 
+onInitializeAccessibilityEvent()
+onInitializeAccessibilityNodeInfo() ```
+　　利用onInitializeAccessibilityEvent() 修改状态属性<br/>
+```
+@Override
+public void onInitializeAccessibilityEvent(View host, 
+AccessibilityEvent event) {
+    super.onInitializeAccessibilityEvent(host, event);
+    // We call the super implementation to let super classes
+    // set appropriate event properties. Then we add the new 
+    property
+    // (checked) which is not supported by a super class.
+    event.setChecked(isChecked());
+}```
 
 ### 1.2.5改变状态后，焦点未在当前控件
-    【问题描述】
-    复选框改变其选中状态后，聚焦的控件不是此复选框了，而是变成了其他控件，焦点不在当前控件；
-    【可能原因】
-    【修改建议】
+【问题描述】<br/>
+复选框改变其选中状态后，聚焦的控件不是此复选框了，而是变成了其他控件，焦点不在当前控件；<br/>
+【可能原因】<br/>
+【修改建议】<br/>
 
 ### 1.2.6改变选中状态，不能及时朗读状态
 
