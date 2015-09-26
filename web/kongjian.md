@@ -872,21 +872,21 @@ aria-activedescendant表示后代的id值<br/>
 ### 1.7.4按钮无法响应键盘点击
 
 
-【问题描述】
-按钮无法用键盘直接激活，导致无法执行按钮的命令；
-【可能原因】
-【修改建议】
+【问题描述】<br/>
+按钮无法用键盘直接激活，导致无法执行按钮的命令；<br/>
+【可能原因】<br/>
+【修改建议】<br/>
 样例1：submit 点击事件
 <form action="/login" method="post">
 ...
 <input type="submit" value="登录" />
 </form>
-样例2：图片按钮点击事件：
-<input type="image" src="example.gif" alt="关闭" onclick="closePopWnd()" keydown="if (event.keyCode == 13) closePopWnd();" />
-样例3：Button onclick事件:
-<button type="button" onclick="closePopWnd()"><img src="btn-closepopwnd.gif" alt="关闭"></button>
-样例4：为按钮添加键盘空格点击事件；
-<div role="button" tabindex="0" onclick="closePopWnd()" onkeydown="if (event.keyCode == 13 || event.keyCode == 32) closePopWnd();">关闭</div>
+样例2：图片按钮点击事件：<br/>
+```<input type="image" src="example.gif" alt="关闭" onclick="closePopWnd()" keydown="if (event.keyCode == 13) closePopWnd();" />```
+样例3：Button onclick事件:<br/>
+```<button type="button" onclick="closePopWnd()"><img src="btn-closepopwnd.gif" alt="关闭"></button>```
+样例4：为按钮添加键盘空格点击事件；<br/>
+```<div role="button" tabindex="0" onclick="closePopWnd()" onkeydown="if (event.keyCode == 13 || event.keyCode == 32) closePopWnd();">关闭</div>```
 
 ### 1.8菜单
 
