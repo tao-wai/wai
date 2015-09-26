@@ -716,13 +716,13 @@ public void onAccessibilityEvent(AccessibilityEvent event) {
 ### 9.3为更多的上下文查询视图层次结构
 
 
-    这一步是可选的，然而它非常有用。Android 4.0(API level 14)的一个新特性：可以用AccessibilityService来查询视图层次结构，收集事件所生成的一些UI组件信息，还有这些UI的父控件和子控件。要做到这一点，确保在你的XML配置文件中做了如下设置：  
-    android:canRetrieveWindowContent="true"如果设置了，通过getSource()可获得一个AccessibilityNodeInfo对象。如果发起的窗口事件仍然是活动的窗口，该调用将会返回一个对象,否则，会返回null。 
-    下面这段代码演示何时接收一个事件，步骤如下： 
-    立即捕获触发事件的父视图。 
-    在那个视图中，寻找一个标签和一个复选框作的子视图。 
-    如果找到，创建一个字符串来向用户报告，以表明这个标签是否被选择了。 
-    如果遍历视图层次结构后返回null,则会退出该方法。 
+　　这一步是可选的，然而它非常有用。Android 4.0(API level 14)的一个新特性：可以用AccessibilityService来查询视图层次结构，收集事件所生成的一些UI组件信息，还有这些UI的父控件和子控件。要做到这一点，确保在你的XML配置文件中做了如下设置：  <br/>
+android:canRetrieveWindowContent="true"如果设置了，通过getSource()可获得一个AccessibilityNodeInfo对象。如果发起的窗口事件仍然是活动的窗口，该调用将会返回一个对象,否则，会返回null。<br/> 
+下面这段代码演示何时接收一个事件，步骤如下： <br/>
+立即捕获触发事件的父视图。 <br/>
+在那个视图中，寻找一个标签和一个复选框作的子视图。 <br/>
+如果找到，创建一个字符串来向用户报告，以表明这个标签是否被选择了。 <br/>
+如果遍历视图层次结构后返回null,则会退出该方法。 <br/>
 ```
 // Alternative onAccessibilityEvent, that uses AccessibilityNodeInfo
 @Override
@@ -764,4 +764,4 @@ public void onAccessibilityEvent(AccessibilityEvent event) {
     String reportStr = taskLabel + completeStr;
     speakToUser(reportStr);
 }```
-    现在你有一个完整的，可以工作的辅助性服务。现在，你也可以试着配置一下，看看Android的文本-语音引擎,或使用振动器提供触觉反馈是如何与用户交互。 
+　　现在你有一个完整的，可以工作的辅助性服务。现在，你也可以试着配置一下，看看Android的文本-语音引擎,或使用振动器提供触觉反馈是如何与用户交互。 <br/>
