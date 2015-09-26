@@ -9,7 +9,7 @@
    * [web无障碍建议](web/jianyi.md)
 * 移动端无障碍
    * [引言](yidong/yinyan.md)
-   * [android](yidong/android.md)
+   * [android无障碍开发指南](yidong/android.md)
    * [ios](yidong/ios.md)
    * [wenti](yidong/wenti.md)
 
