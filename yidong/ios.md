@@ -1085,31 +1085,31 @@ self.myFirstElement);
 }
 @end```
 
-    如果只是布局改变，而不是屏幕内容改变，比如从人像模式转换到风景模式，使用UIAccessibilityLayoutChangedNotification而不是使用UIAccessibilityScreenChangedNotification。
-    注意：设备旋转引起的布局改变，需要重置voiceover光标的位置。
+　　如果只是布局改变，而不是屏幕内容改变，比如从人像模式转换到风景模式，使用UIAccessibilityLayoutChangedNotification而不是使用UIAccessibilityScreenChangedNotification。
+　　注意：设备旋转引起的布局改变，需要重置voiceover光标的位置。<br/>
 
 ### 10.2响应特殊voiceover手势
 
 
-    Voiceover用户可以使用特殊手势触发自定义操作。这些手势之所以特殊是因为被允许去定义这些手势的行为，不同于voiceover标准手势。可以在事件和视图控制器中覆盖一定的方法来检测这些特殊手势。
-    手势应该首先检查有voiceover焦点命令的视图，然后继续响应链直到手势找到相应voiceover手势方法的实现。如果没有找到实现方法，系统默认的该手势的响应就会被触发。例如，如果在当前视图找到Magic Tap的实现，Magic Tap手势在音乐app中播放和暂停音乐。
-    尽管可以提供想要的自定义逻辑，voiceover用户希望这些特殊手势的行为遵循一定的原则。像任何手势，一个voiceover手势的实现应该遵循一个模式，这样与无障碍app的交互保持直观。
-    有4种特殊voiceover手势：
-    Escape：两指Z型手势，关闭模态对话框，或者在导航层次上返回上一级。
-    Magic tap：两指双击手势，执行最预期的操作。
-    Three-Finger Scroll：三指清扫，垂直或水平滚动内容。
-    Increment and Decrement：一指上下扫动，增加或减去具有调节属性的给定值。具有可调节无障碍特性的元素必须具备这些方法。
-    注：所有特殊voiceover手势方法都会返回一个布尔值，决定是否通过响应链传输。要停止传输，返回YES，否则，返回NO。
-    Escape
-    如果当前视图覆盖底层内容——比如模态对话框或者警号——应该使用accessibilityPerformEscape方法来退出浮层。Escape手势就像一个键盘上的Esc键；可以退出当前的对话框，或者回到主内容。
-    另一个使用案例是使用Escape手势回到上一层级导航页面。UINavigationController默认实现这个功能。如果设计了自定义的导航控件，应该设置Escape手势来返回上一级的导航，因为这是用户期望的功能。
-    Magic Tap
-    Magic Tap手势的目的是快速开启一个经常用到或者最期望的操作。例如，在苹果手机，这个手势用来拨打和乖挂断电话。在时钟app中，它用来开始和暂停秒表。如果你想要使用一个动作触发特定的操作，不管视图是否有voiceover的光标，应该在视图控制器中实现accessibilityPerformMagicTap方法。
-    注意：如果想要Magic Tap手势在app的任何位置都执行相同的动作，在app delegate中实现accessibilityPerformMagicTap更加合适。
-    Three-Finger Scroll
-    accessibilityScroll：当voiceover用户执行三指滚动时触发方法。accessibilityScroll接收UIAccessibilityScrollDirection参数，这个参数可以决定滚动方向。如果有一个自定义滚动视图，在该视图上实现更合适。
-    Increment and Decrement
-    accessibilityIncrement和 accessibilityDecrement方法对可调节特性元素是必须的，应该在该视图自己实现。
+　　Voiceover用户可以使用特殊手势触发自定义操作。这些手势之所以特殊是因为被允许去定义这些手势的行为，不同于voiceover标准手势。可以在事件和视图控制器中覆盖一定的方法来检测这些特殊手势。<br/>
+　　手势应该首先检查有voiceover焦点命令的视图，然后继续响应链直到手势找到相应voiceover手势方法的实现。如果没有找到实现方法，系统默认的该手势的响应就会被触发。例如，如果在当前视图找到Magic Tap的实现，Magic Tap手势在音乐app中播放和暂停音乐。<br/>
+　　尽管可以提供想要的自定义逻辑，voiceover用户希望这些特殊手势的行为遵循一定的原则。像任何手势，一个voiceover手势的实现应该遵循一个模式，这样与无障碍app的交互保持直观。<br/>
+　　有4种特殊voiceover手势：<br/>
+　　Escape：两指Z型手势，关闭模态对话框，或者在导航层次上返回上一级。<br/>
+　　Magic tap：两指双击手势，执行最预期的操作。<br/>
+　　Three-Finger Scroll：三指清扫，垂直或水平滚动内容。<br/>
+　　Increment and Decrement：一指上下扫动，增加或减去具有调节属性的给定值。具有可调节无障碍特性的元素必须具备这些方法。<br/>
+　　注：所有特殊voiceover手势方法都会返回一个布尔值，决定是否通过响应链传输。要停止传输，返回YES，否则，返回NO。<br/>
+Escape<br/>
+　　如果当前视图覆盖底层内容——比如模态对话框或者警号——应该使用accessibilityPerformEscape方法来退出浮层。Escape手　　势就像一个键盘上的Esc键；可以退出当前的对话框，或者回到主内容。<br/>
+另一个使用案例是使用Escape手势回到上一层级导航页面。UINavigationController默认实现这个功能。如果设计了自定义的导航控件，应该设置Escape手势来返回上一级的导航，因为这是用户期望的功能。<br/>
+Magic Tap<br/>
+　　Magic Tap手势的目的是快速开启一个经常用到或者最期望的操作。例如，在苹果手机，这个手势用来拨打和乖挂断电话。在时钟app中，它用来开始和暂停秒表。如果你想要使用一个动作触发特定的操作，不管视图是否有voiceover的光标，应该在视图控制器中实现accessibilityPerformMagicTap方法。<br/>
+注意：如果想要Magic Tap手势在app的任何位置都执行相同的动作，在app delegate中实现accessibilityPerformMagicTap更加合适。<br/>
+Three-Finger Scroll<br/>
+　　accessibilityScroll：当voiceover用户执行三指滚动时触发方法。accessibilityScroll接收UIAccessibilityScrollDirection参数，这个参数可以决定滚动方向。如果有一个自定义滚动视图，在该视图上实现更合适。<br/>
+Increment and Decrement<br/>
+　　accessibilityIncrement和 accessibilityDecrement方法对可调节特性元素是必须的，应该在该视图自己实现<br/>。
 
 ### 10.3监听无障碍通知
 
