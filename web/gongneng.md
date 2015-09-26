@@ -646,12 +646,12 @@ onchange="if(isNaN(Date.parse(this.value)))
 alert('这不是一个有效的数据. 请重新输入.');" />
 //onchange用来检查数据格式；```
 
-    样例2：
-    当用户提交表单时检查多个控件；
-    下面的例子展示了一个表单的多个控件，表单控件使用onsubmit属性来执行检查脚本当用户提交表单的时候。如果检查成功，将会返回true，且表单继续提交，如果发现错误，将会显示出错误信息，返回false来取消提交，让用户修改错误；
-    
-    注：这个例子为了简化，只展示了警告。更加有用的告知应该是错误控件高亮，将错误信息添加到网页，还有告知怎样导航到错误区域；这个例子使用onsubmit属性来检查，正常的情况是创建一个submit事件监听器当网页被加载时；
-    脚本代码：
+样例2：
+　　当用户提交表单时检查多个控件；
+　　下面的例子展示了一个表单的多个控件，表单控件使用onsubmit属性来执行检查脚本当用户提交表单的时候。如果检查成功，将会返回true，且表单继续提交，如果发现错误，将会显示出错误信息，返回false来取消提交，让用户修改错误；<br/>
+
+注：这个例子为了简化，只展示了警告。更加有用的告知应该是错误控件高亮，将错误信息添加到网页，还有告知怎样导航到错误区域；这个例子使用onsubmit属性来检查，正常的情况是创建一个submit事件监听器当网页被加载时；<br/>
+脚本代码：<br/>
 ```
 function validate() {
 	// 定义错误信息
@@ -687,11 +687,11 @@ html代码：
 		<input type="submit" />
 	</p>
 </form>```
-    （4）使用aria-alertdialog确认错误
-    使用role="alertdialog"来创建一个通知，这个通知应该与以下行为联合使用：aria-label或aria-labelledby属性应该给alertdialog一个无障碍的名字；aria-labelledby为警告的文本提供一个参考；alertdialog包含至少一个焦点，当alertdialog被打开时应该自动获得焦点；tab顺序应该限制在alertdialog内，当alertdialog打开时；将窗口关闭时，如果可能的话应该返回原位置；
-    注意：alertdialog应该不被辅助技术识别，除非它被需要。需要做的是不要在静态html中包含alertdialog，而是将它通过脚本插入到DOM中，当错误信息被触发的时候。
-    
-    样例1：弹出窗口
+（4）使用aria-alertdialog确认错误
+　　使用role="alertdialog"来创建一个通知，这个通知应该与以下行为联合使用：aria-label或aria-labelledby属性应该给alertdialog一个无障碍的名字；aria-labelledby为警告的文本提供一个参考；alertdialog包含至少一个焦点，当alertdialog被打开时应该自动获得焦点；tab顺序应该限制在alertdialog内，当alertdialog打开时；将窗口关闭时，如果可能的话应该返回原位置；<br/>
+注意：alertdialog应该不被辅助技术识别，除非它被需要。需要做的是不要在静态html中包含alertdialog，而是将它通过脚本插入到DOM中，当错误信息被触发的时候。<br/>
+
+样例1：弹出窗口<br/>
 ```
 <div role="alertdialog" aria-labelledby="alertHeading" aria-describedby="alertText">
 <h1 id="alertHeading">错误</h1>
@@ -699,12 +699,12 @@ html代码：
 <button>保存继续</button>
 <button>返回修改错误</button>
 </div>```
-    （5）使用ARIA role=alert或者即时区来显示错误
-    这个技巧的目的是当错误输入发生时，辅助技术可以识别。aria-live属性使辅助技术可以被告知当即时区域容器有错误信息注入时。aria-live区域的内容将会被辅助技术自动阅读，而不是需要将文本放在焦点区域；
-    样例1:
-    将错误信息注入到含有role=alert且已经在DOM中显示的容器中。
-    这个例子中role=alert相当于aria-live=assertive
-    关键代码：
+（5）使用ARIA role=alert或者即时区来显示错误
+　　这个技巧的目的是当错误输入发生时，辅助技术可以识别。aria-live属性使辅助技术可以被告知当即时区域容器有错误信息注入时。aria-live区域的内容将会被辅助技术自动阅读，而不是需要将文本放在焦点区域；
+样例1:
+将错误信息注入到含有role=alert且已经在DOM中显示的容器中。
+这个例子中role=alert相当于aria-live=assertive
+关键代码：
 ```
 $(document).ready(function(e) {
 	$('#signup').submit(function() {此处省略```
