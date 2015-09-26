@@ -725,37 +725,37 @@ href="http://www.siaa.org.cn/" target="_blank">
 ```
 <p>5<abbr title="无障碍信息bug">bug<abbr></p>
 <p>欢迎 <abbr title="Shenzhen information accessibility association">SIAA</abbr>!</p>  ``` 
-    样例2：使用abbr来扩展；
+样例2：使用abbr来扩展；<br/>
 ```
 <p>深圳市信息无障碍研究会<abbr title="和其他">et al.</abbr> <abbr title="versus（与）">v.</abbr>纽约时间<abbr title="and others（和其他）">et al.</abbr> 是中国信息无障碍联盟的重要成员</p> ```
-    样例3：使用abbr来扩展缩写；
+样例3：使用abbr来扩展缩写；<br/>
 ```
 <p> <abbr title="accessibility technology">AT</abbr> 的使用成为流行。。</p>   ```
 
 ### 3.9.8网页的默认语言可以编程式确定
 
 
-    1）通过使用lang和xml：lang属性来确定。
-    确定文件的默认语言的重要性：
-    它允许盲文翻译软件来代替重音字符的控制代码，并插入必要的控制代码，以防止2级盲文收缩的错误创造。
-    支持多语言的语音合成器将能够定向和改变页面语言的发音和语法，使用正确的发音口音来朗读文本。
-    标记语言可以受益于技术的未来发展，例如用户无法翻译语言将能够用机器来实现陌生语言之间的翻译。
-    标记语言还可以在用户使用字典提供定义提供帮助。
-    样例1：
-    法语html文件：```<html lang="fr"> ```
-    样例2：
-    xhtml中的lang使用：```<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">```满足xhtml的需求，同时兼容html
-    样例3：
-    当网页内容为application/xhtml+xml时，只使用xml：lang：
+1）通过使用lang和xml：lang属性来确定。<br/>
+确定文件的默认语言的重要性：<br/>
+它允许盲文翻译软件来代替重音字符的控制代码，并插入必要的控制代码，以防止2级盲文收缩的错误创造。<br/>
+支持多语言的语音合成器将能够定向和改变页面语言的发音和语法，使用正确的发音口音来朗读文本。<br/>
+标记语言可以受益于技术的未来发展，例如用户无法翻译语言将能够用机器来实现陌生语言之间的翻译。<br/>
+标记语言还可以在用户使用字典提供定义提供帮助。<br/>
+样例1：<br/>
+法语html文件：```<html lang="fr"> ```
+样例2：<br/>
+xhtml中的lang使用：```<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">```<br/>满足xhtml的需求，同时兼容html<br/>
+样例3：<br/>
+当网页内容为application/xhtml+xml时，只使用xml：lang：<br/>
 ```
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
   <title>法语文件</title>
 	<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
 </head>```
-    2）使用lang属性来标记语言的改变
-    对于网页中插入某种特殊的语言时，该区块的lang或xml：lang属性可以指定为该语言的简写：
-    样例1：
+2）使用lang属性来标记语言的改变<br/>
+　　对于网页中插入某种特殊的语言时，该区块的lang或xml：lang属性可以指定为该语言的简写：<br/>
+样例1：<br/>
 ```
 <blockquote xml:lang="de">
   <p>
