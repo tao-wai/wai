@@ -378,27 +378,27 @@ SWIFT<br/>
 import UIKit<br/>
 
 
-    UIAccessibilityBoldTextStatusDidChangeNotification
-    当系统粗体文本发生变化时，由UIKit推送。这个通知不包含参数。使用默认通知中心监听这个通知。
-    声明：
-    SWIFT
-    let UIAccessibilityBoldTextStatusDidChangeNotification: String
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
-    
-    UIAccessibilityClosedCaptioningStatusDidChangeNotification
-    当隐藏字幕（closed captioning）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
-    声明：
-    SWIFT
-    let UIAccessibilityClosedCaptioningStatusDidChangeNotification: String
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
+UIAccessibilityBoldTextStatusDidChangeNotification<br/>
+　　当系统粗体文本发生变化时，由UIKit推送。这个通知不包含参数。使用默认通知中心监听这个通知。<br/>
+声明：<br/>
+SWIFT<br/>
+let UIAccessibilityBoldTextStatusDidChangeNotification: String<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
+
+UIAccessibilityClosedCaptioningStatusDidChangeNotification<br/>
+　　当隐藏字幕（closed captioning）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。<br/>
+声明：<br/>
+SWIFT<br/>
+let UIAccessibilityClosedCaptioningStatusDidChangeNotification: String<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
 
     UIAccessibilityDarkerSystemColorsStatusDidChangeNotification
     当系统的变暗颜色（Darken Colors）的设置改变时，UIKit推送该通知。这个通知不包含参数。使用默认通知中心监听这个通知。
