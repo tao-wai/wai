@@ -610,7 +610,8 @@ label.failed { border: red thin solid; } //failed样式；
 <div class="control"> 
 <p>
 <label for="email">邮件地址: [*]</label> 
-<input type="text" name="email" id="email" class="error" aria-invalid="true" aria-describedBy="err_1" />
+<input type="text" name="email" id="email" class="error" aria-invalid="true" 
+aria-describedBy="err_1" />
 </p> 
 <span class="errtext" id="err_1">错误：错误输入</span>
 </div>```
@@ -619,12 +620,17 @@ label.failed { border: red thin solid; } //failed样式；
 <div class="control"> 
 <p>
 <label for="email">邮件地址: [*]</label> 
-<input type="text" name="email" id="email" class="error" aria-invalid="true" aria-describedby="err_2" />
+<input type="text" name="email" id="email" class="error" aria-invalid="true" 
+aria-describedby="err_2" />
 </p> 
 <span class="errtext" id="err_2">错误：数据为空</span> </div>```
-　　JQUERY代码：JQUERY用来添加aria-invalid或者aria-describedby属性作为class属性和添加错误文本，这是一段将代码，用来插入aria-invalid和error class，但是没有将错误信息与控件编程式联系起来：<br/>
-```$(errFld).attr("aria-invalid", "true").attr("class", "error");//将errFld的aria-invalid设置为true，class设置为error
-// Suffix error text: $(errFld).parent().append('<span class="errtext">Error: Incorrect data</span>');
+　　
+　JQUERY代码：JQUERY用来添加aria-invalid或者aria-describedby属性作为class属性和添加错误文本，这是一段将代码，用来插入aria-invalid和error class，但是没有将错误信息与控件编程式联系起来：<br/>
+```
+$(errFld).attr("aria-invalid", "true").attr("class", "error");
+//将errFld的aria-invalid设置为true，class设置为error
+// Suffix error text: $(errFld).parent().append('<span class="errtext">
+／／Error: Incorrect data</span>');
 CSS代码为：
 input.error { border: red thin solid;} 
 span.errtext { 
@@ -635,6 +641,7 @@ background-color: #EEEEFF;
 background-image:url('images/iconError.gif'); 
 background-repeat:no-repeat; background-position:right;	 
 }```
+<br/>
 (3)提供客户端验证与警报<br/>
 　　此技巧用来在客户端验证用户输入数据的正确性，通过客户端脚本。如果找到错误，警告窗口会弹出，告知用户错误的地方，一旦用户关闭警告窗口，使用JS将焦点定位到错误区域。<br/>
 样例1：<br/>
@@ -647,7 +654,7 @@ alert('这不是一个有效的数据. 请重新输入.');" />
 //onchange用来检查数据格式；```
 
 样例2：
-　　当用户提交表单时检查多个控件；
+　　当用户提交表单时检查多个控件；<br/>
 　　下面的例子展示了一个表单的多个控件，表单控件使用onsubmit属性来执行检查脚本当用户提交表单的时候。如果检查成功，将会返回true，且表单继续提交，如果发现错误，将会显示出错误信息，返回false来取消提交，让用户修改错误；<br/>
 
 注：这个例子为了简化，只展示了警告。更加有用的告知应该是错误控件高亮，将错误信息添加到网页，还有告知怎样导航到错误区域；这个例子使用onsubmit属性来检查，正常的情况是创建一个submit事件监听器当网页被加载时；<br/>
@@ -687,7 +694,7 @@ html代码：
 		<input type="submit" />
 	</p>
 </form>```
-（4）使用aria-alertdialog确认错误
+（4）使用aria-alertdialog确认错误<br/>
 　　使用role="alertdialog"来创建一个通知，这个通知应该与以下行为联合使用：aria-label或aria-labelledby属性应该给alertdialog一个无障碍的名字；aria-labelledby为警告的文本提供一个参考；alertdialog包含至少一个焦点，当alertdialog被打开时应该自动获得焦点；tab顺序应该限制在alertdialog内，当alertdialog打开时；将窗口关闭时，如果可能的话应该返回原位置；<br/>
 注意：alertdialog应该不被辅助技术识别，除非它被需要。需要做的是不要在静态html中包含alertdialog，而是将它通过脚本插入到DOM中，当错误信息被触发的时候。<br/>
 
@@ -729,7 +736,8 @@ $(document).ready(function(e) {
 });
 </script>
 <form name="signup" id="signup" method="post" action="">
-  <p id="errors" role="alert" aria-atomic="true"></p>//错误文本，JQUERY将错误信息添加到该区域
+  <p id="errors" role="alert" aria-atomic="true"></p>
+  //错误文本，JQUERY将错误信息添加到该区域
   <p>
     <label for="first">名（必填）</label><br>
     <input type="text" name="first" id="first">
@@ -762,11 +770,11 @@ $(document).ready(function(e) {
 为交互组件提交必要的目的说明，说明信息输入的必要性；<br/>
 (1)使用aria-describedby属性为交互控件提供文本说明，通过使用id将描述信息与一个或多个控件联系起来。<br/>
 样例1：<br/>
-    ```
-    使用aria-describedby属性描述临近button的行为；
+    使用aria-describedby属性描述临近button的行为；<br/>
 ```
 <button aria-label="Close" aria-describedby="descriptionClose"
-    onclick="myDialog.close()">按钮</button>```//id为descriptionClose的控件为button提供描述文本
+    onclick="myDialog.close()">按钮</button>
+    //id为descriptionClose的控件为button提供描述文本
 ...
 <div id="descriptionClose">关闭此窗口将忽略输入的所有信息，并回返回到主页</div>```
 样例2：
@@ -781,13 +789,16 @@ $(document).ready(function(e) {
 使用aria-describedby为button提供详细信息<br/>
 ```
 <p><span id="fontDesc">选择该网页的字体大小</span>
-<button type="button" id="fontB" onclick="doAction('Fonts');" aria-describedby="fontDesc">字体</button>
+<button type="button" id="fontB" onclick="doAction('Fonts');" 
+aria-describedby="fontDesc">字体</button>
 </p>
 <p><span id="colorDesc">选择该网页的颜色</span>
- <button type="button" id="colorB" onclick="doAction('Colors');" aria-describedby="colorDesc">颜色</button>
+ <button type="button" id="colorB" onclick="doAction('Colors');" 
+ aria-describedby="colorDesc">颜色</button>
 </p>
 <p><span id="customDesc">自定义此页面上使用的布局和样式</span>
- <button type="button" id="customB" onclick="doAction('Customize');" aria-describedby="customDesc">自定义</button>
+ <button type="button" id="customB" onclick="doAction('Customize');" 
+ aria-describedby="customDesc">自定义</button>
 </p>```
 
 样例4：
