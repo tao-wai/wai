@@ -235,63 +235,63 @@ import UIKit<br/>
 ### 3.4常量
 
 
-    Accessibility Traits
-    无障碍特性可以告知辅助应用无障碍元素怎样行动或者怎样被对待。
-    声明：
-    SWIFT
-    var UIAccessibilityTraitNone: UIAccessibilityTraits
-    var UIAccessibilityTraitButton: UIAccessibilityTraits
-    var UIAccessibilityTraitLink: UIAccessibilityTraits
-    var UIAccessibilityTraitSearchField: UIAccessibilityTraits
-    var UIAccessibilityTraitImage: UIAccessibilityTraits
-    var UIAccessibilityTraitSelected: UIAccessibilityTraits
-    var UIAccessibilityTraitPlaysSound: UIAccessibilityTraits
-    var UIAccessibilityTraitKeyboardKey: UIAccessibilityTraits
-    var UIAccessibilityTraitStaticText: UIAccessibilityTraits
-    var UIAccessibilityTraitSummaryElement: UIAccessibilityTraits
-    var UIAccessibilityTraitNotEnabled: UIAccessibilityTraits
-    var UIAccessibilityTraitUpdatesFrequently: UIAccessibilityTraits
-    var UIAccessibilityTraitStartsMediaSession: UIAccessibilityTraits
-    var UIAccessibilityTraitAdjustable: UIAccessibilityTraits
-    var UIAccessibilityTraitAllowsDirectInteraction: UIAccessibilityTraits
-    var UIAccessibilityTraitCausesPageTurn: UIAccessibilityTraits
-    var UIAccessibilityTraitHeader: UIAccessibilityTraits
-    OBJECTIVE-C
-    UIAccessibilityTraits UIAccessibilityTraitNone;
-    UIAccessibilityTraits UIAccessibilityTraitButton;
-    UIAccessibilityTraits UIAccessibilityTraitLink;
-    UIAccessibilityTraits UIAccessibilityTraitSearchField;
-    UIAccessibilityTraits UIAccessibilityTraitImage;
-    UIAccessibilityTraits UIAccessibilityTraitSelected;
-    UIAccessibilityTraits UIAccessibilityTraitPlaysSound;
-    UIAccessibilityTraits UIAccessibilityTraitKeyboardKey;
-    UIAccessibilityTraits UIAccessibilityTraitStaticText;
-    UIAccessibilityTraits UIAccessibilityTraitSummaryElement;
-    UIAccessibilityTraits UIAccessibilityTraitNotEnabled;
-    UIAccessibilityTraits UIAccessibilityTraitUpdatesFrequently;
-    UIAccessibilityTraits UIAccessibilityTraitStartsMediaSession;
-    UIAccessibilityTraits UIAccessibilityTraitAdjustable;
-    UIAccessibilityTraits UIAccessibilityTraitAllowsDirectInteraction;
-    UIAccessibilityTraits UIAccessibilityTraitCausesPageTurn;
-    UIAccessibilityTraits UIAccessibilityTraitHeader;
-    常量：
-    UIAccessibilityTraitNone ：无障碍元素无特性；Available in iOS 3.0 and later.
-    UIAccessibilityTraitButton ：无障碍元素应该被当做button；Available in iOS 3.0 and later.
-    UIAccessibilityTraitLink ：无障碍元素应被当做link；Available in iOS 3.0 and later.
-    UIAccessibilityTraitSearchField ：无障碍元素应被当做一个搜索区域；Available in iOS 3.0 and later.
-    UIAccessibilityTraitImage ：无障碍元素应该被当做一个图片，这个特性可以与button和link特性。Available in iOS 3.0 and later.
-    UIAccessibilityTraitSelected ：无障碍元素是当前选择的。可以使用这个特性去描述无障碍元素，例如在已选择表行或者选择控件中的选择片段。Available in iOS 3.0 and later.
-    UIAccessibilityTraitPlaysSound ：当元素被激活时，无障碍元素有自己声音。Available in iOS 3.0 and later.
-    UIAccessibilityTraitKeyboardKey ：无障碍元素的行为想一个键盘键。Available in iOS 3.0 and later.
-    UIAccessibilityTraitStaticText ：被当做不能改变的静态文本的无障碍元素。Available in iOS 3.0 and later.
-    UIAccessibilityTraitSummaryElement ：当应用启动的时候无障碍元素提供总结信息，可以使用这个特性描述无障碍元素，这个无障碍元素提供当前位置、设置、状态的信息，比如天气应用中的当前气温。Available in iOS 3.0 and later.
-    UIAccessibilityTraitNotEnabled ：无障碍元素不能使用且不能响应用户交互。Available in iOS 3.0 and later.
-    UIAccessibilityTraitUpdatesFrequently ：无障碍元素频繁刷新label和value。可以使用这个元素来描述无障碍元素，这个元素的label或value频繁发送刷新通知来刷新。当想要辅助应用避免处理持续通知，相反的，当需要刷新信息的时候调查变更时，包含该特性。例如，可能需要这个特性去描述一个秒表的读出。Available in iOS 3.0 and later.
-    UIAccessibilityTraitStartsMediaSession ：当被激活时，无障碍元素开启一个多媒体会话。可以使用这个特性来暂停辅助技术的音频输出，比如，voiceover不应该打断多媒体会话。例如，可能使用这个特性来暂停voiceover讲话，当用户录音的时候。Available in iOS 4.0 and later.
-    UIAccessibilityTraitAdjustable ：通过一定范围的值，无障碍元素可连续调节。可以使用这个特性来描述无障碍元素，这个元素用户可以使用连续的方式调整，例如一个滑块或者选择器视图。如果你指定该元素为一个无障碍元素，必须在UIAccessibilityAction协议中实现accessibilityIncrement 和accessibilityDecrement。Available in iOS 4.0 and later.
-    UIAccessibilityTraitAllowsDirectInteraction ：无障碍元素允许voiceover用户直接触摸交互。可以使用这个元素描述无障碍元素，这个元素呈现一个用户可以直接交互的对象，比如一个呈现钢琴键盘的视图；Available in iOS 5.0 and later.
-    UIAccessibilityTraitCausesPageTurn ：当voiceover读完当前页的文本时，这个无障碍元素应该引起自动翻页。可以使用这个元素来描述无障碍元素，这个元素呈现一系列网页中一页内容，比如一个呈现某页书的视图。当voiceover读完当前页，调用具有UIAccessibilityScrollDirectionNext的accessibilityScroll来滚动到下一页。如果voiceover检测到新内容与之前的内容相同，会停止滚动。Available in iOS 5.0 and later.
-    UIAccessibilityTraitHeader ：这个无障碍元素是个将内容分段的标题，比如导航条标题。Available in iOS 6.0 and later.
+Accessibility Traits<br/>
+无障碍特性可以告知辅助应用无障碍元素怎样行动或者怎样被对待。<br/>
+声明：<br/>
+```SWIFT
+var UIAccessibilityTraitNone: UIAccessibilityTraits
+var UIAccessibilityTraitButton: UIAccessibilityTraits
+var UIAccessibilityTraitLink: UIAccessibilityTraits
+var UIAccessibilityTraitSearchField: UIAccessibilityTraits
+var UIAccessibilityTraitImage: UIAccessibilityTraits
+var UIAccessibilityTraitSelected: UIAccessibilityTraits
+var UIAccessibilityTraitPlaysSound: UIAccessibilityTraits
+var UIAccessibilityTraitKeyboardKey: UIAccessibilityTraits
+var UIAccessibilityTraitStaticText: UIAccessibilityTraits
+var UIAccessibilityTraitSummaryElement: UIAccessibilityTraits
+var UIAccessibilityTraitNotEnabled: UIAccessibilityTraits
+var UIAccessibilityTraitUpdatesFrequently: UIAccessibilityTraits
+var UIAccessibilityTraitStartsMediaSession: UIAccessibilityTraits
+var UIAccessibilityTraitAdjustable: UIAccessibilityTraits
+var UIAccessibilityTraitAllowsDirectInteraction: UIAccessibilityTraits
+var UIAccessibilityTraitCausesPageTurn: UIAccessibilityTraits
+var UIAccessibilityTraitHeader: UIAccessibilityTraits
+OBJECTIVE-C
+UIAccessibilityTraits UIAccessibilityTraitNone;
+UIAccessibilityTraits UIAccessibilityTraitButton;
+UIAccessibilityTraits UIAccessibilityTraitLink;
+UIAccessibilityTraits UIAccessibilityTraitSearchField;
+UIAccessibilityTraits UIAccessibilityTraitImage;
+UIAccessibilityTraits UIAccessibilityTraitSelected;
+UIAccessibilityTraits UIAccessibilityTraitPlaysSound;
+UIAccessibilityTraits UIAccessibilityTraitKeyboardKey;
+UIAccessibilityTraits UIAccessibilityTraitStaticText;
+UIAccessibilityTraits UIAccessibilityTraitSummaryElement;
+UIAccessibilityTraits UIAccessibilityTraitNotEnabled;
+UIAccessibilityTraits UIAccessibilityTraitUpdatesFrequently;
+UIAccessibilityTraits UIAccessibilityTraitStartsMediaSession;
+UIAccessibilityTraits UIAccessibilityTraitAdjustable;
+UIAccessibilityTraits UIAccessibilityTraitAllowsDirectInteraction;
+UIAccessibilityTraits UIAccessibilityTraitCausesPageTurn;
+UIAccessibilityTraits UIAccessibilityTraitHeader;```
+　　常量：<br/>
+UIAccessibilityTraitNone ：无障碍元素无特性；Available in iOS 3.0 and later.<br/>
+UIAccessibilityTraitButton ：无障碍元素应该被当做button；Available in iOS 3.0 and later.<br/>
+UIAccessibilityTraitLink ：无障碍元素应被当做link；Available in iOS 3.0 and later.<br/>
+UIAccessibilityTraitSearchField ：无障碍元素应被当做一个搜索区域；Available in iOS 3.0 and later.<br/>
+UIAccessibilityTraitImage ：无障碍元素应该被当做一个图片，这个特性可以与button和link特性。Available in iOS 3.0 and later.<br/>
+UIAccessibilityTraitSelected ：无障碍元素是当前选择的。可以使用这个特性去描述无障碍元素，例如在已选择表行或者选择控件中的选择片段。Available in iOS 3.0 and later.<br/>
+UIAccessibilityTraitPlaysSound ：当元素被激活时，无障碍元素有自己声音。Available in iOS 3.0 and later.<br/>
+UIAccessibilityTraitKeyboardKey ：无障碍元素的行为想一个键盘键。Available in iOS 3.0 and later.<br/>
+UIAccessibilityTraitStaticText ：被当做不能改变的静态文本的无障碍元素。Available in iOS 3.0 and later.<br/>
+UIAccessibilityTraitSummaryElement ：当应用启动的时候无障碍元素提供总结信息，可以使用这个特性描述无障碍元素，这个无障碍元素提供当前位置、设置、状态的信息，比如天气应用中的当前气温。Available in iOS 3.0 and later.<br/>
+UIAccessibilityTraitNotEnabled ：无障碍元素不能使用且不能响应用户交互。Available in iOS 3.0 and later.<br/>
+UIAccessibilityTraitUpdatesFrequently ：无障碍元素频繁刷新label和value。可以使用这个元素来描述无障碍元素，这个元素的label或value频繁发送刷新通知来刷新。当想要辅助应用避免处理持续通知，相反的，当需要刷新信息的时候调查变更时，包含该特性。例如，可能需要这个特性去描述一个秒表的读出。Available in iOS 3.0 and later.<br/>
+UIAccessibilityTraitStartsMediaSession ：当被激活时，无障碍元素开启一个多媒体会话。可以使用这个特性来暂停辅助技术的音频输出，比如，voiceover不应该打断多媒体会话。例如，可能使用这个特性来暂停voiceover讲话，当用户录音的时候。Available in iOS 4.0 and later.<br/>
+UIAccessibilityTraitAdjustable ：通过一定范围的值，无障碍元素可连续调节。可以使用这个特性来描述无障碍元素，这个元素用户可以使用连续的方式调整，例如一个滑块或者选择器视图。如果你指定该元素为一个无障碍元素，必须在UIAccessibilityAction协议中实现accessibilityIncrement 和accessibilityDecrement。Available in iOS 4.0 and later.<br/>
+UIAccessibilityTraitAllowsDirectInteraction ：无障碍元素允许voiceover用户直接触摸交互。可以使用这个元素描述无障碍元素，这个元素呈现一个用户可以直接交互的对象，比如一个呈现钢琴键盘的视图；Available in iOS 5.0 and later.<br/>
+UIAccessibilityTraitCausesPageTurn ：当voiceover读完当前页的文本时，这个无障碍元素应该引起自动翻页。可以使用这个元素来描述无障碍元素，这个元素呈现一系列网页中一页内容，比如一个呈现某页书的视图。当voiceover读完当前页，调用具有UIAccessibilityScrollDirectionNext的accessibilityScroll来滚动到下一页。如果voiceover检测到新内容与之前的内容相同，会停止滚动。Available in iOS 5.0 and later.<br/>
+UIAccessibilityTraitHeader ：这个无障碍元素是个将内容分段的标题，比如导航条标题。Available in iOS 6.0 and later.<br/>
 
 
     Notification Dictionary Keys
