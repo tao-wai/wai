@@ -657,11 +657,14 @@ obj.setAttribute("aria-checked","false");
 <body>
 <div>
 <ul>
-<li tabindex="0" onkeydown="setstate('chk');" role="checkbox" aria-checked="false" id="chk" />
+<li tabindex="0" onkeydown="setstate('chk');" role="checkbox" 
+aria-checked="false" id="chk" />
 <label for="chk">正在测试的项目</label>
-<li tabindex="0" onkeydown="setstate('chk2');" role="checkbox" aria-checked="false" id="chk2" />
+<li tabindex="0" onkeydown="setstate('chk2');" role="checkbox" 
+aria-checked="false" id="chk2" />
 <label for="chk2">完成测试的项目</label>
-<li tabindex="0" onkeydown="setstate('chk3');" role="checkbox" aria-checked="false" id="chk3" />
+<li tabindex="0" onkeydown="setstate('chk3');" role="checkbox" 
+aria-checked="false" id="chk3" />
 <label for="chk3">回归测试的项目</label>
 </ul>
 </div>
@@ -683,11 +686,13 @@ obj.setAttribute("aria-checked","false");
 【修改建议】<br/>
 样例1：
 使用html标准控件；<br/>
-```<fieldset>
+```
+<fieldset>
 <legend>搜索顺序</legend> 
 <input type="radio" name="order" id="order_alpha" />
 <label for="order_alpha">按字母排序</label>
-<input type="radio" name="order" id="order_default" checked="true" />
+<input type="radio" name="order" id="order_default" 
+checked="true" />
 <label for="order_default">默认</label>
 </fieldset>```
 样例2：
@@ -705,11 +710,13 @@ obj.setAttribute("aria-checked","false");
 【修改建议】<br/>
 样例1：
 标准控件的单选框的一组的name属性的值设置为一致；<br/>
-```<fieldset>
+```
+<fieldset>
 <legend>性别</legend> 
 <input type="radio" name="order" id="order_alpha" />
 <label for="order_alpha">男</label>
-<input type="radio" name="order" id="order_default" checked="true" />
+<input type="radio" name="order" id="order_default" 
+checked="true" />
 <label for="order_default" >女</label>
 </fieldset>```
 样例2：
@@ -725,8 +732,9 @@ tab浏览到单选框或上下光标在单选框之间移动，不会朗读出�
 【修改建议】<br/>
 样例1：
 为复选框选项添加label;<br/>
-<fieldset>
+
 ```
+<fieldset>
 <legend>性别</legend> 
 <input type="radio" name="order" id="order_alpha" />
 <label >男</label>
@@ -736,11 +744,13 @@ tab浏览到单选框或上下光标在单选框之间移动，不会朗读出�
 注： 此种方式国内的读屏可以支持（争渡、永德）， 国外的读屏不大支持（nvda）<br/>
 样例2：
 使用label for属性为复选框链接提示文本；<br/>
-```<fieldset>
+```
+<fieldset>
 <legend>性别</legend> 
 <input type="radio" name="order" id="order_alpha" />
 <label for="order_alpha">男</label>
-<input type="radio" name="order" id="order_default" checked="true" />
+<input type="radio" name="order" id="order_default" 
+checked="true" />
 <label for="order_default">女</label>
 </fieldset>```
 样例3： 
