@@ -63,7 +63,7 @@ android：<br/>
 方案1：<br/>
 给按钮添加文本；<br/>
 (1)在xml布局文件中添加文本；<br/>
-```<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="确定"/>```<br/>
+```<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="确定"/>```
 (2)在java代码中添加文本；<br/>
 ```Button button = (Button) findViewById(button);
 button.setText("确定");```<br/>
