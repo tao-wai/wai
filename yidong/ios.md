@@ -710,52 +710,52 @@ App可以使用UIGuidedAccessRestrictionStateForIdentifier函数来检查限制�
 
 
 
-    - guidedAccessRestrictionIdentifiers      Required
-    返回一个文本数组确定自定义限制，是一个NSString对象数组，每一个呈现一个自定义限制。如果想在app中提供自定义引导访问，代理必须实现这个方法，并且为每一个自定义引导访问，返回一个标识符文本数组。
-    声明:
-    SWIFT
-    func guidedAccessRestrictionIdentifiers() -> [String]?
-    OBJECTIVE-C
-    - (NSArray<NSString *> * _Nullable)guidedAccessRestrictionIdentifiers
-    版本：Available in iOS 7.0 and later.
+- guidedAccessRestrictionIdentifiers      Required　　<br/>
+返回一个文本数组确定自定义限制，是一个NSString对象数组，每一个呈现一个自定义限制。如果想在app中提供自定义引导访问，代理必须实现这个方法，并且为每一个自定义引导访问，返回一个标识符文本数组。<br/>
+声明:<br/>
+```SWIFT
+func guidedAccessRestrictionIdentifiers() -> [String]?
+OBJECTIVE-C
+- (NSArray<NSString *> * _Nullable)guidedAccessRestrictionIdentifiers```
+版本：Available in iOS 7.0 and later.<br/>
     
-    - textForGuidedAccessRestrictionWithIdentifier:    Required
-    为提供标识符返回一个简洁的限制描述，一个本地的、可理解的简单文本。
-    声明：
-    SWIFT
-    func textForGuidedAccessRestrictionWithIdentifier(_ restrictionIdentifier: String) -> String?
-    OBJECTIVE-C
-    - (NSString * _Nullable)textForGuidedAccessRestrictionWithIdentifier:(NSString * _Nonnull)restrictionIdentifier
-    参数:
-    restrictionIdentifier	  系统感兴趣的限制标识符；
-    版本：Available in iOS 7.0 and later.
+- textForGuidedAccessRestrictionWithIdentifier:    Required<br/>
+为提供标识符返回一个简洁的限制描述，一个本地的、可理解的简单文本。<br/>
+声明：<br/>
+```SWIFT
+func textForGuidedAccessRestrictionWithIdentifier(_ restrictionIdentifier: String) -> String?
+OBJECTIVE-C
+- (NSString * _Nullable)textForGuidedAccessRestrictionWithIdentifier:(NSString * _Nonnull)restrictionIdentifier```
+参数:<br/>
+restrictionIdentifier	  系统感兴趣的限制标识符；<br/>
+版本：Available in iOS 7.0 and later.<br/>
     
-    - detailTextForGuidedAccessRestrictionWithIdentifier:
-    为提供的标识符限制返回更多详细信息，一个本地化、可理解的附加信息。
-    声明：
-    SWIFT
-    optional func detailTextForGuidedAccessRestrictionWithIdentifier(_ restrictionIdentifier: String) -> String?
-    OBJECTIVE-C
-    - (NSString * _Nullable)detailTextForGuidedAccessRestrictionWithIdentifier:(NSString * _Nonnull)restrictionIdentifier
-    参数：restrictionIdentifier  系统感兴趣的限制标示符。
-    版本：Available in iOS 7.0 and later.
+- detailTextForGuidedAccessRestrictionWithIdentifier:<br/>
+为提供的标识符限制返回更多详细信息，一个本地化、可理解的附加信息。<br/>
+声明：<br/>
+```SWIFT
+optional func detailTextForGuidedAccessRestrictionWithIdentifier(_ restrictionIdentifier: String) -> String?
+OBJECTIVE-C
+- (NSString * _Nullable)detailTextForGuidedAccessRestrictionWithIdentifier:(NSString * _Nonnull)restrictionIdentifier```
+参数：restrictionIdentifier  系统感兴趣的限制标示符。<br/>
+版本：Available in iOS 7.0 and later.<br/>
  
 ###    6.2实现限制
 
 
-    - guidedAccessRestrictionWithIdentifier:didChangeState:      Required
-    App需要更改自己的行为去允许和拒绝操作，是特定限制每一次接收到信息时特定限制的。
-    声明：
-    SWIFT
-    func guidedAccessRestrictionWithIdentifier(_ restrictionIdentifier: String,
-                                didChangeState newRestrictionState: UIGuidedAccessRestrictionState)
-    OBJECTIVE-C
-    - (void)guidedAccessRestrictionWithIdentifier:(NSString * _Nonnull)restrictionIdentifier
-                                   didChangeState:(UIGuidedAccessRestrictionState)newRestrictionState
-    参数：
-    restrictionIdentifier	——限制标示符，状态会改变。
-    newRestrictionState——限制的新状态。
-    版本：Available in iOS 7.0 and later.
+- guidedAccessRestrictionWithIdentifier:didChangeState:      　　　Required<br/>
+App需要更改自己的行为去允许和拒绝操作，是特定限制每一次接收到信息时特定限制的。<br/>
+声明：<br/>
+```SWIFT
+func guidedAccessRestrictionWithIdentifier(_ restrictionIdentifier: String,
+                            didChangeState newRestrictionState: UIGuidedAccessRestrictionState)
+OBJECTIVE-C
+- (void)guidedAccessRestrictionWithIdentifier:(NSString * _Nonnull)restrictionIdentifier
+                               didChangeState:(UIGuidedAccessRestrictionState)newRestrictionState```
+参数：<br/>
+restrictionIdentifier	——限制标示符，状态会改变。<br/>
+newRestrictionState——限制的新状态。<br/>
+版本：Available in iOS 7.0 and later.<br/>
 
 ### 6.3常量
 
