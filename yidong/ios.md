@@ -64,15 +64,15 @@ OBJECTIVE-C <br/>
 @property(nonatomic) CGPoint accessibilityActivationPoint <br/>
 版本：Available in iOS 5.0 and later. <br/>
 
-    accessibilityElementsHidden
-    是一个布尔值，指明一个无障碍元素内部的无障碍元素是不是隐藏的；这个属性的默认值是No。可能会使用该属性去隐藏视图，这些视图被新来的视图覆盖。在此案例中，隐藏视图仍然是可见的，但是他们不是用户行为的焦点。
-    可能使用这个属性来隐藏一个短暂的视图，而voiceover用户不会注意到。例如，voiceover不需要去描述透明视图，这些视图当用户调整设备上的音量的时候才会出现，因为这个动作的听觉反馈是足够的。
-    声明：
-    SWIFT
-    var accessibilityElementsHidden: Bool
-    OBJECTIVE-C
-    @property(nonatomic) BOOL accessibilityElementsHidden
-    版本：Available in iOS 5.0 and later.
+accessibilityElementsHidden <br/>
+　　是一个布尔值，指明一个无障碍元素内部的无障碍元素是不是隐藏的；这个属性的默认值是No。可能会使用该属性去隐藏视图，这些视图被新来的视图覆盖。在此案例中，隐藏视图仍然是可见的，但是他们不是用户行为的焦点。 <br/>
+　　可能使用这个属性来隐藏一个短暂的视图，而voiceover用户不会注意到。例如，voiceover不需要去描述透明视图，这些视图当用户调整设备上的音量的时候才会出现，因为这个动作的听觉反馈是足够的。 <br/>
+声明： <br/>
+SWIFT <br/>
+var accessibilityElementsHidden: Bool <br/>
+OBJECTIVE-C <br/>
+@property(nonatomic) BOOL accessibilityElementsHidden <br/>
+版本：Available in iOS 5.0 and later. <br/>
 
     accessibilityFrame
     在屏幕坐标上，无障碍元素的框架；这个属性的默认值是CGRectZero，除非接收器是一个UIView对象或者是一个UIView的子类，这种情况，属性值为视图的框架。
