@@ -355,27 +355,27 @@ UIAccessibilityNavigationStyleCombined ：接收器元素应该组合并且被�
 ### 3.5通知
 
 
-    UIAccessibilityAnnouncementNotification
-    当一个通知需要被传递给辅助技术的时候，这个通知被应用推送。这个通知包含一个参数，是一个包含通知的NSString对象。辅助技术会输出这个参数里面的声明文本。使用这个通知提供事件的无障碍信息，这个事件不会刷新用户界面，或者只是文本的刷新。使用UIAccessibilityPostNotification功能传递这个通知。
-    声明：
-    SWIFT
-    var UIAccessibilityAnnouncementNotification: UIAccessibilityNotifications
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
-
-    UIAccessibilityAnnouncementDidFinishNotification
-    当系统讲完一个公告，UIKit推送该通知。参数是一个具有两个关键点的字典，UIAccessibilityAnnouncementKeyStringValue和UIAccessibilityAnnouncementKeyWasSuccessful。使用默认通知中心监听给通知。
-    声明：
-    SWIFT
-    let UIAccessibilityAnnouncementDidFinishNotification: String
-    导入声明：
-    OBJECTIVE-C
-    @import UIKit
-    SWIFT
-    import UIKit
+UIAccessibilityAnnouncementNotification<br/>
+　　当一个通知需要被传递给辅助技术的时候，这个通知被应用推送。这个通知包含一个参数，是一个包含通知的NSString对象。辅助技术会输出这个参数里面的声明文本。使用这个通知提供事件的无障碍信息，这个事件不会刷新用户界面，或者只是文本的刷新。使用UIAccessibilityPostNotification功能传递这个通知。<br/>
+声明：<br/>
+SWIFT<br/>
+var UIAccessibilityAnnouncementNotification: UIAccessibilityNotifications<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
+<br/>
+UIAccessibilityAnnouncementDidFinishNotification<br/>
+　　当系统讲完一个公告，UIKit推送该通知。参数是一个具有两个关键点的字典，UIAccessibilityAnnouncementKeyStringValue和UIAccessibilityAnnouncementKeyWasSuccessful。使用默认通知中心监听给通知。<br/>
+声明：<br/>
+SWIFT<br/>
+let UIAccessibilityAnnouncementDidFinishNotification: String<br/>
+导入声明：<br/>
+OBJECTIVE-C<br/>
+@import UIKit<br/>
+SWIFT<br/>
+import UIKit<br/>
 
 
     UIAccessibilityBoldTextStatusDidChangeNotification
