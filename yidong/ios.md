@@ -622,16 +622,16 @@ accessibilityLabel：<br/>
 声明：<br/>
 @property(nonatomic, retain) NSString *accessibilityLabel<br/>
 
-    accessibilityHint：
-    属性，简洁描述无障碍元素的操作结果；hint是个简短的本地化描述，描述的是一个无障碍元素操作的结果，而不是指明元素或者行为。例如，一个包含email信息的表行应该是“选择信息”。而不是“点击该行去选择信息”。默认的，标准UIKit控件和视图是系统提供hint。如果提供一个自定义控件和视图时，但是，需要适当去设置该属性，这样辅助应用可以为残障用户提供精确信息。
-    声明：
-    @property(nonatomic, retain) NSString *accessibilityHint
+accessibilityHint：
+　　属性，简洁描述无障碍元素的操作结果；hint是个简短的本地化描述，描述的是一个无障碍元素操作的结果，而不是指明元素或者行为。例如，一个包含email信息的表行应该是“选择信息”。而不是“点击该行去选择信息”。默认的，标准UIKit控件和视图是系统提供hint。如果提供一个自定义控件和视图时，但是，需要适当去设置该属性，这样辅助应用可以为残障用户提供精确信息<br/>。
+声明：<br/>
+@property(nonatomic, retain) NSString *accessibilityHint<br/>
 
-    accessibilityValue：
-    属性，呈现无障碍元素的当前值文本；value值是个本地化文本，包含元素的当前值。例如，一个滑块的值可能是9.5或者35%，文本域的值是就是包含的文本。只有当一个无障碍元素有一个无法通过label呈现的值时，才能使用value属性。例如，一个音量滑块的label可能是“音量”，但是它的value值是当前音量级别。在这个案例中，用户不能很好的了解滑块的特性，因为用户也需要知道当前的值。保存按钮的label，告诉用户需要知道的关于控件的所有信息；提供“保存”作为value值会不必要且令人困扰。
-    声明：
-    @property(nonatomic, retain) NSString *accessibilityValue
-    
+accessibilityValue：<br/>
+　　属性，呈现无障碍元素的当前值文本；value值是个本地化文本，包含元素的当前值。例如，一个滑块的值可能是9.5或者35%，文本域的值是就是包含的文本。只有当一个无障碍元素有一个无法通过label呈现的值时，才能使用value属性。例如，一个音量滑块的label可能是“音量”，但是它的value值是当前音量级别。在这个案例中，用户不能很好的了解滑块的特性，因为用户也需要知道当前的值。保存按钮的label，告诉用户需要知道的关于控件的所有信息；提供“保存”作为value值会不必要且令人困扰。<br/>
+声明：<br/>
+@property(nonatomic, retain) NSString *accessibilityValue<br/>
+
     accessibilityFrame：
     属性，在屏幕坐标上无障碍元素的框架；当创建一个无障碍元素来呈现应用中的一个元素，必须设置这个属性到CGRect结构，这个结构指明对象的屏幕位置和大小。（继承自UIView的对象默认包含该信息）。
     声明：
