@@ -827,9 +827,9 @@ aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可�
       aria-required="false"/>
 <div id="tp1" role="tooltip" aria-hidden="true">你的名字可选. </div>
 </div>``````
-    (2)使用aria-labelledby连接一个标签和多个文本节点，应用与输入控件，aria-labelledby可以被用于label本地输入和非本地输入，例如contenteditable="true"的自定义输入控件div;aria-labelledby的一个特殊使用是文本输入控件，当一个有意义的标签应该包含多个label；id顺序应该是有逻辑的能被读屏软件读取的顺序；
-    样例1：
-    一个连接超时输入字段标签；
+(2)使用aria-labelledby连接一个标签和多个文本节点，应用与输入控件，aria-labelledby可以被用于label本地输入和非本地输入，例如contenteditable="true"的自定义输入控件div;aria-labelledby的一个特殊使用是文本输入控件，当一个有意义的标签应该包含多个label；id顺序应该是有逻辑的能被读屏软件读取的顺序；<br/>
+样例1：<br/>
+一个连接超时输入字段标签；<br/>
 ```
 <form>
 <p>
@@ -844,12 +844,12 @@ timeout-unit是个span元素的id；
 </p>
 </form>```
 
-    样例2：
-    文本输入的简单数据表格；
-    关键代码：
+样例2：
+文本输入的简单数据表格；<br/>
+关键代码：<br/>
 ```
 <td><input type="text" size="20" aria-labelledby="tpayer gross"/></td>```
-    全部代码：
+全部代码：<br/>
 ```
 <table>
 <tr>
@@ -869,13 +869,13 @@ timeout-unit是个span元素的id；
 </tr>
 </table>
 ```
-    样例3：
-    会议工作坊预订表；
-    关键代码：
+样例3：
+会议工作坊预订表；<br/>
+关键代码：<br/>
 ```
 <p><input type="checkbox" id="TM1" aria-labelledby="title-TM1 track1 am1 TM1-att">
 <label id="TM1-att" for="TM1">参加</label></p>```
-    全部代码：
+全部代码：<br/>
 ```
 <h1>恐龙研讨会的时间表星期四，14。星期五，15。月2013</h1>
 <table>
@@ -949,12 +949,12 @@ timeout-unit是个span元素的id；
 </tr>
 </tbody>
 </table>```
-    (3)使用组的roles来区分有关表单控件；
-    这个技巧是用来将表单内的一组相关控件标记为一个组。与组有关的任何标签都有普通标签的作用或者作为组内单独控件的限定符。辅助技术可以识别组的开始和结束，组的标签可以作为进入和离开组的导航。这是表单组控件编程式添加替代，当界面设计不允许出现fieldset-legend的时候。
-    对于单选控件组，可以使用role="radiogroup"而不是role="group";group可以使用aria-labelledby标记；这个技巧不是针对表单内所有的元素，只是针对role="group"的单个容器；
-    
-    样例1：
-    社会保障号码有9位，分成3部分，可以使用role="group";
+(3)使用组的roles来区分有关表单控件；
+　　这个技巧是用来将表单内的一组相关控件标记为一个组。与组有关的任何标签都有普通标签的作用或者作为组内单独控件的限定符。辅助技术可以识别组的开始和结束，组的标签可以作为进入和离开组的导航。这是表单组控件编程式添加替代，当界面设计不允许出现fieldset-legend的时候。<br/>
+　　对于单选控件组，可以使用role="radiogroup"而不是role="group";group可以使用aria-labelledby标记；这个技巧不是针对表单内所有的元素，只是针对role="group"的单个容器<br/>；
+
+样例1：<br/>
+社会保障号码有9位，分成3部分，可以使用role="group";<br/>
 ```
 <div role="group" aria-labelledby="ssn1">
 <span id="ssn1">社会保障号码#</span> 
@@ -963,12 +963,12 @@ timeout-unit是个span元素的id；
 <input size="2" type="text" aria-required="true" title="后两位" />-
 <input size="4" type="text" aria-required="true" title="最后四位" />
 </div>```
-    样例2：识别单选groups
-    下面的例子使用的是role=radiogroup；单选控件使用的是role=radio的自定义控件；
-    关键代码：
+样例2：识别单选groups<br/>
+下面的例子使用的是role=radiogroup；单选控件使用的是role=radio的自定义控件；<br/>
+关键代码：<br/>
     ```
     <div role="radiogroup" aria-labelledby="alert1">```
-    全部代码：
+全部代码：<br/>
 ```
 <h3>为您的帐户设置警报</h3>
 <div role="radiogroup" aria-labelledby="alert1">
@@ -999,26 +999,26 @@ timeout-unit是个span元素的id；
 div[role=radiogroup] {
   border: black thin solid;
 } ```
-    (4)为期望数据提供模式和样例；
+(4)为期望数据提供模式和样例；<br/>
 ```
 <label for="date">Date (dd-mm-yyyy)</label>
 <input type="text" name="date" id="date" />```
-    (5)在表单或者一系列需要填写的区域的开端提供必要的文字来描述必须输入的内容；
-    1)在会员制网站，填写个人信息的时候，工作信息包括公司名、职位、期限、工作描述；在开端给出提示文本：输入你认为你的个人简历可以添加的内容，日期数据应该是mm/dd/yyyy format；
-    2)一个企业档案允许用户在修改个人信息的时候允许用户修改电话号码、工作职责，顶部的提示信息要有：可以修改任何区域的信息，当修改完，想要保存点击确定，不想保存，点击取消；不能修改个人简历中的系统提供部分；电话号码智能包括数字和—；必填区域用*标记，必须填写；
-    (6)根据label的位置来增加文本与控件的关系；
-    1)Label在文本输入框的上面；
-    2)Label在文本输入框的左侧；
-    3)Label在单选按钮的右侧；
-    (7)使用label和legend来明确支出表单控件的必填状态；
-    1)可以使用文本来指出必填状态：
+(5)在表单或者一系列需要填写的区域的开端提供必要的文字来描述必须输入的内容；
+1)在会员制网站，填写个人信息的时候，工作信息包括公司名、职位、期限、工作描述；在开端给出提示文本：输入你认为你的个人简历可以添加的内容，日期数据应该是mm/dd/yyyy format；<br/>
+2)一个企业档案允许用户在修改个人信息的时候允许用户修改电话号码、工作职责，顶部的提示信息要有：可以修改任何区域的信息，当修改完，想要保存点击确定，不想保存，点击取消；不能修改个人简历中的系统提供部分；电话号码智能包括数字和—；必填区域用*标记，必须填写；<br/>
+(6)根据label的位置来增加文本与控件的关系；<br/>
+1)Label在文本输入框的上面；<br/>
+2)Label在文本输入框的左侧；<br/>
+3)Label在单选按钮的右侧；<br/>
+(7)使用label和legend来明确支出表单控件的必填状态；<br/>
+1)可以使用文本来指出必填状态：<br/>
 ```
 <label for="firstname">名(必填):</label> 
 <input type="text" name="firstname" id="firstname" />```
-    2)使用星号（*）来指出必填状态：
+2)使用星号（*）来指出必填状态：<br/>
 ```
 <p> 所需的领域都标有星号(<abbr class="req" title="必填">*</abbr>).</p>```
-    3)使用图片来指出必填状态：
+3)使用图片来指出必填状态：<br/>
 ```
 <p><img src="req_img.gif" alt="必填控件" /> 指示所需的窗体控件</p>```
     4)指出单选组和复选组的必填状态：
