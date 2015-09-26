@@ -12,34 +12,35 @@
 
 ### 1.1.1按钮无焦点
 
-    【问题描述】
-    按钮无法滑动和触摸浏览， 或者按钮只能触摸浏览；
-    【可能原因】
-    1.没有给标准控件按钮设置焦点；
-    2.自定义的按钮没有支持无障碍访问；
-    【修改建议】
-    android：
-    方案1： 
-    在布局xml文件中设置；
-    在布局xml文件中把控件的android：focusable属性设置为true， 此控件就能获得焦点。
-    方案2： 
-    在java代码中设置；
-    在java代码中调用需要设置焦点的控件的setfocusable（）函数， 参数为true是获得焦点， 参数为false是不获得焦点；
-    方案3：
-    让自定义的按钮控件支持无障碍访问， 主要也是设置android：focusable的值
-    ios：
-    让自定义的按钮支持无障碍使用：
-    （注： 下面的文字摘抄与《ios-accessibility-programming-guide-in-chinese》）
-    除了使用 Interface Builder，还可以通过两种编程方法让自定义独立视图支持无障碍使用。第一种方法是在初始化视图的时候设置它的无障碍状态。如下面的代码片段所示： 
+【问题描述】<br/>
+按钮无法滑动和触摸浏览， 或者按钮只能触摸浏览；<br/>
+【可能原因】<br/>
+1.没有给标准控件按钮设置焦点；<br/>
+2.自定义的按钮没有支持无障碍访问；<br/>
+【修改建议】<br/>
+android：<br/>
+方案1： <br/>
+在布局xml文件中设置；<br/>
+在布局xml文件中把控件的android：focusable属性设置为true， 此控件就能获得焦点。<br/>
+方案2： <br/>
+在java代码中设置；<br/>
+在java代码中调用需要设置焦点的控件的setfocusable（）函数， 参数为true是获得焦点， 参数为false是不获得焦点；<br/>
+方案3：<br/>
+让自定义的按钮控件支持无障碍访问， 主要也是设置android：focusable的值<br/>
+ios：<br/>
+让自定义的按钮支持无障碍使用：<br/>
+（注： 下面的文字摘抄与《ios-accessibility-programming-guide-in-chinese》）<br/>
+除了使用 Interface Builder，还可以通过两种编程方法让自定义独立视图支持无障碍使用。第一种方法是在初始化视图的时候设置它的无障碍状态。如下面的代码片段所示： <br/>
 ```
 @implementation MyCustomViewController 
 -(id)init 
 { 
-_view = [[[MyCustomView alloc] initWithFrame:CGRectZero] autorelease]; 
+_view = [[[MyCustomView alloc] initWithFrame:CGRectZero] 
+autorelease]; 
 [_view setIsAccessibilityElement:YES]; 
 /* Set attributes here. */ 
 }```
-    另一种方法是实现UIAccessibility协议的isAccessibilityElement方法。如下面的代码片段所示： 
+　　另一种方法是实现UIAccessibility协议的isAccessibilityElement方法。如下面的代码片段所示： <br/>
 ```
 @implementation MyCustomView 
 /* Implement attribute methods here. */ 
@@ -47,39 +48,39 @@ _view = [[[MyCustomView alloc] initWithFrame:CGRectZero] autorelease];
 { 
 return YES; 
 }```
-    注意：在这两个代码片段中，都是用注释来代替真实的代码。
+　　注意：在这两个代码片段中，都是用注释来代替真实的代码。
 
 ### 1.1.2按钮无提示文本、目的文本
 
 
-    【问题描述】
-    当按钮获得焦点的时候按钮不朗读或者朗读无意义；
-    【可能原因】
-    1.没有给按钮添加文本；
-    2.没有给图形按钮添加替代文本；
-    【修改建议】
-    android：
-    方案1：
-    给按钮添加文本；
-    (1)在xml布局文件中添加文本；
-    ```<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="确定"/>```
-    (2)在java代码中添加文本；
-    ```Button button = (Button) findViewById(button);
-    button.setText("确定");```
-    方案2： 
-    给图形按钮等没有文字的按钮添加替代文本；
-    (1)在xml布局文件中设置替代文本， 此种方法试用与此按钮在运行过程中功能不会改变
-    把按钮的contentdescription属性设置为适当的值, 例如，下面的ImageButton设置的add_note字符串资源，可以作为一个中文界面的“添加注释”定义为加号按钮，代码内容描述： 
-    ```<ImageButton
-    android:id=”@+id/add_note_button”
-    android:src=”@drawable/add_note”
-    android:contentDescription=”@string/add_note" />```
-    (2) 用java代码设置替代文本，此种方法适用于按钮在运行中功能会改变或开关状态等播放按钮在歌曲没有播放的时候功能是播放歌曲，图标也是播放的图标， 可以这样设置替代文本：
-    button.setContentDescription("播放");
-    当歌曲播放的时候按钮的功能是暂停， 图标变成了暂停的图标， 可以这样设置替代文本：
-    button.setContentDescription("暂停");
-    ios：
-    所有的控件的标签属性都赋予适当的值， 有必要的时候给提示属性赋值。
+【问题描述】<br/>
+当按钮获得焦点的时候按钮不朗读或者朗读无意义；<br/>
+【可能原因】<br/>
+1.没有给按钮添加文本；<br/>
+2.没有给图形按钮添加替代文本；<br/><br/>
+【修改建议】<br/>
+android：<br/>
+方案1：<br/>
+给按钮添加文本；<br/>
+(1)在xml布局文件中添加文本；<br/>
+```<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="确定"/>```<br/>
+(2)在java代码中添加文本；<br/>
+```Button button = (Button) findViewById(button);
+button.setText("确定");```<br/>
+方案2： <br/>
+给图形按钮等没有文字的按钮添加替代文本；<br/>
+(1)在xml布局文件中设置替代文本， 此种方法试用与此按钮在运行过程中功能不会改变
+把按钮的contentdescription属性设置为适当的值, 例如，下面的ImageButton设置的add_note字符串资源，可以作为一个中文界面的“添加注释”定义为加号按钮，代码内容描述： <br/>
+```<ImageButton
+android:id=”@+id/add_note_button”
+android:src=”@drawable/add_note”
+android:contentDescription=”@string/add_note" />```<br/>
+(2) 用java代码设置替代文本，此种方法适用于按钮在运行中功能会改变或开关状态等播放按钮在歌曲没有播放的时候功能是播放歌曲，图标也是播放的图标， 可以这样设置替代文本：<br/>
+button.setContentDescription("播放");<br/>
+当歌曲播放的时候按钮的功能是暂停， 图标变成了暂停的图标，< 可以这样设置替代文本：br/>
+button.setContentDescription("暂停");br/>
+ios：br/>
+所有的控件的标签属性都赋予适当的值， 有必要的时候给提示属性赋值。br/>
 
 
 ### 1.1.3按钮不可操作
