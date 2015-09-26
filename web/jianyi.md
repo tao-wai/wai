@@ -498,10 +498,12 @@ href="http://www.siaa.org.cn/" target="_blank">
 ```
 <?xml version="1.0" encoding="UTF-8"?> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+  
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"> 
   <head> 
-    <meta http-equiv="content-type" content="text/xhtml; charset=utf-8" /> 
+    <meta http-equiv="content-type" content="text/xhtml; 
+    charset=utf-8" /> 
     <title>动态选择</title> 
 <script type="text/javascript">
  //<![CDATA[ 
@@ -604,7 +606,8 @@ href="http://www.siaa.org.cn/" target="_blank">
 <html xmlns="http://www.w3.org/1999/xhtml">    
   <head>      
     <title>信息无障碍研究会</title>      
-    <meta http-equiv="refresh" content="0; URL='http://www.siaa.org.cn/'" />    
+    <meta http-equiv="refresh" content="0; 
+    URL='http://www.siaa.org.cn/'" />    
   </head>    
   <body> 
     <p>此网页被转移到<a href='http://www.siaa.org.cn/'" >
@@ -615,7 +618,7 @@ href="http://www.siaa.org.cn/" target="_blank">
 ### 3.8.3在服务器端设置自动重定向而不是在客户端
 
 
-    使用html元素重定向的时候，会有几秒钟的挺短，这使得该网页不能被一些用户获得，尤其是一些读屏用户。服务器端的技术提供方法来重定向而不会困扰用户。服务器端脚本和配置文件可以引起服务器发送合适的http响应，当浏览器接收到这个响应，地址栏的变化和浏览器发出新的URL的请求。
+　　使用html元素重定向的时候，会有几秒钟的挺短，这使得该网页不能被一些用户获得，尤其是一些读屏用户。服务器端的技术提供方法来重定向而不会困扰用户。服务器端脚本和配置文件可以引起服务器发送合适的http响应，当浏览器接收到这个响应，地址栏的变化和浏览器发出新的URL的请求。<br/>
 
 ### 3.8.4使用target属性去打开一个窗口当用户请求的时候，并在链接文本里告知用户
 
@@ -690,11 +693,14 @@ href="http://www.siaa.org.cn/" target="_blank">
 <dl title="无障碍术语">
   <dt>Knot</dt>
   <dd>
-    <p> <em>信息无障碍</em>是指任何人（无论是健全人还是残疾人，无论是年轻人还是老年人）在任何情况下都能平等的、方便地、无障碍地获取信息、利用信息。</p>
+    <p> <em>信息无障碍</em>是指任何人（无论是健全人还是残疾人，
+    ）在任何情况下都能平等的、方便地、无障碍地获取信息、利用信息。</p>
   </dd>
   <dt>可访问性</dt>
   <dd>
-    <p><em>可访问性</em>  为所有非文本内容提供替代文本，使之可以转化为用户需要的其他形式（例如大字版本、盲文、语音、符号语言、简化语言）；</p>
+    <p><em>可访问性</em>  为所有非文本内容提供替代文本，使之可以转化为用户需要的
+    其他形式
+    （例如大字版本、盲文、语音、符号语言、简化语言）；</p>
   </dd>
   <dt>可操作性</dt>
   <dd>
@@ -705,10 +711,13 @@ href="http://www.siaa.org.cn/" target="_blank">
 样例：<br/>
 ```
 <link rel="glossary" href="http://www.w3c.org/TR/WCAG20/#glossary">```
-    5）使用行内定义：在上下文中给出词汇的定义；
-    6）使用dfn元素来明确词汇的定义实例。这个只是将词汇括起来而已，并不是定义，是在词汇定义的位置使用。
+5）使用行内定义：在上下文中给出词汇的定义；<br/>
+6）使用dfn元素来明确词汇的定义实例。这个只是将词汇括起来而已，并不是定义，是在词汇定义的位置使用。<br/>
 ```
-<p> Web内容辅助功能准则要求非文本内容必须有替代文本。 <dfn>非文本内容</dfn>是内容，是不是可以以编程方式确定或顺序字符，其中序列状态并没有表达的东西在人类语言;这包括ASCII艺术（这是字符），表情符号，（这是字符替代），和代表文字图像。</p>```
+<p> Web内容辅助功能准则要求非文本内容必须有替代文本。 
+<dfn>非文本内容</dfn>是内容，是不是可以以编程方式确定或顺序字符，
+其中序列状态并没有表达的东西在人类语言;这包括ASCII艺术（这是字符），
+表情符号，（这是字符替代），和代表文字图像。</p>```
 7）提供一个词汇表：位于页面地步，用来定义<br/>
 8）提供一个功能可以在线搜索词典；<br/>
 
@@ -724,10 +733,13 @@ href="http://www.siaa.org.cn/" target="_blank">
 样例1：使用abbr来扩展缩写；<br/>
 ```
 <p>5<abbr title="无障碍信息bug">bug<abbr></p>
-<p>欢迎 <abbr title="Shenzhen information accessibility association">SIAA</abbr>!</p>  ``` 
+<p>欢迎 <abbr title="Shenzhen information accessibility 
+association">SIAA</abbr>!</p>  ``` 
 样例2：使用abbr来扩展；<br/>
 ```
-<p>深圳市信息无障碍研究会<abbr title="和其他">et al.</abbr> <abbr title="versus（与）">v.</abbr>纽约时间<abbr title="and others（和其他）">et al.</abbr> 是中国信息无障碍联盟的重要成员</p> ```
+<p>深圳市信息无障碍研究会<abbr title="和其他">et al.</abbr>
+<abbr title="versus（与）">v.</abbr>纽约时间<abbr title="and 
+others（和其他）">et al.</abbr> 是中国信息无障碍联盟的重要成员</p> ```
 样例3：使用abbr来扩展缩写；<br/>
 ```
 <p> <abbr title="accessibility technology">AT</abbr> 的使用成为流行。。</p>   ```
@@ -751,7 +763,8 @@ xhtml中的lang使用：```<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
 <head>
   <title>法语文件</title>
-	<meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+	<meta http-equiv="content-type" content="application/xhtml+xml; 
+	charset=utf-8" />
 </head>```
 2）使用lang属性来标记语言的改变<br/>
 　　对于网页中插入某种特殊的语言时，该区块的lang或xml：lang属性可以指定为该语言的简写：<br/>
@@ -788,7 +801,9 @@ xhtml中的lang使用：```<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" 
 弹出框的叉号按钮；<br/>
 ```
 <div id="box">这里有一个弹出框
-   <button aria-label="Close" onclick="document.getElementById('box').style.display='none';" class="close-button">X（叉号）</button>			
+   <button aria-label="Close" 
+   onclick="document.getElementById('box').style.display='none';" 
+   class="close-button">X（叉号）</button>			
 </div>```
 样例2：多区域电话号码<br/>
 ```
@@ -905,7 +920,8 @@ role="group"表示组合并<br/>
     aria-pressed="false"
     aria-labelledby="bold_label"
     aria-controls="text1">//此时列表只是个控制按钮
-    <img src="http://www.oaa-accessibility.org/media/examples/images/button-bold.png" alt="bold text" align="middle">
+    <img src="http://www.oaa-accessibility.org/media/examples/images
+    /button-bold.png" alt="bold text" align="middle">
 </li>```
 脚本程序：用来切换aria-pressed的true和false的状态；<br/>
 ```
@@ -924,7 +940,11 @@ function togglePressed(id) {
 ```
 var handle = '<img 
 id="' + id + '" 
-class="' + (this.vert == true ? 'v':'h') +'sliderHandle"+'src="http://www.oaa-accessibility.org/media/examples/images/slider_' + (this.vert == true ? 'v':'h') + '.png" ' + 'role="slider"' +'aria-valuemin="' + this.min +'" 'aria-valuemax="' + this.max +'" 
+class="' + (this.vert == true ? 'v':'h') 
++'sliderHandle"+'src="http://www.oaa-accessibility.org/media/example
+s/images/slider_' + (this.vert == true ? 'v':'h') + '.png" ' + 
+'role="slider"' +'aria-valuemin="' + this.min +'" 'aria-valuemax="' 
++ this.max +'" 
 aria-valuenow="' + (val == undefined ? this.min : val) +'" 
 aria-labelledby="' + label +'" 
 aria-controls="' + controls + '" 
