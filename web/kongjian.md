@@ -76,33 +76,39 @@ HTML:
 ```
 <a href="routes.html">无障碍路线</a>```
 样例2：
-图片链接，图片无意义，可为img元素添加alt属性来描述链接目的：
-<a href="routes.html"> <img src="topo.gif" alt="去到无障碍论坛的路线" /></a>
+图片链接，图片无意义，可为img元素添加alt属性来描述链接目的：＜br/＞
+```
+<a href="routes.html"> <img src="topo.gif" alt="去到无障碍论坛的路线" /></a>```
 样例3：
-图片和文字链接，图片无意义：
+图片和文字链接，图片无意义：＜br/＞
+```
 <a href="routes.html">
 <img src="topo.gif" alt="" />去到无障碍论坛的路线
-</a>
+</a>```
 样例4：
-图片和文字链接，图片有意义：
+图片和文字链接，图片有意义：＜br/＞
+```
 <a href="prod_123_feedback.htm">反馈
 <img src="response.gif" width="15" height="15" alt="收到响应图标" />
-</a>
+</a>```
 样例5：
-链接到文件（pdf、doc、xls）：
+链接到文件（pdf、doc、xls）：＜br/＞
+```
 <p>
 <a href="2009mycorp_report.pdf">信息无障碍联盟年度报告（pdf）</a>
 <br />
 <a href="2009mycorp_budget.xls">信息无障碍联盟年度财务 (Excel)</a>
-</p>
+</p>```
 样例6：
 使用 title 属性添加链接文本：
-title属性用已描述链接目的：
-<a href="index.html" title="了解更多无障碍研究会的内容">无障碍研究会</a>
-Title用来描述新窗口打开方式：
-<a href="http://www.siaa.org.cn/" target="_blank"  title="在新窗口中打开"> </a>
+title属性用已描述链接目的：＜br/＞
+```
+<a href="index.html" title="了解更多无障碍研究会的内容">无障碍研究会</a>```
+Title用来描述新窗口打开方式：＜br/＞
+```
+<a href="http://www.siaa.org.cn/" target="_blank"  title="在新窗口中打开"> </a>```
 样例7：
-给列表内链接添加描述文本，用已描述链接目的。
+给列表内链接添加描述文本，用已描述链接目的。＜br/＞
 关键代码：<a href="tomb_raider.htm">古墓丽影：传奇</a>
 全部代码：
 <ul>
