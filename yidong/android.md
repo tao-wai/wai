@@ -376,20 +376,20 @@ ViewCompat.setAccessibilityDelegate(new AccessibilityDelegateCompat() {
     }
 }```
   
-    针对在Android 4.0(API级别14)和更高上的应用程序，这些方法可以直接在您的自定义视图类中实现。这种方法的另一个例子,请参阅Android支持库(版本5或更高)的示例，AccessibilityDelegateSupportActivity样本在 (<sdk>/extras/android/support/v4/samples/Support4Demos/)。
-    注意:编写Android 4.0之前您可能会发现实现可访问性信息的自定义视图，它描述了使用dispatchPopulateAccessibilityEvent()方法AccessibilityEvents填充。作为Android 4.0的发布，然而，推荐的方法是使用onPopulateAccessibilityEvent()和onInitializeAccessibilityEvent()方法。
+　　针对在Android 4.0(API级别14)和更高上的应用程序，这些方法可以直接在您的自定义视图类中实现。这种方法的另一个例子,请参阅Android支持库(版本5或更高)的示例，AccessibilityDelegateSupportActivity样本在 (<sdk>/extras/android/support/v4/samples/Support4Demos/)。<br/>
+　　注意:编写Android 4.0之前您可能会发现实现可访问性信息的自定义视图，它描述了使用dispatchPopulateAccessibilityEvent()方法AccessibilityEvents填充。作为Android 4.0的发布，然而，推荐的方法是使用onPopulateAccessibilityEvent()和onInitializeAccessibilityEvent()方法。<br/>
 
 ### 6.3.5提供自定义无障碍内容
 
 
-    在安卓4.0（API级别14），android框架得到改进，来允许无障碍服务来检查能够产生无障碍事件的用户界面组件的包含视图层次。这个改进允许辅助服务来提供更丰富的上下文信息设置，用来帮助用户。
-    还有一些情况，辅助服务不能从视图层次获取足够信息。例如具有两个或者更多独立点击区域的自定义界面控件，比如日历控件。这种情况下服务不能获取足够信息，因为可点击分段不是视图层次结构的一部分。
-    为了提供辅助服务的足够内容信息，框架提供了一种方法来指定虚拟视图层次结构。虚拟视图层次结构为应用程序开发者提供了辅助服务的互补视图层次结构，这样会更紧密地匹配屏幕上的实际信息。这种方法使辅助服务提供了更多有用的内容信息。
+　　在安卓4.0（API级别14），android框架得到改进，来允许无障碍服务来检查能够产生无障碍事件的用户界面组件的包含视图层次。这个改进允许辅助服务来提供更丰富的上下文信息设置，用来帮助用户。<br/>
+　　还有一些情况，辅助服务不能从视图层次获取足够信息。例如具有两个或者更多独立点击区域的自定义界面控件，比如日历控件。这种情况下服务不能获取足够信息，因为可点击分段不是视图层次结构的一部分。<br/>
+　　为了提供辅助服务的足够内容信息，框架提供了一种方法来指定虚拟视图层次结构。虚拟视图层次结构为应用程序开发者提供了辅助服务的互补视图层次结构，这样会更紧密地匹配屏幕上的实际信息。这种方法使辅助服务提供了更多有用的内容信息。<br/>
 
-    图2 一个日期元素可以选择的自定义日历视图
-    图2中的样例，整个日历是一个单独的视图，所以不能有其他操作，无障碍服务不会接收到足够的视图内容信息和用户在视图中的选择。例如，如果一个用户点击17这个日期，无障碍框架只会接收到整个日历控件的描述文本。在这种案例中，talkback无障碍服务将会简单的告知“日历”或者“4月日历”，用户将会自己考虑哪些日期是被选择的。
-    另一种需要虚拟视图层次结构的情况就是，用户界面包含一组与功能密切相关的控件（视图），控件的操作会影响一个或多个元素的内容。这种情况下辅助服务无法获得足够信息，因为控件操作改变了另一控件的内容，而这些控件的关系可能并不明显。为了处理这种情况，把相关控件通过视图组合起来，并且提供虚拟视图层次结构来清楚代表控件信息和操作。
-    为了提供虚拟视图层次结构，在自定义视图或者视图组改写getAccessibilityNodeProvider()方法，并返回AccessibilityNodeProvider实现。使用ViewCompat.getAccessibilityNodeProvider()支持库，并提供 AccessibilityNodeProviderCompat实现，就可以实现与安卓1.6及更高版本兼容的虚拟视图层次结构。
+图2 一个日期元素可以选择的自定义日历视图<br/>
+        图2中的样例，整个日历是一个单独的视图，所以不能有其他操作，无障碍服务不会接收到足够的视图内容信息和用户在视图中的选择。例如，如果一个用户点击17这个日期，无障碍框架只会接收到整个日历控件的描述文本。在这种案例中，talkback无障碍服务将会简单的告知“日历”或者“4月日历”，用户将会自己考虑哪些日期是被选择的。<br/>
+　　另一种需要虚拟视图层次结构的情况就是，用户界面包含一组与功能密切相关的控件（视图），控件的操作会影响一个或多个元素的内容。这种情况下辅助服务无法获得足够信息，因为控件操作改变了另一控件的内容，而这些控件的关系可能并不明显。为了处理这种情况，把相关控件通过视图组合起来，并且提供虚拟视图层次结构来清楚代表控件信息和操作。<br/>
+为了提供虚拟视图层次结构，在自定义视图或者视图组改写getAccessibilityNodeProvider()方法，并返回AccessibilityNodeProvider实现。使用ViewCompat.getAccessibilityNodeProvider()支持库，并提供 AccessibilityNodeProviderCompat实现，就可以实现与安卓1.6及更高版本兼容的虚拟视图层次结构。<br/>
 
 ### 6.3.6处理自定义触摸事件
 
