@@ -140,9 +140,10 @@ Title用来描述新窗口打开方式：＜br/＞
 <p>互联网产品信息无障碍大意是，互联网产品可以被视障者等用户顺畅使用...<a href="final15.html">[查看更多]</a></p>
 <h3>Folk artists get awards</h3>
 <p>从即将到来的全国民俗节表演者收到国家文物奖学金。<a href="nheritage.html">[更多]</a></p>```
-更多链接添加 title 属性，会描述的更清楚；
+更多链接添加 title 属性，会描述的更清楚；＜br/＞
 样例9：
-为表格内链接添加目的文本：
+为表格内链接添加目的文本：＜br/＞
+```
 <tr>
 <th scope="row">经济车</th>
 <td>
@@ -152,9 +153,9 @@ Title用来描述新窗口打开方式：＜br/＞
 <td><a href="econ_nat.htm">$72/天</a></td>
 <td><a href="econ_av.htm">$74/天</a></td>
 <td><a href="econ_hz.htm">$74/天</a></td>
-</tr>
+</tr>```
 样例10：
-链接文本为父级内容添加链接目的：
+链接文本为父级内容添加链接目的：＜br/＞
 <li>年度报告2005-2006
 <ul>
 <li>
