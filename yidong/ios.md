@@ -849,14 +849,14 @@ import UIKit<br/>
 ## 9.修改用户界面无障碍属性
 
 
-    iOS SDK 3.0自带一个Interface Builder，其中包含应用无障碍性相关的功能。如果你的应用包含标准UIKit控件和视图，那你可以在Interface Builder中完成所有的无障碍工作。
+　　iOS SDK 3.0自带一个Interface Builder，其中包含应用无障碍性相关的功能。如果你的应用包含标准UIKit控件和视图，那你可以在Interface Builder中完成所有的无障碍工作。<br/>
 ### 9.1在Interface Builder为标准控件和视图添加无障碍信息；
-    可以使用Interface Builder设置元素的无障碍状态并提供自定义的标签、提示和特性属性的内容。具体的设置方法是，在你的nib文件中选择用户界面元素并打开Idendidy标签，可以在Accessibility部分看到下图的内容：
-    ![](图片4.png)
-    图4  Interface Builder中所显示的标准文本框的默认无障碍信息。
-    如图所示，nib文件中使用的标准的文本框默认是无障碍的，并且包含默认的标签、提示和特性属性的信息。（注意，对于包含占位符文字的文本框来说，默认标签是占位符文本。）你可以任意修改这些默认值，如下图所示（下图同样展示了Accessibility标签如何展示文本框的无障碍信息。具体的使用方法参见“在iOS模拟器中使用Accessibility Inspector调试无障碍性”）：
-    ![](图片5.png)
-    图5 ios无障碍属性及属性查看
+　　可以使用Interface Builder设置元素的无障碍状态并提供自定义的标签、提示和特性属性的内容。具体的设置方法是，在你的nib文件中选择用户界面元素并打开Idendidy标签，可以在Accessibility部分看到下图的内<br/>容：
+![](图片4.png)
+图4  Interface Builder中所显示的标准文本框的默认无障碍信息<br/>。
+　　如图所示，nib文件中使用的标准的文本框默认是无障碍的，并且包含默认的标签、提示和特性属性的信息。（注意，对于包含占位符文字的文本框来说，默认标签是占位符文本。）你可以任意修改这些默认值，如下图所示（下图同样展示了Accessibility标签如何展示文本框的无障碍信息。具体的使用方法参见“在iOS模拟器中使用Accessibility Inspector调试无障碍性”）：<br/>
+![](图片5.png)
+图5 ios无障碍属性及属性查看<br/>
 
 ### 9.2让自定义独立视图支持无障碍使用
 
