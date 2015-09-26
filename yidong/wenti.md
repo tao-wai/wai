@@ -616,32 +616,32 @@ android，未给设备添加适当的android:contentDescription信息；<br/>
 ### 1.12.1选中状态不朗读
 
 
-    【问题描述】
-    当滑动或触摸浏览到tab标签后无法朗读出此tab标签是否选中；
-    【可能原因】
-    自定义控件的无障碍支持不够全面；
-    【修改建议】
-    android：
-    在任何一种情况下，为您的自定义视图类您应该执行下面的可访问性方法： 
+【问题描述】
+当滑动或触摸浏览到tab标签后无法朗读出此tab标签是否选中；<br/>
+【可能原因】<br/>
+自定义控件的无障碍支持不够全面；<br/>
+【修改建议】<br/>
+android：<br/>
+在任何一种情况下，为您的自定义视图类您应该执行下面的可访问性方法： <br/>
 ```
 dispatchPopulateAccessibilityEvent()
 onPopulateAccessibilityEvent() 
 onInitializeAccessibilityEvent()
 onInitializeAccessibilityNodeInfo() ```
-通常是在onInitializeAccessibilityEvent() 方法中修改控件的状态。
+通常是在onInitializeAccessibilityEvent() 方法中修改控件的状态。<br/>
 
 ### 1.12.2Tab标签名称不朗读
 
 
-    【问题描述】
-    触摸或滑动到tab卡下的tab标签， tab标签的名称不能朗读出；
-    【可能原因】
-    1、 没有给标签赋值；
-    2、 tab标签的图形没有替代文本；
-    【修改建议】
-    1、 给tab标签赋予适当的值；
-    2、 给tab标签添加contentDescription属性并赋予适当的值。
-
+【问题描述】<br/>
+触摸或滑动到tab卡下的tab标签， tab标签的名称不能朗读出；<br/>
+【可能原因】<br/>
+1、 没有给标签赋值；
+2、 tab标签的图形没有替代文本；<br/>
+【修改建议】<br/>
+1、 给tab标签赋予适当的值；<br/>
+2、 给tab标签添加contentDescription属性并赋予适当的值。
+<br/>
 # 2.常见功能的无障碍问题
 
 
@@ -653,53 +653,53 @@ onInitializeAccessibilityNodeInfo() ```
 ### 2.1.1一个焦点覆盖到多个元素
 
 
-    【问题描述】
-    一个焦点覆盖多个元素， 当触摸或滑动到这个焦点的时候会把这个焦点覆盖的所有元素朗读出来， 触摸到这个界面的空白部分也朗读这个覆盖多个元素的焦点。
-    【可能原因】
-    【修改建议】
+【问题描述】
+一个焦点覆盖多个元素， 当触摸或滑动到这个焦点的时候会把这个焦点覆盖的所有元素朗读出来， 触摸到这个界面的空白部分也朗读这个覆盖多个元素的焦点。<br/>
+【可能原因】<br/>
+【修改建议】<br/>
 
 ### 2.1.2焦点区域大小不适当
 
 
-    【问题描述】
-    焦点区域过大或者过小， 影响低视力的人群获取界面信息。 焦点区域过小是指焦点区域小鱼展示的内容， 例如： 一个textview上的文字高25dip、宽20dip， 儿焦点区域才高12dip，宽10dip。 焦点区域过大是焦点区域大于展示的内容。
-    【可能原因】
-    【修改建议】
+【问题描述】<br/>
+焦点区域过大或者过小， 影响低视力的人群获取界面信息。 焦点区域过小是指焦点区域小鱼展示的内容， 例如： 一个textview上的文字高25dip、宽20dip， 儿焦点区域才高12dip，宽10dip。 焦点区域过大是焦点区域大于展示的内容。<br/>
+【可能原因】<br/>
+【修改建议】<br/>
 
 ### 2.1.3焦点顺序不符合逻辑
 
 
-    【问题描述】
-    在界面上滑动浏览时，对象获得焦点的顺序与实际显示的顺序不一致， 例如界面上从左到右依次有一个编辑框、一个确定按钮、一个取消按钮， 当焦点在编辑框上时向右滑动一次取消按钮获得焦点就是不符合实际的逻辑顺序， 正确的焦点顺序应该是： 当编辑框聚焦的时候向右滑动一次是确定按钮聚焦，再向右滑动一次取消按钮聚焦。
-    【可能原因】
-    android:
-    1、 在布局xml文件中配置的焦点顺序出错；
-    2、 在java代码中设置焦点顺序时出错；
-    【修改建议】
-    android：
-    1、 在xml布局文件中用nextFocusDown(向下的下一个焦点）、nextFocusRight(向右的下一个焦点)、nextFocusLeft(向左的下一个焦点)、nextFocusUp(向上的下一个焦点)这四个属性来设置控件的焦点顺序
-    2、 在java代码中可以用setNextFocusDown(向下的下一个焦点)、setNextFocusUp(向上的下一个焦点)、setNextFocusRight(向右的下一个焦点)、setNextFocusLeft(向左的下一个焦点)这四个函数来设置控件的焦点顺序
+【问题描述】<br/>
+在界面上滑动浏览时，对象获得焦点的顺序与实际显示的顺序不一致， 例如界面上从左到右依次有一个编辑框、一个确定按钮、一个取消按钮， 当焦点在编辑框上时向右滑动一次取消按钮获得焦点就是不符合实际的逻辑顺序， 正确的焦点顺序应该是：<br/> 当编辑框聚焦的时候向右滑动一次是确定按钮聚焦，再向右滑动一次取消按钮聚焦。<br/>
+【可能原因】<br/>
+android:<br/>
+1、 在布局xml文件中配置的焦点顺序出错；<br/>
+2、 在java代码中设置焦点顺序时出错；<br/>
+【修改建议】<br/>
+android：<br/>
+1、 在xml布局文件中用nextFocusDown(向下的下一个焦点）、nextFocusRight(向右的下一个焦点)、nextFocusLeft(向左的下一个焦点)、nextFocusUp(向上的下一个焦点)这四个属性来设置控件的焦点顺序<br/>
+2、 在java代码中可以用setNextFocusDown(向下的下一个焦点)、setNextFocusUp(向上的下一个焦点)、setNextFocusRight(向右的下一个焦点)、setNextFocusLeft(向左的下一个焦点)这四个函数来设置控件的焦点顺序<br/>
 
 ### 2.1.4部分控件无焦点
 
 
-    【问题描述】
-    控件无法滑动和触摸浏览， 或者控件只能触摸浏览；
-    【可能原因】
-    1、 没有给标准控件设置焦点；
-    2、 自定义的控件没有支持无障碍访问；
-    【修改建议】
-    android：
-    方案1： 在布局xml文件中设置；
-    在布局xml文件中把控件的android：focusable属性设置为true
-    方案2： 在java代码中设置；
-    在java代码中调用需要设置焦点的控件的setfocusable（）函数， 参数为true是获得焦点， 参数为false是不获得焦点
-    方案3： 让自定义的控件支持无障碍访问；
-    ios：
-    让自定义的控件支持无障碍使用
-    （注： 下面的文字摘抄与《ios-accessibility-programming-guide-in-chinese》）
-    除了使用 Interface Builder，还可以通过两种编程方法让自定义独立视图支持无障碍使用。第一种方法是在初始化视图的时候
-    设置它的无障碍状态。如下面的代码片段所示： 
+【问题描述】<br/>
+控件无法滑动和触摸浏览， 或者控件只能触摸浏览；<br/>
+【可能原因】<br/>
+1、 没有给标准控件设置焦点；<br/>
+2、 自定义的控件没有支持无障碍访问；<br/>
+【修改建议】<br/>
+android：<br/>
+方案1： 在布局xml文件中设置；<br/>
+在布局xml文件中把控件的android：focusable属性设置为true<br/>
+方案2： 在java代码中设置；<br/>
+在java代码中调用需要设置焦点的控件的setfocusable（）函数， 参数为true是获得焦点， 参数为false是不获得焦点<br/>
+方案3： 让自定义的控件支持无障碍访问；<br/><br/>
+ios：<br/>
+让自定义的控件支持无障碍使用
+（注： 下面的文字摘抄与《ios-accessibility-programming-guide-in-chinese》）<br/>
+除了使用 Interface Builder，还可以通过两种编程方法让自定义独立视图支持无障碍使用。第一种方法是在初始化视图的时候
+设置它的无障碍状态。如下面的代码片段所示： <br/>
 ```
 @implementation MyCustomViewController 
 -(id)init 
@@ -709,7 +709,7 @@ _view = [[[MyCustomView alloc] initWithFrame:CGRectZero] autorelease];
 /* Set attributes here. */ 
 }```
 
-    另一种方法是实现 UIAccessibility协议的isAccessibilityElement方法。如下面的代码片段所示： 
+另一种方法是实现 UIAccessibility协议的isAccessibilityElement方法。如下面的代码片段所示： 
 ```
 @implementation MyCustomView 
 /* Implement attribute methods here. */ 
@@ -717,25 +717,25 @@ _view = [[[MyCustomView alloc] initWithFrame:CGRectZero] autorelease];
 { 
 return YES; 
 }```
-    注意：在这两个代码片段中，都是用注释来代替真实的代码
+注意：在这两个代码片段中，都是用注释来代替真实的代码<br/>
 
 ### 2.1.5定时刷新导致焦点丢失
 
     
-    【问题描述】
-    界面的局部或者整体定时进行刷新， 界面刷新之后焦点离开了刷新之前的位置， 刷新频率不快的时候会影响用户的使用效率。 刷新频率快的时候会导致用户无法正常操作此界面刷新区域的元素。
-    【可能原因】
-    【修改建议】
+【问题描述】<br/>
+界面的局部或者整体定时进行刷新， 界面刷新之后焦点离开了刷新之前的位置， 刷新频率不快的时候会影响用户的使用效率。 刷新频率快的时候会导致用户无法正常操作此界面刷新区域的元素。
+【可能原因】<br/>
+【修改建议】<br/>
 
 ### 2.1.6焦点响应错乱
 
 
-    【问题描述】
-    滑动或触摸浏览到一个焦点后点击， 点击后响应的结果与此焦点的提示文本所描述的目的不相符。
-    【可能原因】
-    1、 控件的定向处理事件代码链接错误；
-    如访问官网的事件处理程序的代码链接到意见反馈。
-    【修改建议】
+【问题描述】<br/>
+滑动或触摸浏览到一个焦点后点击， 点击后响应的结果与此焦点的提示文本所描述的目的不相符。<br/>
+【可能原因】<br/>
+1、 控件的定向处理事件代码链接错误；<br/>
+如访问官网的事件处理程序的代码链接到意见反馈。<br/>
+【修改建议】<br/>
 
 ## 2.2浮窗
 
@@ -744,17 +744,17 @@ return YES;
 ### 2.2.1浮窗不能滑动浏览
 
 
-    【问题描述】
-    当一个浮窗弹出后，不能滑动浏览进入浮窗内； 在浮窗内不能滑动浏览浮窗内的控件；
-    【可能原因】
-    2、 PopupWindow内的控件没有设置焦点；
-    1、 PopupWindow没有获得焦点；
-    【修改建议】
-    android：
-    1、 把PopupWindow内的所有控件设置焦点；
-    2、 给PopupWindow设置焦点；
-    方法1： PopupWindow初始化的时候第四个参数设置为true；
-    方法2： 用setFocusable()函数设置PopupWindow获得焦点， 参数是true是获得焦点，参数是false是不获得焦点。
+【问题描述】<br/>
+当一个浮窗弹出后，不能滑动浏览进入浮窗内；<br/> 在浮窗内不能滑动浏览浮窗内的控件；<br/>
+【可能原因】<br/>
+2、 PopupWindow内的控件没有设置焦点；<br/>
+1、 PopupWindow没有获得焦点；<br/>
+【修改建议】<br/>
+android：<br/>
+1、 把PopupWindow内的所有控件设置焦点；<br/>
+2、 给PopupWindow设置焦点；<br/>
+方法1： PopupWindow初始化的时候第四个参数设置为true；<br/>
+方法2： 用setFocusable()函数设置PopupWindow获得焦点， 参数是true是获得焦点，参数是false是不获得焦点。<br/>
 
 ### 2.2.2不能屏蔽底层的焦点
 
@@ -770,26 +770,23 @@ return YES;
 ### 2.2.3浮窗无法关闭
 
 
-    【问题描述】
-    在屏幕阅读器开启的情况下， 浮窗弹出后， 没有提供任何一种方式关闭浮窗。
-    【可能原因】
-    【修改建议】
+【问题描述】
+在屏幕阅读器开启的情况下， 浮窗弹出后， 没有提供任何一种方式关闭浮窗。<br/>
+【可能原因】<br/>
+【修改建议】<br/>
 
 ### 2.2.4浮窗弹出后自动朗读所有控件
 
 
-    【问题描述】
-    浮窗弹出后会自动把浮窗内的所有元素按顺序朗读一遍；
-    【可能原因】
-    没有给PopupWindow设置背景；
-    【修改建议】
-    android：
-    使用setBackgroundDrawable（）函数设置背景， 为了不改变视觉效果可以使用下面的两种方式：
-    setBackgroundDrawable(new BitmapDrawable());
-    setBackgroundDrawab
-    
-    
-    ew ColorDrawable(0x00000000))。
+【问题描述】<br/>
+浮窗弹出后会自动把浮窗内的所有元素按顺序朗读一遍；<br/>
+【可能原因】<br/>
+没有给PopupWindow设置背景；<br/>
+【修改建议】<br/>
+android：<br/>
+使用setBackgroundDrawable（）函数设置背景， 为了不改变视觉效果可以使用下面的两种方式：<br/>
+setBackgroundDrawable(new BitmapDrawable());
+setBackgroundDrawabew ColorDrawable(0x00000000))。
 
 ## 2.3提示文本
 
@@ -798,30 +795,30 @@ return YES;
 ### 2.3.1控件类型不能正常朗读
 
 
-    【问题描述】
-    控件的类型不提示或者控件类型提示不正确， 用户不知道如何操作此控件， 这种情况主要出现在自定义控件上；
-    【可能原因】
-    自定义控件的无障碍支持不全面；
-    【修改建议】
-    android：
-    在任何一种情况下,为您的自定义视图类您应该执行下面的可访问性方法： 
-    dispatchPopulateAccessibilityEvent() 
-    onPopulateAccessibilityEvent() onInitializeAccessib
+【问题描述】
+控件的类型不提示或者控件类型提示不正确， 用户不知道如何操作此控件， 这种情况主要出现在自定义控件上；
+【可能原因】
+自定义控件的无障碍支持不全面；
+【修改建议】
+android：
+在任何一种情况下,为您的自定义视图类您应该执行下面的可访问性方法： 
+dispatchPopulateAccessibilityEvent() 
+onPopulateAccessibilityEvent() onInitializeAccessib
 
 ### 2.3.2提示文本有冗余信息、 提示文本错误ityEvent() 
 
 
-    onInitializeAccessibilityNodeInfo() 
-    通常是在onInitializeAccessibilityEvent() 方法中提供类名（控件类型）。
+onInitializeAccessibilityNodeInfo() 
+通常是在onInitializeAccessibilityEvent() 方法中提供类名（控件类型）。
 
 ### 2.3.2提示文本有冗余信息、 提示文本错误
 
 
-    【问题描述】
-    控件的提示文本有冗余； 控件的提示文本与控件的实际目的不相符；
-    【可能原因】
-    1.给控件提供提示文本或替代文本时文本不够精炼准；
-    2.提供了一些不必要的信；
-    【修改建议】
-    1给控件提供文本或者替代文本时要精炼准确；
-    2去掉这些不必要的信息。
+【问题描述】
+控件的提示文本有冗余； 控件的提示文本与控件的实际目的不相符；
+【可能原因】
+1.给控件提供提示文本或替代文本时文本不够精炼准；
+2.提供了一些不必要的信；
+【修改建议】
+1给控件提供文本或者替代文本时要精炼准确；
+2去掉这些不必要的信息。
