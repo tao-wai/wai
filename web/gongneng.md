@@ -830,14 +830,17 @@ aria-hidden字符串。可选值为true和false, true表示元素隐藏(不可�
 <head>
 <title>行内：提示样例1</title>
 //链接外部样式表，js和图片；
-<link rel="stylesheet" href="css/tooltip1_inline.css" type="text/css">
+<link rel="stylesheet" href="css/tooltip1_inline.css" 
+type="text/css">
 <script type="text/javascript"src="js/tooltip1_inline.js">
 </script>
 <script type="text/javascript" src="../js/widgets_inline.js">
 </script>
 <script type="text/javascript" src="../js/globals.js"></script>
-<link rel="icon" href="http://www.cites.uiuc.edu/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="http://www.cites.uiuc.edu/favicon.ico"
+<link rel="icon" href="http://www.cites.uiuc.edu/favicon.ico" 
+type="image/x-icon">
+<link rel="shortcut icon" 
+href="http://www.cites.uiuc.edu/favicon.ico"
 type="image/x-icon">
 </head>
 <body onload="initApp()">
@@ -1173,7 +1176,10 @@ type="text" size="4" value="" >
 
 样例2：选择表单<br/>
 　　美国用户必须填表单，因为法律和要求在不同的州是不一样的，用户需要选择自己州的表单样式。一个下拉菜单允许用户去选择一个州。临近按钮的标签为选择州表单。点击按钮，可以跳转到该州的表单网页。<br/>
-3.错误建议<br/>
+
+### 3.错误建议
+
+<br/>
   　　如果输入错误能够被自动发现，且修改建议已知，则提供建议给用户，除非它会危及安全或影响内容目的。 <br/>
 (1)为没有完成的必填区域添加文本描述；<br/>
  　　 1种方法是在客户端检验提供一个弹出框来标识哪些必填区域被忽略；另一个方法是，使用客户端验证重新显示表单，在忽略的必填区域附近给予文本描述，或给给一个文本描述告知用户忽略的必填区域。<br/>
@@ -1291,12 +1297,14 @@ CSS样式：
  <p>请输入以下数据。必需字段已被编程鉴定为需要和带星号（*）以下字段标签标记。</p>
  <form action="submit.php">
  <p>
- <label for="firstName">名 *: </label><input type="text" name="firstName" id="firstName" value="" />
- <label for="lastName">姓 *: </label><input type="text" name="lastName" id="lastName"  value="" />
+ <label for="firstName">名 *: </label><input type="text" 
+ name="firstName" id="firstName" value="" />
+ <label for="lastName">姓 *: </label><input type="text" 
+ name="lastName" id="lastName"  value="" />
  </p>
  </form>
  </body>```
-(3)使用aria-alertdialog来指出错误；
+(3)使用aria-alertdialog来指出错误；<br/>
 (4)当用户用户提供的信息不在允许的列表值里面，提供一个文本描述。当输入值必须是合法的预设值里面的一个，文本描述应该告知用户，预设值列表应尽可能包含所有可能的值，或者建议输入的值应该与合法值非常类似；<br/>
 (5)提供建议修正文本；<br/>
 　　这个技巧是在用户提交的信息不被接受，为用户提供建议修正文本。这个建议可能包括正确拼写或者相似的文本。依靠表单，建议可以渲染在错误区域附件，或者在其他网页。可能的话，修改建议应该让用户容易获得和使用。例如，错误的提交应该返回一个可能的修正列表，用户可以通过选择来指出哪个选择是想要的。建议或者建议的链接应该与其联系的表单区域靠近买传说在表单顶部，在表单区域之前，或者临近需要修改的表单。<br/>
@@ -1311,7 +1319,7 @@ CSS样式：
 您是要找<a href="javascript:void(0);" onclick="document.getElementById('city').value = '北京';">北京</a>吗？
 </div>
 城市:<input type="text" name="city" id="city" value="北经" />```
-样例3：
+样例3：<br/>
 　　公交路线规划允许用户输入他们的目的地、允许用户输入街道地址、十字路口和城市路标。当用户输入"kohl",会返回与输入相似的结果，搜索‘Kohl’得到以下结果。一个选择框跟随建议列表, "Kohl Center," "Kohl's Dept. Store-East" 、 "Kohl's Dept. Store-West"，用户可以根据意向进行选择；<br/>
 样例4：<br/>
 　　搜索支持拼写检查，如果检查到拼写错误会提供替代链接。当用户点击链接时，搜索自动提交更正后的拼写<br/>。
