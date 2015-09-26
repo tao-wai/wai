@@ -1159,7 +1159,7 @@ type="text" size="4" value="" >
 
 样例3：搜索功能：<br/>
 给文本输入控件添加title属性，用来告知用户功能来位置；<br/>
-```<br/>
+```
 <input type="text" title="请输入搜索文本" />
 <input type="submit" value="Search"/>```
 样例4：表单控件的数据表格
