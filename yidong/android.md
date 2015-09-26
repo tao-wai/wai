@@ -385,7 +385,7 @@ ViewCompat.setAccessibilityDelegate(new AccessibilityDelegateCompat() {
 　　在安卓4.0（API级别14），android框架得到改进，来允许无障碍服务来检查能够产生无障碍事件的用户界面组件的包含视图层次。这个改进允许辅助服务来提供更丰富的上下文信息设置，用来帮助用户。<br/>
 　　还有一些情况，辅助服务不能从视图层次获取足够信息。例如具有两个或者更多独立点击区域的自定义界面控件，比如日历控件。这种情况下服务不能获取足够信息，因为可点击分段不是视图层次结构的一部分。<br/>
 　　为了提供辅助服务的足够内容信息，框架提供了一种方法来指定虚拟视图层次结构。虚拟视图层次结构为应用程序开发者提供了辅助服务的互补视图层次结构，这样会更紧密地匹配屏幕上的实际信息。这种方法使辅助服务提供了更多有用的内容信息。<br/>
-
+![](图片2.png)
 图2 一个日期元素可以选择的自定义日历视图<br/>
         图2中的样例，整个日历是一个单独的视图，所以不能有其他操作，无障碍服务不会接收到足够的视图内容信息和用户在视图中的选择。例如，如果一个用户点击17这个日期，无障碍框架只会接收到整个日历控件的描述文本。在这种案例中，talkback无障碍服务将会简单的告知“日历”或者“4月日历”，用户将会自己考虑哪些日期是被选择的。<br/>
 　　另一种需要虚拟视图层次结构的情况就是，用户界面包含一组与功能密切相关的控件（视图），控件的操作会影响一个或多个元素的内容。这种情况下辅助服务无法获得足够信息，因为控件操作改变了另一控件的内容，而这些控件的关系可能并不明显。为了处理这种情况，把相关控件通过视图组合起来，并且提供虚拟视图层次结构来清楚代表控件信息和操作。<br/>
@@ -574,7 +574,9 @@ class CustomTouchView extends View {
 　　无障碍服务可以监听特殊手势，并通过用户代理响应。这个特性被添加到android4.1（api16），并且要求无障碍服务通过触摸手势来请求激活。服务通过设置服务的AccessibilityServiceInfo 实例的flags数到toFLAG_REQUEST_TOUCH_EXPLORATION_MODE，如以下样例所示：<br/>
 
 ```
-public class MyAccessibilityService extends AccessibilityService {     @Override     public void onCreate() {         getServiceInfo().flags = AccessibilityServiceInfo.FLAG_REQUEST_TOUCH_EXPLORATION_MODE;     }     ... }```
+public class MyAccessibilityService extends AccessibilityService {     @Override    
+public void onCreate() {         getServiceInfo().flags = 
+AccessibilityServiceInfo.FLAG_REQUEST_TOUCH_EXPLORATION_MODE;     }     ... }```
 
 　　一旦通过触摸打开请求激活无障碍服务，用户必须允许这个特性打开，如果这个特性不是已经激活。当这个特性激活的时候，无障碍服务通过服务的onGesture()接收到无障碍手势的通知，并且通过用户代理响应。<br/>
 
@@ -672,17 +674,20 @@ public void onServiceConnected() {
 ```
 <accessibility-service
      android:accessibilityEventTypes="typeViewClicked|typeViewFocused"
-     android:packageNames="com.example.android.myFirstApp, com.example.android.mySecondApp"
+     android:packageNames="com.example.android.myFirstApp, 　
+     com.example.android.mySecondApp"
      android:accessibilityFeedbackType="feedbackSpoken"
      android:notificationTimeout="100"
-     android:settingsActivity="com.example.android.apis.accessibility.TestBackActivity"
+     android:settingsActivity="com.example.android.apis.accessibility.
+     TestBackActivity"
      android:canRetrieveWindowContent="true"
 />```
 　　如果你要使用XML路径，要在你的mainfest文件中指定它，在你的服务声明中添加<meta-data>标签,并指向这个XML资源文件。假如你把你的XML文件存储在res/xml/serviceconfig.xml这个路径下，新的标签格式如下所示：<br/>  
 ```
 <service android:name=".MyAccessibilityService">
      <intent-filter>
-         <action android:name="android.accessibilityservice.AccessibilityService" />
+         <action android:name="android.accessibilityservice.
+         AccessibilityService" />
      </intent-filter>
      <meta-data android:name="android.accessibilityservice"
      android:resource="@xml/serviceconfig" />
@@ -736,7 +741,8 @@ public void onAccessibilityEvent(AccessibilityEvent event) {
     if (rowNode == null) {
         return;
     }
-    // Using this parent, get references to both child nodes, the label and the checkbox.
+    // Using this parent, get references to both child nodes, the label and the 
+    checkbox.
     AccessibilityNodeInfo labelNode = rowNode.getChild(0);
     if (labelNode == null) {
         rowNode.recycle();
