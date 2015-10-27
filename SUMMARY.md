@@ -1,7 +1,7 @@
 # Summary
 
 * [introduction](README.md)
-* [目录1](SUMMARY.md)
+* [总目录](SUMMARY.md)
 * [白皮书目录](mulu.md)
 * [web端无障碍问题](webduanwuzhangai.md)
 * [移动端无障碍问题](yidongduanwenti.md)
