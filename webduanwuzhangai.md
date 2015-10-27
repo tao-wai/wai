@@ -11,8 +11,8 @@
 ![](/1.png)<br/>
 图1 非装饰性图片无替代文本【示例】<br/>
 【问题描述】<br/>
-对于非装饰性图片，应该添加正确的替代文本，用以说明图片所展示的内容，否则用户将无法了解到图片所要传递的信息。<br/>
-使用 alt 属性为图片添加替代文本。如果图片展示包含理解网页重要信息的文字，alt属性应该添加这些字。alt不一定要描述图片的视觉特性，但是必须与图片传达的含义相同。<br/>
+　　对于非装饰性图片，应该添加正确的替代文本，用以说明图片所展示的内容，否则用户将无法了解到图片所要传递的信息。<br/>
+　　使用 alt 属性为图片添加替代文本。如果图片展示包含理解网页重要信息的文字，alt属性应该添加这些字。alt不一定要描述图片的视觉特性，但是必须与图片传达的含义相同。<br/>
 【可能原因】<br/>
 【修改建议】<br/>
 样例1：<br/>
@@ -30,13 +30,14 @@
 ![](/2.png)<br/>
 图2 图片链接无目的文本【示例】<br/>
 【问题描述】<br/>
-链接的目的文本用以说明链接的目的导向。用户通过屏幕阅读器获取链接的目的文本，从而了解链接作用。<br/>
+　　链接的目的文本用以说明链接的目的导向。用户通过屏幕阅读器获取链接的目的文本，从而了解链接作用。<br/>
 【可能原因】<br/>
 【修改建议】<br/>
 样例1：<br/>
 图片链接，图片无意义，可为img元素添加alt属性来描述链接目的：<br/>
 ```
-<a href="routes.html"> <img src="topo.gif" alt="去到无障碍论坛的路线" /></a>```
+<a href="routes.html"> <img src="topo.gif"
+alt="去到无障碍论坛的路线" /></a>```
 
 样例2：<br/>
 图片和文字链接，图片无意义：<br/>
@@ -49,14 +50,15 @@
 图片和文字链接，图片有意义：<br/>
 ```
 <a href="prod_123_feedback.htm">反馈
-<img src="response.gif" width="15" height="15" alt="收到响应图标" />
+<img src="response.gif" width="15" height="15" 、
+alt="收到响应图标" />
 </a>```
 
 #### 1.1.3图片链接不能响应回车键
 ![](/3.png)<br/>
 图3 图片链接不能响应回车键【示例】<br/>
 【问题描述】<br/>
-使用键盘对图片链接进行点击操作，是使用按下回车键（enter）来完成的。如果链接不能响应回车键的点击操作，用户将无法使用键盘来激活这个链接。<br/>
+　　使用键盘对图片链接进行点击操作，是使用按下回车键（enter）来完成的。如果链接不能响应回车键的点击操作，用户将无法使用键盘来激活这个链接。<br/>
 onclick 属性由元素上的鼠标点击触发。onclick 事件会在对象被点击（click事件完成）时发生，是一个click事件的监听器，监听到点击后，执行对应Js代码。<br/>
 请注意， onclick 与 onmousedown 不同。单击事件是在同一元素上发生了鼠标按下事件之后又发生了鼠标放开事件时才发生的。通过使用anchors（锚点）和buttons的onclcik事件使键盘可用对于HTML标准控件links和buttons来说，默认可以通过鼠标点击，和按enter键来实现。<br/>
 【可能原因】<br/>
@@ -67,7 +69,7 @@ onclick 属性由元素上的鼠标点击触发。onclick 事件会在对象被�
 图4 图片链接不能响应回车键【示例】<br/>
 
 【问题描述】<br/>
-由于按钮使用图片或某些特殊性标识符展现，屏幕阅读器无法读出按钮所展现内容，用户难以理解按钮本身所表达的意思，从而无法做出正确的操作；<br/>
+　　由于按钮使用图片或某些特殊性标识符展现，屏幕阅读器无法读出按钮所展现内容，用户难以理解按钮本身所表达的意思，从而无法做出正确的操作；<br/>
 【可能原因】<br/>
 开发者使用一张图片或一个标识符来展现按钮的用途，屏幕阅读器无法读出图片中内容；<br/>
 【修改建议】<br/>
@@ -75,12 +77,14 @@ onclick 属性由元素上的鼠标点击触发。onclick 事件会在对象被�
 样例1：<br/>
 使用title属性，给按钮添加目的文本；<br/>
 ```
-<button type="button" title="信息无障碍产品联盟"><img src="logo.jpg" alt=""></button>```
+<button type="button" title="信息无障碍产品联盟"><img 
+src="logo.jpg" alt=""></button>```
 
 样例2：<br/>
 使用 alt 属性为图片按钮添加替代文本；<br/>
 ```
-<button type="button" ><img src="1.jpg" alt="信息无障碍研究会"></button>```
+<button type="button" ><img src="1.jpg" 
+alt="信息无障碍研究会"></button>```
 
 #### 1.1.5图片按钮无法获得键盘焦点
 ![](/5.png)<br/>
@@ -94,7 +98,7 @@ onclick 属性由元素上的鼠标点击触发。onclick 事件会在对象被�
 ![](/6.png)<br/>
 图6 图片按钮控件类型朗读不正确【示例】<br/>
 【问题描述】<br/>
-自定义图片按钮，屏幕阅读器无法提示为“按钮”控件，使用屏幕阅读器用户无法对按钮做出正确的操作。<br/>
+　　自定义图片按钮，屏幕阅读器无法提示为“按钮”控件，使用屏幕阅读器用户无法对按钮做出正确的操作。<br/>
 【可能原因】<br/>
 自定义“按钮”缺少 role、tabindex<br/> 属性，导致屏幕阅读器无法聚焦到此元素且无法读出正确的控件类型。<br/>
 【修改建议】<br/>
@@ -155,9 +159,12 @@ function createInput(divid){
 }
 </script>
 <div id="divid">
-<input name="but1" id="but1" type="button" onclick="createInput('divid');" value="新增输入框1" /><br />
-<input name="but2" id="but2" type="button" onclick="createInput('divid');" value="新增输入框2" /><br />
-<input name="but3" id="but3" type="button" onclick="createInput('divid');" value="新增输入框3" /><br />
+<input name="but1" id="but1" type="button" 
+onclick="createInput('divid');" value="新增输入框1" /><br />
+<input name="but2" id="but2" type="button" 
+onclick="createInput('divid');" value="新增输入框2" /><br />
+<input name="but3" id="but3" type="button" 
+onclick="createInput('divid');" value="新增输入框3" /><br />
 </div>```
 #### 1.3.3不能使用键盘关闭浮层
 ![](/11.png)<br/>
@@ -168,7 +175,7 @@ function createInput(divid){
 自定义控件为图片链接，没有给图片链接添加alt或title属性，或自定义控件导致的没有焦点。<br/>
 【修改建议】<br/>
 样例1：
-<img src="img0.jpg" alt="关闭" tabindex="0" role="button" />
+```<img src="img0.jpg" alt="关闭" tabindex="0" role="button" />```
 #### 1.3.4用键盘操作，焦点无法进入浮层
 ![](/12.png)<br/>
 图12 用键盘操作，焦点无法进入浮层【示例】<br/>
