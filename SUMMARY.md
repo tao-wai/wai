@@ -38,7 +38,7 @@
        * [控件类型不能正常朗读](yidong/tishiwenben/kong_jian_lei_xing_bu_neng_zheng_chang_lang_du.md)
        * [提示文本有冗余信息、 提示文本错误](yidong/tishiwenben/ti_shi_wen_ben_you_rong_yu_xin_xi_3001_ti_shi_wen_ben_cuo_wu.md)
 * [无障碍理想](wuzhangailixiang.md)
-   * 工具
+* 工具
 * [参考文献/工具](wenxiangongju.md)
    * 参考文献
 
