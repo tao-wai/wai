@@ -34,7 +34,7 @@
        * [浮层无法关闭](yidong/fuceng/fu_ceng_wu_fa_guan_bi.md)
        * [浮层弹出后自动朗读所有控件](yidong/fuceng/fu_ceng_dan_chu_hou_zi_dong_lang_du_suo_you_kong_jian.md)
    * [提示文本](yidong/tishiwenben/ti_shi_wen_ben.md)
-       * 没有提示文本
+       * [没有提示文本](yidong/tishiwenben/mei_you_ti_shi_wen_ben.md)
        * 提示文本有乱码
        * 控件类型不能正常朗读
        * 提示文本有冗余信息、 提示文本错误
