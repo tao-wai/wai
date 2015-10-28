@@ -30,6 +30,7 @@
        * [定时刷新导致焦点丢失](yidong/jiaodian/ding_shi_shua_xin_dao_zhi_jiao_dian_diu_shi.md)
    * [浮层](yidong/fuceng/fu_ceng.md)
        * 浮层不能滑动浏览
+       * 不能屏蔽底层的焦点
    * 提示文本
 * [无障碍理想](wuzhangailixiang.md)
 * [参考文献/工具](wenxiangongju.md)
