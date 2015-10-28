@@ -24,6 +24,7 @@
    * 前言
    * 焦点
    * 浮层
+   * 提示文本
 * [无障碍理想](wuzhangailixiang.md)
 * [参考文献/工具](wenxiangongju.md)
 
