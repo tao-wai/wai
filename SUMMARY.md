@@ -33,7 +33,7 @@
        * [不能屏蔽底层的焦点](yidong/fuceng/bu_neng_ping_bi_di_ceng_de_jiao_dian.md)
        * [浮层无法关闭](yidong/fuceng/fu_ceng_wu_fa_guan_bi.md)
        * [浮层弹出后自动朗读所有控件](yidong/fuceng/fu_ceng_dan_chu_hou_zi_dong_lang_du_suo_you_kong_jian.md)
-   * 提示文本
+   * [提示文本](yidong/tishiwenben/ti_shi_wen_ben.md)
 * [无障碍理想](wuzhangailixiang.md)
 * [参考文献/工具](wenxiangongju.md)
 
