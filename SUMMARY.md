@@ -24,6 +24,7 @@
    * [前言](yidong/qian_yan.md)
    * [焦点](yidong/jiaodian/jiao_dian.md)
        * 一个焦点覆盖到多个元素
+       * 焦点区域大小不适当
    * 浮层
    * 提示文本
 * [无障碍理想](wuzhangailixiang.md)
