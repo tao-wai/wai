@@ -1,8 +1,5 @@
 ## 四、参考文献/工具
-### 参考文献：
-1.Web Content Accessibility Guidelines (WCAG) 2.0 <br/>http://www.w3.org/TR/WCAG20/<br/>2. Understanding WCAG 2.0 　　A guide to understanding and implementing Web Content Accessibility Guidelines 2.0  <br/>  http://www.w3.org/TR/UNDERSTANDING-WCAG20/<br/>3. How to Meet WCAG 2.0  <br/> 　　 A customizable quick reference to Web Content Accessibility Guidelines 2.0 requirements (success criteria) and techniques
-http://www.w3.org/WAI/WCAG20/quickref/<br/>4.  Techniques for WCAG 2.0  　　Techniques and Failures for Web Content Accessibility Guidelines 2.0<br/>
-http://www.w3.org/TR/WCAG20-TECHS/<br/>5. Accessibility Programming Guide for iOS   <br/>  https://developer.apple.com/library/prerelease/tvos/documentation/UserExperience/Conceptual/iPhoneAccessibility/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008785-CH1-SW1<br/>6. android无障碍设计指南<br/> https://developer.android.com/guide/topics/ui/accessibility/index.html<br/>
+
 
 ###工具：
 　　读屏软件，是一种可以帮助盲人上网的工具。目前国内有阳光读屏、永德读屏和晨光读屏、争渡读屏、布莱叶读屏等软件。读屏软件是专为盲人或视力有障碍的人设计的屏幕朗读软件。您将通过数字键盘的切换操作，以及大键盘上的几个功能键的切换，您就能够随心所欲地进行查找和处理文件，对网页进行导航浏览、编辑和收发电子邮件。<br/>
