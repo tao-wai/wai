@@ -40,5 +40,5 @@
 * [无障碍理想](wuzhangailixiang.md)
 * [参考文献/工具](wenxiangongju.md)
    * [参考文献](wenxiangongju/can_kao_wen_xian.md)
-   * 工具
+   * [工具](wenxiangongju/gong_ju.md)
 
