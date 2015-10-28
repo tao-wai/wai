@@ -17,6 +17,7 @@
        * [无法用键盘输入验证码](web/yanzhengma/wu_fa_yong_jian_pan_shu_ru_yan_zheng_ma.md)
    * [浮层](web/fuceng/fu_ceng.md)
        * [不知道有浮层弹出](web/fuceng/bu_zhi_dao_you_fu_ceng_dan_chu.md)
+       * 焦点不在触发控件之后
 * [移动端无障碍问题](yidongduanwenti.md)
 * [无障碍理想](wuzhangailixiang.md)
 * [参考文献/工具](wenxiangongju.md)
