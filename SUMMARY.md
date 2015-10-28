@@ -12,6 +12,7 @@
        * [图片按钮缺少目的文本](web/tupian/tu_pian_an_niu_que_shao_mu_de_wen_ben.md)
        * [图片按钮无法获得键盘焦点](web/tupian/tu_pian_an_niu_wu_fa_huo_de_jian_pan_jiao_dian.md)
        * [图片按钮控件类型朗读不正确](web/tupian/tu_pian_an_niu_kong_jian_lei_xing_lang_du_bu_zheng_que.md)
+   * 验证码
 * [移动端无障碍问题](yidongduanwenti.md)
 * [无障碍理想](wuzhangailixiang.md)
 * [参考文献/工具](wenxiangongju.md)
