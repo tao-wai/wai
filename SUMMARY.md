@@ -24,7 +24,7 @@
    * [前言](yidong/qian_yan.md)
    * [焦点](yidong/jiaodian/jiao_dian.md)
        * [一个焦点覆盖到多个元素](yidong/jiaodian/yi_ge_jiao_dian_fu_gai_dao_duo_ge_yuan_su.md)
-       * 焦点区域大小不适当
+       * [焦点区域大小不适当](yidong/jiaodian/jiao_dian_qu_yu_da_xiao_bu_shi_dang.md)
        * 焦点顺序不符合逻辑
        * 部分控件无焦点
        * 定时刷新导致焦点丢失
