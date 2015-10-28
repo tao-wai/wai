@@ -36,6 +36,7 @@
    * [提示文本](yidong/tishiwenben/ti_shi_wen_ben.md)
        * 没有提示文本
        * 提示文本有乱码
+       * 控件类型不能正常朗读
 * [无障碍理想](wuzhangailixiang.md)
 * [参考文献/工具](wenxiangongju.md)
 
