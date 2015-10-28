@@ -23,6 +23,7 @@
 * [移动端无障碍问题](yidongduanwenti.md)
    * [前言](yidong/qian_yan.md)
    * [焦点](yidong/jiaodian/jiao_dian.md)
+       * 一个焦点覆盖到多个元素
    * 浮层
    * 提示文本
 * [无障碍理想](wuzhangailixiang.md)
