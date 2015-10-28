@@ -27,7 +27,7 @@
        * [焦点区域大小不适当](yidong/jiaodian/jiao_dian_qu_yu_da_xiao_bu_shi_dang.md)
        * [焦点顺序不符合逻辑](yidong/jiaodian/jiao_dian_shun_xu_bu_fu_he_luo_ji.md)
        * [部分控件无焦点](yidong/jiaodian/bu_fen_kong_jian_wu_jiao_dian.md)
-       * 定时刷新导致焦点丢失
+       * [定时刷新导致焦点丢失](yidong/jiaodian/ding_shi_shua_xin_dao_zhi_jiao_dian_diu_shi.md)
    * 浮层
    * 提示文本
 * [无障碍理想](wuzhangailixiang.md)
