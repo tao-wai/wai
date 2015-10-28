@@ -25,6 +25,7 @@
    * [焦点](yidong/jiaodian/jiao_dian.md)
        * 一个焦点覆盖到多个元素
        * 焦点区域大小不适当
+       * 焦点顺序不符合逻辑
    * 浮层
    * 提示文本
 * [无障碍理想](wuzhangailixiang.md)
