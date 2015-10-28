@@ -29,7 +29,7 @@
        * [部分控件无焦点](yidong/jiaodian/bu_fen_kong_jian_wu_jiao_dian.md)
        * [定时刷新导致焦点丢失](yidong/jiaodian/ding_shi_shua_xin_dao_zhi_jiao_dian_diu_shi.md)
    * [浮层](yidong/fuceng/fu_ceng.md)
-       * 浮层不能滑动浏览
+       * [浮层不能滑动浏览](yidong/fuceng/fu_ceng_bu_neng_hua_dong_liu_lan.md)
        * 不能屏蔽底层的焦点
        * 浮层无法关闭
        * 浮层弹出后自动朗读所有控件
