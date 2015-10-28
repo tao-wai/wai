@@ -2,7 +2,6 @@
 
 * [introduction](README.md)
 * [总目录](SUMMARY.md)
-* [白皮书目录](mulu.md)
 * [web端无障碍问题](webduanwuzhangai.md)
    * [前言](web/qianyan.md)
    * [图片<img>](web/tupian.md)
