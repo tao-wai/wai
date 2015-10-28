@@ -1,4 +1,5 @@
 #### 一个焦点覆盖到多个元素
+![](https://www.gitbook.com/book/tao-wai/wai/edit#/edit/master/yidong/jiaodian/13.png)
 ![](/13.png)<br/>
 图13 一个焦点覆盖到多个元素【示例】<br/>
 【问题描述】<br/>
