@@ -8,6 +8,6 @@
 【修改建议】<br/>
 android：<br/>
 使用setBackgroundDrawable（）函数设置背景，为了不改变视觉效果可以使用下面的两种方式：<br/>
-setBackgroundDrawable(new BitmapDrawable());<br/><br/>
+setBackgroundDrawable(new BitmapDrawable());<br/>
 setBackgroundDrawable(new ColorDrawable(0x00000000))。<br/>
 
