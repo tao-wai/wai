@@ -31,6 +31,7 @@
    * [浮层](yidong/fuceng/fu_ceng.md)
        * 浮层不能滑动浏览
        * 不能屏蔽底层的焦点
+       * 浮层无法关闭
    * 提示文本
 * [无障碍理想](wuzhangailixiang.md)
 * [参考文献/工具](wenxiangongju.md)
