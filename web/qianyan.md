@@ -1,5 +1,0 @@
-
-## web端无障碍问题
-　　Web端无障碍问题3个无障碍问题，每个控件或功能的无障碍问题包含问题描述、可能原因、修改建议三部分，问题原因是对无障碍问题进行简单描述，方便开发者理解。可能原因是造成这种无障碍问题可能的原因。修改建议部分，是使用HTML、CSS、JS、JQUERY、WAI-ARIA等技术为无障碍问题提供的修改建议，参考自WCAG2.0的支持文档（How to meet WCAG2.0）。<br/>
-　　其中，WAI-ARIA（the Accessible Rich Internet Applications Suite）是由W3C的 Protocols and Formats Working Group (PFWG)工作组开发的，是W3C网页无障碍倡议（WAI）的一部分。WAI-ARIA定义一种让残障群体更好无障碍访问web内容和应用的方法。WAI-ARIA定义的方法对web动态内容，和使用Ajax、HTML、JavaScript和其他相关技术开发的先进用户界面控件特别有帮助。当前，网站所提供的功能很多不能为残障用户使用，尤其是依靠屏幕阅读器和不能使用鼠标的用户。WAI-ARIA通过定义新的提交给辅助技术的方法来解决这些问题。使用WAI-ARIA可以使先进web应用对残障用户体验更加友好操作更便捷。<br/>
-　　但是，由于国内屏幕阅读器发展较晚，对firefox、chrome等第三方浏览器支持不尽人意。目前大多数屏幕阅读器用户还是以使用InternetExplorer为主。由于IE对ARIA尚未全面支持，导致部分ARIA特性未能在IE中很好的实现，但考虑到最大化的向后兼容，建议仍使用这些ARIA技术，并在此基础上使用一些目前国内读屏所能支持的方式来实现所需的特性，以满足对当前国内读屏软件的兼容。<br/>
