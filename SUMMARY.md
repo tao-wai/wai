@@ -1,6 +1,6 @@
 # Summary
 * [前言](README.md)
-* [无障碍案例-PC](MENU.md)
+* [无障碍案例-PC](NT.md)
   - [图片](web/tupian/README.md)
     - [背景介绍](web/tupian.md)
     - [用户问题及现状](web/tupian/problem.md)
@@ -16,7 +16,7 @@
     - [用户问题及现状](web/fuceng/problem.md)
     - [最佳实践](web/fuceng/practice.md)
     - [本章问答](web/fuceng/question.md)
-* [无障碍案例-Mobile](MENU.md)
+* [无障碍案例-Mobile](NT.md)
   - [焦点](yidong/README.md)
     - [背景介绍](yidong/jiaodian/README.md)
     - [用户问题及现状](yidong/jiaodian/problem.md)
