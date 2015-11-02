@@ -10,9 +10,11 @@ http://www.w3.org/TR/WCAG20-TECHS/
 
 ## 工具
 ### 读屏软件
-　　读屏软件，是一种可以帮助盲人上网的工具。目前国内有阳光读屏、永德读屏和晨光读屏、争渡读屏、布莱叶读屏等软件。读屏软件是专为盲人或视力有障碍的人设计的屏幕朗读软件。您将通过数字键盘的切换操作，以及大键盘上的几个功能键的切换，您就能够随心所欲地进行查找和处理文件，对网页进行导航浏览、编辑和收发电子邮件。
-注意：Windows系统自带的讲述人功能不可代替读屏软件。
-#### VoiceOver
+　　读屏软件，是一种可以帮助盲人上网的工具,是专为盲人或视力有障碍的人设计的屏幕朗读软件。用户通过数字键盘的切换操作，以及大键盘上的几个功能键的切换，就能够随心所欲地进行查找和处理文件，对网页进行导航浏览、编辑和收发电子邮件。
+以下介绍两款较有代表性的阅读软件。
+> 注意：Windows系统自带的讲述人功能不可代替读屏软件。
+
+#### 1. VoiceOver
 平台：IOS/OS
 
 开发商：苹果公司
@@ -21,12 +23,12 @@ VoiceOver是苹果公司为视力障碍用户所打造的屏幕朗读软件，�
 
 [官方文档](https://developer.apple.com/library/prerelease/tvos/documentation/UserExperience/Conceptual/iPhoneAccessibility/Accessibility_on_iPhone/Accessibility_on_iPhone.html#//apple_ref/doc/uid/TP40008785-CH100-SW3)
 
-#### NVDA (NonVisual Desktop Access)
+#### 2. NVDA (NonVisual Desktop Access)
 平台：Windows
 
 开发商：NV Access
 
-NVDA是一款开源免费的屏幕阅读器，支持大多数常见的语言，全世界的爱好者都在维护他。在功能上，NVDA可支持主流的操作系统及浏览器，在办公上，也对office以及各类编辑器做了支持，得到世界各地的玩家喜爱。
+NVDA是一款开源免费的屏幕阅读器，支持大多数常见的语言，在功能上，NVDA可支持主流的操作系统及浏览器，在办公上，也对office以及各类编辑器做了支持，得到世界各地的用户喜爱。
 
 [官方文档](http://www.nvda-project.org/)
 
