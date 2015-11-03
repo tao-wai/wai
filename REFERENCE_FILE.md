@@ -7,6 +7,7 @@ http://www.w3.org/WAI/WCAG20/quickref/
 http://www.w3.org/TR/WCAG20-TECHS/
 5. Accessibility Programming Guide for iOS https://developer.apple.com/library/prerelease/tvos/documentation/UserExperience/Conceptual/iPhoneAccessibility/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008785-CH1-SW16. 
 6. android无障碍设计指南 https://developer.android.com/guide/topics/ui/accessibility/index.html
+7. OpenAjax Examples http://oaa-accessibility.org/examples/
 
 ## 工具
 ### 读屏软件
