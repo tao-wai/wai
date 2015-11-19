@@ -38,7 +38,7 @@
     <body>
         
         
-    <div class="book" data-level="2.3.3" data-basepath="../.." data-revision="Mon Nov 02 2015 21:52:55 GMT+0800 (CST)">
+    <div class="book" data-level="2.3.3" data-basepath="../.." data-revision="Thu Nov 19 2015 21:10:39 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -634,7 +634,7 @@
                         
                             <b>5.</b>
                         
-                        参考文献
+                        参考文献/工具
                     </a>
                 
             
@@ -747,6 +747,36 @@
                     <section class="normal" id="section-">
                     
                         <h2 id="%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5">&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</h2>
+<h3 id="1-%E7%BC%BA%E5%B0%91%E6%8F%90%E7%A4%BA%E6%96%87%E6%9C%AC">1. &#x7F3A;&#x5C11;&#x63D0;&#x793A;&#x6587;&#x672C;</h3>
+<p>&#x81EA;&#x5B9A;&#x4E49;&#x6717;&#x8BFB;&#x5C5E;&#x6027;</p>
+<blockquote>
+<p>iOS</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x82E5;&#x7BAD;&#x5934;&#x53F7;&#x662F;label&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5219;&#x5C06;&#x5176;accessibilityLabel&#x8BBE;&#x7F6E;&#x4E3A;&#x7A7A;</span>
+arrowLabel.accessibilityLabel = @<span class="hljs-string">&quot;&quot;</span>;
+
+<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x89C6;&#x56FE;&#x7684;accessibilityLabel&#x6587;&#x672C;</span>
+self.accessibilityLabel = @<span class="hljs-string">&quot;&#x6536;&#x4EF6;&#x7BB1;&quot;</span>;
+self.accessibilityHint = @<span class="hljs-string">&quot;&#x53CC;&#x51FB;&#x5C55;&#x5F00;&quot;</span>;
+</code></pre>
+<blockquote>
+<p>Android</p>
+</blockquote>
+<p>&#x5728;xml&#x4E2D;&#x6DFB;&#x52A0;&#x5C5E;&#x6027;&#x9879; </p>
+<pre><code>android:contentDescription=&quot;@string/xxx&quot;
+</code></pre><p>&#x6216;&#x8005;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x8BBE;&#x7F6E;view&#x7684;contentDescription </p>
+<pre><code>view.setContentDescription(&quot;&#x53CC;&#x51FB;&#x5C55;&#x5F00;&quot;)
+</code></pre><h3 id="2-%E6%8E%A7%E4%BB%B6%E7%B1%BB%E5%9E%8B%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E6%9C%97%E8%AF%BB">2. &#x63A7;&#x4EF6;&#x7C7B;&#x578B;&#x4E0D;&#x80FD;&#x6B63;&#x5E38;&#x6717;&#x8BFB;</h3>
+<blockquote>
+<p>iOS</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x63A7;&#x4EF6;&#x7684;&#x63D0;&#x793A;&#x97F3;&#x53CA;&#x7C7B;&#x578B;</span>
+self.accessibilityHint = @<span class="hljs-string">&quot;&#x53CC;&#x51FB;&#x8F93;&#x5165;&#x641C;&#x7D22;&#x5173;&#x952E;&#x5B57;&quot;</span>;
+self.accessibilityTraits = UIAccessibilityTraitSearchField;
+</code></pre>
+<blockquote>
+<p>Android</p>
+</blockquote>
 
                     
                     </section>
