@@ -42,3 +42,9 @@ NVDA是一款开源免费的屏幕阅读器，支持大多数常见的语言，�
 
 [源码](https://github.com/GoogleChrome/accessibility-developer-tools)
 
+#### Accessbility Inspector
+苹果手机上自带的检测工具，可以在 **辅助功能** 中开启
+
+![Accessbility Switch](accessSwitch.png)
+
+![Accessbility Inspector](accessInspector.png)
