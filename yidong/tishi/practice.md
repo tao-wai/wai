@@ -1,7 +1,6 @@
 ## 最佳实践
 
-### 1. 缺少提示文本
-自定义朗读属性
+### 1. 自定义朗读文本
 
 > iOS
 
@@ -28,7 +27,7 @@ android:contentDescription="@string/xxx"
 view.setContentDescription("双击展开")
 ```
 
-### 2. 控件类型不能正常朗读
+### 2. 自定义朗读属性
 
 > iOS
 
@@ -39,3 +38,5 @@ self.accessibilityTraits = UIAccessibilityTraitSearchField;
 ```
 
 > Android
+
+参考问题1
