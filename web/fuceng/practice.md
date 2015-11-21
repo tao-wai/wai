@@ -7,7 +7,8 @@
 本案例用到 :
 
 - [`role`](http://www.w3.org/TR/wai-aria/roles#role_definitions): 用于描述伪元素的真实角色。
-- `aria-pressed`: `button`这个`role`对应的`aria`状态，是否被按下。
+- `aria-pressed`: `button`这个`role`对应的`aria`状态，是否被按下,通常只用于切换状态按钮，本例始终为`false`。
+- `aria-label`: 类似`title`，为不具备`title`属性的元素添加说明文案。
 - `aria-labelledby`: 类似`label`的作用，指定说明文案的ID。
 - `aria-hidden`: `dialog`这个`role`对应的`aria`状态，是否被隐藏。
 
@@ -16,18 +17,18 @@
 ### 方案
 触发按钮
 ```
-<div id="J_Trigger"  tabindex="0" role="button"  aria-pressed="false">回车键打开浮层</div>
+<div id="J_Trigger"  tabindex="0" role="button"  aria-pressed="false" aria-label="回车打开浮层">按钮</div>
 ```
 
 浮层结构
 
 ```
-<div id="J_Overlay" role="dialog" tabindex="0" aria-labelledby="overlay-header" style="display:none;" aria-hidden="true">
-  <a href="javascript:void('close')" class="J_Close close" role="button" title="关闭"></a>
-  <div class="overlay-header">浮层标题</div>
+<div id="J_Overlay" role="dialog" tabindex="0" aria-labelledby="J_Header" style="display:none;" aria-hidden="true">
+  <a href="javascript:void('close')" class="close" role="button" id="J_Close" title="关闭"></a>
+  <div class="overlay-header" id="J_Header">浮层标题</div>
   <div class="overlay-body">
   </div>
-  <div role="button" aria-pressed="false" class="J_Sure sure">确定</div>
+  <div role="button" aria-pressed="false" class=" sure" id="J_Sure">确定</div>
 </div>
 ```
 
@@ -49,7 +50,7 @@ $('.J_Close').on('click keypress ',function(e){
 **一般打开浮层先定位到关闭按钮，这个是每个浮层都有的。**
 
 ### demo
-<a class="jsbin-embed" href="http://jsbin.com/vaveka/embed?html,js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.4"></script>
+<a class="jsbin-embed" href="http://jsbin.com/fibozi/1/embed?html,js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.4"></script>
 
 ### 原则：
 > 有焦点，有描述；哪里进，哪里出；能关闭，能手输。

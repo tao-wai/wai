@@ -38,7 +38,7 @@
     <body>
         
         
-    <div class="book" data-level="1.3.3" data-basepath="../.." data-revision="Sat Nov 21 2015 15:07:31 GMT+0800 (CST)">
+    <div class="book" data-level="1.3.3" data-basepath="../.." data-revision="Sat Nov 21 2015 15:20:58 GMT+0800 (CST)">
     
 
 <div class="book-summary">
@@ -786,21 +786,22 @@
 <p>&#x672C;&#x6848;&#x4F8B;&#x7528;&#x5230; :</p>
 <ul>
 <li><a href="http://www.w3.org/TR/wai-aria/roles#role_definitions" target="_blank"><code>role</code></a>: &#x7528;&#x4E8E;&#x63CF;&#x8FF0;&#x4F2A;&#x5143;&#x7D20;&#x7684;&#x771F;&#x5B9E;&#x89D2;&#x8272;&#x3002;</li>
-<li><code>aria-pressed</code>: <code>button</code>&#x8FD9;&#x4E2A;<code>role</code>&#x5BF9;&#x5E94;&#x7684;<code>aria</code>&#x72B6;&#x6001;&#xFF0C;&#x662F;&#x5426;&#x88AB;&#x6309;&#x4E0B;&#x3002;</li>
+<li><code>aria-pressed</code>: <code>button</code>&#x8FD9;&#x4E2A;<code>role</code>&#x5BF9;&#x5E94;&#x7684;<code>aria</code>&#x72B6;&#x6001;&#xFF0C;&#x662F;&#x5426;&#x88AB;&#x6309;&#x4E0B;,&#x901A;&#x5E38;&#x53EA;&#x7528;&#x4E8E;&#x5207;&#x6362;&#x72B6;&#x6001;&#x6309;&#x94AE;&#xFF0C;&#x672C;&#x4F8B;&#x59CB;&#x7EC8;&#x4E3A;<code>false</code>&#x3002;</li>
+<li><code>aria-label</code>: &#x7C7B;&#x4F3C;<code>title</code>&#xFF0C;&#x4E3A;&#x4E0D;&#x5177;&#x5907;<code>title</code>&#x5C5E;&#x6027;&#x7684;&#x5143;&#x7D20;&#x6DFB;&#x52A0;&#x8BF4;&#x660E;&#x6587;&#x6848;&#x3002;</li>
 <li><code>aria-labelledby</code>: &#x7C7B;&#x4F3C;<code>label</code>&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x6307;&#x5B9A;&#x8BF4;&#x660E;&#x6587;&#x6848;&#x7684;ID&#x3002;</li>
 <li><code>aria-hidden</code>: <code>dialog</code>&#x8FD9;&#x4E2A;<code>role</code>&#x5BF9;&#x5E94;&#x7684;<code>aria</code>&#x72B6;&#x6001;&#xFF0C;&#x662F;&#x5426;&#x88AB;&#x9690;&#x85CF;&#x3002;</li>
 </ul>
 <p>&#x8FD9;&#x4E9B;&#x72B6;&#x6001;&#x5C5E;&#x6027;&#x4F1A;&#x88AB;&#x8BFB;&#x5C4F;&#x8F6F;&#x4EF6;&#x8BFB;&#x5230;&#xFF0C;&#x66F4;&#x591A;&#x7684;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x6587;&#x6863;&#x3002;</p>
 <h3 id="%E6%96%B9%E6%A1%88">&#x65B9;&#x6848;</h3>
 <p>&#x89E6;&#x53D1;&#x6309;&#x94AE;</p>
-<pre><code>&lt;div id=&quot;J_Trigger&quot;  tabindex=&quot;0&quot; role=&quot;button&quot;  aria-pressed=&quot;false&quot;&gt;&#x56DE;&#x8F66;&#x952E;&#x6253;&#x5F00;&#x6D6E;&#x5C42;&lt;/div&gt;
+<pre><code>&lt;div id=&quot;J_Trigger&quot;  tabindex=&quot;0&quot; role=&quot;button&quot;  aria-pressed=&quot;false&quot; aria-label=&quot;&#x56DE;&#x8F66;&#x6253;&#x5F00;&#x6D6E;&#x5C42;&quot;&gt;&#x6309;&#x94AE;&lt;/div&gt;
 </code></pre><p>&#x6D6E;&#x5C42;&#x7ED3;&#x6784;</p>
-<pre><code>&lt;div id=&quot;J_Overlay&quot; role=&quot;dialog&quot; tabindex=&quot;0&quot; aria-labelledby=&quot;overlay-header&quot; style=&quot;display:none;&quot; aria-hidden=&quot;true&quot;&gt;
-  &lt;a href=&quot;javascript:void(&apos;close&apos;)&quot; class=&quot;J_Close close&quot; role=&quot;button&quot; title=&quot;&#x5173;&#x95ED;&quot;&gt;&lt;/a&gt;
-  &lt;div class=&quot;overlay-header&quot;&gt;&#x6D6E;&#x5C42;&#x6807;&#x9898;&lt;/div&gt;
+<pre><code>&lt;div id=&quot;J_Overlay&quot; role=&quot;dialog&quot; tabindex=&quot;0&quot; aria-labelledby=&quot;J_Header&quot; style=&quot;display:none;&quot; aria-hidden=&quot;true&quot;&gt;
+  &lt;a href=&quot;javascript:void(&apos;close&apos;)&quot; class=&quot;close&quot; role=&quot;button&quot; id=&quot;J_Close&quot; title=&quot;&#x5173;&#x95ED;&quot;&gt;&lt;/a&gt;
+  &lt;div class=&quot;overlay-header&quot; id=&quot;J_Header&quot;&gt;&#x6D6E;&#x5C42;&#x6807;&#x9898;&lt;/div&gt;
   &lt;div class=&quot;overlay-body&quot;&gt;
   &lt;/div&gt;
-  &lt;div role=&quot;button&quot; aria-pressed=&quot;false&quot; class=&quot;J_Sure sure&quot;&gt;&#x786E;&#x5B9A;&lt;/div&gt;
+  &lt;div role=&quot;button&quot; aria-pressed=&quot;false&quot; class=&quot; sure&quot; id=&quot;J_Sure&quot;&gt;&#x786E;&#x5B9A;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre><p>&#x811A;&#x672C;&#xFF0C;&#x8FD9;&#x91CC;&#x91C7;&#x7528;JQuery&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x70B9;&#x56DE;&#x8F66;&#x6216;&#x8005;&#x7A7A;&#x683C;&#x952E;&#x89E6;&#x53D1;&#x6309;&#x94AE;</p>
 <pre><code>$(&apos;#J_Trigger&apos;).on(&apos;click keypress &apos;,function(e){
@@ -816,7 +817,7 @@ $(&apos;.J_Close&apos;).on(&apos;click keypress &apos;,function(e){
 });
 </code></pre><p><strong>&#x4E00;&#x822C;&#x6253;&#x5F00;&#x6D6E;&#x5C42;&#x5148;&#x5B9A;&#x4F4D;&#x5230;&#x5173;&#x95ED;&#x6309;&#x94AE;&#xFF0C;&#x8FD9;&#x4E2A;&#x662F;&#x6BCF;&#x4E2A;&#x6D6E;&#x5C42;&#x90FD;&#x6709;&#x7684;&#x3002;</strong></p>
 <h3 id="demo">demo</h3>
-<p><a class="jsbin-embed" href="http://jsbin.com/vaveka/embed?html,js,output" target="_blank">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.4"></script></p>
+<p><a class="jsbin-embed" href="http://jsbin.com/fibozi/1/embed?html,js,output" target="_blank">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.4"></script></p>
 <h3 id="%E5%8E%9F%E5%88%99%EF%BC%9A">&#x539F;&#x5219;&#xFF1A;</h3>
 <blockquote>
 <p>&#x6709;&#x7126;&#x70B9;&#xFF0C;&#x6709;&#x63CF;&#x8FF0;&#xFF1B;&#x54EA;&#x91CC;&#x8FDB;&#xFF0C;&#x54EA;&#x91CC;&#x51FA;&#xFF1B;&#x80FD;&#x5173;&#x95ED;&#xFF0C;&#x80FD;&#x624B;&#x8F93;&#x3002;</p>
