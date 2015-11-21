@@ -16,33 +16,40 @@
 ### 方案
 触发按钮
 ```
-<div id="J_Trigger"  tabindex="0" role="button"  aria-pressed="false">点击打开弹窗</div>
+<div id="J_Trigger"  tabindex="0" role="button"  aria-pressed="false">回车键打开浮层</div>
 ```
 
 浮层结构
 
 ```
 <div id="J_Overlay" role="dialog" tabindex="0" aria-labelledby="overlay-header" style="display:none;" aria-hidden="true">
-  <a href="javascript:void('close')" id="J_Close" role="button"></a>
-  <div id="overlay-header">收藏</div>
-  <div id="overlay-body"></div>
+  <a href="javascript:void('close')" class="J_Close close" role="button" title="关闭"></a>
+  <div class="overlay-header">浮层标题</div>
+  <div class="overlay-body">
+  </div>
+  <div role="button" aria-pressed="false" class="J_Sure sure">确定</div>
 </div>
 ```
 
-脚本，这里采用JQuery的写法
+脚本，这里采用JQuery的写法，点回车或者空格键触发按钮
 ```
-$('#J_Trigger').on('click',function(){
+$('#J_Trigger').on('click keypress ',function(e){
+  if(e.type === 'keypress' && e.keyCode !== 13 && e.keyCode !== 32) return;
   $('#J_Overlay').attr('aria-hidden', false).show();
-  $('#J_Close').focus();//定位到关闭按钮
-})
+  $('.J_Close').focus();//定位到关闭按钮
+});
 
-$('#J_Close').on('click',function(){
+$('.J_Close').on('click keypress ',function(e){
+  if(e.type === 'keypress'  && e.keyCode !== 13 && e.keyCode !== 32) return;
   $('#J_Overlay').attr('aria-hidden', true).hide();
   $('#J_Trigger').focus();//关闭重新定位到trigger
-})
+});
 ```
 
 **一般打开浮层先定位到关闭按钮，这个是每个浮层都有的。**
+
+### demo
+<a class="jsbin-embed" href="http://jsbin.com/vaveka/embed?html,js,output">JS Bin on jsbin.com</a><script src="http://static.jsbin.com/js/embed.min.js?3.35.4"></script>
 
 ### 原则：
 > 有焦点，有描述；哪里进，哪里出；能关闭，能手输。
