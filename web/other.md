@@ -6,5 +6,6 @@
 - 嵌入对象(object)
 - 进度条(loading)
 - 视频(video)
+- 手势切换(switch)
 
 等等问题中展开。
