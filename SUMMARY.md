@@ -35,5 +35,4 @@
     - [本章问答](yidong/tishi/question.md)
   - [其它类型](yidong/other.md)
 * [团队介绍](INTRODUCTION.md)
-* [感谢](THANKS.md)
 * [参考文献/工具](REFERENCE_FILE.md)
