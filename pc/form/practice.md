@@ -10,16 +10,23 @@
 ```
 
 
-#### 2. 不方便试用label标签的，可以利用`aria-labelledby`属性
+#### 2. 不方便试用label标签的，可以利用`aria-label`和`aria-labelledby`属性
 
-此时需要给文案添加id
+
+```
+<tr>
+    <td><input type="text" class="form-control ng-pristine ng-valid" ng-model="formData.contentType" aria-label=“Content-Type”></td>
+</tr>
+```
+`aria-labelledby`属性需要给文案添加id
 
 ```
 <tr>
 	<td class="nowrap" id=“contentType”>Content-Type</td>
-        <td><input type="text" class="form-control ng-pristine ng-valid" ng-model="formData.contentType" aria-labelledby=“contentType”></td>
+    <td><input type="text" class="form-control ng-pristine ng-valid" ng-model="formData.contentType" aria-labelledby=“contentType”></td>
 </tr>
 ```
+
 
 这种方式也适用于模拟表单项的情况，这时候还需要配合`tabindex=0`来使用，使其能获取键盘焦点。
 
